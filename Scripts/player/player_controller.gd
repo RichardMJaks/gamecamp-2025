@@ -6,7 +6,6 @@ signal movement_state_changed(state_name: String)
 
 @onready var su = GlobalVars.su
 @onready var state_machine = $MovementStateMachine
-@onready var gravity_component = $GravityComponent
 
 var being_attracted: bool = false
 var magnets: Array[Magnet] = []
@@ -69,12 +68,6 @@ func handle_basic_movement(delta: float) -> void:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-	
-	# Let the gravity component handle gravity if available
-	if gravity_component == null:
-		# Apply gravity manually if no component
-		if not is_on_floor():
-			velocity.y += get_gravity().y * delta
 	
 	# Handle jump
 	if Input.is_action_just_pressed("m_jump") and is_on_floor():

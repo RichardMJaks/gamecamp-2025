@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://hm7oj8v2rsqi"]
 
-[ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://scripts/player/player_controller.gd" id="1_oul6g"]
-[ext_resource type="Script" uid="uid://dke0etyii4spt" path="res://scripts/player/player_movement_state_machine.gd" id="2_jevl6"]
+[ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://Scripts/player/player_controller.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dke0etyii4spt" path="res://Scripts/player/player_movement_state_machine.gd" id="2_jevl6"]
 [ext_resource type="Script" uid="uid://bv4b4efcjh7i3" path="res://normal_move_state.gd" id="3_oobjx"]
-[ext_resource type="Script" uid="uid://d38p1oess3qge" path="res://scripts/player/states/magnet_radial_state.gd" id="4_pgb5a"]
+[ext_resource type="Script" uid="uid://d38p1oess3qge" path="res://Scripts/player/States/magnet_radial_state.gd" id="4_pgb5a"]
 [ext_resource type="Script" uid="uid://dioksswyexo5" path="res://magnet_floor_state.gd" id="5_yu8tn"]
-[ext_resource type="Script" uid="uid://byepwqmy0n7yc" path="res://scripts/player/states/static_velocity_state.gd" id="6_0ir0r"]
+[ext_resource type="Script" uid="uid://byepwqmy0n7yc" path="res://Scripts/player/States/static_velocity_state.gd" id="6_0ir0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 

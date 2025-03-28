@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bl8pkgulrnkdv"]
 
-[ext_resource type="Script" uid="uid://d35wj5y4ta38c" path="res://scripts/magnet_vol2/magnet_radial.gd" id="1_g11sa"]
+[ext_resource type="Script" uid="uid://d35wj5y4ta38c" path="res://Scripts/magnet_vol2/magnet_radial.gd" id="1_g11sa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0r1im"]
 radius = 50.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfjldb6u0snqw"]
 
-[ext_resource type="Script" uid="uid://bwxcxd3ci7mve" path="res://scripts/magnet_vol2/magnet_floor.gd" id="1_1ngw0"]
+[ext_resource type="Script" uid="uid://bwxcxd3ci7mve" path="res://Scripts/magnet_vol2/magnet_floor.gd" id="1_1ngw0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rbmvp"]
 size = Vector2(217, 64)
