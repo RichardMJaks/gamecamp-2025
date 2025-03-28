@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dobkooinu1j2"]
+
+[ext_resource type="Script" uid="uid://exlagerc4gd2" path="res://attractor/attractor_lin.gd" id="1_q3u6f"]
+[ext_resource type="Material" uid="uid://syxce2o32kcw" path="res://attractor/material_attracor.tres" id="2_3hce3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8jb"]
+size = Vector2(200, 20)
+
+[node name="attractor_lin" type="Area2D"]
+script = ExtResource("1_q3u6f")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hm8jb")
+
+[node name="Flames" type="GPUParticles2D" parent="."]
+position = Vector2(0, -100)
+amount = 48
+local_coords = true
+process_material = ExtResource("2_3hce3")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(33, -7.625)
+scale = Vector2(1.375, 0.296875)
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-96, 56, -96, -8, 48, -8, 48, 56, -96, 56, -64, 24)
+uv = PackedVector2Array(-138, 54.8, -138.8, 54.8, -136, -16, 8, -16, 8, 48, -136, 48, -136, 48)
+internal_vertex_count = 2
+
+[node name="VSlider" type="VSlider" parent="."]
+offset_left = 114.0
+offset_top = -168.0
+offset_right = 153.0
+offset_bottom = 168.0
+min_value = -1.0
+max_value = 1.0
+step = 0.001
