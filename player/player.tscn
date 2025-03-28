@@ -28,3 +28,8 @@ texture = SubResource("GradientTexture2D_rkbax")
 [node name="Collider" type="CollisionShape2D" parent="AttractionArea"]
 shape = SubResource("CircleShape2D_oul6g")
 debug_color = Color(0, 0.644725, 0.275107, 0.42)
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
