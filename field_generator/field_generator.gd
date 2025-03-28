@@ -7,6 +7,7 @@ var map: TileMapLayer
 var fields: Array[Area2D]
 var debug_arrows: Array[Line2D]
 
+# creates collision boxes in fields, based on tile data "force": Vector2
 func _ready() -> void:
 	map = tile_map_scane.instantiate()
 	add_child(map)
