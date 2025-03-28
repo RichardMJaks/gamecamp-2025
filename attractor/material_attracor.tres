@@ -1,18 +1,10 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=6 format=3 uid="uid://syxce2o32kcw"]
+[gd_resource type="ParticleProcessMaterial" load_steps=4 format=3 uid="uid://syxce2o32kcw"]
 
 [ext_resource type="Texture2D" uid="uid://cjw6igo8as8mk" path="res://attractor/gradient.tres" id="1_wi7dw"]
 
-[sub_resource type="Curve" id="Curve_a8s06"]
-_limits = [-200.0, 200.0, 0.0, 1.0]
-_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, -200), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_usn0k"]
-curve = SubResource("Curve_a8s06")
-
 [sub_resource type="Curve" id="Curve_jdxd1"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.41052, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.496337, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.41052, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_wqc12"]
 width = 32
@@ -20,13 +12,13 @@ curve = SubResource("Curve_jdxd1")
 
 [resource]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(100, 100, 1)
-direction = Vector3(0, 0, 0)
-angular_velocity_min = -70.0
-angular_velocity_max = 70.0
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 90.0
+emission_ring_inner_radius = 100.0
+emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
-radial_accel_curve = SubResource("CurveTexture_usn0k")
 attractor_interaction_enabled = false
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_wqc12")

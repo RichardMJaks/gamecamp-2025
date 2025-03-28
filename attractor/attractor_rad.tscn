@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxx88468sdxo2"]
+
+[ext_resource type="Script" uid="uid://cpgayb7la7buk" path="res://attractor/attractor_rad.gd" id="1_cxyel"]
+[ext_resource type="Material" uid="uid://syxce2o32kcw" path="res://attractor/material_attracor.tres" id="2_k23fb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8jb"]
+size = Vector2(21, 20)
+
+[node name="attractor_rad" type="Area2D"]
+position = Vector2(499, 284)
+script = ExtResource("1_cxyel")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hm8jb")
+
+[node name="Flames" type="GPUParticles2D" parent="."]
+amount = 128
+lifetime = 2.0
+local_coords = true
+process_material = ExtResource("2_k23fb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-8.00001, 8, 7.99999, 8, 7.99999, -8, -8.00001, -8)
+uv = PackedVector2Array(-96, 56, -64, 56, -64, 24, -96, 24)
+
+[node name="VSlider" type="VSlider" parent="."]
+offset_left = 114.0
+offset_top = -168.0
+offset_right = 153.0
+offset_bottom = 168.0
+min_value = -1.0
+max_value = 1.0
+step = 0.001
