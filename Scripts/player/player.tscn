@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://hm7oj8v2rsqi"]
+
+[ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://scripts/player/player_controller.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dke0etyii4spt" path="res://scripts/player/player_movement_state_machine.gd" id="2_jevl6"]
+[ext_resource type="Script" uid="uid://bv4b4efcjh7i3" path="res://normal_move_state.gd" id="3_oobjx"]
+[ext_resource type="Script" uid="uid://d38p1oess3qge" path="res://scripts/player/states/magnet_radial_state.gd" id="4_pgb5a"]
+[ext_resource type="Script" uid="uid://dioksswyexo5" path="res://magnet_floor_state.gd" id="5_yu8tn"]
+[ext_resource type="Script" uid="uid://byepwqmy0n7yc" path="res://scripts/player/states/static_velocity_state.gd" id="6_0ir0r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
+
+[sub_resource type="Gradient" id="Gradient_oul6g"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rkbax"]
+gradient = SubResource("Gradient_oul6g")
+width = 19
+height = 29
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
+radius = 15.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_oul6g")
+speed = 800.0
+acceleration_time = 0.5
+deceleration_time = 0.3
+jump_height = 1000.0
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oul6g")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_rkbax")
+
+[node name="AttractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Collider" type="CollisionShape2D" parent="AttractionArea"]
+shape = SubResource("CircleShape2D_oul6g")
+debug_color = Color(0, 0.644725, 0.275107, 0.42)
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_jevl6")
+player = NodePath("..")
+
+[node name="NormalMoveState" type="Node" parent="MovementStateMachine"]
+script = ExtResource("3_oobjx")
+
+[node name="MagnetRadialState" type="Node" parent="MovementStateMachine"]
+script = ExtResource("4_pgb5a")
+
+[node name="MagnetFloorState" type="Node" parent="MovementStateMachine"]
+script = ExtResource("5_yu8tn")
+
+[node name="StaticVelocityState" type="Node" parent="MovementStateMachine"]
+script = ExtResource("6_0ir0r")
