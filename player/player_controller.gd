@@ -43,15 +43,18 @@ func _handle_movement(delta) -> void:
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 
-	if not dir and not being_attracted:
+	if dir.x and abs(velocity.x) < speed:
+		velocity.x += dir.x * acceleration * delta
+
+	if not being_attracted and is_on_floor() and (dir.x == 0 or sign(dir.x) != sign(velocity.x)):
+		print("Clamping")
+		velocity.x = min(abs(velocity.x), abs(speed)) * sign(velocity.x)
+
+	if (dir.x == 0 or sign(dir.x) != sign(velocity.x)) and not being_attracted:
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 		return
 
-	if dir and abs(velocity.x) < speed:
-		velocity.x += dir.x * acceleration * delta
 
-	if not being_attracted and is_on_floor():
-		velocity.x = min(abs(velocity.x), abs(speed)) * sign(velocity.x)
 
 	
 	

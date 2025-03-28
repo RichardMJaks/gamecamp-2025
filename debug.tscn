@@ -25,7 +25,7 @@ radius = 50.0
 [node name="debug" type="Node2D"]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(990, 521)
+position = Vector2(950, 373)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_110fs")
@@ -58,7 +58,7 @@ deceleration_time = 0.31
 jump_height = 83.355
 
 [node name="Magnet2" type="Node2D" parent="."]
-position = Vector2(731.345, 299.79)
+position = Vector2(645, 302)
 script = ExtResource("2_rdi1l")
 pole = -1
 radius = 125.41

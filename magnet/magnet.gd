@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	vector = vector.normalized()
 	var force: float = strength * player.get_gravity().y
 	var velocity: Vector2 = dir * vector * force
-	var damping: float = 1 - velocity.normalized().dot(player.velocity.normalized())
+	var damping: float = 1 - velocity.normalized().dot(player.velocity.normalized()) * (dir * -1)
 	player.velocity += velocity * delta * (1 - damping * GlobalVars.magnet_damping)
 	print(damping)
 
