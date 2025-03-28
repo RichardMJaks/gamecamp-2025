@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://daeu7o3vialep"]
+
+[ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="1_1uwqr"]
+[ext_resource type="PackedScene" uid="uid://b2lxuj4h4oeth" path="res://magnet/magnet.tscn" id="2_lvjdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_110fs"]
+size = Vector2(380, 20)
+
+[node name="debug" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(563, 521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_110fs")
+
+[node name="Panel" type="Panel" parent="StaticBody2D"]
+offset_left = -191.0
+offset_top = -10.0
+offset_right = 192.0
+offset_bottom = 12.0
+
+[node name="Player" parent="." instance=ExtResource("1_1uwqr")]
+position = Vector2(549, 438)
+speed = 36.335
+acceleration_time = 0.235
+deceleration_time = 0.31
+jump_height = 21.72
+
+[node name="Magnet" parent="." instance=ExtResource("2_lvjdj")]
+position = Vector2(689, 429)
+radius = 1.41
+strength = 3.13

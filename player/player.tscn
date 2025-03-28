@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://hm7oj8v2rsqi"]
+
+[ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
+
+[sub_resource type="Gradient" id="Gradient_oul6g"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rkbax"]
+gradient = SubResource("Gradient_oul6g")
+width = 19
+height = 29
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
+radius = 15.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_oul6g")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oul6g")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_rkbax")
+
+[node name="AttractionArea" type="Area2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="AttractionArea"]
+shape = SubResource("CircleShape2D_oul6g")
+debug_color = Color(0, 0.644725, 0.275107, 0.42)
