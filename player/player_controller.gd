@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"a_switch"):
 		@warning_ignore("int_as_enum_without_cast")
-		current_pole = current_pole * -1;
+		current_pole = 1 - current_pole;
 
 	being_attracted = not magnets.is_empty()
 	
@@ -37,8 +37,8 @@ func _handle_movement(delta) -> void:
 		velocity.y -= _get_jump_height(jump_height)
 
 	var dir = Input.get_vector(&"m_left", &"m_right", &"m_up", &"m_down")
-	var acceleration = speed / acceleration_time
-	var deceleration = speed / deceleration_time
+	var acceleration = speed * su / acceleration_time
+	var deceleration = speed * su / deceleration_time
 
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
@@ -46,11 +46,7 @@ func _handle_movement(delta) -> void:
 	if dir.x and abs(velocity.x) < speed:
 		velocity.x += dir.x * acceleration * delta
 
-	if not being_attracted and is_on_floor() and (dir.x == 0 or sign(dir.x) != sign(velocity.x)):
-		print("Clamping")
-		velocity.x = min(abs(velocity.x), abs(speed)) * sign(velocity.x)
-
-	if (dir.x == 0 or sign(dir.x) != sign(velocity.x)) and not being_attracted:
+	if (dir.x == 0 or sign(dir.x) != sign(velocity.x)): 
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 		return
 
