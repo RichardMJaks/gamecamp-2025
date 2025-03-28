@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2lxuj4h4oeth"]
+[gd_scene load_steps=6 format=3 uid="uid://b2lxuj4h4oeth"]
 
 [ext_resource type="Script" uid="uid://bvo7qw7l6fv5d" path="res://magnet/magnet.gd" id="1_gwujs"]
+[ext_resource type="Material" uid="uid://syxce2o32kcw" path="res://attractor/material_attracor.tres" id="2_q0jc7"]
 
 [sub_resource type="Gradient" id="Gradient_lshss"]
 interpolation_mode = 1
@@ -17,8 +18,9 @@ fill_to = Vector2(0.5, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_p1ktd"]
 radius = 50.0
 
-[node name="Magnet" type="Node2D"]
+[node name="Magnet" type="Node2D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_gwujs")
+particles = NodePath("Flames")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_ddqi3")
@@ -28,6 +30,13 @@ unique_name_in_owner = true
 
 [node name="Collider" type="CollisionShape2D" parent="MagnetRange"]
 shape = SubResource("CircleShape2D_p1ktd")
+
+[node name="Flames" type="GPUParticles2D" parent="."]
+position = Vector2(1, 0)
+amount = 128
+lifetime = 2.0
+local_coords = true
+process_material = ExtResource("2_q0jc7")
 
 [connection signal="area_entered" from="MagnetRange" to="." method="_on_range_entered"]
 [connection signal="area_exited" from="MagnetRange" to="." method="_on_range_exited"]

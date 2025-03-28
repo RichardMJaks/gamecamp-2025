@@ -1,6 +1,7 @@
 extends Node2D
 class_name Magnet
 
+@export var particles: GPUParticles2D
 @export var pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 @export var radius: float = 1
 @export var strength: float = 1
@@ -11,6 +12,9 @@ var player: Player = null
 
 func _process(_delta: float) -> void:
 	effect_range.get_child(0).shape.radius = radius
+	particles.process_material.emission_ring_inner_radius = radius - 10
+	particles.process_material.emission_ring_radius = radius
+	
 
 
 func _physics_process(delta: float) -> void:

@@ -1,31 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://daeu7o3vialep"]
+[gd_scene load_steps=4 format=3 uid="uid://daeu7o3vialep"]
 
 [ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="1_1uwqr"]
 [ext_resource type="PackedScene" uid="uid://b2lxuj4h4oeth" path="res://magnet/magnet.tscn" id="2_lvjdj"]
-[ext_resource type="Script" uid="uid://bvo7qw7l6fv5d" path="res://magnet/magnet.gd" id="2_rdi1l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_110fs"]
 size = Vector2(380, 20)
 
-[sub_resource type="Gradient" id="Gradient_lshss"]
-interpolation_mode = 1
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ddqi3"]
-gradient = SubResource("Gradient_lshss")
-width = 8
-height = 8
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_p1ktd"]
-radius = 50.0
-
 [node name="debug" type="Node2D"]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(950, 373)
+position = Vector2(902, 399)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_110fs")
@@ -38,7 +22,7 @@ offset_bottom = 12.0
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(460, 515)
+position = Vector2(346, 531)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_110fs")
@@ -51,35 +35,19 @@ offset_bottom = 12.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_1uwqr")]
-position = Vector2(549, 438)
+position = Vector2(179, 459)
 speed = 260.69
 acceleration_time = 0.235
 deceleration_time = 0.31
 jump_height = 83.355
 
-[node name="Magnet2" type="Node2D" parent="."]
-position = Vector2(645, 302)
-script = ExtResource("2_rdi1l")
-pole = -1
-radius = 125.41
+[node name="Magnet3" parent="." instance=ExtResource("2_lvjdj")]
+position = Vector2(586, 386)
+radius = 85.335
 strength = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Magnet2"]
-texture = SubResource("GradientTexture2D_ddqi3")
-
-[node name="MagnetRange" type="Area2D" parent="Magnet2"]
-unique_name_in_owner = true
-
-[node name="Collider" type="CollisionShape2D" parent="Magnet2/MagnetRange"]
-shape = SubResource("CircleShape2D_p1ktd")
-
-[node name="Magnet3" parent="." instance=ExtResource("2_lvjdj")]
-position = Vector2(124, 555)
-radius = 3.0
-strength = 50.0
-
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(226, 339)
+position = Vector2(-412, 289)
 rotation = -1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
@@ -91,6 +59,3 @@ offset_top = -10.0
 offset_right = 192.0
 offset_bottom = 12.0
 metadata/_edit_use_anchors_ = true
-
-[connection signal="area_entered" from="Magnet2/MagnetRange" to="Magnet2" method="_on_range_entered"]
-[connection signal="area_exited" from="Magnet2/MagnetRange" to="Magnet2" method="_on_range_exited"]
