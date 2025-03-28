@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var su = GlobalVars.su
+
 var being_attracted: bool = false
 var magnets: Array[Magnet] = []
 
@@ -10,6 +12,8 @@ var magnets: Array[Magnet] = []
 @export var jump_height: float
 
 var accel_time_delta: float = 0
+
+var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 
 func _ready() -> void:
 	pass
@@ -21,12 +25,19 @@ func _physics_process(delta: float) -> void:
 	if not being_attracted and not is_on_floor():
 		velocity.y += get_gravity().y * delta
 
+	# Attraction
 	if being_attracted:
 		var self_pos := global_position
-		for magnet in magnets:
+		for magnet: Magnet in magnets:
 			var magnet_pos := magnet.global_position
-			var attraction_dir = magnet_pos - self_pos
-			velocity += attraction_dir * 200 * delta
+			var attraction_vector = self_pos - magnet_pos
+			print(attraction_vector)
+			var magnet_pole: GlobalVars.POLE = magnet.pole
+			var attraction_dir: int = magnet_pole * current_pole
+
+			var magnet_strength = magnet.strength * su
+
+			velocity += attraction_vector * attraction_dir * magnet_strength * delta
 
 	# Movement
 	if dir:
@@ -35,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x += dir * acceleration * delta
 	else:
 		var deceleration = speed / deceleration_time
-		velocity.x = move_toward(velocity.x, 0, deceleration)
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 
 	if Input.is_action_just_pressed(&"m_jump") and is_on_floor():
 		velocity.y -= _get_jump_height(jump_height)

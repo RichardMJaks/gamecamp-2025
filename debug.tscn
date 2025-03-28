@@ -23,9 +23,11 @@ offset_bottom = 12.0
 [node name="Player" parent="." instance=ExtResource("1_1uwqr")]
 position = Vector2(549, 438)
 speed = 36.335
-acceleration_time = 0.56
-deceleration_time = 0.175
+acceleration_time = 0.235
+deceleration_time = 0.31
 jump_height = 21.72
 
 [node name="Magnet" parent="." instance=ExtResource("2_lvjdj")]
 position = Vector2(689, 429)
+radius = 1.41
+strength = 3.13
