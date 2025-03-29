@@ -25,7 +25,6 @@ func _process(delta):
 		rotation = rotate_toward(rotation, current_rotation.angle(), rotation_step)
 		rotation_step += delta / rotation_speed
 
-	print(player.up_direction)	
 	match(player.up_direction):
 		Vector2.UP:
 			if player.velocity.x > 0:
@@ -33,7 +32,6 @@ func _process(delta):
 			if player.velocity.x < 0:
 				flip_h = true
 		Vector2.LEFT:
-			print("up")
 			if player.velocity.y < 0:
 				flip_h = false
 			if player.velocity.y > 0:
