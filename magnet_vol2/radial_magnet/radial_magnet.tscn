@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://daujuqli7pyvy"]
 
-[ext_resource type="PackedScene" uid="uid://b1kbidmp44j1b" path="res://player/magnet_vol2/radial_particles.tscn" id="1_12wdq"]
+[ext_resource type="PackedScene" uid="uid://b1kbidmp44j1b" path="res://magnet_vol2/radial_magnet/radial_particles.tscn" id="1_12wdq"]
 [ext_resource type="Script" uid="uid://d35wj5y4ta38c" path="res://Scripts/magnet_vol2/magnet_radial.gd" id="1_rb835"]
 [ext_resource type="Script" uid="uid://c2jaetwgbrjjf" path="res://magnet_vol2/radial_magnet/magnet_gradient_radial.gd" id="3_86yji"]
 [ext_resource type="Material" uid="uid://bdhqe603jkeyr" path="res://magnet_vol2/radial_magnet/left_particles.tres" id="4_ux0pn"]
@@ -11,7 +11,7 @@
 offsets = PackedFloat32Array(0, 0.828715, 1)
 colors = PackedColorArray(1, 0.21268, 0.159696, 0.47451, 1, 0.247059, 0.188235, 0.164706, 1, 0.247059, 0.188235, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_86yji"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ux0pn"]
 gradient = SubResource("Gradient_qch6w")
 width = 48
 height = 48
@@ -34,7 +34,7 @@ script = ExtResource("1_rb835")
 pole = 0
 
 [node name="Gradient" type="Sprite2D" parent="." node_paths=PackedStringArray("collider")]
-texture = SubResource("GradientTexture2D_86yji")
+texture = SubResource("GradientTexture2D_ux0pn")
 script = ExtResource("3_86yji")
 collider = NodePath("../MagnetArea")
 north_gradient = SubResource("Gradient_j61ub")
@@ -43,11 +43,14 @@ metadata/_edit_lock_ = true
 
 [node name="RadialParticles" parent="." node_paths=PackedStringArray("magnet", "collider") instance=ExtResource("1_12wdq")]
 unique_name_in_owner = true
+left_particles = ExtResource("4_ux0pn")
+right_particles = ExtResource("5_3x63s")
+rim_particles = ExtResource("6_qfdsq")
 magnet = NodePath("..")
 collider = NodePath("../MagnetArea")
-left_process_material = ExtResource("4_ux0pn")
-right_process_material = ExtResource("5_3x63s")
-outer_ring_process_material = ExtResource("6_qfdsq")
+
+[node name="OuterRim" parent="RadialParticles" index="0"]
+amount = 60
 
 [node name="MagnetArea" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

@@ -1,6 +1,12 @@
 extends Node2D
 
-@export_enum("Left:1", "Right:-1") var rotation_direction: int = 1
+@export var left_particles: ParticleProcessMaterial
+@export var right_particles: ParticleProcessMaterial
+@export var rim_particles: ParticleProcessMaterial
+
+@export var magnet: RadialMagnet
+@export var collider: CollisionShape2D
+
 var radius: float = 32
 @onready var left_rotating: GPUParticles2D = $InnerParticlesLeft
 @onready var right_rotating: GPUParticles2D = $InnerParticlesRight
@@ -8,7 +14,17 @@ var radius: float = 32
 
 
 func _ready() -> void:
-	left_rotating.process_material = left_rotating.process_material.duplicate()
-	right_rotating.process_material = right_rotating.process_material.duplicate()
-	outer_ring.process_material = outer_ring.process_material.duplicate()
+	left_rotating.process_material = left_particles.duplicate()
+	right_rotating.process_material = right_particles.duplicate()
+	outer_ring.process_material = rim_particles.duplicate()
+
+func _process(_delta: float) -> void:
+	if magnet.rotation_direction == 1:
+		left_rotating.visible = true
+		right_rotating.visible = false
+	if magnet.rotation_direction == -1:
+		left_rotating.visible = false
+		right_rotating.visible = true
+
+
 	
