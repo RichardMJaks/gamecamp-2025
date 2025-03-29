@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd87di74w8fww"]
+
+[ext_resource type="Script" uid="uid://bgvy5omv7yimq" path="res://Scripts/collectible.gd" id="1_athsx"]
+[ext_resource type="Texture2D" uid="uid://cqicj7ikc7hpu" path="res://icon.svg" id="2_7xeth"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8cae6"]
+radius = 16.0
+
+[node name="Collectible" type="Area2D"]
+script = ExtResource("1_athsx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8cae6")
+
+[node name="CollectibleSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7xeth")

@@ -127,7 +127,7 @@ func _handle_radial_magnet() -> void:
 	var poles_different: bool = player.current_pole != player.current_magnet.pole 
 	if not poles_different and not radial_stuck_fix:
 		radial_stuck_fix = true
-		print("the funny card trick")
+		#print("the funny card trick")
 		player.velocity = -player.velocity.normalized() * player.get_gravity().length() 
 
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
