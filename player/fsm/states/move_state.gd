@@ -105,7 +105,7 @@ func trigger_radial_magnet_action() -> void:
 	if not player.current_magnet is RadialMagnet:
 		return
 	var poles_different = player.current_pole != player.current_magnet.pole
-	if not poles_different:
+	if poles_different:
 		change_state.emit(radial_magnet_state)
 		return
 
