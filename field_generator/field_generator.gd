@@ -1,6 +1,6 @@
 extends Node2D
 
-var tile_map_scane = load("res://field_generator/tile_map_layer.tscn") as PackedScene
+var tile_map_scane = load("res://level_1.tscn") as PackedScene
 var field_scene = load("res://field_generator/field.tscn") as PackedScene
 var map: TileMapLayer
 var fields: Array[Area2D]
