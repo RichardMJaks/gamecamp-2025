@@ -20,30 +20,25 @@ var radius: float = 32
 
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
-		left_rotating.process_material = left_particles.duplicate()
-		right_rotating.process_material = right_particles.duplicate()
-		outer_ring.process_material = rim_particles.duplicate()
+	left_rotating.process_material = left_particles.duplicate()
+	right_rotating.process_material = right_particles.duplicate()
+	outer_ring.process_material = rim_particles.duplicate()
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		if magnet.rotation_direction == 1:
-			left_rotating.visible = true
-			right_rotating.visible = false
-		if magnet.rotation_direction == -1:
-			left_rotating.visible = false
-			right_rotating.visible = true
+	if magnet.rotation_direction == 1:
+		left_rotating.visible = true
+		right_rotating.visible = false
+	if magnet.rotation_direction == -1:
+		left_rotating.visible = false
+		right_rotating.visible = true
 
-		if magnet.pole == GlobalVars.POLE.NORTH:
-			left_rotating.texture = north_particles
-			right_rotating.texture = north_particles
-			left_rotating.process_material.color = north_color
-			right_rotating.process_material.color = north_color
-		if magnet.pole == GlobalVars.POLE.SOUTH:
-			left_rotating.texture = south_particles
-			right_rotating.texture = south_particles
-			left_rotating.process_material.color = south_color
-			right_rotating.process_material.color = south_color
+	if magnet.pole == GlobalVars.POLE.NORTH:
+		left_rotating.texture = north_particles
+		right_rotating.texture = north_particles
+		left_rotating.process_material.color = north_color
+		right_rotating.process_material.color = north_color
 	if magnet.pole == GlobalVars.POLE.SOUTH:
-		print(right_rotating.process_material.color)
-	
+		left_rotating.texture = south_particles
+		right_rotating.texture = south_particles
+		left_rotating.process_material.color = south_color
+		right_rotating.process_material.color = south_color

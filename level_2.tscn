@@ -177,13 +177,14 @@ process_material = SubResource("ParticleProcessMaterial_15wb7")
 
 [node name="RadialMagnet" parent="Magnets" instance=ExtResource("3_xdadj")]
 position = Vector2(264, 296)
+pole = 0
 
 [node name="RadialMagnet2" parent="Magnets" instance=ExtResource("3_xdadj")]
 position = Vector2(344, 248)
-pole = 0
 
 [node name="RadialMagnet3" parent="Magnets" instance=ExtResource("3_xdadj")]
 position = Vector2(376, 168)
+pole = 0
 
 [node name="FlatMagnet3" parent="Magnets" instance=ExtResource("2_nmjpi")]
 position = Vector2(88, 248)
