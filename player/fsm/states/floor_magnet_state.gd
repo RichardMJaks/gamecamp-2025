@@ -16,8 +16,9 @@ func enter() -> void:
 
 func _launch() -> void:
 	# Add launch velocity
+	print("Launched")
 	var inital_velocity = _calculate_velocity()
-	var dir = -player.current_magnet.magnet_gravity_direction
+	var dir = player.current_magnet.magnet_gravity_direction
 	player.velocity = inital_velocity * dir
 
 	# Start timer to exit this state

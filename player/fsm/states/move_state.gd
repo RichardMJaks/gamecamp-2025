@@ -9,6 +9,7 @@ extends FSMState
 @onready var player: Player = owner
 @export var floor_magnet_state: FSMState
 @export var radial_magnet_state: FSMState
+var radial_stuck_fix: bool = false
 
 func __physics_process(delta: float) -> void:
 	# Get input direction
@@ -20,6 +21,9 @@ func __physics_process(delta: float) -> void:
 	# Calculate acceleration and deceleration
 	_accelerate_player(dir, delta)
 	_decelerate_player(dir, delta)
+
+	_handle_floor_magnet()
+	_handle_radial_magnet()
 
 	_apply_gravity(delta)
 	_handle_jump()
@@ -88,8 +92,9 @@ func _trigger_floor_magnet_action() -> void:
 	if not player.current_magnet is FloorMagnet:
 		return
 	# We can fairly assume that player is not on floor when not being attracted
-	if not player.is_on_floor():
-		return
+	# no, we cannot :)
+	#if not player.is_on_floor():
+		#return
 
 	change_state.emit(floor_magnet_state)
 
@@ -104,4 +109,38 @@ func trigger_radial_magnet_action() -> void:
 	if poles_different:
 		change_state.emit(radial_magnet_state)
 		return
+
+func _handle_floor_magnet() -> void:
+	if not player.current_magnet or not player.current_magnet is FloorMagnet:
+		player.gravity_direction = Vector2.DOWN
+		return
+	var magnet_gravity_direction = player.current_magnet.magnet_gravity_direction
+	var poles_different: bool = player.current_pole != player.current_magnet.pole 
+	if poles_different:
+		player.gravity_direction = magnet_gravity_direction
+	else:
+		player.gravity_direction = -magnet_gravity_direction
+
+func _handle_radial_magnet() -> void:
+	if not player.current_magnet or not player.current_magnet is RadialMagnet or radial_magnet_state.ejecting:
+		radial_stuck_fix = false
+		return
+	var poles_different: bool = player.current_pole != player.current_magnet.pole 
+	if not poles_different and not radial_stuck_fix:
+		radial_stuck_fix = true
+		print("the funny card trick")
+		player.velocity = -player.velocity.normalized() * player.get_gravity().length() 
+
+func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
+	var magnet_position = magnet.global_position
+	var dir_to_player = (magnet_position - player.global_position).normalized()
+	var velocity_normalized = player.velocity.normalized()
+
+	var cos_dir_to_p_vel = dir_to_player.dot(-velocity_normalized)
+	var sin_dir_to_p_vel = sqrt(1 - cos_dir_to_p_vel * cos_dir_to_p_vel)
+
+	var bounce_dir = Vector2(0, 0)
+	bounce_dir.x = dir_to_player.x * cos_dir_to_p_vel - dir_to_player.x * sin_dir_to_p_vel
+	bounce_dir.y = dir_to_player.x * sin_dir_to_p_vel + dir_to_player.x * cos_dir_to_p_vel
+	return bounce_dir
 #endregion

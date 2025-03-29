@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="1_1uwqr"]
 [ext_resource type="Texture2D" uid="uid://g12g5gla7dad" path="res://Cave Platformer Tileset [16x16][FREE] - RottingPixels/cave-platformer-tileset-16x16.png" id="2_lvjdj"]
-[ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet.tscn" id="5_obyai"]
+[ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://player/magnet_vol2/radial_magnet.tscn" id="5_obyai"]
 [ext_resource type="PackedScene" uid="uid://cfjldb6u0snqw" path="res://Scenes/Magnets/floor_magnet.tscn" id="8_pk40j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdi1l"]
@@ -115,7 +115,7 @@ position = Vector2(180, 459)
 speed = 15.0
 acceleration_time = 0.3
 deceleration_time = 0.1
-jump_height = 100.0
+jump_height = 10.0
 gravity_direction = Vector2i(0, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -128,11 +128,10 @@ position = Vector2(90, 442)
 rotation = 1.56015
 collision_layer = 2
 collision_mask = 2
-magnet_gravity_direction = Vector2i(-1, 0)
 launch_power = 500.0
 
 [node name="FloorMagnet" parent="." instance=ExtResource("8_pk40j")]
-position = Vector2(741, 448)
+position = Vector2(695, 448)
 collision_layer = 2
 collision_mask = 2
 launch_power = 500.0
@@ -141,11 +140,13 @@ launch_power = 500.0
 position = Vector2(375, 448)
 collision_layer = 2
 collision_mask = 2
+launch_power = 5000.0
 pole = 0
 
 [node name="RadialMagnet3" parent="." instance=ExtResource("5_obyai")]
 position = Vector2(948, 337)
+radius = 90.0
 
 [node name="RadialMagnet4" parent="." instance=ExtResource("5_obyai")]
-position = Vector2(933, 437)
+position = Vector2(726, 328)
 radius = 24.035

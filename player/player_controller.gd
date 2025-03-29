@@ -9,6 +9,7 @@ signal movement_state_changed(state_name: String)
 
 var being_attracted: bool = false
 var current_magnet: Magnet = null
+var radial_stuck_fix: bool = false
 
 @export var speed: float = 300.0:
 	get:
@@ -46,27 +47,7 @@ func _process(_delta: float) -> void:
 		print("Switched pole to: ", GlobalVars.POLE.find_key(current_pole))
 
 func _physics_process(_delta: float) -> void:
-	_handle_floor_magnet()
-	_handle_radial_magnet()
 	move_and_slide()
-
-func _handle_floor_magnet() -> void:
-	if not current_magnet or not current_magnet is FloorMagnet:
-		gravity_direction = Vector2.DOWN
-		return
-	var magnet_gravity_direction = current_magnet.magnet_gravity_direction
-	var poles_different: bool = current_pole != current_magnet.pole 
-	if poles_different:
-		gravity_direction = magnet_gravity_direction
-	else:
-		gravity_direction = -magnet_gravity_direction
-
-func _handle_radial_magnet() -> void:
-	if not current_magnet or not current_magnet is RadialMagnet or radial_magnet_state.ejecting:
-		return
-	var poles_different: bool = current_pole != current_magnet.pole 
-	if not poles_different:
-		velocity = _calculate_radial_bounce_angle(current_magnet) * get_gravity().y
 
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
 	var magnet_position = magnet.global_position
