@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://daujuqli7pyvy"]
+[gd_scene load_steps=26 format=3 uid="uid://daujuqli7pyvy"]
 
 [ext_resource type="PackedScene" uid="uid://b1kbidmp44j1b" path="res://magnet_vol2/radial_magnet/radial_particles.tscn" id="1_12wdq"]
 [ext_resource type="Script" uid="uid://d35wj5y4ta38c" path="res://Scripts/magnet_vol2/magnet_radial.gd" id="1_rb835"]
@@ -66,6 +66,70 @@ scale_max = 1.2
 scale_curve = SubResource("CurveTexture_logpw")
 color_ramp = SubResource("GradientTexture1D_jnf16")
 
+[sub_resource type="Curve" id="Curve_5qjqc"]
+_data = [Vector2(0, 0), 0.0, 4.27865, 0, 0, Vector2(0.757353, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3g4xd"]
+curve = SubResource("Curve_5qjqc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iqr21"]
+lifetime_randomness = 0.58
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 20.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = -1.4
+orbit_velocity_max = -0.5
+radial_velocity_min = -6.00002
+radial_velocity_max = -4.00002
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_3g4xd")
+color = Color(0, 0.713726, 1, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[sub_resource type="Curve" id="Curve_sjgc5"]
+_data = [Vector2(0, 0), 0.0, 4.27865, 0, 0, Vector2(0.757353, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iumgq"]
+curve = SubResource("Curve_sjgc5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3cxc"]
+lifetime_randomness = 0.58
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 20.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = 0.5
+orbit_velocity_max = 1.4
+radial_velocity_min = -6.00002
+radial_velocity_max = -4.00002
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_iumgq")
+color = Color(0, 0.713726, 1, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_rb835"]
 radius = 24.0
 
@@ -102,10 +166,12 @@ process_material = SubResource("ParticleProcessMaterial_4qe2y")
 [node name="InnerParticlesLeft" parent="RadialParticles" index="1"]
 visible = true
 texture = ExtResource("7_qfdsq")
+process_material = SubResource("ParticleProcessMaterial_iqr21")
 
 [node name="InnerParticlesRight" parent="RadialParticles" index="2"]
 visible = false
 texture = ExtResource("7_qfdsq")
+process_material = SubResource("ParticleProcessMaterial_a3cxc")
 
 [node name="MagnetArea" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

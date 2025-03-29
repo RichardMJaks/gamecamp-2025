@@ -40,7 +40,6 @@ func _handle_ejection() -> void:
 	# We can assume that this will switch the poles to match
 	if Input.is_action_just_pressed(&"a_switch") and not ejecting:
 		var ejection_direction = rotation_vector.rotated(PI/2*rotation_direction)
-		print(ejection_direction)
 		player.velocity = ejection_direction * player.get_gravity().y
 		ejecting = true
 
@@ -48,7 +47,6 @@ func _handle_ejection() -> void:
 		change_state.emit(move_state)
 
 func exit() -> void:
-	print("yohoo")
 	ejecting = false
 
 # Returns angular rotation speed (in radians)
