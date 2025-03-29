@@ -1,14 +1,17 @@
 extends Area2D
 
-var force: Vector2
+#var force: Vector2
+
+var strength: float
+var shape: CollisionShape2D
 
 func _on_body_entered(_body):
 	if _body is CharacterBody2D:
-		_body.enter_ff(force)
+		_body.enter_ff(self)
 
 func _on_body_exited(_body):
 	if _body is CharacterBody2D:
-		_body.exit_ff(force)
+		_body.exit_ff(self)
 
 func _ready():
 	collision_layer = 1

@@ -9,7 +9,7 @@
 script = ExtResource("1_qd25d")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(318, 163)
+position = Vector2(321, 161)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("2_wesj7")
