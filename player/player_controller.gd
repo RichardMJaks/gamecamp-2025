@@ -1,6 +1,10 @@
 extends CharacterBody2D
 class_name Player
 
+signal died
+
+@export var spawn_position: Vector2 = Vector2.ZERO
+
 # Define the signal for state changes
 @warning_ignore("unused_signal")
 signal movement_state_changed(state_name: String)
@@ -34,7 +38,11 @@ var accel_time_delta: float = 0
 var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 
 func _ready() -> void:
-	pass
+	add_to_group("player")
+	
+	# Store initial spawn position if not set in Inspector
+	if spawn_position == Vector2.ZERO:
+		spawn_position = global_position
 
 func _process(_delta: float) -> void:
 	if has_node("%Label"):
@@ -55,7 +63,7 @@ func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
 	dir_to_player = -dir_to_player.normalized()
 	var velocity_normalized = velocity.normalized()
 	var reflection_dot = dir_to_player.dot(velocity_normalized)
-
+	
 	return velocity_normalized - 2 * reflection_dot * dir_to_player
 
 func _get_jump_height(h: float) -> float:
@@ -73,3 +81,23 @@ func _on_exited_magnet_range(area:Area2D) -> void:
 		return
 
 	current_magnet = null
+
+# Call this function when the player dies (falls into a pit, touches an enemy, etc.)
+func die():
+	# Notify game controller
+	GameController.handle_player_died()
+	
+	# Emit signal for other game elements to respond
+	emit_signal("died")
+	
+	# Reset player position
+	global_position = spawn_position
+	
+	# Reset any player state (health, abilities, etc.)
+	velocity = Vector2.ZERO
+
+	
+	# Reset level collectibles count in GameController
+	if GameController.current_level_name != "":
+		GameController.levels_data[GameController.current_level_name].collectibles_count = 0
+		GameController.collectible_collected.emit(0)

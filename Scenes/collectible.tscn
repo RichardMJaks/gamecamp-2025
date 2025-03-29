@@ -6,8 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cae6"]
 radius = 16.0
 
-[node name="Collectible" type="Area2D"]
+[node name="Collectible" type="Area2D" node_paths=PackedStringArray("collectible_sprite")]
 script = ExtResource("1_athsx")
+collectible_sprite = NodePath("CollectibleSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8cae6")

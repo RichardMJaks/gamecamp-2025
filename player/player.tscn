@@ -14,7 +14,7 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
 radius = 11.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state") groups=["player"]]
 script = ExtResource("1_oul6g")
 speed = 800.0
 acceleration_time = 0.5
