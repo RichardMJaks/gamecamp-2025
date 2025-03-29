@@ -12,6 +12,10 @@ var positions: Array[Array] = [
 @export var north_gradient: Gradient
 @export var south_gradient: Gradient
 
+
+func _ready() -> void:
+	texture = GradientTexture2D.new()
+
 func _process(_delta: float) -> void:
 	# To not fill console up with errors
 	if not collider:
