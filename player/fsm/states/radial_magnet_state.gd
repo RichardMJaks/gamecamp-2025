@@ -1,6 +1,11 @@
 extends FSMState
 
 @export var move_state: FSMState
+@export var custom_rotation_speed: float = 1:
+	get:
+		if Engine.is_editor_hint():
+			return custom_rotation_speed
+		return custom_rotation_speed * GlobalVars.su
 @onready var player: Player = owner
 var rotation_vector: Vector2:
 	get:
@@ -21,12 +26,13 @@ func enter() -> void:
 	rotation_vector = (player_position - magnet_position).normalized()
 	rotation_distance = player_position.distance_to(magnet_position)
 	rotation_direction = player.current_magnet.rotation_direction
-	rotation_speed = _calculate_rotation_speed(player.speed, rotation_distance)
+	rotation_speed = _calculate_rotation_speed(custom_rotation_speed, rotation_distance)
 
 func __physics_process(delta) -> void:
 	if not ejecting:
 		rotation_vector = rotation_vector.rotated(rotation_speed * rotation_direction * delta)
 		player.global_position = magnet_position + rotation_vector * rotation_distance
+	player.up_direction = rotation_vector
 	_handle_ejection()
 
 

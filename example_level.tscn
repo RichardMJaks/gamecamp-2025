@@ -147,6 +147,22 @@ pole = 0
 [node name="CollisionShape2D" parent="FlatMagnet" index="0"]
 position = Vector2(34.5, 5)
 
+[node name="FlatMagnet3" parent="." instance=ExtResource("2_y5x4s")]
+position = Vector2(50, 273)
+magnet_direction = 0
+pole = 0
+
+[node name="CollisionShape2D" parent="FlatMagnet3" index="0"]
+position = Vector2(34.5, 5)
+
+[node name="FlatMagnet4" parent="." instance=ExtResource("2_y5x4s")]
+position = Vector2(573, 128)
+magnet_direction = 1
+pole = 0
+
+[node name="CollisionShape2D" parent="FlatMagnet4" index="0"]
+position = Vector2(34.5, 5)
+
 [node name="FlatMagnet2" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(105, 94)
 magnet_direction = 2
@@ -218,5 +234,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [editable path="FlatMagnet"]
+[editable path="FlatMagnet3"]
+[editable path="FlatMagnet4"]
 [editable path="FlatMagnet2"]
 [editable path="FlatMagnet3"]

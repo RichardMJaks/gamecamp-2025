@@ -33,6 +33,7 @@ var radial_stuck_fix: bool = false
 			gravity_direction = value	
 
 @export var radial_magnet_state: FSMState
+@export var anim_tree: AnimationTree
 
 var accel_time_delta: float = 0
 var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
@@ -45,6 +46,11 @@ func _ready() -> void:
 		spawn_position = global_position
 
 func _process(_delta: float) -> void:
+	anim_tree["parameters/Idle/blend_position"] = float(current_pole)
+	anim_tree["parameters/SwitchPole/blend_position"] = float(current_pole)
+	anim_tree["parameters/Walk/blend_position"] = float(current_pole)
+
+	anim_tree["parameters/conditions/switched_pole"] = false
 	if has_node("%Label"):
 		%Label.text = GlobalVars.POLE.find_key(current_pole)
 	
@@ -53,8 +59,16 @@ func _process(_delta: float) -> void:
 		@warning_ignore("int_as_enum_without_cast")
 		current_pole = 1 - current_pole
 		print("Switched pole to: ", GlobalVars.POLE.find_key(current_pole))
+		anim_tree["parameters/conditions/switched_pole"] = true
 
 func _physics_process(_delta: float) -> void:
+	if is_on_floor():
+		if velocity.length_squared() > 0:
+			anim_tree["parameters/conditions/walking"] = true
+			anim_tree["parameters/conditions/idling"] = false
+		else:
+			anim_tree["parameters/conditions/idling"] = true
+			anim_tree["parameters/conditions/walking"] = false
 	move_and_slide()
 
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
