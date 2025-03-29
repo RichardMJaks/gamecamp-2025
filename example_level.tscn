@@ -132,7 +132,7 @@ tile_map_data = PackedByteArray("AAABABQAAAABAAUAAAACABQAAAAAAAUAAAADABQAAAAAAAU
 tile_set = SubResource("TileSet_hx7as")
 
 [node name="RadialMagnet" parent="." instance=ExtResource("3_hx7as")]
-position = Vector2(463, 219)
+position = Vector2(461, 206)
 
 [node name="FlatMagnet" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(430, 302)
@@ -142,7 +142,7 @@ position = Vector2(34.5, 5)
 
 [node name="FlatMagnet2" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(105, 94)
-magnet_gravity_direction = Vector2i(0, 1)
+magnet_direction = 2
 
 [node name="CollisionShape2D" parent="FlatMagnet2" index="0"]
 position = Vector2(212.25, 0)

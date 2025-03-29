@@ -59,7 +59,7 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 script = ExtResource("4_yw30f")
 move_state = NodePath("../move_state")
 travel_distance = 10.0
-travel_time = 0.3
+travel_time = 0.2
 timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
