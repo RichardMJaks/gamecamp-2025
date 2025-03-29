@@ -1,7 +1,7 @@
 @tool
 extends CollisionShape2D
 
-@export var shape_size: Vector2 = Vector2.ONE
+@export var shape_size: Vector2 = Vector2.ONE * 16
 
 func _enter_tree() -> void:
 	if Engine.is_editor_hint():

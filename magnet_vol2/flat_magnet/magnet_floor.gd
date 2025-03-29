@@ -1,3 +1,4 @@
+@tool
 extends Magnet
 class_name FloorMagnet
 
@@ -18,3 +19,7 @@ var magnet_gravity_direction: Vector2i = Vector2i(0, -1):
 				return Vector2(0, 0)
 		  # Default is inverted gravity
 @export var launch_power: float = 1200.0  # Power of the launch when polarity switches
+
+func _ready() -> void:
+	if Engine.is_editor_hint() and not get_tree().current_scene == self:
+		get_parent().set_editable_instance(self, true)
