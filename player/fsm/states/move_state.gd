@@ -34,6 +34,9 @@ func __physics_process(delta: float) -> void:
 	trigger_radial_magnet_action()
 	# Update player's up direction based on gravity
 	player.up_direction = -player.gravity_direction	
+	
+	if player.is_on_floor():
+		player.velocity = player.velocity.normalized() * min(player.speed, player.velocity.length())
 
 # !! TREAD CAREFULLY IN THIS REGION !!
 # (or better yet, save your braincells and never open it)
@@ -127,7 +130,7 @@ func _handle_radial_magnet() -> void:
 	var poles_different: bool = player.current_pole != player.current_magnet.pole 
 	if not poles_different and not radial_stuck_fix:
 		radial_stuck_fix = true
-		player.velocity = -player.velocity.normalized() * player.get_gravity().length() 
+		player.velocity = -player.velocity.normalized() * radial_magnet_state.ejection_force * GlobalVars.su
 
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
 	var magnet_position = magnet.global_position
