@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="1_1uwqr"]
 [ext_resource type="Texture2D" uid="uid://g12g5gla7dad" path="res://Cave Platformer Tileset [16x16][FREE] - RottingPixels/cave-platformer-tileset-16x16.png" id="2_lvjdj"]
-[ext_resource type="PackedScene" uid="uid://bl8pkgulrnkdv" path="res://Scenes/Magnets/radial_magnet.tscn" id="5_16g7q"]
+[ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet.tscn" id="5_obyai"]
 [ext_resource type="PackedScene" uid="uid://cfjldb6u0snqw" path="res://Scenes/Magnets/floor_magnet.tscn" id="8_pk40j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdi1l"]
@@ -137,20 +137,15 @@ collision_layer = 2
 collision_mask = 2
 launch_power = 500.0
 
-[node name="RadialMagnet" parent="." instance=ExtResource("5_16g7q")]
-position = Vector2(622, 270)
-collision_layer = 2
-collision_mask = 2
-rotation_direction = -1
-pole = 0
-
 [node name="FloorMagnet2" parent="." instance=ExtResource("8_pk40j")]
 position = Vector2(375, 448)
 collision_layer = 2
 collision_mask = 2
 pole = 0
 
-[node name="RadialMagnet2" parent="." instance=ExtResource("5_16g7q")]
-position = Vector2(341, 273)
-collision_layer = 2
-collision_mask = 2
+[node name="RadialMagnet3" parent="." instance=ExtResource("5_obyai")]
+position = Vector2(948, 337)
+
+[node name="RadialMagnet4" parent="." instance=ExtResource("5_obyai")]
+position = Vector2(933, 437)
+radius = 24.035

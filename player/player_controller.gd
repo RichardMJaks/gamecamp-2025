@@ -27,7 +27,7 @@ var current_magnet: Magnet = null
 			value.x = 0
 			gravity_direction = value	
 
-@export var player_movement_state: FSMState
+@export var radial_magnet_state: FSMState
 
 var accel_time_delta: float = 0
 var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	_handle_floor_magnet()
-	#_handle_radial_magnet()
+	_handle_radial_magnet()
 	move_and_slide()
 
 func _handle_floor_magnet() -> void:
@@ -62,11 +62,11 @@ func _handle_floor_magnet() -> void:
 		gravity_direction = -magnet_gravity_direction
 
 func _handle_radial_magnet() -> void:
-	if not current_magnet or not current_magnet is RadialMagnet:
+	if not current_magnet or not current_magnet is RadialMagnet or radial_magnet_state.ejecting:
 		return
 	var poles_different: bool = current_pole != current_magnet.pole 
 	if not poles_different:
-		velocity = _calculate_radial_bounce_angle(current_magnet) * speed
+		velocity = _calculate_radial_bounce_angle(current_magnet) * get_gravity().y
 
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
 	var magnet_position = magnet.global_position

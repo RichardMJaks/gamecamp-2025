@@ -18,14 +18,14 @@ height = 29
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
 radius = 15.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_movement_state")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state")]
 script = ExtResource("1_oul6g")
 speed = 800.0
 acceleration_time = 0.5
 deceleration_time = 0.3
 jump_height = 1000.0
 gravity_direction = Vector2i(0, -1)
-player_movement_state = NodePath("StateMachine/move_state")
+radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_oul6g")
