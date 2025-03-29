@@ -5,9 +5,6 @@ class_name Magnet
 @export var pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 @export var influence_radius: float = 200.0
 
-# Signal emitted when player enters/exits this magnet's area
-signal player_entered(magnet: Magnet)
-signal player_exited(magnet: Magnet)
 
 func _ready() -> void:
 	# Connect area signals
@@ -15,13 +12,15 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		var player = body as Player
-		player.magnets.append(self)
-		emit_signal("player_entered", self)
+	if not body is Player:
+		return
+	body = body as Player
+	body.current_magnet = self
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
-		var player = body as Player
-		player.magnets.erase(self)
-		emit_signal("player_exited", self)
+	if not body is Player:
+		return	
+
+	# Guard clause to prevent edge case bugs	
+	if not body.current_magnet == self:
+		return
