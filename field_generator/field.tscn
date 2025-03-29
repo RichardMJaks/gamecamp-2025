@@ -3,4 +3,6 @@
 [ext_resource type="Script" uid="uid://b61lah8tk41he" path="res://field_generator/field.gd" id="1_0x87y"]
 
 [node name="field" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_0x87y")

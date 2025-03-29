@@ -11,6 +11,7 @@ var debug_arrows: Array[Line2D]
 func find_forces() -> Dictionary:
 	map = tile_map_scane.instantiate()
 	add_child(map)
+
 	var forces = {}
 	var cells = map.get_used_cells()
 	for transmitter in cells:
@@ -35,12 +36,12 @@ func generate_collisions(forces: Dictionary):
 		var local_coord = map.map_to_local(coord)
 		var tile_size = map.tile_set.tile_size
 		var field = field_scene.instantiate()
-		#field.force = force
+		field.force = force
 
 		var shape = CollisionShape2D.new()
 		shape.position = local_coord
 		shape.shape = RectangleShape2D.new()
-		shape.shape.size = tile_size / 2
+		shape.shape.size = tile_size
 		field.add_child(shape)
 		
 		fields.append(field)
