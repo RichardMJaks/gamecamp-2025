@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c3xrj33oh73lp"]
+[gd_scene load_steps=25 format=4 uid="uid://c3xrj33oh73lp"]
 
 [ext_resource type="Script" uid="uid://citxuu4ptppu8" path="res://Scripts/level.gd" id="1_m821y"]
 [ext_resource type="Texture2D" uid="uid://g12g5gla7dad" path="res://Cave Platformer Tileset [16x16][FREE] - RottingPixels/cave-platformer-tileset-16x16.png" id="1_o7q03"]
@@ -126,8 +126,64 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hx7as")
 pattern_0 = SubResource("TileMapPattern_ah8gq")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_01x2r"]
-size = Vector2(485.5, 56)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m821y"]
+size = Vector2(1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ymddn"]
+
+[sub_resource type="Curve" id="Curve_8ohhs"]
+_data = [Vector2(0.00269542, 0.235294), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ra4g"]
+curve = SubResource("Curve_8ohhs")
+
+[sub_resource type="Curve" id="Curve_rr38n"]
+_data = [Vector2(0, 0), 0.0, 4.4562, 0, 0, Vector2(1, 0.597164), -0.686939, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
+curve = SubResource("Curve_rr38n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0qydm"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(237.75, 23, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qitpc"]
+size = Vector2(1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yb3i2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mk3jd"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(237.75, 23, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cogj"]
+size = Vector2(1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_56rpi"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m2tod"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(237.75, 23, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="ExampleLevel" type="Node2D"]
 script = ExtResource("1_m821y")
@@ -146,6 +202,13 @@ pole = 0
 
 [node name="CollisionShape2D" parent="FlatMagnet" index="0"]
 position = Vector2(34.5, 5)
+shape = SubResource("RectangleShape2D_m821y")
+
+[node name="Gradient" parent="FlatMagnet" index="1"]
+texture = SubResource("GradientTexture2D_ymddn")
+
+[node name="Particles" parent="FlatMagnet" index="2"]
+process_material = SubResource("ParticleProcessMaterial_0qydm")
 
 [node name="FlatMagnet4" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(573, 128)
@@ -153,6 +216,13 @@ pole = 0
 
 [node name="CollisionShape2D" parent="FlatMagnet4" index="0"]
 position = Vector2(34.5, 5)
+shape = SubResource("RectangleShape2D_qitpc")
+
+[node name="Gradient" parent="FlatMagnet4" index="1"]
+texture = SubResource("GradientTexture2D_yb3i2")
+
+[node name="Particles" parent="FlatMagnet4" index="2"]
+process_material = SubResource("ParticleProcessMaterial_mk3jd")
 
 [node name="FlatMagnet5" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(50, 273)
@@ -165,7 +235,13 @@ magnet_direction = 2
 
 [node name="CollisionShape2D" parent="FlatMagnet2" index="0"]
 position = Vector2(247, -1)
-shape = SubResource("RectangleShape2D_01x2r")
+shape = SubResource("RectangleShape2D_4cogj")
+
+[node name="Gradient" parent="FlatMagnet2" index="1"]
+texture = SubResource("GradientTexture2D_56rpi")
+
+[node name="Particles" parent="FlatMagnet2" index="2"]
+process_material = SubResource("ParticleProcessMaterial_m2tod")
 
 [node name="Player" parent="." instance=ExtResource("4_hx7as")]
 position = Vector2(156, 295)
