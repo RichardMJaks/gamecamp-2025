@@ -146,8 +146,10 @@ pole = 0
 
 [node name="RadialMagnet3" parent="." instance=ExtResource("5_obyai")]
 position = Vector2(948, 337)
-radius = 90.0
 
 [node name="RadialMagnet4" parent="." instance=ExtResource("5_obyai")]
 position = Vector2(726, 328)
-radius = 24.035
+
+[editable path="FloorMagnet3"]
+[editable path="FloorMagnet"]
+[editable path="FloorMagnet2"]
