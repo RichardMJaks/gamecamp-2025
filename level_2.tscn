@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://px0ll2ymonn3"]
+[gd_scene load_steps=96 format=4 uid="uid://bpb21uoyg865x"]
 
 [ext_resource type="TileSet" uid="uid://csus7joxovyuq" path="res://tileset.tres" id="1_jg0dc"]
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_nmjpi"]
@@ -134,9 +134,433 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[node name="TileMapLayer2" type="TileMapLayer"]
-tile_map_data = PackedByteArray("AAD/////AAACABMAAAD//wAAAAACABMAAAD//wEAAAACABMAAAD//wIAAAACABMAAAD//wMAAAACABMAAAD//wQAAAACABMAAAD//wUAAAACABMAAAD//wYAAAACABMAAAD//wcAAAACABMAAAD//wgAAAACABMAAAD//wkAAAACABMAAAD//woAAAACABMAAAD//wsAAAACABMAAAD//wwAAAACABMAAAD//w0AAAAEABMAAAD//w4AAAAEABMAAAD//w8AAAAEABMAAAD//xAAAAACABMAAAD//xEAAAACABMAAAD//xIAAAACABMAAAD//xMAAAACABMAAAD//xQAAAACABMAAAD//xUAAAACABMAAAD//xYAAAACABMAAAAAAP//AAACABMAAAABAP//AAACABMAAAACAP//AAACABMAAAADAP//AAACABMAAAAEAP//AAACABMAAAAFAP//AAACABMAAAAGAP//AAACABMAAAAHAP//AAACABMAAAAIAP//AAACABMAAAAJAP//AAACABMAAAAKAP//AAACABMAAAALAP//AAACABMAAAAMAP//AAACABMAAAANAP//AAACABMAAAAOAP//AAACABMAAAAPAP//AAACABMAAAAQAP//AAACABMAAAAhAP//AAACABMAAAAiAP//AAACABMAAAAjAP//AAACABMAAAAkAP//AAACABMAAAAlAP//AAACABMAAAAmAP//AAACABMAAAAnAP//AAACABMAAAAoAP//AAACABMAAAAoAAAAAAACABMAAAAoAAEAAAACABMAAAAoAAIAAAACABMAAAAoAAMAAAACABMAAAAoAAQAAAACABMAAAAoAAcAAAACABMAAAAoAAgAAAACABMAAAAoAAkAAAACABMAAAAoAAoAAAACABMAAAAoAAsAAAACABMAAAAoAAwAAAACABMAAAAoAA0AAAACABMAAAAoAA4AAAACABMAAAAoAA8AAAACABMAAAAoABAAAAACABMAAAAoABEAAAACABMAAAAoABIAAAACABMAAAAoABMAAAACABMAAAAoABQAAAACABMAAAAoABUAAAACABMAAAAoABYAAAACABMAAAAAABYAAAACABMAAAABABYAAAACABMAAAACABYAAAACABMAAAADABYAAAACABMAAAAEABYAAAACABMAAAAFABYAAAACABMAAAAGABYAAAACABMAAAAHABYAAAACABMAAAAIABYAAAACABMAAAAJABYAAAACABMAAAAKABYAAAACABMAAAALABYAAAACABMAAAAMABYAAAACABMAAAANABYAAAACABMAAAAOABYAAAACABMAAAAPABYAAAACABMAAAAQABYAAAACABMAAAARABYAAAACABMAAAAeABYAAAACABMAAAAfABYAAAACABMAAAAgABYAAAACABMAAAAhABYAAAACABMAAAAiABYAAAACABMAAAAjABYAAAACABMAAAAkABYAAAACABMAAAAlABYAAAACABMAAAAmABYAAAACABMAAAAnABYAAAACABMAAAARAP//AAACABMAAAASAP//AAACABMAAAATAP//AAACABMAAAAUAP//AAACABMAAAAVAP//AAACABMAAAAWAP//AAACABMAAAAXAP//AAACABMAAAAYAP//AAACABMAAAAZAP//AAACABMAAAAaAP//AAACABMAAAAbAP//AAACABMAAAAcAP//AAACABMAAAAdAP//AAACABMAAAAeAP//AAACABMAAAAfAP//AAACABMAAAAgAP//AAACABMAAAAoAAUAAAACABMAAAAoAAYAAAACABMAAAASABYAAAAEABMAAAATABYAAAACABMAAAD//xcAAAAEABMAAAD//xgAAAAEABMAAAAAABcAAAAEABMAAAAAABgAAAAEABMAAAABABcAAAAEABMAAAABABgAAAAEABMAAAACABcAAAAEABMAAAACABgAAAAEABMAAAADABcAAAAEABMAAAADABgAAAAEABMAAAAEABcAAAAEABMAAAAEABgAAAAEABMAAAAFABcAAAAEABMAAAAFABgAAAAEABMAAAAGABcAAAAEABMAAAAGABgAAAAEABMAAAAHABcAAAAEABMAAAAHABgAAAAEABMAAAAIABcAAAAEABMAAAAIABgAAAAEABMAAAAJABcAAAAEABMAAAAJABgAAAAEABMAAAAKABcAAAAEABMAAAAKABgAAAAEABMAAAALABcAAAAEABMAAAALABgAAAAEABMAAAAMABcAAAAEABMAAAAMABgAAAAEABMAAAANABcAAAAEABMAAAANABgAAAAEABMAAAAOABcAAAAEABMAAAAOABgAAAAEABMAAAAPABcAAAAEABMAAAAPABgAAAAEABMAAAAQABcAAAAEABMAAAAQABgAAAAEABMAAAARABcAAAAEABMAAAARABgAAAAEABMAAAASABcAAAAEABMAAAASABgAAAAEABMAAAATABcAAAAEABMAAAATABgAAAAEABMAAAD9/wkAAAAEABMAAAD9/woAAAAEABMAAAD9/wsAAAAEABMAAAD9/wwAAAAEABMAAAD9/w0AAAAEABMAAAD9/w4AAAAEABMAAAD9/w8AAAAEABMAAAD9/xAAAAAEABMAAAD9/xEAAAAEABMAAAD9/xIAAAAEABMAAAD9/xMAAAAEABMAAAD9/xQAAAAEABMAAAD9/xUAAAAEABMAAAD9/xYAAAAEABMAAAD9/xcAAAAEABMAAAD9/xgAAAAEABMAAAD+/wkAAAAEABMAAAD+/woAAAAEABMAAAD+/wsAAAAEABMAAAD+/wwAAAAEABMAAAD+/w0AAAAEABMAAAD+/w4AAAAEABMAAAD+/w8AAAAEABMAAAD+/xAAAAAEABMAAAD+/xEAAAAEABMAAAD+/xIAAAAEABMAAAD+/xMAAAAEABMAAAD+/xQAAAAEABMAAAD+/xUAAAAEABMAAAD+/xYAAAAEABMAAAD+/xcAAAAEABMAAAD+/xgAAAAEABMAAAD9//3/AAAEABMAAAD9//7/AAAEABMAAAD9////AAAEABMAAAD9/wAAAAAEABMAAAD9/wEAAAAEABMAAAD9/wIAAAAEABMAAAD9/wMAAAAEABMAAAD9/wQAAAAEABMAAAD9/wUAAAAEABMAAAD9/wYAAAAEABMAAAD9/wcAAAAEABMAAAD9/wgAAAAEABMAAAD+//3/AAAEABMAAAD+//7/AAAEABMAAAD+////AAAEABMAAAD+/wAAAAAEABMAAAD+/wEAAAAEABMAAAD+/wIAAAAEABMAAAD+/wMAAAAEABMAAAD+/wQAAAAEABMAAAD+/wUAAAAEABMAAAD+/wYAAAAEABMAAAD+/wcAAAAEABMAAAD+/wgAAAAEABMAAAD///3/AAAEABMAAAD///7/AAAEABMAAAAAAP3/AAAEABMAAAAAAP7/AAAEABMAAAABAP3/AAAEABMAAAABAP7/AAAEABMAAAACAP3/AAAEABMAAAACAP7/AAAEABMAAAADAP3/AAAEABMAAAADAP7/AAAEABMAAAAEAP3/AAAEABMAAAAEAP7/AAAEABMAAAAFAP3/AAAEABMAAAAFAP7/AAAEABMAAAAGAP3/AAAEABMAAAAGAP7/AAAEABMAAAAHAP3/AAAEABMAAAAHAP7/AAAEABMAAAAIAP3/AAAEABMAAAAIAP7/AAAEABMAAAAJAP3/AAAEABMAAAAJAP7/AAAEABMAAAAKAP3/AAAEABMAAAAKAP7/AAAEABMAAAALAP3/AAAEABMAAAALAP7/AAAEABMAAAAMAP3/AAAEABMAAAAMAP7/AAAEABMAAAANAP3/AAAEABMAAAANAP7/AAAEABMAAAAOAP3/AAAEABMAAAAOAP7/AAAEABMAAAAPAP3/AAAEABMAAAAPAP7/AAAEABMAAAAQAP3/AAAEABMAAAAQAP7/AAAEABMAAAARAP3/AAAEABMAAAARAP7/AAAEABMAAAASAP3/AAAEABMAAAASAP7/AAAEABMAAAATAP3/AAAEABMAAAATAP7/AAAEABMAAAAUAP3/AAAEABMAAAAUAP7/AAAEABMAAAAVAP3/AAAEABMAAAAVAP7/AAAEABMAAAAWAP3/AAAEABMAAAAWAP7/AAAEABMAAAAXAP3/AAAEABMAAAAXAP7/AAAEABMAAAAYAP3/AAAEABMAAAAYAP7/AAAEABMAAAAZAP3/AAAEABMAAAAZAP7/AAAEABMAAAAaAP3/AAAEABMAAAAaAP7/AAAEABMAAAAbAP3/AAAEABMAAAAbAP7/AAAEABMAAAAcAP3/AAAEABMAAAAcAP7/AAAEABMAAAAdAP3/AAAEABMAAAAdAP7/AAAEABMAAAAeAP3/AAAEABMAAAAeAP7/AAAEABMAAAAfAP3/AAAEABMAAAAfAP7/AAAEABMAAAAgAP3/AAAEABMAAAAgAP7/AAAEABMAAAAhAP3/AAAEABMAAAAhAP7/AAAEABMAAAAiAP3/AAAEABMAAAAiAP7/AAAEABMAAAAjAP3/AAAEABMAAAAjAP7/AAAEABMAAAAkAP3/AAAEABMAAAAkAP7/AAAEABMAAAAlAP3/AAAEABMAAAAlAP7/AAAEABMAAAAmAP3/AAAEABMAAAAmAP7/AAAEABMAAAAnAP3/AAAEABMAAAAnAP7/AAAEABMAAAAoAP3/AAAEABMAAAAoAP7/AAAEABMAAAApAP3/AAAEABMAAAApAP7/AAAEABMAAAAqAP3/AAAEABMAAAAqAP7/AAAEABMAAAApAP//AAAEABMAAAApAAAAAAAEABMAAAApAAEAAAAEABMAAAApAAIAAAAEABMAAAApAAMAAAAEABMAAAApAAQAAAAEABMAAAApAAUAAAAEABMAAAApAAYAAAAEABMAAAApAAcAAAAEABMAAAApAAgAAAAEABMAAAApAAkAAAAEABMAAAApAAoAAAAEABMAAAApAAsAAAAEABMAAAApAAwAAAAEABMAAAApAA0AAAAEABMAAAApAA4AAAAEABMAAAApAA8AAAAEABMAAAAqAP//AAAEABMAAAAqAAAAAAAEABMAAAAqAAEAAAAEABMAAAAqAAIAAAAEABMAAAAqAAMAAAAEABMAAAAqAAQAAAAEABMAAAAqAAUAAAAEABMAAAAqAAYAAAAEABMAAAAqAAcAAAAEABMAAAAqAAgAAAAEABMAAAAqAAkAAAAEABMAAAAqAAoAAAAEABMAAAAqAAsAAAAEABMAAAAqAAwAAAAEABMAAAAqAA0AAAAEABMAAAAqAA4AAAAEABMAAAAqAA8AAAAEABMAAAAeABcAAAAEABMAAAAeABgAAAAEABMAAAAfABcAAAAEABMAAAAfABgAAAAEABMAAAAgABcAAAAEABMAAAAgABgAAAAEABMAAAAhABcAAAAEABMAAAAhABgAAAAEABMAAAAiABcAAAAEABMAAAAiABgAAAAEABMAAAAjABcAAAAEABMAAAAjABgAAAAEABMAAAAkABcAAAAEABMAAAAkABgAAAAEABMAAAAlABcAAAAEABMAAAAlABgAAAAEABMAAAAmABcAAAAEABMAAAAmABgAAAAEABMAAAAnABcAAAAEABMAAAAnABgAAAAEABMAAAAoABcAAAAEABMAAAAoABgAAAAEABMAAAApABcAAAAEABMAAAApABgAAAAEABMAAAAqABcAAAAEABMAAAAqABgAAAAEABMAAAApABAAAAAEABMAAAApABEAAAAEABMAAAApABIAAAAEABMAAAApABMAAAAEABMAAAApABQAAAAEABMAAAApABUAAAAEABMAAAApABYAAAAEABMAAAAqABAAAAAEABMAAAAqABEAAAAEABMAAAAqABIAAAAEABMAAAAqABMAAAAEABMAAAAqABQAAAAEABMAAAAqABUAAAAEABMAAAAqABYAAAAEABMAAAAUABYAAAAFABMAAAAUABcAAAAFABMAAAAUABgAAAAFABMAAAAZABYAAAAFABMAAAAZABcAAAAFABMAAAAZABgAAAAFABMAAAAaABYAAAACABMAAAAaABcAAAAEABMAAAAaABgAAAAEABMAAAAbABYAAAACABMAAAAbABcAAAAEABMAAAAbABgAAAAEABMAAAAcABYAAAACABMAAAAcABcAAAAEABMAAAAcABgAAAAEABMAAAAdABYAAAACABMAAAAdABcAAAAEABMAAAAdABgAAAAEABMAAAAAABQAAAAGABIAAAABABQAAAAGABIAAAACABQAAAAGABIAAAAAAAwAAAADABEAAAAAAA0AAAAFABEAAAAAAA4AAAAEABEAAAAAAA8AAAAEABEAAAAAABAAAAAEABEAAAAAABEAAAAEABEAAAABAAwAAAAEABEAAAABAA0AAAAIABAAAAABAA4AAAAIABAAAAABAA8AAAAIABAAAAABABAAAAAIABAAAAABABEAAAADABEAAAACAAwAAAANABIAAAACAA0AAAAHABEAAAACAA4AAAAHABEAAAACAA8AAAAHABEAAAACABAAAAAHABEAAAACABEAAAANABIAAAADABQAAAAFABAAAAAEABQAAAAFABAAAAAFABQAAAAFABAAAAAGAA8AAAAMABIAAAAGABAAAAAIABAAAAAGABEAAAAIABAAAAAGABIAAAAIABAAAAAGABMAAAAIABAAAAAGABQAAAADABEAAAAHAA8AAAADABEAAAAHABAAAAAHABEAAAAHABEAAAAHABEAAAAHABIAAAAHABEAAAAHABMAAAAHABEAAAAHABQAAAADABEAAAAIAA8AAAANABIAAAAIABAAAAAGABAAAAAIABEAAAAGABAAAAAIABMAAAANABIAAAAIABQAAAAEABEAAAAAABUAAAADABIAAAABABUAAAADABIAAAACABUAAAADABIAAAADABUAAAADABIAAAAEABUAAAADABIAAAAFABUAAAADABIAAAAGABUAAAADABIAAAAHABUAAAADABIAAAAIABUAAAADABIAAAAVABYAAAAFABMAAAAVABcAAAAFABMAAAAVABgAAAAFABMAAAAWABYAAAAFABMAAAAWABcAAAAFABMAAAAWABgAAAAFABMAAAAXABYAAAAFABMAAAAXABcAAAAFABMAAAAXABgAAAAFABMAAAAYABYAAAAFABMAAAAYABcAAAAFABMAAAAYABgAAAAFABMAAAAsAAQAAAADABAAAAAsAAUAAAAEABEAAAAsAAYAAAADABEAAAAsAAcAAAAEABEAAAAtAAUAAAABABEAAAAtAAYAAAADABEAAAAtAAcAAAAEABEAAAAuAAIAAAAGABEAAAAuAAYAAAACABEAAAAuAAcAAAAEABEAAAAvAAcAAAAEABAAAAAwAAcAAAAEABAAAAAxAAUAAAAGABEAAAAxAAcAAAAFABAAAAAyAAcAAAAFABAAAAAzAAcAAAAFABAAAAA0AAcAAAAEABAAAAAsAAoAAAAEABAAAAAsAAsAAAADABEAAAAtAAoAAAAEABAAAAAtAAsAAAAGABAAAAAtAAwAAAAIABAAAAAuAAoAAAAEABAAAAAuAAsAAAAGABAAAAAuAAwAAAAIABAAAAAvAAoAAAAEABAAAAAvAAsAAAAGABAAAAAvAAwAAAAIABAAAAAwAAoAAAAEABAAAAAwAAsAAAAGABAAAAAwAAwAAAAIABAAAAAxAAoAAAAEABAAAAAxAAsAAAAGABAAAAAxAAwAAAAIABAAAAAyAAoAAAAEABAAAAAyAAsAAAAGABAAAAAyAAwAAAAIABAAAAAzAAoAAAAEABAAAAAzAAsAAAAGABAAAAAzAAwAAAAIABAAAAA0AAoAAAAEABAAAAA0AAsAAAAGABAAAAA0AAwAAAAIABAAAAA1AAoAAAAEABAAAAA1AAsAAAAGABAAAAA1AAwAAAAIABAAAAA2AAoAAAAEABAAAAA2AAsAAAAGABAAAAA2AAwAAAAIABAAAAA3AAoAAAAEABAAAAA3AAsAAAAGABAAAAA3AAwAAAAIABAAAAA4AAoAAAAEABAAAAA4AAsAAAAGABAAAAA4AAwAAAAIABAAAAA5AAoAAAAEABAAAAA5AAsAAAADABEAAAD2/wgAAAADABEAAAD2/wkAAAAIABAAAAD2/woAAAAIABAAAAD2/wsAAAAIABAAAAD2/wwAAAAIABAAAAD2/w0AAAADABEAAAD3/wgAAAADABEAAAD3/wkAAAAHABEAAAD3/woAAAAHABEAAAD3/wsAAAAHABEAAAD3/wwAAAAHABEAAAD3/w0AAAADABEAAAD4/wgAAAAEABEAAAD4/wkAAAAFABEAAAD4/woAAAAEABEAAAD4/wsAAAAEABEAAAD4/wwAAAAEABEAAAD4/w0AAAAEABEAAAAGAAMAAAAMABEAAAAGAAQAAAAHABMAAAAGAAUAAAAHABMAAAAGAAYAAAAHABMAAAAGAAcAAAAHABMAAAAGAAgAAAAMABIAAAAHAAMAAAAFABAAAAAHAAQAAAAHABEAAAAHAAUAAAAHABEAAAAHAAYAAAAHABEAAAAHAAcAAAAHABEAAAAHAAgAAAADABEAAAAIAAMAAAANABEAAAAIAAQAAAANABIAAAAIAAUAAAANABIAAAAIAAYAAAAGABAAAAAIAAcAAAAGABAAAAAIAAgAAAANABIAAAAGAAkAAAAMABIAAAAGAAoAAAAIABAAAAAGAAsAAAAIABAAAAAGAAwAAAAIABAAAAAGAA0AAAAIABAAAAAGAA4AAAAMABIAAAAHAAkAAAADABEAAAAHAAoAAAAHABEAAAAHAAsAAAAHABEAAAAHAAwAAAAHABEAAAAHAA0AAAAHABEAAAAHAA4AAAADABEAAAAIAAkAAAANABIAAAAIAAoAAAANABIAAAAIAAsAAAANABIAAAAIAAwAAAANABIAAAAIAA0AAAANABIAAAAIAA4AAAANABIAAAAAAAAAAAAEABEAAAAAAAEAAAAFABEAAAAAAAIAAAAEABEAAAAAAAMAAAAEABEAAAAAAAQAAAAEABEAAAAAAAUAAAAEABEAAAABAAAAAAAEABEAAAABAAEAAAAIABAAAAABAAIAAAAIABAAAAABAAMAAAAIABAAAAABAAQAAAAIABAAAAABAAUAAAADABEAAAACAAAAAAANABIAAAACAAEAAAAHABEAAAACAAIAAAAHABEAAAACAAMAAAAHABEAAAACAAQAAAAHABEAAAACAAUAAAANABIAAAAAAAYAAAADABEAAAAAAAcAAAAFABEAAAAAAAgAAAAEABEAAAAAAAkAAAAEABEAAAAAAAoAAAAEABEAAAAAAAsAAAAEABEAAAABAAYAAAAEABEAAAABAAcAAAAIABAAAAABAAgAAAAIABAAAAABAAkAAAAIABAAAAABAAoAAAAIABAAAAABAAsAAAADABEAAAACAAYAAAANABIAAAACAAcAAAAHABEAAAACAAgAAAAHABEAAAACAAkAAAAHABEAAAACAAoAAAAHABEAAAACAAsAAAANABIAAAAIABIAAAANABIAAAANAAMAAAAMABIAAAANAAQAAAAMABIAAAANAAUAAAAMABIAAAANAAYAAAAMABIAAAANAAcAAAAMABIAAAANAAgAAAAMABIAAAANAAkAAAAMABIAAAANAAoAAAAMABIAAAANAAsAAAAIABAAAAANAAwAAAAIABAAAAANAA0AAAAMABIAAAANAA4AAAAMABIAAAAOAAMAAAAEABEAAAAOAAQAAAAEABEAAAAOAAUAAAAEABEAAAAOAAYAAAAEABEAAAAOAAcAAAAEABEAAAAOAAgAAAAEABEAAAAOAAkAAAAEABEAAAAOAAoAAAAEABEAAAAOAAsAAAAEABEAAAAOAAwAAAAEABEAAAAOAA0AAAAEABEAAAAOAA4AAAAFABEAAAANAAAAAAAMABIAAAANAAEAAAAMABIAAAANAAIAAAAMABIAAAAOAAAAAAAEABEAAAAOAAEAAAAEABEAAAAOAAIAAAAEABEAAAAJAAYAAAAIABAAAAAJAAcAAAAIABAAAAAMAAsAAAAGABAAAAAMAAwAAAAGABAAAAAJABAAAAAIABAAAAAJABEAAAAIABAAAAAJABUAAAADABIAAAAKABUAAAADABIAAAALABUAAAADABIAAAAMABUAAAADABIAAAANABUAAAADABIAAAAOABUAAAADABIAAAAPABUAAAADABIAAAAQABUAAAADABIAAAARABUAAAADABIAAAASABUAAAADABIAAAATABUAAAADABIAAAAUABUAAAADABIAAAAVABUAAAADABIAAAAJABQAAAAFABAAAAAKABQAAAAFABAAAAALABQAAAAFABAAAAAMABQAAAAFABAAAAANABQAAAAFABAAAAAOABQAAAAFABAAAAAPABQAAAAFABAAAAAQABQAAAAFABAAAAARABQAAAAFABAAAAASABQAAAAEABAAAAATABQAAAADABEAAAAUABQAAAADABEAAAAVABQAAAADABEAAAAUABEAAAAFABAAAAATABIAAAAMABIAAAATABMAAAAMABIAAAAUABIAAAADABEAAAAUABMAAAADABEAAAAVABIAAAADABEAAAAVABMAAAADABEAAAAPAA4AAAADABEAAAAPAAAAAAANABIAAAAPAAEAAAANABIAAAAPAAIAAAANABIAAAAPAAMAAAANABIAAAAPAAQAAAANABIAAAAPAAUAAAANABIAAAAPAAYAAAANABIAAAAPAAcAAAANABIAAAAPAAgAAAANABIAAAAPAAkAAAANABIAAAAPAAsAAAAEABEAAAAPAAwAAAAEABEAAAAPAA0AAAADABEAAAAWABUAAAAEABIAAAAXABUAAAAEABIAAAAYABUAAAAEABIAAAAZABUAAAAEABIAAAAaABUAAAAEABIAAAAbABUAAAAEABIAAAAcABUAAAAEABIAAAAdABUAAAAEABIAAAAeABUAAAAEABIAAAAfABUAAAAEABIAAAAgABUAAAAEABIAAAAhABUAAAAEABIAAAAiABUAAAAEABIAAAAjABUAAAAEABIAAAAkABUAAAAEABIAAAAlABUAAAAEABIAAAAmABUAAAAEABIAAAAnABUAAAAEABIAAAATABEAAAAMABEAAAAVABEAAAAEABAAAAAYABQAAAATABMAAAAYABMAAAAQABEAAAAZABMAAAAFABAAAAAaABMAAAAFABAAAAAbABMAAAAFABEAAAAcABMAAAAFABEAAAAdABMAAAAFABEAAAAZABQAAAAEABEAAAAaABQAAAAEABEAAAAbABQAAAAEABEAAAAcABQAAAAEABEAAAAdABQAAAAEABEAAAAWABEAAAANABEAAAAWABMAAAAFABEAAAAWABQAAAADABEAAAAXABMAAAAOABEAAAAXABQAAAARABMAAAAWABIAAAANABIAAAAbABAAAAAEABEAAAAbABEAAAAFABEAAAAbABIAAAAFABEAAAAcABAAAAAEABEAAAAcABEAAAAFABEAAAAcABIAAAAFABEAAAAdABAAAAAEABEAAAAdABEAAAAFABEAAAAdABIAAAAFABEAAAAYAA8AAAAFABAAAAAZAA8AAAAFABAAAAAZABAAAAAEABEAAAAaAA8AAAAFABAAAAAaABAAAAAEABEAAAAbAA8AAAAFABAAAAAcAA8AAAAFABAAAAAdAA8AAAAFABAAAAAeAA8AAAAFABAAAAAeABAAAAAEABEAAAAfAA8AAAAFABAAAAAPAAoAAAAFABEAAAAQABIAAAAGABEAAAAVAA8AAAAGABEAAAAQAAsAAAAEABAAAAAQAAwAAAAEABEAAAARAAsAAAAEABAAAAARAAwAAAAEABEAAAASAAsAAAAEABAAAAASAAwAAAAEABEAAAATAAsAAAAEABAAAAATAAwAAAAFABEAAAAUAAsAAAAEABAAAAAaAAsAAAACABEAAAAbAAsAAAACABEAAAAcAAsAAAACABEAAAAdAAsAAAACABEAAAAXAAoAAAAGABEAAAA=")
-tile_set = ExtResource("1_jg0dc")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgm4o"]
+size = Vector2(20, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6r3eb"]
+gradient = SubResource("Gradient_j61ub")
+width = 20
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2pufk"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btc8u"]
+size = Vector2(20, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ikghu"]
+gradient = SubResource("Gradient_j61ub")
+width = 20
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6smf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4rhq"]
+size = Vector2(32, 32)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ldfcd"]
+gradient = SubResource("Gradient_j61ub")
+width = 32
+height = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41lt0"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 11, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8cg7"]
+size = Vector2(36, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o5ykh"]
+gradient = SubResource("Gradient_qch6w")
+width = 36
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e6ygx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(13, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlxjt"]
+size = Vector2(32, 32)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aocai"]
+gradient = SubResource("Gradient_qch6w")
+width = 32
+height = 32
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xwl8u"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 11, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pas5"]
+size = Vector2(36, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u1jey"]
+gradient = SubResource("Gradient_qch6w")
+width = 36
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_51w4t"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(13, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddgyg"]
+size = Vector2(20, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qh630"]
+gradient = SubResource("Gradient_j61ub")
+width = 20
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uv8er"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_653n8"]
+size = Vector2(32, 32)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eqpf5"]
+gradient = SubResource("Gradient_j61ub")
+width = 32
+height = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qm6bn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 11, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cugil"]
+size = Vector2(20, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gx3pu"]
+gradient = SubResource("Gradient_j61ub")
+width = 20
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wleuh"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lakv"]
+size = Vector2(48, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_46val"]
+gradient = SubResource("Gradient_j61ub")
+width = 48
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_prm7a"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(19, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0uosw"]
+size = Vector2(32, 32)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cgfqg"]
+gradient = SubResource("Gradient_qch6w")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_516sn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 11, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkd0g"]
+size = Vector2(64, 32)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uos5d"]
+gradient = SubResource("Gradient_j61ub")
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vuowq"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(27, 11, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_un45x"]
+size = Vector2(48, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6qsqx"]
+gradient = SubResource("Gradient_qch6w")
+width = 48
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uqf8q"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(19, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puam4"]
+size = Vector2(16, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eay7t"]
+gradient = SubResource("Gradient_qch6w")
+width = 16
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bid37"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyw3t"]
+size = Vector2(48, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mpame"]
+gradient = SubResource("Gradient_j61ub")
+width = 48
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_omxaf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(19, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwt5l"]
+size = Vector2(16, 112)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_um4ky"]
+gradient = SubResource("Gradient_qch6w")
+width = 16
+height = 112
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_330xm"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 51, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go6er"]
+size = Vector2(16, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_difqa"]
+gradient = SubResource("Gradient_j61ub")
+width = 16
+height = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y6eqe"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gonvl"]
+size = Vector2(48, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b6wsc"]
+gradient = SubResource("Gradient_qch6w")
+width = 48
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g0aem"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(19, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksw61"]
+size = Vector2(32, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j8tgw"]
+gradient = SubResource("Gradient_j61ub")
+width = 32
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ts03v"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a27b4"]
+size = Vector2(16, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cvgfi"]
+gradient = SubResource("Gradient_j61ub")
+width = 16
+height = 16
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sb6b3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl4lf"]
+size = Vector2(16, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nmloe"]
+gradient = SubResource("Gradient_qch6w")
+width = 16
+height = 16
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v1x0c"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjj0u"]
+size = Vector2(32, 16)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0urg6"]
+gradient = SubResource("Gradient_qch6w")
+width = 32
+height = 16
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fiyft"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 3, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[node name="Node2D" type="Node2D"]
 
 [node name="Magnets" type="Node2D" parent="."]
 
@@ -448,7 +872,6 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet17" index="0"]
 position = Vector2(7, -7.08981)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0uosw")
 shape_size = Vector2(32, 32)
 
@@ -467,7 +890,6 @@ magnet_direction = 3
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet18" index="0"]
 position = Vector2(-40, 34)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fkd0g")
 shape_size = Vector2(64, 32)
 
@@ -486,7 +908,6 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet19" index="0"]
 position = Vector2(95, 16)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_un45x")
 shape_size = Vector2(48, 16)
 
@@ -523,7 +944,6 @@ magnet_direction = 2
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet21" index="0"]
 position = Vector2(-33, -1)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dyw3t")
 shape_size = Vector2(48, 16)
 
@@ -541,7 +961,6 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet22" index="0"]
 position = Vector2(50.0499, -16.4469)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bwt5l")
 shape_size = Vector2(16, 112)
 
@@ -577,7 +996,7 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet24" index="0"]
 position = Vector2(111, 19)
-shape = SubResource("RectangleShape2D_0s5r2")
+shape = SubResource("RectangleShape2D_gonvl")
 shape_size = Vector2(48, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet24" index="1"]
@@ -599,27 +1018,65 @@ scale = Vector2(0.797013, 0.828099)
 
 [node name="FlatMagnet" parent="." instance=ExtResource("2_nmjpi")]
 position = Vector2(424, 152)
+magnet_direction = 3
 
 [node name="CollisionShape2D" parent="FlatMagnet" index="0"]
-shape = SubResource("RectangleShape2D_7j8ne")
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_ksw61")
+shape_size = Vector2(32, 16)
 
 [node name="Gradient" parent="FlatMagnet" index="1"]
-texture = SubResource("GradientTexture2D_7dov7")
+position = Vector2(8, 0)
+texture = SubResource("GradientTexture2D_j8tgw")
 
 [node name="Particles" parent="FlatMagnet" index="2"]
-process_material = SubResource("ParticleProcessMaterial_ehv2h")
+position = Vector2(8, 0)
+process_material = SubResource("ParticleProcessMaterial_ts03v")
 
 [node name="FlatMagnet2" parent="." instance=ExtResource("2_nmjpi")]
 position = Vector2(408, 168)
 
 [node name="CollisionShape2D" parent="FlatMagnet2" index="0"]
-shape = SubResource("RectangleShape2D_15wb7")
+shape = SubResource("RectangleShape2D_a27b4")
 
 [node name="Gradient" parent="FlatMagnet2" index="1"]
-texture = SubResource("GradientTexture2D_eoq84")
+texture = SubResource("GradientTexture2D_cvgfi")
 
 [node name="Particles" parent="FlatMagnet2" index="2"]
-process_material = SubResource("ParticleProcessMaterial_yl73a")
+process_material = SubResource("ParticleProcessMaterial_sb6b3")
+
+[node name="FlatMagnet3" parent="." instance=ExtResource("2_nmjpi")]
+position = Vector2(408, 192)
+pole = 0
+
+[node name="CollisionShape2D" parent="FlatMagnet3" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_hl4lf")
+
+[node name="Gradient" parent="FlatMagnet3" index="1"]
+position = Vector2(0, -8)
+texture = SubResource("GradientTexture2D_nmloe")
+
+[node name="Particles" parent="FlatMagnet3" index="2"]
+position = Vector2(0, -8)
+texture = ExtResource("3_1y8me")
+process_material = SubResource("ParticleProcessMaterial_v1x0c")
+
+[node name="FlatMagnet4" parent="." instance=ExtResource("2_nmjpi")]
+position = Vector2(432, 200)
+magnet_direction = 2
+pole = 0
+
+[node name="CollisionShape2D" parent="FlatMagnet4" index="0"]
+shape = SubResource("RectangleShape2D_yjj0u")
+shape_size = Vector2(32, 16)
+
+[node name="Gradient" parent="FlatMagnet4" index="1"]
+texture = SubResource("GradientTexture2D_0urg6")
+
+[node name="Particles" parent="FlatMagnet4" index="2"]
+texture = ExtResource("3_1y8me")
+process_material = SubResource("ParticleProcessMaterial_fiyft")
 
 [editable path="Magnets/FlatMagnet"]
 [editable path="Magnets/FlatMagnet2"]
@@ -647,3 +1104,5 @@ process_material = SubResource("ParticleProcessMaterial_yl73a")
 [editable path="Magnets/FlatMagnet24"]
 [editable path="FlatMagnet"]
 [editable path="FlatMagnet2"]
+[editable path="FlatMagnet3"]
+[editable path="FlatMagnet4"]
