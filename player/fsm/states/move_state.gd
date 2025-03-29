@@ -8,6 +8,7 @@ extends FSMState
 
 @onready var player: Player = owner
 @export var floor_magnet_state: FSMState
+@export var radial_magnet_state: FSMState
 
 func __physics_process(delta: float) -> void:
 	# Get input direction
@@ -26,6 +27,7 @@ func __physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"a_switch"):
 		_trigger_floor_magnet_action()
 
+	trigger_radial_magnet_action()
 	# Update player's up direction based on gravity
 	player.up_direction = -player.gravity_direction	
 
@@ -44,22 +46,20 @@ func _accelerate_player(dir: Vector2i, delta) -> void:
 
 # Applies acceleration with respect to current movement axis
 func _apply_acceleration(dir: float, delta: float, axis: Vector2) -> void:
-		var acceleration: float = player.speed * GlobalVars.su / player.acceleration_time
+		var acceleration: float = player.speed / player.acceleration_time
 		if abs((player.velocity * axis).length()) < player.speed:
 			player.velocity += dir * acceleration * delta * axis
-			print(player.velocity.length())
 
 # Apply deceleration when no input or changing direction
 # This is absolute shit tbh due to having to hard assign velocity
 func _decelerate_player(dir: Vector2i, delta) -> void:
-	
-	var deceleration: float = player.speed * GlobalVars.su / player.deceleration_time
+	var deceleration: float = player.speed / player.deceleration_time
 	# I am aware this if-else looks horrible, but this is the most readable
 	if player.gravity_direction.x == 0:
-		if (dir.x == 0 or sign(dir.x) != sign(player.velocity.x)):
+		if sign(dir.x) != sign(player.velocity.x):
 			player.velocity.x = move_toward(player.velocity.x, 0, deceleration * delta)
 	else:
-		if (dir.y == 0 or sign(dir.y) != sign(player.velocity.y)):
+		if sign(dir.y) != sign(player.velocity.y):
 			player.velocity.y = move_toward(player.velocity.y, 0, deceleration * delta)
 
 # Helper methods for common movement patterns
@@ -80,6 +80,7 @@ func _handle_jump() -> void:
 			player.velocity.x -= player._get_jump_height(player.jump_height) * player.gravity_direction.x
 #endregion
 
+#region Magnet actions
 func _trigger_floor_magnet_action() -> void:
 	# Guards to not trigger it when not in it
 	if not player.current_magnet:
@@ -91,4 +92,16 @@ func _trigger_floor_magnet_action() -> void:
 		return
 
 	change_state.emit(floor_magnet_state)
-	
+
+# This method is called from charactercontroller, due to that
+# managing all physics interactions
+func trigger_radial_magnet_action() -> void:
+	if not player.current_magnet:
+		return
+	if not player.current_magnet is RadialMagnet:
+		return
+	var poles_different = player.current_pole != player.current_magnet.pole
+	if poles_different:
+		change_state.emit(radial_magnet_state)
+		return
+#endregion

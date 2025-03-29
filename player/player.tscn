@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://hm7oj8v2rsqi"]
+[gd_scene load_steps=10 format=3 uid="uid://hm7oj8v2rsqi"]
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bt4oph17ec2nu" path="res://player/fsm/fsm.gd" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://dcwvuoxvxlfmy" path="res://player/fsm/states/move_state.gd" id="3_yw30f"]
 [ext_resource type="Script" uid="uid://px1mh8b1hl2l" path="res://player/fsm/states/floor_magnet_state.gd" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://bubvej7er7kn7" path="res://player/fsm/states/radial_magnet_state.gd" id="5_qjkh3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 
@@ -17,13 +18,14 @@ height = 29
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
 radius = 15.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_movement_state")]
 script = ExtResource("1_oul6g")
 speed = 800.0
 acceleration_time = 0.5
 deceleration_time = 0.3
 jump_height = 1000.0
 gravity_direction = Vector2i(0, -1)
+player_movement_state = NodePath("StateMachine/move_state")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_oul6g")
@@ -48,19 +50,26 @@ offset_bottom = 23.0
 script = ExtResource("2_g1dw6")
 starting_state = NodePath("move_state")
 
-[node name="move_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("floor_magnet_state")]
+[node name="move_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("floor_magnet_state", "radial_magnet_state")]
 script = ExtResource("3_yw30f")
 floor_magnet_state = NodePath("../floor_magnet_state")
+radial_magnet_state = NodePath("../radial_magnet_state")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer")]
 script = ExtResource("4_yw30f")
 move_state = NodePath("../move_state")
 travel_distance = 10.0
+travel_time = 0.3
 timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="Timer" type="Timer" parent="StateMachine/floor_magnet_state"]
+
+[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state")]
+script = ExtResource("5_qjkh3")
+move_state = NodePath("../move_state")
+metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [connection signal="area_entered" from="AttractionArea" to="." method="_on_entered_magnet_range"]
 [connection signal="area_exited" from="AttractionArea" to="." method="_on_exited_magnet_range"]

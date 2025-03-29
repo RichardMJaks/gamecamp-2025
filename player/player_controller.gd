@@ -10,7 +10,11 @@ signal movement_state_changed(state_name: String)
 var being_attracted: bool = false
 var current_magnet: Magnet = null
 
-@export var speed: float = 300.0
+@export var speed: float = 300.0:
+	get:
+		if Engine.is_editor_hint():
+			return speed
+		return speed * GlobalVars.su
 @export var acceleration_time: float = 0.2
 @export var deceleration_time: float = 0.1
 @export var jump_height: float = 100.0
@@ -22,6 +26,8 @@ var current_magnet: Magnet = null
 		else:
 			value.x = 0
 			gravity_direction = value	
+
+@export var player_movement_state: FSMState
 
 var accel_time_delta: float = 0
 var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
@@ -41,6 +47,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	_handle_floor_magnet()
+	#_handle_radial_magnet()
 	move_and_slide()
 
 func _handle_floor_magnet() -> void:
@@ -53,6 +60,22 @@ func _handle_floor_magnet() -> void:
 		gravity_direction = magnet_gravity_direction
 	else:
 		gravity_direction = -magnet_gravity_direction
+
+func _handle_radial_magnet() -> void:
+	if not current_magnet or not current_magnet is RadialMagnet:
+		return
+	var poles_different: bool = current_pole != current_magnet.pole 
+	if not poles_different:
+		velocity = _calculate_radial_bounce_angle(current_magnet) * speed
+
+func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
+	var magnet_position = magnet.global_position
+	var dir_to_player = global_position - magnet_position
+	dir_to_player = -dir_to_player.normalized()
+	var velocity_normalized = velocity.normalized()
+	var reflection_dot = dir_to_player.dot(velocity_normalized)
+
+	return velocity_normalized - 2 * reflection_dot * dir_to_player
 
 func _get_jump_height(h: float) -> float:
 	return sqrt(2 * get_gravity().y * h)
