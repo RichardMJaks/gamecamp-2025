@@ -9,15 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://p7clqbwapl8w" path="res://magnet_vol2/north_particle.png" id="5_8ohhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kh203"]
-size = Vector2(70, 116)
+size = Vector2(64, 32)
 
 [sub_resource type="Gradient" id="Gradient_j61ub"]
 colors = PackedColorArray(0.492046, 0.698031, 0.999999, 0.356863, 0.594277, 0.758817, 1, 0.109804)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8ohhs"]
 gradient = SubResource("Gradient_j61ub")
-width = 70
-height = 116
+height = 32
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
 
@@ -41,7 +40,7 @@ curve = SubResource("Curve_rr38n")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ra4g"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(30, 53, 1)
+emission_box_extents = Vector3(27, 11, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
@@ -66,6 +65,7 @@ script = ExtResource("2_kh203")
 collider = NodePath("../CollisionShape2D")
 north_gradient = SubResource("Gradient_j61ub")
 south_gradient = SubResource("Gradient_qch6w")
+metadata/_edit_lock_ = true
 
 [node name="Particles" type="GPUParticles2D" parent="." node_paths=PackedStringArray("collider")]
 position = Vector2(24, 21)
@@ -79,3 +79,4 @@ north_particle = ExtResource("5_8ohhs")
 south_color = Color(1, 0, 0, 1)
 north_color = Color(0, 0.713726, 1, 1)
 particles_material = ExtResource("5_5ra4g")
+metadata/_edit_lock_ = true

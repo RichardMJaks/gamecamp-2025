@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="1_1uwqr"]
 [ext_resource type="Texture2D" uid="uid://g12g5gla7dad" path="res://Cave Platformer Tileset [16x16][FREE] - RottingPixels/cave-platformer-tileset-16x16.png" id="2_lvjdj"]
-[ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://player/magnet_vol2/radial_magnet.tscn" id="5_obyai"]
+[ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet/radial_magnet.tscn" id="5_obyai"]
 [ext_resource type="PackedScene" uid="uid://cfjldb6u0snqw" path="res://Scenes/Magnets/floor_magnet.tscn" id="8_pk40j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdi1l"]
@@ -112,11 +112,12 @@ sources/0 = SubResource("TileSetAtlasSource_rdi1l")
 
 [node name="Player" parent="." instance=ExtResource("1_1uwqr")]
 position = Vector2(180, 459)
+spawn_position = null
 speed = 15.0
 acceleration_time = 0.3
-deceleration_time = 0.1
+deceleration_time = null
 jump_height = 10.0
-gravity_direction = Vector2i(0, 1)
+gravity_direction = null
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(586, 386)

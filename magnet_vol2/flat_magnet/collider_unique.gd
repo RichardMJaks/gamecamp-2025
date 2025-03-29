@@ -1,5 +1,12 @@
+@tool
 extends CollisionShape2D
 
-func _ready() -> void:
-	shape = RectangleShape2D.new()
-	shape.size = Vector2.ONE * GlobalVars.su
+@export var shape_size: Vector2 = Vector2.ONE
+
+func _enter_tree() -> void:
+	if Engine.is_editor_hint():
+		shape = RectangleShape2D.new()
+		shape.size = shape_size
+
+func _process(_delta: float) -> void:
+	shape_size = shape.size
