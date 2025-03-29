@@ -1,0 +1,75 @@
+[gd_scene load_steps=15 format=3 uid="uid://drvxfx2cgjfaq"]
+
+[ext_resource type="Script" uid="uid://bwxcxd3ci7mve" path="res://magnet_vol2/flat_magnet/magnet_floor.gd" id="1_02ev6"]
+[ext_resource type="Script" uid="uid://cokk0p0umguea" path="res://magnet_vol2/flat_magnet/magnet_gradient_floor.gd" id="2_kh203"]
+[ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="3_j61ub"]
+[ext_resource type="Script" uid="uid://c400vfut8b5ws" path="res://magnet_vol2/flat_magnet/particles.gd" id="4_qch6w"]
+[ext_resource type="Texture2D" uid="uid://p7clqbwapl8w" path="res://magnet_vol2/north_particle.png" id="5_8ohhs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh203"]
+size = Vector2(70.75, 59)
+
+[sub_resource type="Gradient" id="Gradient_j61ub"]
+colors = PackedColorArray(0.492046, 0.698031, 0.999999, 0.356863, 0.594277, 0.758817, 1, 0.109804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_by7wj"]
+gradient = SubResource("Gradient_j61ub")
+width = 70
+height = 59
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_qch6w"]
+colors = PackedColorArray(1, 0.21268, 0.159696, 0.47451, 1, 0.247059, 0.188235, 0.164706)
+
+[sub_resource type="Curve" id="Curve_8ohhs"]
+_data = [Vector2(0.00269542, 0.235294), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ra4g"]
+curve = SubResource("Curve_8ohhs")
+
+[sub_resource type="Curve" id="Curve_rr38n"]
+_data = [Vector2(0, 0), 0.0, 4.4562, 0, 0, Vector2(1, 0.597164), -0.686939, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
+curve = SubResource("Curve_rr38n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ra4g"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(30.375, 24.5, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[node name="FlatMagnet" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_02ev6")
+magnet_direction = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_kh203")
+
+[node name="Gradient" type="Sprite2D" parent="." node_paths=PackedStringArray("collider")]
+texture = SubResource("GradientTexture2D_by7wj")
+script = ExtResource("2_kh203")
+collider = NodePath("../CollisionShape2D")
+north_gradient = SubResource("Gradient_j61ub")
+south_gradient = SubResource("Gradient_qch6w")
+
+[node name="Particles" type="GPUParticles2D" parent="." node_paths=PackedStringArray("collider")]
+amount = 20
+texture = ExtResource("5_8ohhs")
+process_material = SubResource("ParticleProcessMaterial_5ra4g")
+script = ExtResource("4_qch6w")
+collider = NodePath("../CollisionShape2D")
+south_particle = ExtResource("3_j61ub")
+north_particle = ExtResource("5_8ohhs")
+south_color = Color(1, 0, 0, 1)
+north_color = Color(0, 0.713726, 1, 1)

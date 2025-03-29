@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://citxuu4ptppu8" path="res://Scripts/level.gd" id="1_m821y"]
 [ext_resource type="Texture2D" uid="uid://g12g5gla7dad" path="res://Cave Platformer Tileset [16x16][FREE] - RottingPixels/cave-platformer-tileset-16x16.png" id="1_o7q03"]
-[ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet.tscn" id="2_y5x4s"]
+[ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_y5x4s"]
 [ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet.tscn" id="3_hx7as"]
 [ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="4_hx7as"]
 [ext_resource type="Script" uid="uid://cm6s0fnowd2ji" path="res://Scripts/game_controller.gd" id="5_8yhuf"]

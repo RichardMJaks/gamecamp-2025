@@ -1,0 +1,23 @@
+@tool
+extends GPUParticles2D
+
+@export var collider: CollisionShape2D
+@export var south_particle: Texture2D
+@export var north_particle: Texture2D
+@export var south_color: Color
+@export var north_color: Color
+
+func _process(delta: float) -> void:
+	_apply_particle()
+	var box_size: Vector2 = collider.shape.size
+	process_material.emission_box_extents.x = box_size.x / 2 - 5
+	process_material.emission_box_extents.y = box_size.y / 2 - 5
+
+
+func _apply_particle():
+	if owner.pole == GlobalVars.POLE.NORTH:
+		texture = north_particle
+		process_material.color = north_color
+	if owner.pole == GlobalVars.POLE.SOUTH:
+		texture = south_particle
+		process_material.color = south_color
