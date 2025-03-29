@@ -92,9 +92,8 @@ func _trigger_floor_magnet_action() -> void:
 	if not player.current_magnet is FloorMagnet:
 		return
 	# We can fairly assume that player is not on floor when not being attracted
-	# no, we cannot :)
-	#if not player.is_on_floor():
-		#return
+	if not player.is_on_floor():
+		return
 
 	change_state.emit(floor_magnet_state)
 
@@ -106,7 +105,7 @@ func trigger_radial_magnet_action() -> void:
 	if not player.current_magnet is RadialMagnet:
 		return
 	var poles_different = player.current_pole != player.current_magnet.pole
-	if poles_different:
+	if not poles_different:
 		change_state.emit(radial_magnet_state)
 		return
 
@@ -116,7 +115,7 @@ func _handle_floor_magnet() -> void:
 		return
 	var magnet_gravity_direction = player.current_magnet.magnet_gravity_direction
 	var poles_different: bool = player.current_pole != player.current_magnet.pole 
-	if poles_different:
+	if not poles_different:
 		player.gravity_direction = magnet_gravity_direction
 	else:
 		player.gravity_direction = -magnet_gravity_direction

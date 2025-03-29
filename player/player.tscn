@@ -2,21 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bt4oph17ec2nu" path="res://player/fsm/fsm.gd" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://ptpjr0mpv1u8" path="res://player/sprites/PenguinBlue.png" id="2_g6k8r"]
+[ext_resource type="Script" uid="uid://buwvbiq0ioyxy" path="res://player/sprite_rotator.gd" id="3_boad6"]
 [ext_resource type="Script" uid="uid://dcwvuoxvxlfmy" path="res://player/fsm/states/move_state.gd" id="3_yw30f"]
 [ext_resource type="Script" uid="uid://px1mh8b1hl2l" path="res://player/fsm/states/floor_magnet_state.gd" id="4_yw30f"]
 [ext_resource type="Script" uid="uid://bubvej7er7kn7" path="res://player/fsm/states/radial_magnet_state.gd" id="5_qjkh3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
-
-[sub_resource type="Gradient" id="Gradient_oul6g"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rkbax"]
-gradient = SubResource("Gradient_oul6g")
-width = 19
-height = 29
+[sub_resource type="CircleShape2D" id="CircleShape2D_boad6"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
-radius = 15.0
+radius = 11.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state")]
 script = ExtResource("1_oul6g")
@@ -27,12 +23,15 @@ gravity_direction = Vector2i(0, -1)
 radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_oul6g")
+visible = false
+shape = SubResource("CircleShape2D_boad6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_rkbax")
+texture = ExtResource("2_g6k8r")
+script = ExtResource("3_boad6")
 
 [node name="AttractionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -69,10 +68,6 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 script = ExtResource("5_qjkh3")
 move_state = NodePath("../move_state")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-position_smoothing_enabled = true
 
 [connection signal="area_entered" from="AttractionArea" to="." method="_on_entered_magnet_range"]
 [connection signal="area_exited" from="AttractionArea" to="." method="_on_exited_magnet_range"]
