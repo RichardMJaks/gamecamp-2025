@@ -674,7 +674,7 @@ shape = SubResource("CircleShape2D_boad6")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 4
+frame = 3
 script = ExtResource("3_boad6")
 
 [node name="AttractionArea" type="Area2D" parent="."]
@@ -705,8 +705,6 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 [node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer")]
 script = ExtResource("4_yw30f")
 move_state = NodePath("../move_state")
-travel_distance = 4.0
-travel_time = 0.2
 timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 

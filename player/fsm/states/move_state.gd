@@ -34,6 +34,9 @@ func __physics_process(delta: float) -> void:
 	trigger_radial_magnet_action()
 	# Update player's up direction based on gravity
 	player.up_direction = -player.gravity_direction	
+	
+	if player.is_on_floor():
+		player.velocity = player.velocity.normalized() * min(player.speed, player.velocity.length())
 
 # !! TREAD CAREFULLY IN THIS REGION !!
 # (or better yet, save your braincells and never open it)

@@ -2,9 +2,8 @@ extends FSMState
 
 @onready var player: Player = owner
 @export var move_state: FSMState
-@export var travel_distance: float = 5
-@export var travel_time: float = 0.5
 @export var timer: Timer
+@export var launch_force: float = 20
 
 func _ready() -> void:
 	timer.timeout.connect(
@@ -17,19 +16,11 @@ func enter() -> void:
 func _launch() -> void:
 	# Add launch velocity
 	print("Launched")
-	var inital_velocity = _calculate_velocity()
 	var dir = player.current_magnet.magnet_gravity_direction
-	player.velocity = inital_velocity * dir
-
-	# Start timer to exit this state
-	timer.wait_time = travel_time
-	timer.start()
+	player.velocity += launch_force * GlobalVars.su * dir
+	player.position += player.velocity.normalized() * 0.001
+	change_state.emit(move_state)
 
 func exit() -> void:
 	# Clamp the speed at the exit to maximum player speed
-	timer.stop()
 	player.velocity = player.velocity.normalized() * min(player.velocity.length(), player.speed)
-
-func _calculate_velocity() -> float:
-	var real_distance: float = travel_distance * GlobalVars.su
-	return real_distance / travel_time
