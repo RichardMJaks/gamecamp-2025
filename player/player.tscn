@@ -673,7 +673,7 @@ shape = SubResource("CircleShape2D_boad6")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 1
+frame = 3
 script = ExtResource("3_boad6")
 
 [node name="AttractionArea" type="Area2D" parent="."]
