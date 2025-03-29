@@ -23,7 +23,6 @@ script = ExtResource("1_oul6g")
 speed = 800.0
 acceleration_time = 0.5
 deceleration_time = 0.3
-jump_height = 1000.0
 gravity_direction = Vector2i(0, -1)
 radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 
@@ -70,6 +69,9 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 script = ExtResource("5_qjkh3")
 move_state = NodePath("../move_state")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [connection signal="area_entered" from="AttractionArea" to="." method="_on_entered_magnet_range"]
 [connection signal="area_exited" from="AttractionArea" to="." method="_on_exited_magnet_range"]

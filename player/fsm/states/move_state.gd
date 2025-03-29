@@ -88,8 +88,9 @@ func _trigger_floor_magnet_action() -> void:
 	if not player.current_magnet is FloorMagnet:
 		return
 	# We can fairly assume that player is not on floor when not being attracted
-	if not player.is_on_floor():
-		return
+	# no, we cannot :)
+	#if not player.is_on_floor():
+		#return
 
 	change_state.emit(floor_magnet_state)
 
