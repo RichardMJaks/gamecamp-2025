@@ -16,6 +16,7 @@ var rotation_distance: float = 0:
 var rotation_direction: int = 0
 var rotation_speed: float = 0
 var magnet_position: Vector2 = Vector2.ZERO
+@export var ejection_force: float = 10
 var ejecting: bool = false
 
 func enter() -> void:
@@ -40,7 +41,7 @@ func _handle_ejection() -> void:
 	# We can assume that this will switch the poles to match
 	if Input.is_action_just_pressed(&"a_switch") and not ejecting:
 		var ejection_direction = rotation_vector.rotated(PI/2*rotation_direction)
-		player.velocity = ejection_direction * player.get_gravity().y
+		player.velocity = ejection_direction * ejection_force * GlobalVars.su
 		ejecting = true
 
 	if ejecting and not player.current_magnet:

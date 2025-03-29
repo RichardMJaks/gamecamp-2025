@@ -674,7 +674,7 @@ shape = SubResource("CircleShape2D_boad6")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 3
+frame = 4
 script = ExtResource("3_boad6")
 
 [node name="AttractionArea" type="Area2D" parent="."]
@@ -716,6 +716,7 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 script = ExtResource("5_qjkh3")
 move_state = NodePath("../move_state")
 custom_rotation_speed = 7.0
+ejection_force = 20.0
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
