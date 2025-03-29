@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Gamecamp 2025"
-run/main_scene="uid://daeu7o3vialep"
+run/main_scene="uid://c3xrj33oh73lp"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

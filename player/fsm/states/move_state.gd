@@ -45,7 +45,7 @@ func _accelerate_player(dir: Vector2i, delta) -> void:
 	if player.gravity_direction.x == 0 and dir.x:
 		_apply_acceleration(dir.x, delta, Vector2.RIGHT)
 	# Vertical movement
-	elif dir.y:
+	elif player.gravity_direction.y == 0 and dir.y:
 		_apply_acceleration(dir.y, delta, Vector2.DOWN)
 
 # Applies acceleration with respect to current movement axis

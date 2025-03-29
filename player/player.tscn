@@ -71,6 +71,7 @@ move_state = NodePath("../move_state")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position_smoothing_enabled = true
 
 [connection signal="area_entered" from="AttractionArea" to="." method="_on_entered_magnet_range"]
