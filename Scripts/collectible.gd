@@ -10,7 +10,7 @@ var is_collected = false
 func _ready():
 	add_to_group("collectibles")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not is_collected:
 		for body in get_overlapping_bodies():
 			if body.is_in_group("player"):

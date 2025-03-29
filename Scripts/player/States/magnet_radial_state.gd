@@ -67,7 +67,7 @@ func physics_update(delta: float) -> void:
 		launch_player(1.0)  # Normal launch direction
 
 # Lerp the player toward the orbital position
-func lerp_to_orbit(delta: float) -> void:
+func lerp_to_orbit(_delta: float) -> void:
 	var to_magnet = current_magnet.global_position - player.global_position
 	var distance = to_magnet.length()
 	

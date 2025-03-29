@@ -19,6 +19,7 @@ func enter() -> void:
 	var magnet_layer = 4  # Adjust this to your actual magnet layer
 	
 	# Store original masks
+	@warning_ignore("unused_variable")
 	var original_mask = player.collision_mask
 	
 	# Temporarily disable collisions with magnets

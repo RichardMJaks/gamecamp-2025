@@ -116,6 +116,7 @@ func get_total_collectibles():
 	return [collected, total]
 
 func format_time(time_in_seconds):
+	@warning_ignore("integer_division")
 	var minutes = int(time_in_seconds) / 60
 	var seconds = int(time_in_seconds) % 60
 	var msec = int((time_in_seconds - int(time_in_seconds)) * 100)

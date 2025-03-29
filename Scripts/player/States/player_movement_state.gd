@@ -19,7 +19,7 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 
 # Helper methods for common movement patterns
