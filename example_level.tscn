@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet.tscn" id="3_hx7as"]
 [ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="4_hx7as"]
 [ext_resource type="Script" uid="uid://cm6s0fnowd2ji" path="res://Scripts/game_controller.gd" id="5_8yhuf"]
-[ext_resource type="PackedScene" uid="uid://bd87di74w8fww" path="res://Scenes/collectible.tscn" id="6_m821y"]
+[ext_resource type="PackedScene" path="res://Scenes/collectible.tscn" id="6_m821y"]
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="7_ymddn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ah8gq"]
@@ -147,14 +147,6 @@ pole = 0
 [node name="CollisionShape2D" parent="FlatMagnet" index="0"]
 position = Vector2(34.5, 5)
 
-[node name="FlatMagnet3" parent="." instance=ExtResource("2_y5x4s")]
-position = Vector2(50, 273)
-magnet_direction = 0
-pole = 0
-
-[node name="CollisionShape2D" parent="FlatMagnet3" index="0"]
-position = Vector2(34.5, 5)
-
 [node name="FlatMagnet4" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(573, 128)
 magnet_direction = 1
@@ -163,21 +155,10 @@ pole = 0
 [node name="CollisionShape2D" parent="FlatMagnet4" index="0"]
 position = Vector2(34.5, 5)
 
-[node name="FlatMagnet3" parent="." instance=ExtResource("2_y5x4s")]
+[node name="FlatMagnet5" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(50, 273)
 magnet_direction = 0
 pole = 0
-
-[node name="CollisionShape2D" parent="FlatMagnet3" index="0"]
-position = Vector2(34.5, 5)
-
-[node name="FlatMagnet4" parent="." instance=ExtResource("2_y5x4s")]
-position = Vector2(573, 128)
-magnet_direction = 1
-pole = 0
-
-[node name="CollisionShape2D" parent="FlatMagnet4" index="0"]
-position = Vector2(34.5, 5)
 
 [node name="FlatMagnet2" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(105, 94)
@@ -185,15 +166,6 @@ magnet_direction = 2
 
 [node name="CollisionShape2D" parent="FlatMagnet2" index="0"]
 position = Vector2(247, -1)
-shape = SubResource("RectangleShape2D_01x2r")
-
-[node name="FlatMagnet3" parent="." instance=ExtResource("2_y5x4s")]
-position = Vector2(105, 94)
-rotation = 1.5708
-magnet_direction = 0
-
-[node name="CollisionShape2D" parent="FlatMagnet3" index="0"]
-position = Vector2(176, 69)
 shape = SubResource("RectangleShape2D_01x2r")
 
 [node name="Player" parent="." instance=ExtResource("4_hx7as")]
@@ -250,9 +222,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [editable path="FlatMagnet"]
-[editable path="FlatMagnet3"]
-[editable path="FlatMagnet4"]
-[editable path="FlatMagnet3"]
 [editable path="FlatMagnet4"]
 [editable path="FlatMagnet2"]
-[editable path="FlatMagnet3"]
