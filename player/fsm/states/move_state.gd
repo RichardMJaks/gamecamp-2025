@@ -74,10 +74,10 @@ func _apply_gravity(delta: float) -> void:
 func _handle_jump() -> void:
 	if player.gravity_direction.x == 0:
 		if Input.is_action_just_pressed(&"m_jump") and player.is_on_floor():
-			player.velocity.y -= player._get_jump_height(player.jump_height) * player.gravity_direction.y
+			player.velocity.y -= player._get_jump_height(player.jump_height * GlobalVars.su) * player.gravity_direction.y
 	else:
 		if Input.is_action_just_pressed(&"m_jump") and player.is_on_floor():
-			player.velocity.x -= player._get_jump_height(player.jump_height) * player.gravity_direction.x
+			player.velocity.x -= player._get_jump_height(player.jump_height * GlobalVars.su) * player.gravity_direction.x
 #endregion
 
 #region Magnet actions
