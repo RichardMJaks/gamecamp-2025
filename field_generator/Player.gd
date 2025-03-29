@@ -9,7 +9,7 @@ var gravity = 980 * 30
 var jump_force = -4400 * 3
 var air_resistance = 0.02
 var floor_friction = 0.2
-var field_constant = 2500000 * 1.5
+var field_constant = 2500000 * 1.3
 var fields: Dictionary
 var field_applying = Vector2(0, 0)
 
@@ -53,8 +53,11 @@ func _physics_process(delta: float):
 
 	if abs(velocity.x) < max_speed:
 		var xmove = input.x * acceleration * delta
-		if not is_on_floor():
-			xmove *= 0.2
+		if not (is_on_floor()):
+			if is_on_ceiling():
+				xmove *= 10
+			else:
+				xmove *= 0.2	
 		force.x += xmove
 
 	force.y += gravity * delta
