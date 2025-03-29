@@ -7,18 +7,17 @@ var map: TileMapLayer
 var fields: Array[Area2D]
 var debug_arrows: Array[Line2D]
 
-# creates collision boxes in fields, based on tile data "force": Vector2
-func _ready() -> void:
+# returns {tile coord -> force vector}
+func find_forces() -> Dictionary:
 	map = tile_map_scane.instantiate()
 	add_child(map)
 	var forces = {}
 	var cells = map.get_used_cells()
 	for transmitter in cells:
-		print("transmitter:", transmitter)
 		var force = map.get_cell_tile_data(transmitter).get_custom_data("force")
 		if not force:
 			continue # transmitter is not a magnet
-		
+
 		var surrunding = map.get_surrounding_cells(transmitter)
 		for s in surrunding:
 			if s in cells:
@@ -28,14 +27,16 @@ func _ready() -> void:
 				forces[s] = force
 			else:
 				forces[s] += force
-	
-	# now we have map of coord -> field
+	return forces
+
+func generate_collisions(forces: Dictionary):
 	for coord in forces:
 		var force = forces[coord]
 		var local_coord = map.map_to_local(coord)
 		var tile_size = map.tile_set.tile_size
 		var field = field_scene.instantiate()
-		
+		#field.force = force
+
 		var shape = CollisionShape2D.new()
 		shape.position = local_coord
 		shape.shape = RectangleShape2D.new()
@@ -57,6 +58,7 @@ func _ready() -> void:
 
 		shape.add_child(arrow)
 		#################################################
-		pass
-	
-	pass # Replace with function body.
+
+func _ready() -> void:
+	var forces = find_forces()
+	generate_collisions(forces)

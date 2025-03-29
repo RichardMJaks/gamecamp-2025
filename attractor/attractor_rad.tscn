@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnjtj2ehbewm7"]
+[gd_scene load_steps=4 format=3 uid="uid://cxx88468sdxo2"]
 
-[ext_resource type="Script" path="res://attractor/attractor_rad.gd" id="1_cxyel"]
+[ext_resource type="Script" uid="uid://cpgayb7la7buk" path="res://attractor/attractor_rad.gd" id="1_cxyel"]
 [ext_resource type="Material" uid="uid://syxce2o32kcw" path="res://attractor/material_attracor.tres" id="2_k23fb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8jb"]

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c77rd1aglt6tc"]
+[gd_scene load_steps=3 format=3 uid="uid://c77rd1aglt6tc"]
 
 [ext_resource type="Script" uid="uid://c8tqd1q4svgl" path="res://field_generator/field_generator.gd" id="1_qd25d"]
+[ext_resource type="Script" uid="uid://dbbsqn4dh162" path="res://field_generator/player.gd" id="2_wesj7"]
 
 [node name="field_generator" type="Node2D"]
 script = ExtResource("1_qd25d")
+
+[node name="Player" type="Area2D" parent="."]
+script = ExtResource("2_wesj7")
