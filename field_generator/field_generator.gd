@@ -2,61 +2,32 @@ extends Node2D
 
 var tile_map_scane = load("res://field_generator/tile_map_layer.tscn") as PackedScene
 var field_scene = load("res://field_generator/field.tscn") as PackedScene
-
 var map: TileMapLayer
 var fields: Array[Area2D]
-var debug_arrows: Array[Line2D]
+var field_size = 1.45 # multiple of tile size
 
-# creates collision boxes in fields, based on tile data "force": Vector2
-func _ready() -> void:
+func generate_collisions():
 	map = tile_map_scane.instantiate()
 	add_child(map)
-	var forces = {}
 	var cells = map.get_used_cells()
-	for transmitter in cells:
-		print("transmitter:", transmitter)
-		var force = map.get_cell_tile_data(transmitter).get_custom_data("force")
-		if not force:
-			continue # transmitter is not a magnet
-		
-		var surrunding = map.get_surrounding_cells(transmitter)
-		for s in surrunding:
-			if s in cells:
-				continue
 
-			if not s in forces:
-				forces[s] = force
-			else:
-				forces[s] += force
-	
-	# now we have map of coord -> field
-	for coord in forces:
-		var force = forces[coord]
-		var local_coord = map.map_to_local(coord)
-		var tile_size = map.tile_set.tile_size
+	for coord in cells:
+		var charge = map.get_cell_tile_data(coord).get_custom_data("charge")
+		if not charge: continue # not a magnet
+
 		var field = field_scene.instantiate()
-		
+		field.strength = charge
+
 		var shape = CollisionShape2D.new()
-		shape.position = local_coord
-		shape.shape = RectangleShape2D.new()
-		shape.shape.size = tile_size / 2
+		shape.position = map.map_to_local(coord)
+		print(coord, " -> ", map.map_to_local(coord))
+		shape.shape = CircleShape2D.new()
+		shape.shape.radius = map.tile_set.tile_size.x * field_size
+		field.shape = shape
 		field.add_child(shape)
-		
+
 		fields.append(field)
 		add_child(field)
-		
-		## debug ########################################
-		var arrow = Line2D.new()
-		arrow.add_point(Vector2(0,0))
-		arrow.add_point(Vector2(0,0) + force * 20)
-		arrow.width = 2
-		var gradient = Gradient.new()
-		gradient.set_color(0, Color(1, 0, 0))
-		gradient.set_color(1, Color(0, 0, 1))
-		arrow.gradient = gradient
 
-		shape.add_child(arrow)
-		#################################################
-		pass
-	
-	pass # Replace with function body.
+func _ready() -> void:
+	generate_collisions()
