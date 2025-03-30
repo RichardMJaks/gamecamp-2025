@@ -135,4 +135,3 @@ func reset():
 	levels_data = {}
 	current_level_name = ""
 	current_level_index = 0
-	total_levels = 0
