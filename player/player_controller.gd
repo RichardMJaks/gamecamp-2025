@@ -39,7 +39,7 @@ var radial_stuck_fix: bool = false
 @export var color_north: Color
 @export var color_south: Color
 var accel_time_delta: float = 0
-var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
+@export var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 
 func _ready() -> void:
 	add_to_group("player")
