@@ -3,6 +3,7 @@ extends Area2D
 @export var collectible_sprite : Sprite2D
 @export var collectible_collision : CollisionShape2D
 @export var collectible_particles : CPUParticles2D
+@export var collectible_audio : AudioStreamPlayer2D
 
 signal collected
 var is_collected = false
@@ -24,6 +25,11 @@ func collect():
 	GameController.collect_collectible()
 	
 	emit_signal("collected")
+	
+	#Play audio if available
+	if collectible_audio:
+		if !collectible_audio.playing:
+			collectible_audio.play()
 	
 	# Play particle effect if available
 	if collectible_particles:
