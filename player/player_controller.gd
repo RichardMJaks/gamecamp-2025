@@ -53,13 +53,15 @@ func _process(_delta: float) -> void:
 	anim_tree["parameters/SwitchPole/blend_position"] = float(current_pole)
 	anim_tree["parameters/Walk/blend_position"] = float(current_pole)
 	anim_tree["parameters/Flying/blend_position"] = float(current_pole)
+	print(position.y)
 	anim_tree["parameters/conditions/switched_pole"] = false
 	if has_node("%Label"):
 		%Label.text = GlobalVars.POLE.find_key(current_pole)
 	
 	# Debug pole switching
 	if Input.is_action_just_pressed(&"a_switch"):
-		switched.play()
+		if not current_magnet:
+			switched.play()
 		if current_pole == GlobalVars.POLE.NORTH:
 			switch_particles.process_material.color = color_south
 		if current_pole == GlobalVars.POLE.SOUTH:

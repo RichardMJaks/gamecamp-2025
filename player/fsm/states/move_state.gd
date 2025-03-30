@@ -34,10 +34,6 @@ func __physics_process(delta: float) -> void:
 
 	trigger_radial_magnet_action()
 	# Update player's up direction based on gravity
-	#if player.current_magnet and player.current_magnet is FloorMagnet:
-	#	player.up_direction = \
-	#		-player.gravity_direction if player.current_magnet.pole != player.current_pole else player.gravity_direction
-	#else:
 	player.up_direction = -player.gravity_direction	
 	
 	if player.is_on_floor():
@@ -101,8 +97,6 @@ func _trigger_floor_magnet_action() -> void:
 		return
 	# We can fairly assume that player is not on floor when not being attracted
 	if not player.is_on_floor():
-		return
-	if not player.current_pole != player.current_magnet.pole:
 		return
 
 	change_state.emit(floor_magnet_state)
