@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "level_complete_panel")]
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "final_level_complete_panel")]
 script = ExtResource("1_jxero")
 collectibles_label = NodePath("CollectibleCountContainer/CollectibleCount")
 timer_label = NodePath("TimerContainer/LevelTimer")
-level_complete_panel = NodePath("FinalLevelCompletePanel")
+final_level_complete_panel = NodePath("FinalLevelCompletePanel")
 
 [node name="CollectibleCountContainer" type="HBoxContainer" parent="."]
 offset_right = 73.0
@@ -34,6 +34,7 @@ theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Time: 00.00.000"
 
 [node name="FinalLevelCompletePanel" type="Panel" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv3yvssd05u5o"]
+
+[ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="1_qn1rs"]
+
+[node name="Level Stats Box" type="VBoxContainer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LevelNameLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qn1rs")
+text = "Level 1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TimeValueLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qn1rs")
+text = "Time taken: 00.00.000"
+
+[node name="CollectiblesValueLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qn1rs")
+text = "Collectibles: 0/1"
