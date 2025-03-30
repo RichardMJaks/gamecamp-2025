@@ -1,6 +1,7 @@
-[gd_scene load_steps=131 format=3 uid="uid://hm7oj8v2rsqi"]
+[gd_scene load_steps=127 format=3 uid="uid://hm7oj8v2rsqi"]
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://1xp2dovahsx0" path="res://player/launch_particles.tscn" id="2_bjvpn"]
 [ext_resource type="Script" uid="uid://bt4oph17ec2nu" path="res://player/fsm/fsm.gd" id="2_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://dfu2veom07b3j" path="res://player/sprites/PenguinFlyingAnimBlue.png" id="2_knn7v"]
 [ext_resource type="Script" uid="uid://buwvbiq0ioyxy" path="res://player/sprite_rotator.gd" id="3_boad6"]
@@ -21,40 +22,6 @@
 [ext_resource type="AudioStream" uid="uid://c3eq7q8tnkxid" path="res://audio/step.wav" id="17_tqiix"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
-
-[sub_resource type="Gradient" id="Gradient_c35mf"]
-interpolation_mode = 1
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_65viv"]
-gradient = SubResource("Gradient_c35mf")
-width = 16
-height = 16
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
-[sub_resource type="Curve" id="Curve_x7c3f"]
-_data = [Vector2(0, 0.618421), 0.0, 1.36684, 0, 0, Vector2(1, 0), -3.83552, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_bjvpn"]
-curve = SubResource("Curve_x7c3f")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s7qer"]
-particle_flag_disable_z = true
-angle_min = 1.07288e-05
-angle_max = 1.07288e-05
-direction = Vector3(0, 1, 0)
-spread = 30.0
-initial_velocity_min = 10.0
-initial_velocity_max = 12.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -2.23517e-06
-radial_accel_max = -2.23517e-06
-scale_min = 0.1
-scale_max = 0.2
-scale_curve = SubResource("CurveTexture_bjvpn")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1u5o"]
 atlas = ExtResource("2_knn7v")
@@ -946,19 +913,14 @@ anim_tree = NodePath("AnimationTree")
 
 [node name="Particles" type="Node2D" parent="."]
 
-[node name="LaunchParticles" type="GPUParticles2D" parent="Particles"]
+[node name="LaunchParticles" parent="Particles" instance=ExtResource("2_bjvpn")]
 position = Vector2(0, 14)
-emitting = false
-texture = SubResource("GradientTexture2D_65viv")
-lifetime = 0.3
-one_shot = true
-explosiveness = 0.54
-process_material = SubResource("ParticleProcessMaterial_s7qer")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
-animation = &"red_walk"
+animation = &"red_idle"
+frame = 1
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -1003,12 +965,11 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="Timer" type="Timer" parent="StateMachine/floor_magnet_state"]
 
-[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "launch_particles", "camera")]
+[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "camera")]
 script = ExtResource("5_qjkh3")
 move_state = NodePath("../move_state")
 custom_rotation_speed = 7.0
 doing = NodePath("../../Audio/Whoosh")
-launch_particles = NodePath("../../Particles/LaunchParticles")
 camera = NodePath("../../Camera2D")
 shake_intensity = 2.0
 shake_time = 0.4

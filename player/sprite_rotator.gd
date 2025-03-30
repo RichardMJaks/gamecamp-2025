@@ -13,6 +13,9 @@ func _process(delta):
 		if current_rotation != player.up_direction.rotated(PI/2) and player.current_magnet.pole != player.current_pole:
 			rotation_step = 0
 			current_rotation = player.up_direction.rotated(PI/2)
+		if current_rotation != -player.up_direction.rotated(PI/2) and player.current_magnet.pole == player.current_pole:
+			rotation_step = 0
+			current_rotation = -player.up_direction.rotated(PI/2)
 	else:
 		if current_rotation != Vector2.ZERO:
 			rotation_step = 0
