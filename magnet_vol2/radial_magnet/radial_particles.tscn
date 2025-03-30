@@ -10,18 +10,19 @@ script = ExtResource("1_3wn0k")
 
 [node name="OuterRim" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
+visible = false
+emitting = false
 amount = 20
 process_material = ExtResource("2_8pl5v")
 
 [node name="InnerParticlesLeft" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-visible = false
-amount = 40
+amount = 10
 preprocess = 1.0
 process_material = ExtResource("3_geqf6")
 
 [node name="InnerParticlesRight" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-amount = 40
+amount = 10
 preprocess = 1.0
 process_material = ExtResource("4_0stpr")
