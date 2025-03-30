@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://hm7oj8v2rsqi"]
+[gd_scene load_steps=94 format=3 uid="uid://hm7oj8v2rsqi"]
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bt4oph17ec2nu" path="res://player/fsm/fsm.gd" id="2_g1dw6"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dkxrmr3t8ixp" path="res://player/sprites/PenguinSwitchAnim.png" id="6_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://b67b8gyexmej7" path="res://player/sprites/PenguinIdleAnimRed.png" id="7_32hag"]
 [ext_resource type="Texture2D" uid="uid://b5x10obi8hgct" path="res://player/sprites/PenguinWalkAnimRed.png" id="7_wodsf"]
+[ext_resource type="AudioStream" uid="uid://dee5gh5jx042s" path="res://audio/magnetic_hum.ogg" id="13_kb6p2"]
+[ext_resource type="Script" uid="uid://dp1be5tpng3j0" path="res://player/mag_hum.gd" id="13_yllr7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boad6"]
 radius = 8.0
@@ -674,7 +676,7 @@ shape = SubResource("CircleShape2D_boad6")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 3
+frame = 4
 script = ExtResource("3_boad6")
 
 [node name="AttractionArea" type="Area2D" parent="."]
@@ -735,6 +737,18 @@ parameters/Walk/blend_position = 0.374502
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="MagHum" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_kb6p2")
+autoplay = true
+script = ExtResource("13_yllr7")
+fade_in = 0.3
+fade_out = 0.2
+high_pitch = 0.9
+low_volume = -30.0
+high_volume = -10.0
 
 [connection signal="area_entered" from="AttractionArea" to="." method="_on_entered_magnet_range"]
 [connection signal="area_exited" from="AttractionArea" to="." method="_on_exited_magnet_range"]
