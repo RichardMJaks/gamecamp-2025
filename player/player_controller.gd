@@ -35,6 +35,9 @@ var radial_stuck_fix: bool = false
 @export var radial_magnet_state: FSMState
 @export var anim_tree: AnimationTree
 @export var switched: AudioStreamPlayer
+@export var switch_particles: GPUParticles2D
+@export var color_north: Color
+@export var color_south: Color
 var accel_time_delta: float = 0
 var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 
@@ -57,6 +60,12 @@ func _process(_delta: float) -> void:
 	# Debug pole switching
 	if Input.is_action_just_pressed(&"a_switch"):
 		switched.play()
+		if current_pole == GlobalVars.POLE.NORTH:
+			switch_particles.process_material.color = color_south
+		if current_pole == GlobalVars.POLE.SOUTH:
+			switch_particles.process_material.color = color_north
+		switch_particles.restart()
+		switch_particles.emitting = true
 		@warning_ignore("int_as_enum_without_cast")
 		current_pole = 1 - current_pole
 		print("Switched pole to: ", GlobalVars.POLE.find_key(current_pole))

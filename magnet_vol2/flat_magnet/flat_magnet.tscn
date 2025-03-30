@@ -11,16 +11,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ohhs"]
 size = Vector2(16, 16)
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ra4g"]
+
 [sub_resource type="Gradient" id="Gradient_j61ub"]
 offsets = PackedFloat32Array(0, 0.266667, 0.783333, 1)
 colors = PackedColorArray(0.4606, 0.7802, 0.94, 0.45098, 0, 0.4, 1, 0.356863, 0.0182, 0.37492, 0.91, 0.133333, 0.13, 0.278, 0.5, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ra4g"]
-gradient = SubResource("Gradient_j61ub")
-width = 16
-height = 16
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_qch6w"]
 offsets = PackedFloat32Array(0.00793651, 0.345833, 0.9, 1)
@@ -43,7 +38,7 @@ curve = SubResource("Curve_rr38n")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rr38n"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 3, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")

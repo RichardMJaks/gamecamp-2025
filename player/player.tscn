@@ -17,9 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b67b8gyexmej7" path="res://player/sprites/PenguinIdleAnimRed.png" id="7_32hag"]
 [ext_resource type="Texture2D" uid="uid://b5x10obi8hgct" path="res://player/sprites/PenguinWalkAnimRed.png" id="7_wodsf"]
 [ext_resource type="AudioStream" uid="uid://dee5gh5jx042s" path="res://audio/magnetic_hum.ogg" id="13_kb6p2"]
-[ext_resource type="Script" path="res://player/mag_hum.gd" id="13_yllr7"]
+[ext_resource type="Script" uid="uid://dp1be5tpng3j0" path="res://player/mag_hum.gd" id="13_yllr7"]
 [ext_resource type="PackedScene" uid="uid://2huyglqjk7el" path="res://player/sprites/launch_particles/launch_particles.tscn" id="14_x7c3f"]
-[ext_resource type="Script" path="res://player/shaker.gd" id="15_65viv"]
+[ext_resource type="Script" uid="uid://bpybw4dwc5j2o" path="res://player/shaker.gd" id="15_65viv"]
 [ext_resource type="AudioStream" uid="uid://c3eq7q8tnkxid" path="res://audio/step.wav" id="17_tqiix"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
@@ -903,7 +903,7 @@ random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("18_e7oew")
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles")]
 script = ExtResource("1_oul6g")
 speed = 10.0
 acceleration_time = 0.5
@@ -913,6 +913,9 @@ gravity_direction = Vector2i(0, -1)
 radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 anim_tree = NodePath("AnimationTree")
 switched = NodePath("Audio/Switch")
+switch_particles = NodePath("Particles/SwitchParticles")
+color_north = Color(0.00999999, 0.406, 1, 1)
+color_south = Color(1, 0, 0, 1)
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -925,7 +928,7 @@ position = Vector2(0, 8)
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 5
+frame = 3
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
