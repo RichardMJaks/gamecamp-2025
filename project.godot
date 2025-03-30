@@ -13,6 +13,7 @@ config_version=5
 config/name="Gamecamp 2025"
 run/main_scene="uid://pbqphvyiooiw"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://clohy8oi8nh1j"
 config/icon="res://icon.svg"
 
 [autoload]
