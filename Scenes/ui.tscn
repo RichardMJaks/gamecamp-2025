@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=5 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
+[ext_resource type="Script" uid="uid://c8ifde6ksrs56" path="res://Scripts/final_level_stats_UI.gd" id="3_nf4gj"]
+[ext_resource type="PackedScene" uid="uid://kpxmsx8m6jy0" path="res://Scenes/level_stats_box.tscn" id="4_2246s"]
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "level_complete_panel")]
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "final_level_complete_panel")]
 script = ExtResource("1_jxero")
 collectibles_label = NodePath("CollectibleCountContainer/CollectibleCount")
 timer_label = NodePath("TimerContainer/LevelTimer")
-level_complete_panel = NodePath("FinalLevelCompletePanel")
+final_level_complete_panel = NodePath("FinalLevelCompletePanel")
 
 [node name="CollectibleCountContainer" type="HBoxContainer" parent="."]
 offset_right = 73.0
@@ -16,14 +18,13 @@ offset_bottom = 23.0
 [node name="CollectibleCount" type="Label" parent="CollectibleCountContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Vibes: 0"
+text = "Nuts: 0"
 
 [node name="TimerContainer" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -440.0
-offset_right = -320.0
+offset_left = -122.0
 offset_bottom = 23.0
 grow_horizontal = 0
 alignment = 2
@@ -33,7 +34,22 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Time: 00.00.000"
 
-[node name="FinalLevelCompletePanel" type="Panel" parent="."]
+[node name="PauseMenuPanel" type="Panel" parent="."]
+visible = false
+offset_left = 260.0
+offset_top = 300.0
+offset_right = 300.0
+offset_bottom = 340.0
+
+[node name="MainMenu Button" type="Button" parent="PauseMenuPanel"]
+layout_mode = 2
+offset_right = 92.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("2_qdvrb")
+text = "Main Menu"
+
+[node name="FinalLevelCompletePanel" type="Panel" parent="." node_paths=PackedStringArray("level_stats_container", "total_stats_time", "total_stats_collectibles")]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -41,6 +57,11 @@ offset_left = -320.0
 offset_right = 320.0
 offset_bottom = 360.0
 grow_horizontal = 2
+script = ExtResource("3_nf4gj")
+level_stats_container = NodePath("Level Stats Container")
+level_stats_template = ExtResource("4_2246s")
+total_stats_time = NodePath("Total Stats Container/Total Time Label")
+total_stats_collectibles = NodePath("Total Stats Container/Total Collectibles Label")
 
 [node name="End Title Label" type="Label" parent="FinalLevelCompletePanel"]
 layout_mode = 1
@@ -52,7 +73,8 @@ offset_top = 28.31
 offset_right = 91.5
 offset_bottom = 77.96
 grow_horizontal = 2
-text = "Congratualations!!!
+theme_override_fonts/font = ExtResource("2_qdvrb")
+text = "Congratulations!!!
 You've saved the world!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -66,6 +88,7 @@ offset_bottom = 140.0
 
 [node name="Level Stats Title" type="Label" parent="FinalLevelCompletePanel/Level Stats Container"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Level Stats:"
 
 [node name="Total Stats Container" type="VBoxContainer" parent="FinalLevelCompletePanel"]
@@ -81,22 +104,34 @@ grow_horizontal = 0
 
 [node name="Total Stats Label" type="Label" parent="FinalLevelCompletePanel/Total Stats Container"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Total Stats:"
 
 [node name="Total Time Label" type="Label" parent="FinalLevelCompletePanel/Total Stats Container"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Time taken: 00.00.000"
 
 [node name="Total Collectibles Label" type="Label" parent="FinalLevelCompletePanel/Total Stats Container"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Nuts found: 0 "
 
-[node name="Restart Button" type="Button" parent="FinalLevelCompletePanel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="VBoxContainer" type="VBoxContainer" parent="FinalLevelCompletePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 300.0
+offset_right = 60.0
+offset_bottom = 352.0
+grow_horizontal = 2
 
-[node name="MainMenu Button" type="Button" parent="FinalLevelCompletePanel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="MainMenu Button" type="Button" parent="FinalLevelCompletePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
+text = "Main Menu"
+
+[connection signal="pressed" from="PauseMenuPanel/MainMenu Button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="FinalLevelCompletePanel/VBoxContainer/MainMenu Button" to="." method="_on_main_menu_button_pressed"]

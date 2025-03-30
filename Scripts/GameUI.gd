@@ -6,10 +6,6 @@ extends CanvasLayer
 @export var level_complete_panel : Panel
 @export var final_level_complete_panel : Panel
 
-func _ready():
-	# Hide level complete panel initially
-	level_complete_panel.visible = false
-
 func _process(delta):
 	# Update timer if level is active
 	if GameController and GameController.is_level_active:
@@ -24,7 +20,7 @@ func _on_collectible_collected(new_count):
 func update_collectible_count_UI(new_count):
 	if GameController and GameController.current_level_name != "":
 		var total = GameController.levels_data[GameController.current_level_name].total_collectibles
-		collectibles_label.text = "Vibes: " + str(new_count) + " / " + str(total)
+		collectibles_label.text = "Nuts: " + str(new_count) + " / " + str(total)
 
 func _on_player_died(death_count):
 	#death_counter_label.text = "Deaths: " + str(death_count)
@@ -44,15 +40,9 @@ func _on_level_completed(level_data):
 		await get_tree().create_timer(1.0).timeout
 		level_complete_panel.visible = false
 
-func _on_final_level_completed(levels_data):
+func _on_final_level_completed():
 	if final_level_complete_panel:
-		for level_data in levels_data:
-			
-			pass
-		# Show level complete panel
 		final_level_complete_panel.visible = true
-		
-		# Update level complete info
-		#$LevelCompletePanel/VBoxContainer/TimeValue.text = "Time: %s" % GameController.format_time(level_data.time_spent)
-		#$LevelCompletePanel/VBoxContainer/CollectiblesValue.text = "Collectibles: %d / %d" % [level_data.collectibles_count, level_data.total_collectibles]
-		#$LevelCompletePanel/VBoxContainer/DeathsValue.text = "Deaths: %d" % level_data.death_count
+	
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://HUD/main_menu.tscn")
