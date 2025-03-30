@@ -9,17 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://p7clqbwapl8w" path="res://magnet_vol2/north_particle.png" id="7_qfdsq"]
 [ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="8_4qe2y"]
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qfdsq"]
+fill = 1
+
 [sub_resource type="Gradient" id="Gradient_j61ub"]
 offsets = PackedFloat32Array(0, 0.0875, 0.823678, 1)
 colors = PackedColorArray(0.492046, 0.698031, 0.999999, 0.356863, 0.32, 0.592, 1, 0.356863, 0.35, 0.61, 1, 0.109804, 0.596078, 0.756863, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qfdsq"]
-gradient = SubResource("Gradient_j61ub")
-width = 48
-height = 48
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Gradient" id="Gradient_qch6w"]
 offsets = PackedFloat32Array(0.0166667, 0.0833333, 0.828715, 1)

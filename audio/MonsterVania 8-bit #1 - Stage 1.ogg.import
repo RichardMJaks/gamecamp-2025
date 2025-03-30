@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ceaweo0b0y3mi"
+path="res://.godot/imported/MonsterVania 8-bit #1 - Stage 1.ogg-3e2850b9b955b5a5dd6f801f9020ab35.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/MonsterVania 8-bit #1 - Stage 1.ogg"
+dest_files=["res://.godot/imported/MonsterVania 8-bit #1 - Stage 1.ogg-3e2850b9b955b5a5dd6f801f9020ab35.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

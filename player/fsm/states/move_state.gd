@@ -9,6 +9,7 @@ extends FSMState
 @onready var player: Player = owner
 @export var floor_magnet_state: FSMState
 @export var radial_magnet_state: FSMState
+@export var doing: AudioStreamPlayer
 var radial_stuck_fix: bool = false
 
 func __physics_process(delta: float) -> void:
@@ -135,10 +136,12 @@ func _handle_radial_magnet() -> void:
 		return
 	var poles_different: bool = player.current_pole != player.current_magnet.pole 
 	if not poles_different and not radial_stuck_fix:
+		doing.play() 
 		radial_stuck_fix = true
 		player.velocity = -player.velocity.normalized() * radial_magnet_state.ejection_force * GlobalVars.su
 
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:
+	doing.play()
 	var magnet_position = magnet.global_position
 	var dir_to_player = (magnet_position - player.global_position).normalized()
 	var velocity_normalized = player.velocity.normalized()

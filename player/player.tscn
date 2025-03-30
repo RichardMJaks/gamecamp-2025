@@ -920,7 +920,7 @@ position = Vector2(0, 14)
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 5
+frame = 3
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -945,10 +945,11 @@ offset_bottom = 23.0
 script = ExtResource("2_g1dw6")
 starting_state = NodePath("move_state")
 
-[node name="move_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("floor_magnet_state", "radial_magnet_state")]
+[node name="move_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("floor_magnet_state", "radial_magnet_state", "doing")]
 script = ExtResource("3_yw30f")
 floor_magnet_state = NodePath("../floor_magnet_state")
 radial_magnet_state = NodePath("../radial_magnet_state")
+doing = NodePath("../../Audio/Doing")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer", "whoosh", "launch_particles", "camera")]
@@ -1010,8 +1011,7 @@ script = ExtResource("13_yllr7")
 fade_in = 0.3
 fade_out = 0.2
 high_pitch = 0.9
-low_volume = -30.0
-high_volume = -10.0
+low_volume = -20.0
 
 [node name="Stepping" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("17_tqiix")
