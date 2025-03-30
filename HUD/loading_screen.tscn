@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://djscy8dmu1lqp"]
+
+[ext_resource type="Script" uid="uid://5f7fk2o2fr6c" path="res://HUD/shader_loader.gd" id="1_cogpi"]
+[ext_resource type="PackedScene" uid="uid://1xp2dovahsx0" path="res://player/launch_particles.tscn" id="2_mccoc"]
+[ext_resource type="PackedScene" uid="uid://cmyav53njcryj" path="res://level_1.tscn" id="2_qeupt"]
+[ext_resource type="Material" uid="uid://bdhqe603jkeyr" path="res://magnet_vol2/radial_magnet/left_particles.tres" id="3_qeupt"]
+[ext_resource type="Material" uid="uid://duma6x74gg72f" path="res://magnet_vol2/radial_magnet/outer_rim.tres" id="4_puisq"]
+[ext_resource type="Material" uid="uid://bvh6nr7cv40ay" path="res://magnet_vol2/radial_magnet/right_particles.tres" id="5_w8570"]
+[ext_resource type="Material" uid="uid://brt8wmr741sby" path="res://magnet_vol2/flat_magnet/particles.tres" id="6_t6d2l"]
+[ext_resource type="Script" uid="uid://c8oi0cmjrfe1f" path="res://HUD/loading_bar.gd" id="7_vfuos"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cogpi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mccoc"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShaderLoader" type="Node2D" parent="."]
+script = ExtResource("1_cogpi")
+next_scene = ExtResource("2_qeupt")
+loadable_shaders = Array[PackedScene]([ExtResource("2_mccoc")])
+loadable_particle_processors = Array[ParticleProcessMaterial]([ExtResource("3_qeupt"), ExtResource("4_puisq"), ExtResource("5_w8570"), ExtResource("6_t6d2l")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14, 0.14, 0.14, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/CenterContainer" node_paths=PackedStringArray("shader_loader")]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_cogpi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mccoc")
+value = 50.0
+show_percentage = false
+script = ExtResource("7_vfuos")
+shader_loader = NodePath("../../../ShaderLoader")
