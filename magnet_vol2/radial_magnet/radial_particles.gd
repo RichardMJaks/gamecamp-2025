@@ -26,11 +26,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if magnet.rotation_direction == 1:
-		left_rotating.visible = true
-		right_rotating.visible = false
+		left_rotating.emitting = true
+		right_rotating.emitting = false
 	if magnet.rotation_direction == -1:
-		left_rotating.visible = false
-		right_rotating.visible = true
+		left_rotating.emitting = false
+		right_rotating.emitting = true
 
 	if magnet.pole == GlobalVars.POLE.NORTH:
 		left_rotating.texture = north_particles
