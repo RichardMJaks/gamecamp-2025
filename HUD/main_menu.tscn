@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://pbqphvyiooiw"]
+[gd_scene load_steps=10 format=3 uid="uid://pbqphvyiooiw"]
 
 [ext_resource type="Script" uid="uid://c28lcgo5t42sq" path="res://HUD/main_menu.gd" id="1_c7jvv"]
 [ext_resource type="PackedScene" uid="uid://djscy8dmu1lqp" path="res://HUD/loading_screen.tscn" id="2_q1pp4"]
+[ext_resource type="Texture2D" uid="uid://biv76r2c6dnpw" path="res://MAGNETROIDV2.png" id="3_l7hc5"]
+[ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="3_q1pp4"]
+[ext_resource type="Texture2D" uid="uid://citekf2b3rbt3" path="res://ButtonPanel.png" id="4_jxfs0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxfs0"]
-bg_color = Color(0.20085, 0.26, 0.0234, 1)
+[sub_resource type="Gradient" id="Gradient_q1pp4"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0, 0, 0.59, 1, 0.56, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jxfs0"]
+gradient = SubResource("Gradient_q1pp4")
+width = 640
+height = 360
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7hc5"]
+texture = SubResource("GradientTexture2D_jxfs0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mg70j"]
+texture = ExtResource("4_jxfs0")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,20 +39,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jxfs0")
+theme_override_styles/panel = SubResource("StyleBoxTexture_l7hc5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
 [node name="TopMargin" type="Control" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 65.725)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 51.845)
+layout_mode = 2
+texture = ExtResource("3_l7hc5")
+stretch_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="play" type="Button" parent="PanelContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(50, 27.065)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_q1pp4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mg70j")
 text = "PLAY"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]

@@ -903,7 +903,7 @@ random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("18_e7oew")
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles") groups=["player"]]
 script = ExtResource("1_oul6g")
 speed = 10.0
 acceleration_time = 0.5
@@ -928,7 +928,7 @@ position = Vector2(0, 8)
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 3
+frame = 4
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
