@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://gaayqpy38q1q"]
+
+[ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="1_h61sl"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Transition" parent="." instance=ExtResource("1_h61sl")]
+visible = false
+layout_mode = 1
+offset_right = 640.0
+offset_bottom = 360.0

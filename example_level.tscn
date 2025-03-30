@@ -137,7 +137,7 @@ colors = PackedColorArray(1, 0.21268, 0.159696, 0.47451, 1, 0.247059, 0.188235, 
 gradient = SubResource("Gradient_qch6w")
 width = 16
 height = 16
-fill_from = Vector2(1, 0)
+fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="Curve" id="Curve_8ohhs"]
@@ -236,6 +236,7 @@ position = Vector2(408, 175)
 
 [node name="FlatMagnet" parent="." instance=ExtResource("2_y5x4s")]
 position = Vector2(430, 302)
+magnet_direction = 3
 pole = 0
 
 [node name="CollisionShape2D" parent="FlatMagnet" index="0"]

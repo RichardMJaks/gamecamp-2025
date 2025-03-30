@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://01cpn5ssplvy"]
+
+[ext_resource type="Shader" uid="uid://cv5opgivx213p" path="res://transitioner/transition.gdshader" id="1_g02ia"]
+[ext_resource type="Script" uid="uid://6k1ubk01luvx" path="res://transitioner/transition.gd" id="2_aogsb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wc5jw"]
+shader = ExtResource("1_g02ia")
+shader_parameter/time = 1.0
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="Transition" type="ColorRect"]
+material = SubResource("ShaderMaterial_wc5jw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_aogsb")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmqxmxyre8glw"]
+
+[sub_resource type="Environment" id="Environment_wvvci"]
+background_mode = 1
+background_color = Color(0.25, 0.19775, 0.1675, 1)
+
+[node name="CustomWorldEnv" type="WorldEnvironment"]
+environment = SubResource("Environment_wvvci")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://w5p2ousnvcsd"]
+
+[ext_resource type="Script" uid="uid://w5ycyortggji" path="res://transitioner/transitioner.gd" id="1_15idq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqn5t"]
+
+[node name="Transitioner" type="Area2D"]
+script = ExtResource("1_15idq")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tqn5t")
