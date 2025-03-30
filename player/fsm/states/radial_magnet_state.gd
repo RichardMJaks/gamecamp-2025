@@ -7,6 +7,9 @@ extends FSMState
 			return custom_rotation_speed
 		return custom_rotation_speed * GlobalVars.su
 @onready var player: Player = owner
+@export var doing: AudioStreamPlayer
+@export var launch_particles: GPUParticles2D
+
 var rotation_vector: Vector2:
 	get:
 		return rotation_vector.normalized()
@@ -40,6 +43,9 @@ func __physics_process(delta) -> void:
 func _handle_ejection() -> void:
 	# We can assume that this will switch the poles to match
 	if Input.is_action_just_pressed(&"a_switch") and not ejecting:
+		doing.play()
+		launch_particles.emitting = false
+		launch_particles.emitting = true
 		var ejection_direction = rotation_vector.rotated(PI/2*rotation_direction)
 		player.velocity = ejection_direction * ejection_force * GlobalVars.su
 		ejecting = true
