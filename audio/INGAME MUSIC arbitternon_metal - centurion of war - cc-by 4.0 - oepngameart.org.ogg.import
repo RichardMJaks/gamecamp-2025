@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dqe1ybjvwtvdi"
+path="res://.godot/imported/INGAME MUSIC arbitternon_metal - centurion of war - cc-by 4.0 - oepngameart.org.ogg-95ff89b49eb8d8db84e564d8e2460bdb.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/INGAME MUSIC arbitternon_metal - centurion of war - cc-by 4.0 - oepngameart.org.ogg"
+dest_files=["res://.godot/imported/INGAME MUSIC arbitternon_metal - centurion of war - cc-by 4.0 - oepngameart.org.ogg-95ff89b49eb8d8db84e564d8e2460bdb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

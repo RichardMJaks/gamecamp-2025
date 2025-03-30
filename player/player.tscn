@@ -928,7 +928,7 @@ position = Vector2(0, 8)
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 3
+frame = 4
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
