@@ -920,7 +920,7 @@ position = Vector2(0, 14)
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 1
+frame = 5
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -965,11 +965,12 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="Timer" type="Timer" parent="StateMachine/floor_magnet_state"]
 
-[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "camera")]
+[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "launch_particles", "camera")]
 script = ExtResource("5_qjkh3")
 move_state = NodePath("../move_state")
-custom_rotation_speed = 7.0
+custom_rotation_speed = 6.0
 doing = NodePath("../../Audio/Whoosh")
+launch_particles = NodePath("../../Particles/LaunchParticles")
 camera = NodePath("../../Camera2D")
 shake_intensity = 2.0
 shake_time = 0.4

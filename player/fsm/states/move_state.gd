@@ -18,24 +18,19 @@ func __physics_process(delta: float) -> void:
 		&"m_up", &"m_down"
 	)
 	
-	print("Check 1 %s" % player.up_direction)
 	# Calculate acceleration and deceleration
 	_accelerate_player(dir, delta)
 	_decelerate_player(dir, delta)
 
-	print("Check 2 %s" % player.up_direction)
 	_handle_floor_magnet()
 	_handle_radial_magnet()
 
-	print("Check 3 %s" % player.up_direction)
 	_apply_gravity(delta)
 	_handle_jump()
 
-	print("Check 4 %s" % player.up_direction)
 	if Input.is_action_just_pressed(&"a_switch"):
 		_trigger_floor_magnet_action()
 
-	print("Check 5 %s" % player.up_direction)
 	trigger_radial_magnet_action()
 	# Update player's up direction based on gravity
 	#if player.current_magnet and player.current_magnet is FloorMagnet:
