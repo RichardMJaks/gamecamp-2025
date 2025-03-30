@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var timer_label : Label
 @export var death_counter_label : Label
 @export var level_complete_panel : Panel
+@export var final_level_complete_panel : Panel
 
 func _ready():
 	# Hide level complete panel initially
@@ -30,15 +31,28 @@ func _on_player_died(death_count):
 	pass
 
 func _on_level_completed(level_data):
-	# Show level complete panel
-	level_complete_panel.visible = true
-	
-	# Update level complete info
-	#$LevelCompletePanel/VBoxContainer/TimeValue.text = "Time: %s" % GameController.format_time(level_data.time_spent)
-	#$LevelCompletePanel/VBoxContainer/CollectiblesValue.text = "Collectibles: %d / %d" % [level_data.collectibles_count, level_data.total_collectibles]
-	#$LevelCompletePanel/VBoxContainer/DeathsValue.text = "Deaths: %d" % level_data.death_count
-	
-	# Auto-proceed to next level after a delay
-	await get_tree().create_timer(1.0).timeout
-	level_complete_panel.visible = false
-	GameController.go_to_next_level()
+	if level_complete_panel:
+		# Show level complete panel
+		level_complete_panel.visible = true
+		
+		# Update level complete info
+		#$LevelCompletePanel/VBoxContainer/TimeValue.text = "Time: %s" % GameController.format_time(level_data.time_spent)
+		#$LevelCompletePanel/VBoxContainer/CollectiblesValue.text = "Collectibles: %d / %d" % [level_data.collectibles_count, level_data.total_collectibles]
+		#$LevelCompletePanel/VBoxContainer/DeathsValue.text = "Deaths: %d" % level_data.death_count
+		
+		# Auto-proceed to next level after a delay
+		await get_tree().create_timer(1.0).timeout
+		level_complete_panel.visible = false
+
+func _on_final_level_completed(levels_data):
+	if final_level_complete_panel:
+		for level_data in levels_data:
+			
+			pass
+		# Show level complete panel
+		final_level_complete_panel.visible = true
+		
+		# Update level complete info
+		#$LevelCompletePanel/VBoxContainer/TimeValue.text = "Time: %s" % GameController.format_time(level_data.time_spent)
+		#$LevelCompletePanel/VBoxContainer/CollectiblesValue.text = "Collectibles: %d / %d" % [level_data.collectibles_count, level_data.total_collectibles]
+		#$LevelCompletePanel/VBoxContainer/DeathsValue.text = "Deaths: %d" % level_data.death_count

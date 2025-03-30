@@ -6,7 +6,7 @@
 script = ExtResource("1_jxero")
 collectibles_label = NodePath("CollectibleCountContainer/CollectibleCount")
 timer_label = NodePath("TimerContainer/LevelTimer")
-level_complete_panel = NodePath("LevelCompletePanel")
+level_complete_panel = NodePath("FinalLevelCompletePanel")
 
 [node name="CollectibleCountContainer" type="HBoxContainer" parent="."]
 offset_right = 73.0
@@ -30,6 +30,70 @@ alignment = 2
 layout_mode = 2
 text = "Time: 00.00.000"
 
-[node name="LevelCompletePanel" type="Panel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="FinalLevelCompletePanel" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 360.0
+grow_horizontal = 2
+
+[node name="End Title Label" type="Label" parent="FinalLevelCompletePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.5
+offset_top = 28.31
+offset_right = 91.5
+offset_bottom = 77.96
+grow_horizontal = 2
+text = "Congratualations!!!
+You've saved the world!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level Stats Container" type="VBoxContainer" parent="FinalLevelCompletePanel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 140.0
+offset_bottom = 140.0
+
+[node name="Level Stats Title" type="Label" parent="FinalLevelCompletePanel/Level Stats Container"]
+layout_mode = 2
+text = "Level Stats:"
+
+[node name="Total Stats Container" type="VBoxContainer" parent="FinalLevelCompletePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 100.0
+offset_right = -72.0
+offset_bottom = 177.0
+grow_horizontal = 0
+
+[node name="Total Stats Label" type="Label" parent="FinalLevelCompletePanel/Total Stats Container"]
+layout_mode = 2
+text = "Total Stats:"
+
+[node name="Total Time Label" type="Label" parent="FinalLevelCompletePanel/Total Stats Container"]
+layout_mode = 2
+text = "Time taken: 00.00.000"
+
+[node name="Total Collectibles Label" type="Label" parent="FinalLevelCompletePanel/Total Stats Container"]
+layout_mode = 2
+text = "Nuts found: 0 "
+
+[node name="Restart Button" type="Button" parent="FinalLevelCompletePanel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="MainMenu Button" type="Button" parent="FinalLevelCompletePanel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

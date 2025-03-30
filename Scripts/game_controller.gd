@@ -1,6 +1,7 @@
 extends Node
 
 signal collectible_collected(new_count)
+signal final_level_completed(levels_data)
 signal level_completed(level_data)
 signal player_died(death_count)
 
@@ -71,11 +72,12 @@ func complete_level():
 		is_level_active = false
 		levels_data[current_level_name].completed = true
 		emit_signal("level_completed", levels_data[current_level_name])
-		go_to_next_level()
+		
 		print("Level completed: ", current_level_name)
 		print("Time: ", format_time(levels_data[current_level_name].time_spent))
 		print("Collectibles: ", levels_data[current_level_name].collectibles_count, "/", levels_data[current_level_name].total_collectibles)
 		print("Deaths: ", levels_data[current_level_name].death_count)
+		go_to_next_level()
 
 func go_to_next_level():
 	current_level_index += 1
@@ -92,8 +94,9 @@ func restart_current_level():
 	get_tree().reload_current_scene()
 
 func show_end_screen():
-	# Change to end screen scene
-	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+	# Display end screen
+	emit_signal("final_level_completed", levels_data)
+	pass
 
 func get_total_time():
 	var total = 0.0
