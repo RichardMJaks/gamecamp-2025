@@ -14,9 +14,9 @@ var total_levels = 0
 # Array of level scene paths in order
 var level_scenes = [
 	"res://levels/level_0.tscn",
-	"res://levels/level_1.tscn",
-	"res://levels/level_2.tscn",
-	"res://levels/level_3.tscn",
+	#"res://levels/level_1.tscn",
+	#"res://levels/level_2.tscn",
+	#"res://levels/level_3.tscn",
 	"res://levels/level_4.tscn",
 ]
 
@@ -86,9 +86,9 @@ func go_to_next_level():
 		# Load next level
 		get_tree().change_scene_to_file(level_scenes[current_level_index])
 	else:
-		get_tree().change_scene_to_file("res://HUD/main_menu.tscn")
 		# No more levels, show end screen
 		show_end_screen()
+		get_tree().paused = true
 
 func restart_current_level():
 	# This function is no longer needed for in-level deaths
@@ -97,26 +97,24 @@ func restart_current_level():
 
 func show_end_screen():
 	# Display end screen
-	print("levels_data")
 	emit_signal("final_level_completed")
 
 func get_total_time():
 	var total = 0.0
-	for level_name in levels_data:
-		print(levels_data[level_name])
+	for level_name in levels_data.keys():
 		total += levels_data[level_name].time_spent
 	return total
 
 func get_total_deaths():
 	var total = 0
-	for level_name in levels_data:
+	for level_name in levels_data.keys():
 		total += levels_data[level_name].death_count
 	return total
 
 func get_total_collectibles():
 	var collected = 0
 	var total = 0
-	for level_name in levels_data:
+	for level_name in levels_data.keys():
 		collected += levels_data[level_name].collectibles_count
 		total += levels_data[level_name].total_collectibles
 	return [collected, total]
@@ -132,3 +130,9 @@ func reset_all_collectibles():
 	var collectibles = get_tree().get_nodes_in_group("collectibles")
 	for collectible in collectibles:
 		collectible.reset()
+
+func reset():
+	levels_data = {}
+	current_level_name = ""
+	current_level_index = 0
+	total_levels = 0

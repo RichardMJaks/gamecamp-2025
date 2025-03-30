@@ -17,7 +17,7 @@ func _ready():
 	var ui = $UI if has_node("UI") else null
 	if ui:
 		GameController.collectible_collected.connect(ui._on_collectible_collected)
-		GameController.level_completed.connect(ui._on_level_completed)
+		#GameController.level_completed.connect(ui._on_level_completed)
 		GameController.final_level_completed.connect(ui._on_final_level_completed)
 		GameController.player_died.connect(ui._on_player_died)
 

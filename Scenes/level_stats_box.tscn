@@ -1,14 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv3yvssd05u5o"]
+[gd_scene load_steps=3 format=3 uid="uid://dv3yvssd05u5o"]
 
+[ext_resource type="Script" uid="uid://ddjwabs0nlguo" path="res://Scenes/level_stats_box.gd" id="1_l47be"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="1_qn1rs"]
 
-[node name="Level Stats Box" type="VBoxContainer"]
+[node name="Level Stats Box" type="VBoxContainer" node_paths=PackedStringArray("level_title", "level_time", "level_collectibles")]
+script = ExtResource("1_l47be")
+level_title = NodePath("HBoxContainer/LevelNameLabel")
+level_time = NodePath("HBoxContainer/VBoxContainer/TimeValueLabel")
+level_collectibles = NodePath("HBoxContainer/VBoxContainer/CollectiblesValueLabel")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+alignment = 2
 
 [node name="LevelNameLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("1_qn1rs")
 text = "Level 1"
 
@@ -19,8 +26,10 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_qn1rs")
 text = "Time taken: 00.00.000"
+horizontal_alignment = 2
 
 [node name="CollectiblesValueLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_qn1rs")
 text = "Collectibles: 0/1"
+horizontal_alignment = 2
