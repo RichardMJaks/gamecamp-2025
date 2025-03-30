@@ -19,7 +19,6 @@ func _process(delta):
 			current_rotation = Vector2.ZERO
 	
 	if player.current_magnet and player.current_magnet is RadialMagnet:
-		print(player.current_magnet.rotation_direction)
 		rotation = player.up_direction.angle() + PI * (0 if player.current_magnet.rotation_direction == -1 else 1)
 		flip_h = player.current_magnet.rotation_direction == -1
 
