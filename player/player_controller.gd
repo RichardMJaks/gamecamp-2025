@@ -34,7 +34,7 @@ var radial_stuck_fix: bool = false
 
 @export var radial_magnet_state: FSMState
 @export var anim_tree: AnimationTree
-
+@export var switched: AudioStreamPlayer
 var accel_time_delta: float = 0
 var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 
@@ -56,6 +56,7 @@ func _process(_delta: float) -> void:
 	
 	# Debug pole switching
 	if Input.is_action_just_pressed(&"a_switch"):
+		switched.play()
 		@warning_ignore("int_as_enum_without_cast")
 		current_pole = 1 - current_pole
 		print("Switched pole to: ", GlobalVars.POLE.find_key(current_pole))

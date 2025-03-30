@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cq0aroif6k4pw"]
+
+[node name="SwitchParticles" type="GPUParticles2D"]

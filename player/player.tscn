@@ -1,10 +1,11 @@
-[gd_scene load_steps=127 format=3 uid="uid://hm7oj8v2rsqi"]
+[gd_scene load_steps=129 format=3 uid="uid://hm7oj8v2rsqi"]
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://1xp2dovahsx0" path="res://player/launch_particles.tscn" id="2_bjvpn"]
 [ext_resource type="Script" uid="uid://bt4oph17ec2nu" path="res://player/fsm/fsm.gd" id="2_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://dfu2veom07b3j" path="res://player/sprites/PenguinFlyingAnimBlue.png" id="2_knn7v"]
 [ext_resource type="Script" uid="uid://buwvbiq0ioyxy" path="res://player/sprite_rotator.gd" id="3_boad6"]
+[ext_resource type="PackedScene" uid="uid://cq0aroif6k4pw" path="res://player/switch_particles.tscn" id="3_g4c7l"]
 [ext_resource type="Script" uid="uid://dcwvuoxvxlfmy" path="res://player/fsm/states/move_state.gd" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://cxxa3nrl7vpu3" path="res://player/sprites/PenguinSwitchAnimBlueRed.png" id="4_ebec5"]
 [ext_resource type="Texture2D" uid="uid://bhyx4qe2nx1vb" path="res://player/sprites/PenguinIdleAnimBlue.png" id="4_kb6p2"]
@@ -22,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://c3eq7q8tnkxid" path="res://audio/step.wav" id="17_tqiix"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
+[ext_resource type="AudioStream" uid="uid://byu6h1cuf77yb" path="res://audio/switch.wav" id="23_s7qer"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1u5o"]
 atlas = ExtResource("2_knn7v")
@@ -901,7 +903,7 @@ random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("18_e7oew")
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched")]
 script = ExtResource("1_oul6g")
 speed = 10.0
 acceleration_time = 0.5
@@ -910,17 +912,20 @@ jump_height = 5.0
 gravity_direction = Vector2i(0, -1)
 radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 anim_tree = NodePath("AnimationTree")
+switched = NodePath("Audio/Switch")
 
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="LaunchParticles" parent="Particles" instance=ExtResource("2_bjvpn")]
-position = Vector2(0, 14)
+position = Vector2(0, 8)
+
+[node name="SwitchParticles" parent="Particles" instance=ExtResource("3_g4c7l")]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
-frame = 3
+frame = 5
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -1012,6 +1017,7 @@ fade_in = 0.3
 fade_out = 0.2
 high_pitch = 0.9
 low_volume = -20.0
+high_volume = -5.0
 
 [node name="Stepping" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("17_tqiix")
@@ -1021,6 +1027,11 @@ stream = SubResource("AudioStreamRandomizer_c35mf")
 
 [node name="Doing" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("19_c35mf")
+volume_db = -10.4
+
+[node name="Switch" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("23_s7qer")
+volume_db = -9.787
 
 [connection signal="area_entered" from="AttractionArea" to="." method="_on_entered_magnet_range"]
 [connection signal="area_exited" from="AttractionArea" to="." method="_on_exited_magnet_range"]
