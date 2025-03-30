@@ -43,8 +43,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Collectible" type="Area2D" node_paths=PackedStringArray("collectible_collision", "collectible_audio")]
+[node name="Collectible" type="Area2D" node_paths=PackedStringArray("collectible_sprite", "collectible_collision", "collectible_audio")]
 script = ExtResource("1_athsx")
+collectible_sprite = NodePath("CollectibleSprite")
 collectible_collision = NodePath("CollisionShape2D")
 collectible_audio = NodePath("CollectibleAudio")
 
