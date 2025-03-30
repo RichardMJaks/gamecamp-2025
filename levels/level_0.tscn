@@ -10,7 +10,7 @@ size = Vector2(32, 160)
 [sub_resource type="Gradient" id="Gradient_qch6w"]
 colors = PackedColorArray(1, 0.21268, 0.159696, 0.47451, 1, 0.247059, 0.188235, 0.164706)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7d3si"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yi3jx"]
 gradient = SubResource("Gradient_qch6w")
 width = 32
 height = 160
@@ -31,7 +31,7 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
 curve = SubResource("Curve_rr38n")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jum3j"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_foxie"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(11, 75, 1)
@@ -41,15 +41,15 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi3jx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d3si"]
 size = Vector2(32, 128)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tfamw"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jum3j"]
 gradient = SubResource("Gradient_qch6w")
 width = 32
 height = 128
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dm5o4"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c4pne"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(11, 59, 1)
@@ -78,12 +78,12 @@ shape_size = Vector2(32, 160)
 
 [node name="Gradient" parent="Magnets/FlatMagnet" index="1"]
 position = Vector2(-6, -9)
-texture = SubResource("GradientTexture2D_7d3si")
+texture = SubResource("GradientTexture2D_yi3jx")
 
 [node name="Particles" parent="Magnets/FlatMagnet" index="2"]
 position = Vector2(-6, -9)
 texture = ExtResource("3_yi3jx")
-process_material = SubResource("ParticleProcessMaterial_jum3j")
+process_material = SubResource("ParticleProcessMaterial_foxie")
 
 [node name="FlatMagnet2" parent="Magnets" instance=ExtResource("2_iss0w")]
 position = Vector2(362, 85)
@@ -92,17 +92,17 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet2" index="0"]
 position = Vector2(6, -5)
-shape = SubResource("RectangleShape2D_yi3jx")
+shape = SubResource("RectangleShape2D_7d3si")
 shape_size = Vector2(32, 128)
 
 [node name="Gradient" parent="Magnets/FlatMagnet2" index="1"]
 position = Vector2(6, -5)
-texture = SubResource("GradientTexture2D_tfamw")
+texture = SubResource("GradientTexture2D_jum3j")
 
 [node name="Particles" parent="Magnets/FlatMagnet2" index="2"]
 position = Vector2(6, -5)
 texture = ExtResource("3_yi3jx")
-process_material = SubResource("ParticleProcessMaterial_dm5o4")
+process_material = SubResource("ParticleProcessMaterial_c4pne")
 
 [editable path="Magnets/FlatMagnet"]
 [editable path="Magnets/FlatMagnet2"]
