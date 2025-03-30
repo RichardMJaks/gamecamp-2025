@@ -6,6 +6,11 @@ extends FSMState
 @export var launch_force: float = 20
 @export var whoosh: AudioStreamPlayer
 @export var launch_particles: GPUParticles2D
+@export var camera: Camera2D
+@export var shake_intensity: float
+@export var shake_time: float
+@export var floor_launch_particles: PackedScene
+
 
 func _ready() -> void:
 	timer.timeout.connect(
@@ -18,6 +23,11 @@ func enter() -> void:
 func _launch() -> void:
 	# Add launch velocity
 	print("Launched")
+	var flp = floor_launch_particles.instantiate()
+	get_tree().current_scene.add_child(flp)
+	flp.global_position = player.global_position
+	flp.rotation = player.up_direction.angle() + PI / 2
+	camera.shake(shake_intensity, shake_time)
 	launch_particles.emitting = false
 	launch_particles.emitting = true
 	var dir = player.current_magnet.magnet_gravity_direction

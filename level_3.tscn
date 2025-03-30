@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=4 uid="uid://px0ll2ymonn3"]
+[gd_scene load_steps=102 format=4 uid="uid://bpb21uoyg865x"]
 
 [ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet/radial_magnet.tscn" id="1_1jdk1"]
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_6p2dc"]

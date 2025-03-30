@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://2huyglqjk7el"]
+
+[ext_resource type="Texture2D" uid="uid://1nka267x5qpg" path="res://player/sprites/launch_particles/0.png" id="1_nflv8"]
+[ext_resource type="Texture2D" uid="uid://brucvev4wygje" path="res://player/sprites/launch_particles/1.png" id="2_ofi7w"]
+[ext_resource type="Texture2D" uid="uid://bw1ihi46fq5o8" path="res://player/sprites/launch_particles/2.png" id="3_oecos"]
+[ext_resource type="Texture2D" uid="uid://pbv2ikno7vcp" path="res://player/sprites/launch_particles/3.png" id="4_a8ev7"]
+[ext_resource type="Texture2D" uid="uid://bvm0fh4moukuf" path="res://player/sprites/launch_particles/4.png" id="5_qmuu6"]
+[ext_resource type="Script" uid="uid://bpl1ops643a8d" path="res://player/sprites/launch_particles/launch_particles.gd" id="6_ofi7w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0epk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nflv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ofi7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oecos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8ev7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qmuu6")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="LaunchParticles" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_v0epk")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+script = ExtResource("6_ofi7w")

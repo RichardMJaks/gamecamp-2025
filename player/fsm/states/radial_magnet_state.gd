@@ -9,6 +9,9 @@ extends FSMState
 @onready var player: Player = owner
 @export var doing: AudioStreamPlayer
 @export var launch_particles: GPUParticles2D
+@export var camera: Camera2D
+@export var shake_intensity: float
+@export var shake_time: float
 
 var rotation_vector: Vector2:
 	get:
@@ -44,6 +47,7 @@ func _handle_ejection() -> void:
 	# We can assume that this will switch the poles to match
 	if Input.is_action_just_pressed(&"a_switch") and not ejecting:
 		doing.play()
+		camera.shake(shake_intensity, shake_time)
 		launch_particles.emitting = false
 		launch_particles.emitting = true
 		var ejection_direction = rotation_vector.rotated(PI/2*rotation_direction)

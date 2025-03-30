@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://hm7oj8v2rsqi"]
+[gd_scene load_steps=131 format=3 uid="uid://hm7oj8v2rsqi"]
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bt4oph17ec2nu" path="res://player/fsm/fsm.gd" id="2_g1dw6"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b5x10obi8hgct" path="res://player/sprites/PenguinWalkAnimRed.png" id="7_wodsf"]
 [ext_resource type="AudioStream" uid="uid://dee5gh5jx042s" path="res://audio/magnetic_hum.ogg" id="13_kb6p2"]
 [ext_resource type="Script" uid="uid://dp1be5tpng3j0" path="res://player/mag_hum.gd" id="13_yllr7"]
+[ext_resource type="PackedScene" uid="uid://2huyglqjk7el" path="res://player/sprites/launch_particles/launch_particles.tscn" id="14_x7c3f"]
+[ext_resource type="Script" uid="uid://bpybw4dwc5j2o" path="res://player/shaker.gd" id="15_65viv"]
 [ext_resource type="AudioStream" uid="uid://c3eq7q8tnkxid" path="res://audio/step.wav" id="17_tqiix"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
@@ -736,10 +738,10 @@ tracks/2/path = NodePath("Audio/Stepping:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w7j2h"]
@@ -895,6 +897,7 @@ advance_mode = 2
 advance_condition = &"switched_pole"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uw77l"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rptt4"]
@@ -958,7 +961,7 @@ shape = SubResource("CircleShape2D_boad6")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j55il")
-animation = &"blue_walk"
+animation = &"red_idle"
 script = ExtResource("3_boad6")
 
 [node name="AttractionArea" type="Area2D" parent="."]
@@ -986,22 +989,29 @@ floor_magnet_state = NodePath("../floor_magnet_state")
 radial_magnet_state = NodePath("../radial_magnet_state")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
-[node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer", "whoosh", "launch_particles")]
+[node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer", "whoosh", "launch_particles", "camera")]
 script = ExtResource("4_yw30f")
 move_state = NodePath("../move_state")
 timer = NodePath("Timer")
 whoosh = NodePath("../../Audio/Whoosh")
 launch_particles = NodePath("../../Particles/LaunchParticles")
+camera = NodePath("../../Camera2D")
+shake_intensity = 2.0
+shake_time = 0.4
+floor_launch_particles = ExtResource("14_x7c3f")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="Timer" type="Timer" parent="StateMachine/floor_magnet_state"]
 
-[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "launch_particles")]
+[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "launch_particles", "camera")]
 script = ExtResource("5_qjkh3")
 move_state = NodePath("../move_state")
 custom_rotation_speed = 7.0
 doing = NodePath("../../Audio/Whoosh")
 launch_particles = NodePath("../../Particles/LaunchParticles")
+camera = NodePath("../../Camera2D")
+shake_intensity = 2.0
+shake_time = 0.4
 ejection_force = 20.0
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
@@ -1026,6 +1036,7 @@ parameters/Walk/blend_position = 0.930279
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+script = ExtResource("15_65viv")
 
 [node name="Audio" type="Node" parent="."]
 
