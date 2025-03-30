@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctrejknt40q3j"]
+
+[ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "level_complete_panel")]
+script = ExtResource("1_jxero")
+collectibles_label = NodePath("CollectibleCountContainer/CollectibleCount")
+timer_label = NodePath("TimerContainer/LevelTimer")
+level_complete_panel = NodePath("LevelCompletePanel")
+
+[node name="CollectibleCountContainer" type="HBoxContainer" parent="."]
+offset_right = 73.0
+offset_bottom = 23.0
+
+[node name="CollectibleCount" type="Label" parent="CollectibleCountContainer"]
+layout_mode = 2
+text = "Vibes: 0"
+
+[node name="TimerContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -440.0
+offset_right = -320.0
+offset_bottom = 23.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="LevelTimer" type="Label" parent="TimerContainer"]
+layout_mode = 2
+text = "Time: 00.00.000"
+
+[node name="LevelCompletePanel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

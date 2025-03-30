@@ -12,10 +12,10 @@ var total_levels = 0
 
 # Array of level scene paths in order
 var level_scenes = [
-	"res://levels/level1.tscn",
-	"res://levels/level2.tscn",
-	"res://levels/level3.tscn"
-	
+	"res://levels/level_1.tscn",
+	"res://levels/level_2.tscn",
+	"res://levels/level_3.tscn",
+	"res://levels/level_4.tscn",
 ]
 
 var is_level_active = false
@@ -71,7 +71,7 @@ func complete_level():
 		is_level_active = false
 		levels_data[current_level_name].completed = true
 		emit_signal("level_completed", levels_data[current_level_name])
-		
+		go_to_next_level()
 		print("Level completed: ", current_level_name)
 		print("Time: ", format_time(levels_data[current_level_name].time_spent))
 		print("Collectibles: ", levels_data[current_level_name].collectibles_count, "/", levels_data[current_level_name].total_collectibles)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b6ai4517igh40"]
+[gd_scene load_steps=15 format=4 uid="uid://b6ai4517igh40"]
 
 [ext_resource type="TileSet" uid="uid://csus7joxovyuq" path="res://tileset.tres" id="1_eus5j"]
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_iss0w"]
@@ -7,7 +7,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iss0w"]
 size = Vector2(32, 160)
 
+[sub_resource type="Gradient" id="Gradient_qch6w"]
+offsets = PackedFloat32Array(0.00793651, 0.345833, 0.9, 1)
+colors = PackedColorArray(1, 0.589333, 0.56, 0.682353, 1, 0.3, 0.25, 0.47451, 1, 0.318667, 0.27, 0.172549, 1, 0.636, 0.61, 0)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yi3jx"]
+gradient = SubResource("Gradient_qch6w")
+width = 32
+height = 160
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="Curve" id="Curve_8ohhs"]
 _data = [Vector2(0.00269542, 0.235294), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
@@ -26,26 +35,29 @@ curve = SubResource("Curve_rr38n")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_foxie"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(237.75, 23, 1)
+emission_box_extents = Vector3(11, 75, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.713726, 1, 1)
+color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d3si"]
 size = Vector2(32, 128)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jum3j"]
+gradient = SubResource("Gradient_qch6w")
+width = 32
+height = 128
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c4pne"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(237.75, 23, 1)
+emission_box_extents = Vector3(11, 59, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.713726, 1, 1)
+color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="Node2D" type="Node2D"]

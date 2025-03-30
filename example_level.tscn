@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cm6s0fnowd2ji" path="res://Scripts/game_controller.gd" id="5_8yhuf"]
 [ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="5_ymddn"]
 [ext_resource type="PackedScene" uid="uid://bd87di74w8fww" path="res://Scenes/collectible.tscn" id="6_m821y"]
-[ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="7_ymddn"]
+[ext_resource type="PackedScene" uid="uid://ctrejknt40q3j" path="res://Scenes/ui.tscn" id="9_ymddn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ah8gq"]
 tile_data = PackedInt32Array(65536, 0, 5, 131072, 0, 6, 1, 65536, 4, 65537, 65536, 5, 131073, 65536, 6, 2, 131072, 4, 65538, 131072, 5, 131074, 131072, 6)
@@ -131,7 +131,8 @@ pattern_0 = SubResource("TileMapPattern_ah8gq")
 size = Vector2(16, 16)
 
 [sub_resource type="Gradient" id="Gradient_qch6w"]
-colors = PackedColorArray(1, 0.21268, 0.159696, 0.47451, 1, 0.247059, 0.188235, 0.164706)
+offsets = PackedFloat32Array(0.00793651, 0.345833, 0.9, 1)
+colors = PackedColorArray(1, 0.589333, 0.56, 0.682353, 1, 0.3, 0.25, 0.47451, 1, 0.318667, 0.27, 0.172549, 1, 0.636, 0.61, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0qydm"]
 gradient = SubResource("Gradient_qch6w")
@@ -206,7 +207,8 @@ alpha_curve = SubResource("CurveTexture_5ra4g")
 size = Vector2(16, 16)
 
 [sub_resource type="Gradient" id="Gradient_j61ub"]
-colors = PackedColorArray(0.492046, 0.698031, 0.999999, 0.356863, 0.594277, 0.758817, 1, 0.109804)
+offsets = PackedFloat32Array(0, 0.266667, 0.783333, 1)
+colors = PackedColorArray(0.4606, 0.7802, 0.94, 0.45098, 0, 0.4, 1, 0.356863, 0.0182, 0.37492, 0.91, 0.133333, 0.13, 0.278, 0.5, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_eklcc"]
 gradient = SubResource("Gradient_j61ub")
@@ -308,8 +310,6 @@ jump_height = 10.0
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("5_8yhuf")
 
-[node name="GameTimer" type="Timer" parent="GameController"]
-
 [node name="Collectibles" type="Node" parent="."]
 
 [node name="Collectible" parent="Collectibles" instance=ExtResource("6_m821y")]
@@ -321,37 +321,7 @@ position = Vector2(178, 120)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(300, 164)
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("collectibles_label", "timer_label", "level_complete_panel")]
-script = ExtResource("7_ymddn")
-collectibles_label = NodePath("CollectibleCountContainer/CollectibleCount")
-timer_label = NodePath("TimerContainer/LevelTimer")
-level_complete_panel = NodePath("LevelCompletePanel")
-
-[node name="CollectibleCountContainer" type="HBoxContainer" parent="UI"]
-offset_right = 73.0
-offset_bottom = 23.0
-
-[node name="CollectibleCount" type="Label" parent="UI/CollectibleCountContainer"]
-layout_mode = 2
-text = "Vibes: 0"
-
-[node name="TimerContainer" type="HBoxContainer" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -440.0
-offset_right = -320.0
-offset_bottom = 23.0
-grow_horizontal = 0
-alignment = 2
-
-[node name="LevelTimer" type="Label" parent="UI/TimerContainer"]
-layout_mode = 2
-text = "Time: 00.00.000"
-
-[node name="LevelCompletePanel" type="Panel" parent="UI"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UI" parent="." instance=ExtResource("9_ymddn")]
 
 [editable path="FlatMagnet"]
 [editable path="FlatMagnet4"]
