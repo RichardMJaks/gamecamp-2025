@@ -13,6 +13,7 @@ config_version=5
 config/name="Gamecamp 2025"
 run/main_scene="uid://pbqphvyiooiw"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://clohy8oi8nh1j"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -24,7 +25,7 @@ GameController="*res://Scripts/game_controller.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=2
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
