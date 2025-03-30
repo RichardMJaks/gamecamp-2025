@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var collectible_sprite : Sprite2D
+@export var collectible_sprite : AnimatedSprite2D
 @export var collectible_collision : CollisionShape2D
 @export var collectible_particles : CPUParticles2D
 @export var collectible_audio : AudioStreamPlayer2D
