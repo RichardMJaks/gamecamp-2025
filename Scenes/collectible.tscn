@@ -43,9 +43,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Collectible" type="Area2D" node_paths=PackedStringArray("collectible_sprite", "collectible_collision", "collectible_audio")]
+[node name="Collectible" type="Area2D" node_paths=PackedStringArray("collectible_collision", "collectible_audio")]
 script = ExtResource("1_athsx")
-collectible_sprite = NodePath("")
 collectible_collision = NodePath("CollisionShape2D")
 collectible_audio = NodePath("CollectibleAudio")
 
@@ -54,7 +53,8 @@ shape = SubResource("CircleShape2D_8cae6")
 
 [node name="CollectibleSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mfbqs")
-frame_progress = 0.862971
+autoplay = "default"
+frame_progress = 0.804473
 
 [node name="CollectibleAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7xeth")
