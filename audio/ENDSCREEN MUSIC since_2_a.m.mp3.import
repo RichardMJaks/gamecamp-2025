@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4nhig0ncslmw"
+path="res://.godot/imported/ENDSCREEN MUSIC since_2_a.m.mp3-d007378d9fa22ad0ee4da31ff86b3202.mp3str"
+
+[deps]
+
+source_file="res://audio/ENDSCREEN MUSIC since_2_a.m.mp3"
+dest_files=["res://.godot/imported/ENDSCREEN MUSIC since_2_a.m.mp3-d007378d9fa22ad0ee4da31ff86b3202.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
