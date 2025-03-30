@@ -60,7 +60,7 @@ func populate_level_stats():
 
 func populate_total_stats():
 	final_total_stats_time.text = "Time: " + str(GameController.format_time(GameController.get_total_time()))
-	final_total_stats_collectibles.text = "Nuts: " + str(GameController.get_total_collectibles().size())
+	final_total_stats_collectibles.text = "Nuts: " + str(GameController.get_total_collectibles()[0]) + " / " + str(GameController.get_total_collectibles()[1])
 	
 
 func _on_main_menu_button_pressed() -> void:
