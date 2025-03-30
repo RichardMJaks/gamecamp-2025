@@ -59,7 +59,8 @@ func _process(_delta: float) -> void:
 	
 	# Debug pole switching
 	if Input.is_action_just_pressed(&"a_switch"):
-		switched.play()
+		if not current_magnet:
+			switched.play()
 		if current_pole == GlobalVars.POLE.NORTH:
 			switch_particles.process_material.color = color_south
 		if current_pole == GlobalVars.POLE.SOUTH:
