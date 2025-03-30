@@ -48,7 +48,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hlpj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng40l"]
 size = Vector2(33, 32)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qhnv2"]
@@ -66,7 +66,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oqfd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04hp8"]
 size = Vector2(32, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8mt0c"]
@@ -86,7 +86,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7qdg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hlpj"]
 size = Vector2(32, 16)
 
 [sub_resource type="Gradient" id="Gradient_j61ub"]
@@ -110,7 +110,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(0, 0.713726, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ff1r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhnv2"]
 size = Vector2(32, 32)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cmohj"]
@@ -130,7 +130,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(0, 0.713726, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhmd0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vru0x"]
 size = Vector2(63, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8c4vb"]
@@ -148,7 +148,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(0, 0.713726, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_25iwj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oqfd"]
 size = Vector2(27, 32)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0bers"]
@@ -168,7 +168,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiqbd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mt0c"]
 size = Vector2(36, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0l8tu"]
@@ -186,7 +186,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p5ss"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp2yl"]
 size = Vector2(32, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8pvc7"]
@@ -206,7 +206,7 @@ scale_curve = SubResource("CurveTexture_hguyq")
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vmwd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7qdg"]
 size = Vector2(48, 32)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4e5e1"]
@@ -266,7 +266,7 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet2" index="0"]
 position = Vector2(7.5, 7)
-shape = SubResource("RectangleShape2D_8hlpj")
+shape = SubResource("RectangleShape2D_ng40l")
 shape_size = Vector2(33, 32)
 
 [node name="Gradient" parent="Magnets/FlatMagnet2" index="1"]
@@ -301,7 +301,7 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet3" index="0"]
 position = Vector2(7, -1)
-shape = SubResource("RectangleShape2D_5oqfd")
+shape = SubResource("RectangleShape2D_04hp8")
 shape_size = Vector2(32, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet3" index="1"]
@@ -318,7 +318,7 @@ position = Vector2(-17, 31)
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet3/FlatMagnet" index="0"]
 position = Vector2(-8, 0)
-shape = SubResource("RectangleShape2D_a7qdg")
+shape = SubResource("RectangleShape2D_8hlpj")
 shape_size = Vector2(32, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet3/FlatMagnet" index="1"]
@@ -335,7 +335,7 @@ magnet_direction = 3
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet4" index="0"]
 position = Vector2(-8, -8)
-shape = SubResource("RectangleShape2D_3ff1r")
+shape = SubResource("RectangleShape2D_qhnv2")
 shape_size = Vector2(32, 32)
 
 [node name="Gradient" parent="Magnets/FlatMagnet4" index="1"]
@@ -355,7 +355,7 @@ magnet_direction = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet5" index="0"]
 position = Vector2(24.5, 0)
-shape = SubResource("RectangleShape2D_uhmd0")
+shape = SubResource("RectangleShape2D_vru0x")
 shape_size = Vector2(63, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet5" index="1"]
@@ -372,7 +372,7 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet6" index="0"]
 position = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_25iwj")
+shape = SubResource("RectangleShape2D_5oqfd")
 shape_size = Vector2(27, 32)
 
 [node name="Gradient" parent="Magnets/FlatMagnet6" index="1"]
@@ -391,7 +391,7 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet7" index="0"]
 position = Vector2(10, 32)
-shape = SubResource("RectangleShape2D_kiqbd")
+shape = SubResource("RectangleShape2D_8mt0c")
 shape_size = Vector2(36, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet7" index="1"]
@@ -429,7 +429,7 @@ pole = 0
 
 [node name="CollisionShape2D" parent="Magnets/FlatMagnet8" index="0"]
 position = Vector2(9, 0)
-shape = SubResource("RectangleShape2D_3p5ss")
+shape = SubResource("RectangleShape2D_dp2yl")
 shape_size = Vector2(32, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet8" index="1"]
@@ -445,7 +445,6 @@ process_material = SubResource("ParticleProcessMaterial_3vxiy")
 position = Vector2(631, 27)
 
 [node name="UI" parent="." instance=ExtResource("8_ng40l")]
-visible = false
 
 [node name="Collectible" parent="." instance=ExtResource("9_sc6c1")]
 position = Vector2(29, 47)
@@ -460,7 +459,7 @@ pole = 0
 
 [node name="CollisionShape2D" parent="FlatMagnet" index="0"]
 position = Vector2(16, 8)
-shape = SubResource("RectangleShape2D_5vmwd")
+shape = SubResource("RectangleShape2D_a7qdg")
 shape_size = Vector2(48, 32)
 
 [node name="Gradient" parent="FlatMagnet" index="1"]
