@@ -54,7 +54,7 @@ shape = SubResource("CircleShape2D_8cae6")
 
 [node name="CollectibleSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mfbqs")
-frame_progress = 0.862971
+frame_progress = 0.804473
 
 [node name="CollectibleAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7xeth")
