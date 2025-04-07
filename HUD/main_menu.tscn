@@ -66,4 +66,96 @@ theme_override_fonts/font = ExtResource("3_q1pp4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mg70j")
 text = "PLAY"
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Credits" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Left" type="VBoxContainer" parent="MarginContainer/Credits"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="TeamCredits" type="Label" parent="MarginContainer/Credits/Left"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q1pp4")
+theme_override_font_sizes/font_size = 8
+text = "team ILLEGAL ALIENS
+
+RICHARD MIIKAEL JAKS
+MARK ROBERT VINK
+ONDRE J. HLADUVKA
+BAUER OVAKAJA
+MARTIN VOHMA
+"
+
+[node name="Spacer" type="Control" parent="MarginContainer/Credits/Left"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TalTech" type="Label" parent="MarginContainer/Credits/Left"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q1pp4")
+theme_override_font_sizes/font_size = 8
+text = "Made during TALTECH GAMECAMP 2025
+4TH PLACE OVERALL
+THEME category SPECIAL AWARD WINNER
+MOST ENJOYABLE game of TALTECH GAMECAMP 2025"
+
+[node name="Spacer" type="Control" parent="MarginContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Right" type="VBoxContainer" parent="MarginContainer/Credits"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Music Credits" type="Label" parent="MarginContainer/Credits/Right"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q1pp4")
+theme_override_font_sizes/font_size = 8
+text = "MUSIC CREDITS
+
+HAIL THE ARBITER by CENTURION_OF_WAR
+from OPENGAMEART.ORG
+CC-BY 4.0
+
+SCHEATT by SPRING SPRING
+from OPENGAMEART.ORG
+CC0
+
+SINCE 2 A.M. by TAD
+from OPENGAMEART.ORG
+CC0
+"
+horizontal_alignment = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/Credits/Right"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpecialThanks" type="Label" parent="MarginContainer/Credits/Right"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q1pp4")
+theme_override_font_sizes/font_size = 8
+text = "Special thanks to
+JOSEPH MATTIAS TOMP
+For assisting with visuals and SFX"
+horizontal_alignment = 2
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]

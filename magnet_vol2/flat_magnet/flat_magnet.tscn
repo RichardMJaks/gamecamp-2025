@@ -9,13 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://p7clqbwapl8w" path="res://magnet_vol2/north_particle.png" id="5_8ohhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ohhs"]
+resource_local_to_scene = true
 size = Vector2(16, 16)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ra4g"]
 
 [sub_resource type="Gradient" id="Gradient_j61ub"]
 offsets = PackedFloat32Array(0, 0.266667, 0.783333, 1)
 colors = PackedColorArray(0.4606, 0.7802, 0.94, 0.45098, 0, 0.4, 1, 0.356863, 0.0182, 0.37492, 0.91, 0.133333, 0.13, 0.278, 0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ohhs"]
+gradient = SubResource("Gradient_j61ub")
+width = 16
+height = 16
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_qch6w"]
 offsets = PackedFloat32Array(0.00793651, 0.345833, 0.9, 1)
@@ -35,10 +41,10 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
 curve = SubResource("Curve_rr38n")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rr38n"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ra4g"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(237.75, 23, 1)
+emission_box_extents = Vector3(3, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
@@ -56,7 +62,7 @@ shape = SubResource("RectangleShape2D_8ohhs")
 script = ExtResource("2_8ohhs")
 
 [node name="Gradient" type="Sprite2D" parent="." node_paths=PackedStringArray("collider")]
-texture = SubResource("GradientTexture2D_5ra4g")
+texture = SubResource("GradientTexture2D_8ohhs")
 script = ExtResource("2_kh203")
 collider = NodePath("../CollisionShape2D")
 north_gradient = SubResource("Gradient_j61ub")
@@ -66,7 +72,7 @@ metadata/_edit_lock_ = true
 [node name="Particles" type="GPUParticles2D" parent="." node_paths=PackedStringArray("collider")]
 amount = 5
 texture = ExtResource("5_8ohhs")
-process_material = SubResource("ParticleProcessMaterial_rr38n")
+process_material = SubResource("ParticleProcessMaterial_5ra4g")
 script = ExtResource("4_qch6w")
 collider = NodePath("../CollisionShape2D")
 south_particle = ExtResource("3_j61ub")

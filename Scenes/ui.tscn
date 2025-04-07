@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=5 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="PackedScene" uid="uid://dv3yvssd05u5o" path="res://Scenes/level_stats_box.tscn" id="2_nf4gj"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
+[ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="4_2246s"]
 
 [node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "final_level_complete_panel", "final_level_stats_container", "final_total_stats_time", "final_total_stats_collectibles")]
+process_mode = 3
 script = ExtResource("1_jxero")
 collectibles_label = NodePath("CollectibleCountContainer/CollectibleCount")
 timer_label = NodePath("TimerContainer/LevelTimer")
@@ -37,6 +39,9 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Time: 00.00.000"
+
+[node name="Transition" parent="." instance=ExtResource("4_2246s")]
+visible = false
 
 [node name="FinalLevelCompletePanel" type="Panel" parent="."]
 visible = false

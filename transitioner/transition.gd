@@ -5,6 +5,8 @@ signal fade_out_finished()
 var transition_time: float = 0.3
 
 func _ready() -> void:
+	GameController.level_completed.connect(_fade_out.unbind(1))
+	fade_out_finished.connect(GameController.go_to_next_level)
 	visible = true
 	_fade_in()
 

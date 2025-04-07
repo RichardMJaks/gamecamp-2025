@@ -10,6 +10,8 @@ var levels_data = {}
 var current_level_name = ""
 var current_level_index = 0
 var total_levels = 0
+enum LEVEL_TYPE {MENU, GAME, END}
+var current_level_type = LEVEL_TYPE.MENU
 
 # Array of level scene paths in order
 var level_scenes = [
@@ -78,7 +80,6 @@ func complete_level():
 		print("Time: ", format_time(levels_data[current_level_name].time_spent))
 		print("Collectibles: ", levels_data[current_level_name].collectibles_count, "/", levels_data[current_level_name].total_collectibles)
 		print("Deaths: ", levels_data[current_level_name].death_count)
-		go_to_next_level()
 
 func go_to_next_level():
 	current_level_index += 1
@@ -97,6 +98,7 @@ func restart_current_level():
 
 func show_end_screen():
 	# Display end screen
+	current_level_type = LEVEL_TYPE.END
 	emit_signal("final_level_completed")
 
 func get_total_time():

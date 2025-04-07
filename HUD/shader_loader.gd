@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 		load_ppm(loadable_particle_processors.pop_back())
 		total_loaded += 1
 		return
+	GameController.current_level_type = GameController.LEVEL_TYPE.GAME
 	get_tree().change_scene_to_packed(next_scene)
 
 func load_ppm(ppm: ParticleProcessMaterial) -> void:

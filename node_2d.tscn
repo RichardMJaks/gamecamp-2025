@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://c11pdme87aci2"]
+
+[ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+resource_local_to_scene = true
+size = Vector2(55, 71)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wtcfe"]
+
+[sub_resource type="Curve" id="Curve_8ohhs"]
+_data = [Vector2(0.00269542, 0.235294), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ra4g"]
+curve = SubResource("Curve_8ohhs")
+
+[sub_resource type="Curve" id="Curve_rr38n"]
+_data = [Vector2(0, 0), 0.0, 4.4562, 0, 0, Vector2(1, 0.597164), -0.686939, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
+curve = SubResource("Curve_rr38n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0e48y"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(237.75, 23, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+resource_local_to_scene = true
+size = Vector2(103, 104)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_epypp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0hol4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(237.75, 23, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.713726, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="FlatMagnet" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(129, 171)
+
+[node name="CollisionShape2D" parent="FlatMagnet" index="0"]
+position = Vector2(-19.5, 27.5)
+shape = SubResource("RectangleShape2D_0e48y")
+shape_size = Vector2(55, 71)
+
+[node name="Gradient" parent="FlatMagnet" index="1"]
+position = Vector2(-19.5, 27.5)
+texture = SubResource("GradientTexture2D_wtcfe")
+
+[node name="Particles" parent="FlatMagnet" index="2"]
+position = Vector2(-19.5, 27.5)
+process_material = SubResource("ParticleProcessMaterial_0e48y")
+
+[node name="FlatMagnet2" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(300, 205)
+
+[node name="CollisionShape2D" parent="FlatMagnet2" index="0"]
+position = Vector2(43.5, -44)
+shape = SubResource("RectangleShape2D_q6r6c")
+shape_size = Vector2(103, 104)
+
+[node name="Gradient" parent="FlatMagnet2" index="1"]
+position = Vector2(43.5, -44)
+texture = SubResource("GradientTexture2D_epypp")
+
+[node name="Particles" parent="FlatMagnet2" index="2"]
+position = Vector2(43.5, -44)
+process_material = SubResource("ParticleProcessMaterial_0hol4")
+
+[editable path="FlatMagnet"]
+[editable path="FlatMagnet2"]
