@@ -841,8 +841,7 @@ position = Vector2(0, 8)
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_j55il")
-animation = &"blue_fly"
-frame = 1
+animation = &"red_idle"
 script = ExtResource("3_boad6")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

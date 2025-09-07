@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://2rcqy6oa4o7d"]
+[gd_scene load_steps=31 format=4 uid="uid://2rcqy6oa4o7d"]
 
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="1_6nbid"]
 [ext_resource type="TileSet" uid="uid://csus7joxovyuq" path="res://tileset.tres" id="1_qf2lf"]
@@ -9,16 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nbid"]
 size = Vector2(32, 16)
 
-[sub_resource type="Gradient" id="Gradient_j61ub"]
-offsets = PackedFloat32Array(0, 0.266667, 0.783333, 1)
-colors = PackedColorArray(0.419608, 0.431373, 0.619608, 0.635294, 0.356863, 0.356863, 0.541176, 0.431373, 0.0182, 0.37492, 0.91, 0.133333, 0.13, 0.278, 0.5, 0)
-
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0dx00"]
-gradient = SubResource("Gradient_j61ub")
-width = 32
-height = 16
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="Curve" id="Curve_8ohhs"]
 _data = [Vector2(0.00269542, 0.235294), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
@@ -37,7 +28,7 @@ curve = SubResource("Curve_rr38n")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ckgvu"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 3, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
@@ -47,100 +38,72 @@ alpha_curve = SubResource("CurveTexture_5ra4g")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dx00"]
 size = Vector2(32, 16)
 
-[sub_resource type="Gradient" id="Gradient_qch6w"]
-offsets = PackedFloat32Array(0.00793651, 0.345833, 0.9, 1)
-colors = PackedColorArray(0.705882, 0.419608, 0.262745, 0.741176, 0.67451, 0.196078, 0.196078, 0.682353, 1, 0.318667, 0.27, 0.172549, 1, 0.636, 0.61, 0)
-
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qnjfp"]
-gradient = SubResource("Gradient_qch6w")
-width = 32
-height = 16
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d7yns"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 3, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.713726, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgvu"]
 size = Vector2(32, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t1rpe"]
-gradient = SubResource("Gradient_qch6w")
-width = 32
-height = 16
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lqtib"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 3, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.713726, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnjfp"]
 size = Vector2(88, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mcd3f"]
-gradient = SubResource("Gradient_qch6w")
-width = 88
-height = 16
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6xvd"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(39, 3, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.713726, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7yns"]
 size = Vector2(48, 32)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fo65h"]
-gradient = SubResource("Gradient_qch6w")
-width = 48
-height = 32
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bmqag"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(19, 11, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.713726, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1rpe"]
 size = Vector2(272, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8koro"]
-gradient = SubResource("Gradient_j61ub")
-width = 272
-height = 16
-fill_to = Vector2(0, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2kc1g"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(131, 3, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
@@ -151,14 +114,11 @@ alpha_curve = SubResource("CurveTexture_5ra4g")
 size = Vector2(16, 16)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_66bjh"]
-gradient = SubResource("Gradient_j61ub")
-width = 16
-height = 16
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ytyl"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 3, 1)
+emission_box_extents = Vector3(237.75, 23, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
