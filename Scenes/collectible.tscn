@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd87di74w8fww"]
+[gd_scene load_steps=18 format=3 uid="uid://bd87di74w8fww"]
 
 [ext_resource type="Script" uid="uid://bgvy5omv7yimq" path="res://Scripts/collectible.gd" id="1_athsx"]
 [ext_resource type="Texture2D" uid="uid://gmtiysq5c1bn" path="res://MetalNut.png" id="2_7xeth"]
@@ -7,25 +7,60 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cae6"]
 radius = 16.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixlk2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xeth"]
 atlas = ExtResource("2_7xeth")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hb6c1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixlk2"]
 atlas = ExtResource("2_7xeth")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sshb3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb6c1"]
 atlas = ExtResource("2_7xeth")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k4w2s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sshb3"]
 atlas = ExtResource("2_7xeth")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4w2s"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfbqs"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bsl4"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n71w"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1ll4"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifv8v"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n71g"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhksa"]
+atlas = ExtResource("2_7xeth")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mfbqs"]
 animations = [{
 "frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_7xeth")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ixlk2")
 }, {
@@ -37,6 +72,27 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k4w2s")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_mfbqs")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_1bsl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n71w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1ll4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifv8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n71g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhksa")
 }],
 "loop": true,
 "name": &"default",
@@ -55,7 +111,7 @@ shape = SubResource("CircleShape2D_8cae6")
 [node name="CollectibleSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mfbqs")
 autoplay = "default"
-frame_progress = 0.804473
+frame_progress = 0.143785
 
 [node name="CollectibleAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7xeth")

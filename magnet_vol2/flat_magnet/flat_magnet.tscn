@@ -13,8 +13,8 @@ resource_local_to_scene = true
 size = Vector2(16, 16)
 
 [sub_resource type="Gradient" id="Gradient_j61ub"]
-offsets = PackedFloat32Array(0, 0.266667, 0.783333, 1)
-colors = PackedColorArray(0.4606, 0.7802, 0.94, 0.45098, 0, 0.4, 1, 0.356863, 0.0182, 0.37492, 0.91, 0.133333, 0.13, 0.278, 0.5, 0)
+offsets = PackedFloat32Array(0, 0.506494, 1)
+colors = PackedColorArray(0.4216, 0.434827, 0.62, 0.321569, 0.3564, 0.3564, 0.54, 0.356863, 0.13, 0.278, 0.5, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8ohhs"]
 gradient = SubResource("Gradient_j61ub")
@@ -58,6 +58,7 @@ script = ExtResource("1_02ev6")
 magnet_direction = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_8ohhs")
 script = ExtResource("2_8ohhs")
 

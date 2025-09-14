@@ -1,10 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://pbqphvyiooiw"]
+[gd_scene load_steps=18 format=3 uid="uid://pbqphvyiooiw"]
 
 [ext_resource type="Script" uid="uid://c28lcgo5t42sq" path="res://HUD/main_menu.gd" id="1_c7jvv"]
 [ext_resource type="PackedScene" uid="uid://djscy8dmu1lqp" path="res://HUD/loading_screen.tscn" id="2_q1pp4"]
-[ext_resource type="Texture2D" uid="uid://ca308lfrysx3o" path="res://MAGNETROIDV2.png" id="3_l7hc5"]
+[ext_resource type="Texture2D" uid="uid://tj23dwptctoh" path="res://assets/background_layer1.png" id="3_fojc5"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="3_q1pp4"]
+[ext_resource type="Texture2D" uid="uid://c745d0hjjlbjt" path="res://assets/background_layer2.png" id="4_6co8s"]
 [ext_resource type="Texture2D" uid="uid://djx2wda57dhir" path="res://ButtonPanel.png" id="4_jxfs0"]
+[ext_resource type="Texture2D" uid="uid://bbb8nrii54wtu" path="res://assets/background_layer3.png" id="5_tcarw"]
+[ext_resource type="Texture2D" uid="uid://w7e33x3ej4oj" path="res://assets/background_layer4.png" id="6_qs2e7"]
+[ext_resource type="Texture2D" uid="uid://c0s4xnjj3tv1x" path="res://Title_screen_logo.png" id="7_xudqj"]
+[ext_resource type="Texture2D" uid="uid://cpmm0wmhkckcb" path="res://play_idle.png" id="10_qs2e7"]
+[ext_resource type="Texture2D" uid="uid://h16gigbvrfly" path="res://play_press.png" id="11_xudqj"]
+[ext_resource type="Texture2D" uid="uid://qwmdlvlane30" path="res://play_hover.png" id="12_fqn15"]
+
+[sub_resource type="GDScript" id="GDScript_fqn15"]
+resource_name = "menuparallax"
+script/source = "extends ParallaxBackground
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	scroll_offset.x -=40*delta
+"
 
 [sub_resource type="Gradient" id="Gradient_q1pp4"]
 interpolation_mode = 1
@@ -32,7 +54,54 @@ grow_vertical = 2
 script = ExtResource("1_c7jvv")
 loading_screen = ExtResource("2_q1pp4")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, -60)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, -60)
+script = SubResource("GDScript_fqn15")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("3_fojc5")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("4_6co8s")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("5_tcarw")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("6_qs2e7")
+centered = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 116.2
+offset_right = 320.0
+offset_bottom = 192.2
+scale = Vector2(2, 2)
+texture = ExtResource("7_xudqj")
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +120,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(7.875, 40.09)
 layout_mode = 2
-texture = ExtResource("3_l7hc5")
+texture = ExtResource("7_xudqj")
 stretch_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
@@ -158,4 +227,22 @@ JOSEPH MATTIAS TOMP
 For assisting with visuals and SFX"
 horizontal_alignment = 2
 
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = 94.0
+offset_right = 23.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_qs2e7")
+texture_pressed = ExtResource("11_xudqj")
+texture_hover = ExtResource("12_fqn15")
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_play_pressed"]
