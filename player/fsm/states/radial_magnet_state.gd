@@ -6,12 +6,12 @@ extends FSMState
 		if Engine.is_editor_hint():
 			return custom_rotation_speed
 		return custom_rotation_speed * GlobalVars.su
-@onready var player: Player = owner
 @export var doing: AudioStreamPlayer
 @export var launch_particles: GPUParticles2D
 @export var camera: Camera2D
 @export var shake_intensity: float
 @export var shake_time: float
+@export var ejection_force: float = 10
 
 var rotation_vector: Vector2:
 	get:
@@ -22,8 +22,9 @@ var rotation_distance: float = 0:
 var rotation_direction: int = 0
 var rotation_speed: float = 0
 var magnet_position: Vector2 = Vector2.ZERO
-@export var ejection_force: float = 10
 var ejecting: bool = false
+
+@onready var player: Player = owner
 
 func enter() -> void:
 	var player_position: Vector2 = player.global_position
@@ -31,7 +32,7 @@ func enter() -> void:
 	# Initialize correct values for rotation
 	magnet_position = player.current_magnet.global_position
 	rotation_vector = (player_position - magnet_position).normalized()
-	rotation_distance = player_position.distance_to(magnet_position)
+	rotation_distance = player_position.distance_to(magnet_position) #FIXME: Make it a constant value, taken from the radial magnet
 	rotation_direction = player.current_magnet.rotation_direction
 	rotation_speed = _calculate_rotation_speed(custom_rotation_speed, rotation_distance)
 
@@ -39,23 +40,26 @@ func __physics_process(delta) -> void:
 	if not ejecting:
 		rotation_vector = rotation_vector.rotated(rotation_speed * rotation_direction * delta)
 		player.global_position = magnet_position + rotation_vector * rotation_distance
-	player.up_direction = rotation_vector
+	player.up_direction = rotation_vector #HACK: This is really hacky, I understand time limit was the reason but WHY???
 	_handle_ejection()
 
-
+# This function fixes a bug where you get stuck in the radial magnet for multiple jumps
 func _handle_ejection() -> void:
 	# We can assume that this will switch the poles to match
 	if Input.is_action_just_pressed(&"a_switch") and not ejecting:
-		doing.play()
-		camera.shake(shake_intensity, shake_time)
-		launch_particles.emitting = false
-		launch_particles.emitting = true
-		var ejection_direction = rotation_vector.rotated(PI/2*rotation_direction)
-		player.velocity = ejection_direction * ejection_force * GlobalVars.su
-		ejecting = true
+		_eject()
 
 	if ejecting and not player.current_magnet:
 		change_state.emit(move_state)
+
+func _eject() -> void:
+	doing.play()
+	camera.shake(shake_intensity, shake_time)
+	launch_particles.emitting = false
+	launch_particles.emitting = true
+	var ejection_direction = rotation_vector.rotated(rotation_direction)
+	player.velocity = ejection_direction * ejection_force * GlobalVars.su
+	ejecting = true
 
 func exit() -> void:
 	ejecting = false
