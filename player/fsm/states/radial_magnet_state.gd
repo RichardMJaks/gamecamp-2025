@@ -32,7 +32,7 @@ func enter() -> void:
 	# Initialize correct values for rotation
 	magnet_position = player.current_magnet.global_position
 	rotation_vector = (player_position - magnet_position).normalized()
-	rotation_distance = player_position.distance_to(magnet_position) #FIXME: Make it a constant value, taken from the radial magnet
+	rotation_distance = player.current_magnet.rotation_distance #FIXME: Make it a constant value, taken from the radial magnet
 	rotation_direction = player.current_magnet.rotation_direction
 	rotation_speed = _calculate_rotation_speed(custom_rotation_speed, rotation_distance)
 
@@ -57,7 +57,7 @@ func _eject() -> void:
 	camera.shake(shake_intensity, shake_time)
 	launch_particles.emitting = false
 	launch_particles.emitting = true
-	var ejection_direction = rotation_vector.rotated(rotation_direction)
+	var ejection_direction = rotation_vector
 	player.velocity = ejection_direction * ejection_force * GlobalVars.su
 	ejecting = true
 

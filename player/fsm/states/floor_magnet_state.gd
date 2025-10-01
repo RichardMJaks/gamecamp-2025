@@ -20,6 +20,7 @@ func _ready() -> void:
 func enter() -> void:
 	_launch()
 
+#FIXME: Players gets stuck on walls and such, fix it
 func _launch() -> void:
 	# Add launch velocity
 	print("Launched")

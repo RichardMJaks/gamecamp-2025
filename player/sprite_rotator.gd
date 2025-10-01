@@ -9,6 +9,7 @@ var rotation_interpolation_delta: float = 0:
 		return min(rotation_interpolation_delta, 1)
 @export var sprite: AnimatedSprite2D
 
+#FIXME: Player rotation should be opposite if in the same pole range
 func _process(delta):
 	#FIXME: What is this mess for rotations here? Magic numbers n shit without explanation
 	if player.current_magnet:
@@ -24,8 +25,8 @@ func _process(delta):
 			current_rotation = Vector2.ZERO
 	
 	if player.current_magnet and player.current_magnet is RadialMagnet:
-		#FIXME: Why am using player.up_direction here? Should be clearer or a better solution in general
-		rotation = player.up_direction.angle() + PI * (0 if player.current_magnet.rotation_direction == -1 else 1)
+		#FIXME: Seems like radial magnet state sets player.up_direction for rotation
+		rotation = player.up_direction.angle() + PI/2
 		flip_h = player.current_magnet.rotation_direction == -1
 
 	if rotation_interpolation_delta <= 1:
