@@ -1,3 +1,5 @@
+[gd_scene load_steps=115 format=3 uid="uid://hm7oj8v2rsqi"]
+
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://1xp2dovahsx0" path="res://player/launch_particles.tscn" id="2_bjvpn"]
 [ext_resource type="Script" uid="uid://bt4oph17ec2nu" path="res://player/fsm/fsm.gd" id="2_g1dw6"]
@@ -826,8 +828,6 @@ radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 anim_tree = NodePath("Animations/AnimationTree")
 switched = NodePath("Audio/Switch")
 switch_particles = NodePath("Particles/SwitchParticles")
-color_north = Color(0.00999999, 0.406, 1, 1)
-color_south = Color(1, 0, 0, 1)
 
 [node name="Particles" type="Node2D" parent="."]
 
