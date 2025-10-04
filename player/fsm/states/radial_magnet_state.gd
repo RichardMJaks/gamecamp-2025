@@ -23,6 +23,7 @@ var rotation_direction: int = 0
 var rotation_speed: float = 0
 var magnet_position: Vector2 = Vector2.ZERO
 var ejecting: bool = false
+var this_magnet: RadialMagnet = null
 
 @onready var player: Player = owner
 
@@ -35,6 +36,7 @@ func enter() -> void:
 	rotation_distance = player.current_magnet.rotation_distance #FIXME: Make it a constant value, taken from the radial magnet
 	rotation_direction = player.current_magnet.rotation_direction
 	rotation_speed = _calculate_rotation_speed(custom_rotation_speed, rotation_distance)
+	this_magnet = player.current_magnet
 
 func __physics_process(delta) -> void:
 	if not ejecting:
@@ -49,7 +51,7 @@ func _handle_ejection() -> void:
 	if Input.is_action_just_pressed(&"a_switch") and not ejecting:
 		_eject()
 
-	if ejecting and not player.current_magnet:
+	if ejecting and not player.current_magnet == this_magnet:
 		change_state.emit(move_state)
 
 func _eject() -> void:

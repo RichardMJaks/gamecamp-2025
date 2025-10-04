@@ -24,9 +24,9 @@ func _process(_delta: float) -> void:
 func _apply_colors() -> void:
 	texture.fill_from = Vector2(0.5, 0.5)
 	texture.fill_to = Vector2(0.5, 0)
-	if owner.pole == GlobalVars.POLE.NORTH:
+	if get_parent().pole == GlobalVars.POLE.NORTH:
 		texture.gradient = north_gradient
-	if owner.pole == GlobalVars.POLE.SOUTH:
+	if get_parent().pole == GlobalVars.POLE.SOUTH:
 		texture.gradient = south_gradient
 
 func _apply_size() -> void:

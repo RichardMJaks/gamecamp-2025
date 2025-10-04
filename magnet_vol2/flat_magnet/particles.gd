@@ -8,6 +8,7 @@ extends GPUParticles2D
 @export var north_color: Color
 @export var particles_material: ParticleProcessMaterial
 
+
 func _ready() -> void:
 	process_material = particles_material.duplicate()
 
@@ -20,9 +21,9 @@ func _process(_delta: float) -> void:
 
 
 func _apply_particle():
-	if owner.pole == GlobalVars.POLE.NORTH:
+	if get_parent().pole == GlobalVars.POLE.NORTH:
 		texture = north_particle
 		process_material.color = north_color
-	if owner.pole == GlobalVars.POLE.SOUTH:
+	if get_parent().pole == GlobalVars.POLE.SOUTH:
 		texture = south_particle
 		process_material.color = south_color

@@ -12,20 +12,23 @@
 resource_local_to_scene = true
 size = Vector2(16, 16)
 
-[sub_resource type="Gradient" id="Gradient_j61ub"]
-offsets = PackedFloat32Array(0, 0.506494, 1)
-colors = PackedColorArray(0.4216, 0.434827, 0.62, 0.321569, 0.3564, 0.3564, 0.54, 0.356863, 0.13, 0.278, 0.5, 0)
+[sub_resource type="Gradient" id="Gradient_8ohhs"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.492046, 0.698031, 0.999999, 0.356863)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ohhs"]
-gradient = SubResource("Gradient_j61ub")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ra4g"]
+gradient = SubResource("Gradient_8ohhs")
 width = 16
 height = 16
-fill_from = Vector2(1, 0)
+fill = 2
+fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="Gradient" id="Gradient_qch6w"]
-offsets = PackedFloat32Array(0.00793651, 0.345833, 0.9, 1)
-colors = PackedColorArray(1, 0.589333, 0.56, 0.682353, 1, 0.3, 0.25, 0.47451, 1, 0.318667, 0.27, 0.172549, 1, 0.636, 0.61, 0)
+[sub_resource type="Gradient" id="Gradient_5ra4g"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.917647)
+colors = PackedColorArray(1, 0.21268, 0.159696, 0.47451, 1, 0.244, 0.19, 0.8)
 
 [sub_resource type="Curve" id="Curve_8ohhs"]
 _data = [Vector2(0.00269542, 0.235294), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
@@ -41,7 +44,7 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
 curve = SubResource("Curve_rr38n")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ra4g"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rr38n"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(3, 3, 1)
@@ -62,18 +65,22 @@ visible = false
 shape = SubResource("RectangleShape2D_8ohhs")
 script = ExtResource("2_8ohhs")
 
-[node name="Gradient" type="Sprite2D" parent="." node_paths=PackedStringArray("collider")]
-texture = SubResource("GradientTexture2D_8ohhs")
+[node name="Gradient" type="Sprite2D" parent="." node_paths=PackedStringArray("collider", "outline")]
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_5ra4g")
 script = ExtResource("2_kh203")
 collider = NodePath("../CollisionShape2D")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+north_gradient = SubResource("Gradient_8ohhs")
+south_gradient = SubResource("Gradient_5ra4g")
+north_outline = Color(0.211765, 0.52549, 1, 1)
+south_outline = Color(1, 0.243137, 0.188235, 0.8)
+outline = NodePath("")
 metadata/_edit_lock_ = true
 
 [node name="Particles" type="GPUParticles2D" parent="." node_paths=PackedStringArray("collider")]
 amount = 5
 texture = ExtResource("5_8ohhs")
-process_material = SubResource("ParticleProcessMaterial_5ra4g")
+process_material = SubResource("ParticleProcessMaterial_rr38n")
 script = ExtResource("4_qch6w")
 collider = NodePath("../CollisionShape2D")
 south_particle = ExtResource("3_j61ub")

@@ -12,7 +12,6 @@ var positions: Array[Array] = [
 @export var north_gradient: Gradient
 @export var south_gradient: Gradient
 
-
 func _ready() -> void:
 	texture = GradientTexture2D.new()
 
@@ -27,12 +26,12 @@ func _process(_delta: float) -> void:
 	
 
 func _apply_colors() -> void:
-	var gradient_positions = positions[owner.magnet_direction]
+	var gradient_positions = positions[get_parent().magnet_direction]
 	texture.fill_from = gradient_positions[0]
 	texture.fill_to = gradient_positions[1]
-	if owner.pole == GlobalVars.POLE.NORTH:
+	if get_parent().pole == GlobalVars.POLE.NORTH:
 		texture.gradient = north_gradient
-	if owner.pole == GlobalVars.POLE.SOUTH:
+	if get_parent().pole == GlobalVars.POLE.SOUTH:
 		texture.gradient = south_gradient
 
 func _apply_size() -> void:

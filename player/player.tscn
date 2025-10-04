@@ -820,7 +820,7 @@ transitions = ["Walk", "SwitchPole", SubResource("AnimationNodeStateMachineTrans
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles")]
 script = ExtResource("1_oul6g")
 speed = 10.0
-acceleration_time = 0.5
+acceleration_time = 0.3
 deceleration_time = 0.3
 jump_height = 5.0
 gravity_direction = Vector2i(0, -1)
@@ -828,6 +828,8 @@ radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 anim_tree = NodePath("Animations/AnimationTree")
 switched = NodePath("Audio/Switch")
 switch_particles = NodePath("Particles/SwitchParticles")
+color_north = Color(0, 0.616667, 1, 1)
+color_south = Color(1, 0, 0, 1)
 
 [node name="Particles" type="Node2D" parent="."]
 

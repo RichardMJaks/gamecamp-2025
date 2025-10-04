@@ -11,22 +11,30 @@ extends FSMState
 @export var radial_magnet_state: FSMState
 @export var doing: AudioStreamPlayer
 var radial_stuck_fix: bool = false
+var player_movement_velocity: Vector2 = Vector2.ZERO
+var player_gravity_velocity: Vector2 = Vector2.ZERO
 
 func __physics_process(delta: float) -> void:
+	# Use this to return -1, 0, or 1
+	var get_rounded_axis: Callable = func (a1: StringName, a2: StringName) -> int:
+		return ceili(Input.get_action_strength(a2)) - floori(Input.get_action_strength(a1)) 
+
 	# Get input direction
-	var dir: Vector2i = Input.get_vector(
-		&"m_left", &"m_right", 
-		&"m_up", &"m_down"
+	@warning_ignore("narrowing_conversion")
+	var dir: Vector2i = Vector2i( 
+		get_rounded_axis.call(&"m_left", &"m_right"), 
+		get_rounded_axis.call(&"m_up", &"m_down")
 	)
-	
+
 	# Calculate acceleration and deceleration
 	_accelerate_player(dir, delta)
 	_decelerate_player(dir, delta)
+	_apply_gravity(delta)
 
 	_handle_floor_magnet()
 	_handle_radial_magnet()
 
-	_apply_gravity(delta)
+	# Clamp velocity to max speed
 	_handle_jump()
 
 	if Input.is_action_just_pressed(&"a_switch"):
@@ -44,19 +52,21 @@ func __physics_process(delta: float) -> void:
 #region Movement functions
 # Accelerate player when having forward direction
 func _accelerate_player(dir: Vector2i, delta) -> void:
-	# If-else to handle both horizontal and vertical movement when needed
-	# Horizontal movement
+	## If-else to handle both horizontal and vertical movement when needed
+	## Horizontal movement
 	if player.gravity_direction.x == 0 and dir.x:
 		_apply_acceleration(dir.x, delta, Vector2.RIGHT)
 	# Vertical movement
-	elif player.gravity_direction.y == 0 and dir.y:
+	if player.gravity_direction.y == 0 and dir.y:
 		_apply_acceleration(dir.y, delta, Vector2.DOWN)
+
 
 # Applies acceleration with respect to current movement axis
 func _apply_acceleration(dir: float, delta: float, axis: Vector2) -> void:
-		var acceleration: float = player.speed / player.acceleration_time
-		if abs((player.velocity * axis).length()) < player.speed:
-			player.velocity += dir * acceleration * delta * axis
+	var acceleration: float = player.speed / player.acceleration_time
+	if (player.velocity * axis).length() < player.speed:
+		player.velocity += dir * acceleration * delta * axis
+
 
 # Apply deceleration when no input or changing direction
 # This is absolute shit tbh due to having to hard assign velocity
@@ -69,6 +79,7 @@ func _decelerate_player(dir: Vector2i, delta) -> void:
 	else:
 		if sign(dir.y) != sign(player.velocity.y):
 			player.velocity.y = move_toward(player.velocity.y, 0, deceleration * delta)
+
 
 # Helper methods for common movement patterns
 func _apply_gravity(delta: float) -> void:
