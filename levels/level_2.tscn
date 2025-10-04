@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://d06nt0d1anms4"]
+[gd_scene load_steps=93 format=4 uid="uid://d06nt0d1anms4"]
 
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="1_5722l"]
 [ext_resource type="Script" uid="uid://citxuu4ptppu8" path="res://Scripts/level.gd" id="1_dfjjl"]
@@ -17,16 +17,53 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at1ld"]
 size = Vector2(32, 16)
 
-[sub_resource type="Gradient" id="Gradient_j61ub"]
-offsets = PackedFloat32Array(0, 0.266667, 0.783333, 1)
-colors = PackedColorArray(0.4606, 0.7802, 0.94, 0.45098, 0, 0.4, 1, 0.356863, 0.0182, 0.37492, 0.91, 0.133333, 0.13, 0.278, 0.5, 0)
+[sub_resource type="Gradient" id="Gradient_8ohhs"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0.5, 1, 0.588235)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wcjpl"]
-gradient = SubResource("Gradient_j61ub")
+gradient = SubResource("Gradient_8ohhs")
+width = 32
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
-[sub_resource type="Gradient" id="Gradient_qch6w"]
-offsets = PackedFloat32Array(0.00793651, 0.345833, 0.564935, 1)
-colors = PackedColorArray(0.71, 0.419255, 0.2627, 0.745098, 0.67, 0.28944, 0.1943, 0.45098, 0.67, 0.1943, 0.1943, 0.168627, 0.67, 0.273583, 0.1943, 0)
+[sub_resource type="Gradient" id="Gradient_5orea"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="Gradient" id="Gradient_rr38n"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.2378, 0.47068, 0.82, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5orea"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 32
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ourt"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 32
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w200a"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uo0vl"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
 
 [sub_resource type="Curve" id="Curve_8ohhs"]
 _data = [Vector2(0.00269542, 0.235294), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
@@ -42,142 +79,424 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
 curve = SubResource("Curve_rr38n")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5orea"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ourt"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(11, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.713726, 1, 1)
+color = Color(0.2601, 0.439195, 0.51, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sd18g"]
 size = Vector2(32, 16)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ourt"]
-gradient = SubResource("Gradient_qch6w")
+[sub_resource type="Gradient" id="Gradient_5ra4g"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.0666667, 0, 0.47451)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w200a"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k2aru"]
+gradient = SubResource("Gradient_5ra4g")
+width = 32
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ndgrd"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h351q"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ndgrd")
+width = 32
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpc8t"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ndgrd")
+width = 32
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ngvhw"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ndgrd")
+width = 16
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_itbe0"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ndgrd")
+width = 16
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h351q"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(11, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.65, 0.3575, 0.3575, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm7no"]
 size = Vector2(32, 16)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uo0vl"]
-gradient = SubResource("Gradient_qch6w")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xrja0"]
+gradient = SubResource("Gradient_5ra4g")
+width = 32
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k2aru"]
+[sub_resource type="Gradient" id="Gradient_he6wg"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jqt73"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_he6wg")
+width = 32
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_00pa0"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_he6wg")
+width = 32
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_amxoe"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_he6wg")
+width = 16
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cp3aq"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_he6wg")
+width = 16
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqt73"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(11, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.65, 0.3575, 0.3575, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbb88"]
 size = Vector2(88, 16)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ndgrd"]
-gradient = SubResource("Gradient_qch6w")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wgvos"]
+gradient = SubResource("Gradient_5ra4g")
+width = 88
+height = 16
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h351q"]
+[sub_resource type="Gradient" id="Gradient_4xp61"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4yoxl"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_4xp61")
+width = 88
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6dcgf"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_4xp61")
+width = 88
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ubuva"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_4xp61")
+width = 16
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0nm7o"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_4xp61")
+width = 16
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m4706"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(39, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.65, 0.3575, 0.3575, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcjpl"]
 size = Vector2(48, 32)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpc8t"]
-gradient = SubResource("Gradient_qch6w")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4xp61"]
+gradient = SubResource("Gradient_5ra4g")
+width = 48
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ngvhw"]
+[sub_resource type="Gradient" id="Gradient_ghfw4"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s67ts"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ghfw4")
+width = 48
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6oa44"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ghfw4")
+width = 48
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3582p"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ghfw4")
+width = 32
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nomkf"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ghfw4")
+width = 32
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4yoxl"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(19, 11, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.65, 0.3575, 0.3575, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5orea"]
 size = Vector2(272, 16)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_itbe0"]
-gradient = SubResource("Gradient_j61ub")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pjs8f"]
+gradient = SubResource("Gradient_8ohhs")
+width = 272
+height = 16
+fill_to = Vector2(0, 1)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xrja0"]
+[sub_resource type="Gradient" id="Gradient_qthv2"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wnekv"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 272
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jyp08"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 272
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wvv8u"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4s8mp"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bf7t1"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(131, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.713726, 1, 1)
+color = Color(0.2601, 0.439195, 0.51, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ourt"]
 size = Vector2(16, 16)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_he6wg"]
-gradient = SubResource("Gradient_j61ub")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghfw4"]
+gradient = SubResource("Gradient_8ohhs")
+width = 16
+height = 16
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqt73"]
+[sub_resource type="Gradient" id="Gradient_m0g18"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_df2rw"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1h2df"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p36y6"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_af6je"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s67ts"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(3, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.713726, 1, 1)
+color = Color(0.2601, 0.439195, 0.51, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w200a"]
 size = Vector2(48, 16)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_00pa0"]
-gradient = SubResource("Gradient_j61ub")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rddwe"]
+gradient = SubResource("Gradient_8ohhs")
+width = 48
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_amxoe"]
+[sub_resource type="Gradient" id="Gradient_w87fk"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.216, 0.16, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s5is7"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 48
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rdd5d"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 48
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pmt47"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uvpi8"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_rr38n")
+width = 16
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6bdx5"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(19, 3, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.713726, 1, 1)
+color = Color(0.2601, 0.439195, 0.51, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo0vl"]
 size = Vector2(48, 32)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cp3aq"]
-gradient = SubResource("Gradient_qch6w")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qthv2"]
+gradient = SubResource("Gradient_5ra4g")
+width = 48
+height = 32
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wgvos"]
+[sub_resource type="Gradient" id="Gradient_hguyq"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.337333, 0.29, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r6t30"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_hguyq")
+width = 48
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_umlkt"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_hguyq")
+width = 48
+height = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_643hv"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_hguyq")
+width = 32
+height = 4
+use_hdr = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_js1ip"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_hguyq")
+width = 32
+height = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wnekv"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(19, 11, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.65, 0.3575, 0.3575, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="Level2" type="Node2D"]
@@ -206,11 +525,25 @@ shape_size = Vector2(32, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet" index="1"]
 texture = SubResource("GradientTexture2D_wcjpl")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+south_outline = SubResource("Gradient_5orea")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet/Gradient" index="0"]
+texture = SubResource("GradientTexture2D_5orea")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet/Gradient" index="1"]
+texture = SubResource("GradientTexture2D_0ourt")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet/Gradient" index="2"]
+position = Vector2(-14, 0)
+texture = SubResource("GradientTexture2D_w200a")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet/Gradient" index="3"]
+position = Vector2(14, 0)
+texture = SubResource("GradientTexture2D_uo0vl")
 
 [node name="Particles" parent="Magnets/FlatMagnet" index="2"]
-process_material = SubResource("ParticleProcessMaterial_5orea")
+process_material = SubResource("ParticleProcessMaterial_0ourt")
 
 [node name="FlatMagnet2" parent="Magnets" instance=ExtResource("1_5722l")]
 position = Vector2(256, 184)
@@ -222,13 +555,27 @@ shape = SubResource("RectangleShape2D_sd18g")
 shape_size = Vector2(32, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet2" index="1"]
-texture = SubResource("GradientTexture2D_0ourt")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_k2aru")
+south_outline = SubResource("Gradient_ndgrd")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet2/Gradient" index="0"]
+texture = SubResource("GradientTexture2D_h351q")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet2/Gradient" index="1"]
+texture = SubResource("GradientTexture2D_dpc8t")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet2/Gradient" index="2"]
+position = Vector2(-14, 0)
+texture = SubResource("GradientTexture2D_ngvhw")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet2/Gradient" index="3"]
+position = Vector2(14, 0)
+texture = SubResource("GradientTexture2D_itbe0")
 
 [node name="Particles" parent="Magnets/FlatMagnet2" index="2"]
 texture = ExtResource("2_ilhis")
-process_material = SubResource("ParticleProcessMaterial_w200a")
+process_material = SubResource("ParticleProcessMaterial_h351q")
 
 [node name="FlatMagnet3" parent="Magnets" instance=ExtResource("1_5722l")]
 position = Vector2(352, 104)
@@ -240,13 +587,27 @@ shape = SubResource("RectangleShape2D_vm7no")
 shape_size = Vector2(32, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet3" index="1"]
-texture = SubResource("GradientTexture2D_uo0vl")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_xrja0")
+south_outline = SubResource("Gradient_he6wg")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet3/Gradient" index="0"]
+texture = SubResource("GradientTexture2D_jqt73")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet3/Gradient" index="1"]
+texture = SubResource("GradientTexture2D_00pa0")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet3/Gradient" index="2"]
+position = Vector2(-14, 0)
+texture = SubResource("GradientTexture2D_amxoe")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet3/Gradient" index="3"]
+position = Vector2(14, 0)
+texture = SubResource("GradientTexture2D_cp3aq")
 
 [node name="Particles" parent="Magnets/FlatMagnet3" index="2"]
 texture = ExtResource("2_ilhis")
-process_material = SubResource("ParticleProcessMaterial_k2aru")
+process_material = SubResource("ParticleProcessMaterial_jqt73")
 
 [node name="FlatMagnet4" parent="Magnets" instance=ExtResource("1_5722l")]
 position = Vector2(376, 72)
@@ -259,14 +620,28 @@ shape_size = Vector2(88, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet4" index="1"]
 position = Vector2(-36, 0)
-texture = SubResource("GradientTexture2D_ndgrd")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_wgvos")
+south_outline = SubResource("Gradient_4xp61")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet4/Gradient" index="0"]
+texture = SubResource("GradientTexture2D_4yoxl")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet4/Gradient" index="1"]
+texture = SubResource("GradientTexture2D_6dcgf")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet4/Gradient" index="2"]
+position = Vector2(-42, 0)
+texture = SubResource("GradientTexture2D_ubuva")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet4/Gradient" index="3"]
+position = Vector2(42, 0)
+texture = SubResource("GradientTexture2D_0nm7o")
 
 [node name="Particles" parent="Magnets/FlatMagnet4" index="2"]
 position = Vector2(-36, 0)
 texture = ExtResource("2_ilhis")
-process_material = SubResource("ParticleProcessMaterial_h351q")
+process_material = SubResource("ParticleProcessMaterial_m4706")
 
 [node name="FlatMagnet6" parent="Magnets" instance=ExtResource("1_5722l")]
 position = Vector2(64, 88)
@@ -280,14 +655,30 @@ shape_size = Vector2(48, 32)
 
 [node name="Gradient" parent="Magnets/FlatMagnet6" index="1"]
 position = Vector2(8, -8)
-texture = SubResource("GradientTexture2D_dpc8t")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_4xp61")
+south_outline = SubResource("Gradient_ghfw4")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet6/Gradient" index="0"]
+position = Vector2(0, -14)
+texture = SubResource("GradientTexture2D_s67ts")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet6/Gradient" index="1"]
+position = Vector2(0, 14)
+texture = SubResource("GradientTexture2D_6oa44")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet6/Gradient" index="2"]
+position = Vector2(-22, 0)
+texture = SubResource("GradientTexture2D_3582p")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet6/Gradient" index="3"]
+position = Vector2(22, 0)
+texture = SubResource("GradientTexture2D_nomkf")
 
 [node name="Particles" parent="Magnets/FlatMagnet6" index="2"]
 position = Vector2(8, -8)
 texture = ExtResource("2_ilhis")
-process_material = SubResource("ParticleProcessMaterial_ngvhw")
+process_material = SubResource("ParticleProcessMaterial_4yoxl")
 
 [node name="FlatMagnet7" parent="Magnets" instance=ExtResource("1_5722l")]
 position = Vector2(120, 24)
@@ -300,13 +691,27 @@ shape_size = Vector2(272, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet7" index="1"]
 position = Vector2(64, 0)
-texture = SubResource("GradientTexture2D_itbe0")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_pjs8f")
+south_outline = SubResource("Gradient_qthv2")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet7/Gradient" index="0"]
+texture = SubResource("GradientTexture2D_wnekv")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet7/Gradient" index="1"]
+texture = SubResource("GradientTexture2D_jyp08")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet7/Gradient" index="2"]
+position = Vector2(-134, 0)
+texture = SubResource("GradientTexture2D_wvv8u")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet7/Gradient" index="3"]
+position = Vector2(134, 0)
+texture = SubResource("GradientTexture2D_4s8mp")
 
 [node name="Particles" parent="Magnets/FlatMagnet7" index="2"]
 position = Vector2(64, 0)
-process_material = SubResource("ParticleProcessMaterial_xrja0")
+process_material = SubResource("ParticleProcessMaterial_bf7t1")
 
 [node name="FlatMagnet5" parent="Magnets" instance=ExtResource("1_5722l")]
 position = Vector2(328, 8)
@@ -316,12 +721,24 @@ magnet_direction = 0
 shape = SubResource("RectangleShape2D_0ourt")
 
 [node name="Gradient" parent="Magnets/FlatMagnet5" index="1"]
-texture = SubResource("GradientTexture2D_he6wg")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_ghfw4")
+south_outline = SubResource("Gradient_m0g18")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet5/Gradient" index="0"]
+texture = SubResource("GradientTexture2D_df2rw")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet5/Gradient" index="1"]
+texture = SubResource("GradientTexture2D_1h2df")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet5/Gradient" index="2"]
+texture = SubResource("GradientTexture2D_p36y6")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet5/Gradient" index="3"]
+texture = SubResource("GradientTexture2D_af6je")
 
 [node name="Particles" parent="Magnets/FlatMagnet5" index="2"]
-process_material = SubResource("ParticleProcessMaterial_jqt73")
+process_material = SubResource("ParticleProcessMaterial_s67ts")
 
 [node name="RadialMagnet" parent="Magnets" instance=ExtResource("3_ep78u")]
 position = Vector2(152, 184)
@@ -358,13 +775,27 @@ shape_size = Vector2(48, 16)
 
 [node name="Gradient" parent="Magnets/FlatMagnet8" index="1"]
 position = Vector2(-6, 5)
-texture = SubResource("GradientTexture2D_00pa0")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_rddwe")
+south_outline = SubResource("Gradient_w87fk")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet8/Gradient" index="0"]
+texture = SubResource("GradientTexture2D_s5is7")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet8/Gradient" index="1"]
+texture = SubResource("GradientTexture2D_rdd5d")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet8/Gradient" index="2"]
+position = Vector2(-22, 0)
+texture = SubResource("GradientTexture2D_pmt47")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet8/Gradient" index="3"]
+position = Vector2(22, 0)
+texture = SubResource("GradientTexture2D_uvpi8")
 
 [node name="Particles" parent="Magnets/FlatMagnet8" index="2"]
 position = Vector2(-6, 5)
-process_material = SubResource("ParticleProcessMaterial_amxoe")
+process_material = SubResource("ParticleProcessMaterial_6bdx5")
 
 [node name="FlatMagnet9" parent="Magnets" instance=ExtResource("1_5722l")]
 position = Vector2(627, 108)
@@ -377,14 +808,29 @@ shape_size = Vector2(48, 32)
 
 [node name="Gradient" parent="Magnets/FlatMagnet9" index="1"]
 position = Vector2(-11, 4)
-texture = SubResource("GradientTexture2D_cp3aq")
-north_gradient = SubResource("Gradient_j61ub")
-south_gradient = SubResource("Gradient_qch6w")
+texture = SubResource("GradientTexture2D_qthv2")
+outline_thickness = null
+
+[node name="OutlineTop" parent="Magnets/FlatMagnet9/Gradient" index="0"]
+position = Vector2(0, -14)
+texture = SubResource("GradientTexture2D_r6t30")
+
+[node name="OutlineBottom" parent="Magnets/FlatMagnet9/Gradient" index="1"]
+position = Vector2(0, 14)
+texture = SubResource("GradientTexture2D_umlkt")
+
+[node name="OutlineLeft" parent="Magnets/FlatMagnet9/Gradient" index="2"]
+position = Vector2(-22, 0)
+texture = SubResource("GradientTexture2D_643hv")
+
+[node name="OutlineRight" parent="Magnets/FlatMagnet9/Gradient" index="3"]
+position = Vector2(22, 0)
+texture = SubResource("GradientTexture2D_js1ip")
 
 [node name="Particles" parent="Magnets/FlatMagnet9" index="2"]
 position = Vector2(-11, 4)
 texture = ExtResource("2_ilhis")
-process_material = SubResource("ParticleProcessMaterial_wgvos")
+process_material = SubResource("ParticleProcessMaterial_wnekv")
 
 [node name="EndGate" parent="." instance=ExtResource("7_at1ld")]
 position = Vector2(628, 44)

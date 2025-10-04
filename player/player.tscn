@@ -839,6 +839,7 @@ position = Vector2(0, 8)
 [node name="SwitchParticles" parent="Particles" instance=ExtResource("3_g4c7l")]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_j55il")
 animation = &"red_idle"
 offset = Vector2(0, -1)
