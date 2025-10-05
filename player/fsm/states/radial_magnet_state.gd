@@ -41,6 +41,7 @@ func enter() -> void:
 func __physics_process(delta) -> void:
 	if not ejecting:
 		rotation_vector = rotation_vector.rotated(rotation_speed * rotation_direction * delta)
+		print(rotation_vector)
 		player.global_position = magnet_position + rotation_vector * rotation_distance
 	player.up_direction = rotation_vector #HACK: This is really hacky, I understand time limit was the reason but WHY???
 	_handle_ejection()

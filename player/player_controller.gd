@@ -108,7 +108,6 @@ func _toggle_pole() -> void:
 	switch_particles.emitting = true
 	@warning_ignore("int_as_enum_without_cast")
 	current_pole = 1 - current_pole
-	print("Switched pole to: ", GlobalVars.POLE.find_key(current_pole))
 	anim_tree["parameters/conditions/switched_pole"] = true
 
 #region Signal connections

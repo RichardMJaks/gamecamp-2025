@@ -62,7 +62,7 @@ func _emit_launch_particles() -> void:
 
 func _launch_player() -> void:
 	dir = player.current_magnet.magnet_gravity_direction
-	player.velocity = launch_force * GlobalVars.su * dir
+	player.velocity += launch_force * GlobalVars.su * dir
 
 
 func _play_effects() -> void:
@@ -74,8 +74,3 @@ func _play_effects() -> void:
 
 
 
-func _on_floor_collision(_body:Node2D) -> void:
-	timer.stop()
-	afterimage_timer.stop()
-	change_state.emit(move_state)
-	player.velocity = player.velocity.normalized() * player.speed
