@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drvxfx2cgjfaq"]
+[gd_scene load_steps=13 format=3 uid="uid://drvxfx2cgjfaq"]
 
 [ext_resource type="Script" uid="uid://bwxcxd3ci7mve" path="res://magnet_vol2/flat_magnet/magnet_floor.gd" id="1_02ev6"]
 [ext_resource type="Script" uid="uid://djsiiqucxoa2g" path="res://magnet_vol2/flat_magnet/collider_unique.gd" id="2_8ohhs"]
@@ -10,6 +10,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ohhs"]
 resource_local_to_scene = true
 size = Vector2(16, 16)
+
+[sub_resource type="Curve" id="Curve_8ohhs"]
+_data = [Vector2(0, 0.768133), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ra4g"]
+curve = SubResource("Curve_8ohhs")
+
+[sub_resource type="Curve" id="Curve_rr38n"]
+_data = [Vector2(0, 0), 0.0, 4.96433, 0, 0, Vector2(1, 0.597164), -0.686939, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
+curve = SubResource("Curve_rr38n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qch6w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.716667, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="FlatMagnet" type="Area2D"]
 collision_layer = 2
@@ -24,7 +51,7 @@ script = ExtResource("2_8ohhs")
 [node name="Particles" type="GPUParticles2D" parent="." node_paths=PackedStringArray("collider")]
 amount = 10
 texture = ExtResource("5_8ohhs")
-process_material = ExtResource("5_5ra4g")
+process_material = SubResource("ParticleProcessMaterial_qch6w")
 script = ExtResource("4_qch6w")
 collider = NodePath("../MagnetCollider")
 south_particle = ExtResource("3_j61ub")

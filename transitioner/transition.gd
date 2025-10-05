@@ -25,6 +25,3 @@ func _fade_out() -> void:
 
 func set_param(value: float) -> void:
 	material.set_shader_parameter("time", value)
-
-func _process(delta: float) -> void:
-	print(material.get_shader_parameter("time"))

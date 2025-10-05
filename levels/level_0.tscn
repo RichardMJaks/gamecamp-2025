@@ -42,7 +42,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58gyl"]
@@ -70,10 +70,12 @@ player_node_path = NodePath("Player")
 level_end_area_path = NodePath("EndGate")
 
 [node name="MagnetTilemap" parent="." instance=ExtResource("3_fj15s")]
-tile_map_data = PackedByteArray("AAAgAAYAAAAAAAAAAAAgAAcAAAAAAAEAAAAgAAgAAAAAAAEAAAAgAAkAAAAAAAEAAAAgAAoAAAAAAAEAAAAgAAsAAAAAAAEAAAAgAAwAAAAAAAEAAAAgAA0AAAAAAAEAAAAgAA4AAAAAAAEAAAAgAA8AAAAAAAIAAAAWAAEAAAAEAAAAAAAWAAIAAAAEAAEAAAAWAAMAAAAEAAEAAAAWAAQAAAAEAAEAAAAWAAUAAAAEAAEAAAAWAAYAAAAEAAEAAAAWAAcAAAAEAAEAAAAWAAgAAAAEAAIAAAAXAAEAAAAFAAAAAAAXAAIAAAAFAAEAAAAXAAMAAAAFAAEAAAAXAAQAAAAFAAEAAAAXAAUAAAAFAAEAAAAXAAYAAAAFAAEAAAAXAAcAAAAFAAEAAAAXAAgAAAAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAAgAAYAAAADAAAAAAAgAAcAAAADAAEAAAAgAAgAAAADAAEAAAAgAAkAAAADAAEAAAAgAAoAAAADAAEAAAAgAAsAAAADAAEAAAAgAAwAAAADAAEAAAAgAA0AAAADAAEAAAAgAA4AAAADAAEAAAAgAA8AAAADAAIAAAAWAAEAAAAEAAAAAAAWAAIAAAAEAAEAAAAWAAMAAAAEAAEAAAAWAAQAAAAEAAEAAAAWAAUAAAAEAAEAAAAWAAYAAAAEAAEAAAAWAAcAAAAEAAEAAAAWAAgAAAAEAAIAAAAXAAEAAAAFAAAAAAAXAAIAAAAFAAEAAAAXAAMAAAAFAAEAAAAXAAQAAAAFAAEAAAAXAAUAAAAFAAEAAAAXAAYAAAAFAAEAAAAXAAcAAAAFAAEAAAAXAAgAAAAFAAIAAAA=")
+collision_enabled = false
 
 [node name="FlatMagnet" parent="MagnetTilemap" instance=ExtResource("2_iss0w")]
 position = Vector2(512, 160)
+pole = 0
 
 [node name="MagnetCollider" parent="MagnetTilemap/FlatMagnet" index="0"]
 position = Vector2(8, 16)
@@ -82,6 +84,7 @@ shape_size = Vector2(16, 160)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet" index="1"]
 position = Vector2(8, 16)
+texture = ExtResource("3_yi3jx")
 process_material = SubResource("ParticleProcessMaterial_fj15s")
 
 [node name="FlatMagnet2" parent="MagnetTilemap" instance=ExtResource("2_iss0w")]

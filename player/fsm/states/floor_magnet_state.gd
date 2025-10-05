@@ -15,26 +15,24 @@ extends FSMState
 
 var dir: Vector2 = Vector2.ZERO
 
+
 func _ready() -> void:
 	timer.timeout.connect(
-		change_state.emit.bind(move_state)
+		afterimage_timer.stop
 	)
 	afterimage_timer.timeout.connect(_create_afterimage)
+
 
 func enter() -> void:
 	_launch()
 	timer.start()
 	afterimage_timer.start()
+	change_state.emit(move_state)
 
 
 func _launch() -> void:
 	_launch_player()
 	_play_effects()
-
-# HACK: move_state gets one physics call in before it is exited
-# so to avoid that, lets set player velocity every goddamn frame
-func __physics_process(_delta: float) -> void:
-	player.velocity = launch_force * GlobalVars.su * dir
 
 
 func _create_afterimage() -> void:
@@ -64,6 +62,7 @@ func _emit_launch_particles() -> void:
 
 func _launch_player() -> void:
 	dir = player.current_magnet.magnet_gravity_direction
+	player.velocity = launch_force * GlobalVars.su * dir
 
 
 func _play_effects() -> void:
@@ -74,7 +73,9 @@ func _play_effects() -> void:
 
 
 
-func exit() -> void:
-	# Clamp the speed at the exit to maximum player speed
-	print(player.velocity)
+
+func _on_floor_collision(_body:Node2D) -> void:
+	timer.stop()
 	afterimage_timer.stop()
+	change_state.emit(move_state)
+	player.velocity = player.velocity.normalized() * player.speed

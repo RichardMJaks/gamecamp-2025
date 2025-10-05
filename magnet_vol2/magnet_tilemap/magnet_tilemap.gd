@@ -27,6 +27,10 @@ var corner_names: Array = [
 var south_pole_x_offset: int = 3
 
 @export_tool_button("Regenerate Tilemap") var generate_tilemap = _regenerate_tilemap
+@export_tool_button("Create new Floor Magnet") var add_magnet = _add_magnet
+@export var floor_magnet: PackedScene
+var adding_magnet: bool = false
+var corners: Array = []
 
 func _ready() -> void:
 	_regenerate_tilemap()
@@ -37,8 +41,45 @@ func _regenerate_tilemap() -> void:
 	for child: Magnet in get_children():
 		magnets.append(child)
 
-	for magnet in magnets:
+	for magnet: FloorMagnet in magnets:
+		if not magnet.direction_changed.is_connected(_regenerate_tilemap):
+			magnet.direction_changed.connect(_regenerate_tilemap)
+		if not magnet.pole_changed.is_connected(_regenerate_tilemap):
+			magnet.pole_changed.connect(_regenerate_tilemap)
 		apply_tilemap(magnet)	
+
+func _add_magnet() -> void:
+	adding_magnet = true
+	print("Adding magnet")
+
+
+
+func _process(delta: float) -> void:
+	if not Engine.is_editor_hint():
+		return
+	EditorInterface.get_editor_viewport_2d().gui_disable_input = adding_magnet
+	if not adding_magnet:
+		return
+	
+	if corners.size() >= 2:
+		_create_magnet(corners)
+		adding_magnet = false
+		corners = []
+		
+
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		var point_coords = (get_global_mouse_position() / 16 as Vector2i)
+		corners.append(point_coords)
+		print(point_coords, corners)
+
+
+func _create_magnet(coords: Array) -> void:
+	var topleft: Vector2i = coords[0]
+	var bottomright: Vector2i = coords[1]
+	var new_magnet: FloorMagnet = floor_magnet.instantiate()
+	add_child(new_magnet)
+	new_magnet.global_position = topleft / bottomright 
+	new_magnet.get_node("MagnetCollider").shape.size = bottomright - topleft
 
 
 func apply_tilemap(magnet: FloorMagnet) -> void:
@@ -139,4 +180,3 @@ func _get_cell(cell_name: String, x_offset: int) -> Vector2i:
 	cell.x += x_offset
 
 	return cell
-

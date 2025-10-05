@@ -35,4 +35,4 @@ func _apply_particle():
 	if dir == 2:
 		process_material.direction = Vector3(0, -1, 0)
 	if dir == 3:
-		process_material.direction = Vector3(-1, 1, 0)
+		process_material.direction = Vector3(0, 1, 0)

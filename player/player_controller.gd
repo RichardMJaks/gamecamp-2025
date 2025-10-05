@@ -47,7 +47,6 @@ func _ready() -> void:
 		spawn_position = global_position
 
 func _process(_delta: float) -> void:
-	print(velocity)
 	# Reset this so it would be a toggle instead
 	anim_tree["parameters/conditions/switched_pole"] = false
 	_set_anim_tree_blend_positions(float(current_pole))

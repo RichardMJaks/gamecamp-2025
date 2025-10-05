@@ -10,6 +10,7 @@ extends FSMState
 @export var floor_magnet_state: FSMState
 @export var radial_magnet_state: FSMState
 @export var doing: AudioStreamPlayer
+@export var magnet_check_raycast: RayCast2D
 var radial_stuck_fix: bool = false
 var player_movement_velocity: Vector2 = Vector2.ZERO
 var player_gravity_velocity: Vector2 = Vector2.ZERO
@@ -47,8 +48,6 @@ func __physics_process(delta: float) -> void:
 	# Update player's up direction based on gravity
 	player.up_direction = -player.gravity_direction	
 	
-	if player.is_on_floor():
-		player.velocity = player.velocity.normalized() * min(player.speed, player.velocity.length())
 
 # !! TREAD CAREFULLY IN THIS REGION !!
 # (or better yet, save your braincells and never open it)
@@ -69,6 +68,8 @@ func _apply_acceleration(dir: float, delta: float, axis: Vector2) -> void:
 	var acceleration: float = player.speed / player.acceleration_time
 	if (player.velocity * axis).length() < player.speed:
 		player.velocity += dir * acceleration * delta * axis
+	else:
+		player.velocity = player.velocity.move_toward(player.velocity.normalized() * player.speed, acceleration * delta)
 
 
 # Apply deceleration when no input or changing direction
@@ -110,8 +111,23 @@ func _trigger_floor_magnet_action() -> void:
 	if not player.current_magnet is FloorMagnet:
 		return
 	# We can fairly assume that player is not on floor when not being attracted
+	
 	if not player.is_on_floor():
 		return
+
+	# Safeguard that player doesn't boost when they are not actually on a magnet
+	# TODO: Create a separate node to handle this logic to clean up here
+	if magnet_check_raycast.is_colliding():
+		# Subtract player up direction to compensate for the miss being on the border
+		var point: Vector2 = magnet_check_raycast.get_collision_point() - player.up_direction * 0.01
+		var coll: TileMapLayer = magnet_check_raycast.get_collider()
+		var tile_data = coll.get_cell_tile_data(coll.local_to_map(coll.to_local(point)))
+		if not tile_data:
+			return
+		if not tile_data.has_custom_data("magnet"):
+			return
+		if not tile_data.get_custom_data("magnet"):
+			return
 
 	change_state.emit(floor_magnet_state)
 
