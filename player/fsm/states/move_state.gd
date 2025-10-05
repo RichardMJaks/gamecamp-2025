@@ -13,8 +13,11 @@ extends FSMState
 var radial_stuck_fix: bool = false
 var player_movement_velocity: Vector2 = Vector2.ZERO
 var player_gravity_velocity: Vector2 = Vector2.ZERO
+var exiting = false
 
 func __physics_process(delta: float) -> void:
+	if exiting:
+		return
 	# Use this to return -1, 0, or 1
 	var get_rounded_axis: Callable = func (a1: StringName, a2: StringName) -> int:
 		return ceili(Input.get_action_strength(a2)) - floori(Input.get_action_strength(a1)) 

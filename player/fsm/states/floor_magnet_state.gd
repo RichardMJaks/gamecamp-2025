@@ -3,6 +3,7 @@ extends FSMState
 @onready var player: Player = owner
 @export var move_state: FSMState
 @export var timer: Timer
+@export var afterimage_timer: Timer
 @export var launch_force: float = 20
 @export var whoosh: AudioStreamPlayer
 @export var launch_particles: GPUParticles2D
@@ -10,23 +11,43 @@ extends FSMState
 @export var shake_intensity: float
 @export var shake_time: float
 @export var floor_launch_particles: PackedScene
+@export var sprite: AnimatedSprite2D
 
+var dir: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	timer.timeout.connect(
 		change_state.emit.bind(move_state)
 	)
+	afterimage_timer.timeout.connect(_create_afterimage)
 
 func enter() -> void:
 	_launch()
+	timer.start()
+	afterimage_timer.start()
 
-#FIXME: Players gets stuck on walls and such, fix it
+
 func _launch() -> void:
-	# Add launch velocity
-	print("Launched")
 	_launch_player()
 	_play_effects()
-	change_state.emit(move_state)
+
+# HACK: move_state gets one physics call in before it is exited
+# so to avoid that, lets set player velocity every goddamn frame
+func __physics_process(_delta: float) -> void:
+	player.velocity = launch_force * GlobalVars.su * dir
+
+
+func _create_afterimage() -> void:
+	var afterimage = Sprite2D.new()
+	afterimage.texture = sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame) 
+	get_tree().current_scene.add_child(afterimage)
+	afterimage.global_position = player.global_position
+	afterimage.rotation = sprite.rotation
+	afterimage.modulate = afterimage.modulate.darkened(0.3)
+	var afterimage_tweener = afterimage.create_tween()
+	afterimage_tweener.tween_property(afterimage, ^"modulate:a", 0, 0.3)
+	afterimage_tweener.tween_callback(afterimage.queue_free)
+
 
 
 func _emit_floor_launch_particles() -> void:
@@ -42,9 +63,7 @@ func _emit_launch_particles() -> void:
 
 
 func _launch_player() -> void:
-	var dir = player.current_magnet.magnet_gravity_direction
-	player.velocity += launch_force * GlobalVars.su * dir
-	player.position += player.velocity.normalized() * 0.001
+	dir = player.current_magnet.magnet_gravity_direction
 
 
 func _play_effects() -> void:
@@ -57,4 +76,5 @@ func _play_effects() -> void:
 
 func exit() -> void:
 	# Clamp the speed at the exit to maximum player speed
-	player.velocity = player.velocity.normalized() * min(player.velocity.length(), player.speed)
+	print(player.velocity)
+	afterimage_timer.stop()
