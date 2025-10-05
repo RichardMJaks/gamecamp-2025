@@ -24,18 +24,36 @@ func enter() -> void:
 func _launch() -> void:
 	# Add launch velocity
 	print("Launched")
+	_launch_player()
+	_play_effects()
+	change_state.emit(move_state)
+
+
+func _emit_floor_launch_particles() -> void:
 	var flp = floor_launch_particles.instantiate()
 	get_tree().current_scene.add_child(flp)
 	flp.global_position = player.global_position
 	flp.rotation = player.up_direction.angle() + PI / 2
-	camera.shake(shake_intensity, shake_time)
+
+
+func _emit_launch_particles() -> void:
 	launch_particles.emitting = false
 	launch_particles.emitting = true
+
+
+func _launch_player() -> void:
 	var dir = player.current_magnet.magnet_gravity_direction
 	player.velocity += launch_force * GlobalVars.su * dir
 	player.position += player.velocity.normalized() * 0.001
+
+
+func _play_effects() -> void:
+	_emit_floor_launch_particles()
+	_emit_launch_particles()
+	camera.shake(shake_intensity, shake_time)
 	whoosh.play()
-	change_state.emit(move_state)
+
+
 
 func exit() -> void:
 	# Clamp the speed at the exit to maximum player speed

@@ -903,6 +903,7 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 1)
+zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0

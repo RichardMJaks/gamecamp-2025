@@ -27,3 +27,12 @@ func _apply_particle():
 	if get_parent().pole == GlobalVars.POLE.SOUTH:
 		texture = south_particle
 		process_material.color = south_color
+	var dir = get_parent().magnet_direction
+	if dir == 0:
+		process_material.direction = Vector3(-1, 0, 0)
+	if dir == 1:
+		process_material.direction = Vector3(1, 0, 0)
+	if dir == 2:
+		process_material.direction = Vector3(0, -1, 0)
+	if dir == 3:
+		process_material.direction = Vector3(-1, 1, 0)

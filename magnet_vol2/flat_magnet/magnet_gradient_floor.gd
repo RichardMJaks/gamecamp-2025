@@ -14,9 +14,14 @@ var positions: Array[Array] = [
 @export var north_outline: Gradient
 @export var south_outline: Gradient
 
+@export var outlines: Array[Sprite2D] = [
+
+]
+
 @export var outline_thickness: int = 1
 
 func _ready() -> void:
+	set_editable_instance(self, true)
 	texture = GradientTexture2D.new()
 
 func _process(_delta: float) -> void:
@@ -25,10 +30,10 @@ func _process(_delta: float) -> void:
 		return
 
 	position = collider.position
-	_apply_colors()
-	_apply_size()
+	#_apply_colors()
+	#_apply_size()
 	
-
+# Deprecated function, will be handled by a tilemaplayer
 func _apply_colors() -> void:
 	var gradient_positions = positions[get_parent().magnet_direction]
 	texture.fill_from = gradient_positions[0]
@@ -41,31 +46,24 @@ func _apply_colors() -> void:
 		texture.gradient = south_gradient
 		outline_color = south_outline
 
-	var outlines = [
-		%OutlineTop,
-		%OutlineBottom,
-		%OutlineLeft,
-		%OutlineRight
-	]
-
 	for outline in outlines:
 		outline.texture.gradient = outline_color
 		outline.texture.height = outline_thickness
 
-
+# Deprecated function, will be handled by a tilemaplayer
 func _apply_size() -> void:
 	var texture_size = collider.shape.size
 	texture.width = texture_size.x
 	texture.height = texture_size.y
 
-	%OutlineTop.texture.width = texture_size.x
-	%OutlineTop.position.y = -texture_size.y / 2 + %OutlineTop.texture.height / 2
+	outlines[0].texture.width = texture_size.x
+	outlines[0].position.y = -texture_size.y / 2 - outlines[0].texture.height / 2
 
-	%OutlineBottom.texture.width = texture_size.x
-	%OutlineBottom.position.y = texture_size.y / 2 - %OutlineBottom.texture.height / 2 
+	outlines[1].texture.width = texture_size.x
+	outlines[1].position.y = texture_size.y / 2 + outlines[1].texture.height / 2
 
-	%OutlineLeft.texture.width = texture_size.y
-	%OutlineLeft.position.x = -texture_size.x / 2 + %OutlineLeft.texture.height / 2
+	outlines[2].texture.width = texture_size.y
+	outlines[2].position.x = -texture_size.x / 2 - outlines[2].texture.height / 2
 
-	%OutlineRight.texture.width = texture_size.y
-	%OutlineRight.position.x = texture_size.x / 2 - %OutlineRight.texture.height / 2
+	outlines[3].texture.width = texture_size.y
+	outlines[3].position.x = texture_size.x / 2 + outlines[3].texture.height / 2
