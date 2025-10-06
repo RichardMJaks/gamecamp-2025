@@ -115,18 +115,18 @@ func _fill_edges(corner_points: Array, dir: int, tile_x_offset: int) -> void:
 			continue
 
 		var tile_coords: Vector2i = _get_cell(edge_names[i], tile_x_offset)
-		var corners: Array = corner_points[i]
+		var edge_corners: Array = corner_points[i]
 
 		# Vertical edge
-		if corners[0].x == corners[1].x:
-			var x = corners[0].x
-			for y in range(corners[0].y, corners[1].y + 1):
+		if edge_corners[0].x == edge_corners[1].x:
+			var x = edge_corners[0].x
+			for y in range(edge_corners[0].y, edge_corners[1].y + 1):
 
 				set_cell(Vector2i(x, y), 0, tile_coords)
 		# Horizontal edge
-		elif corners[0].y == corners[1].y:
-			var y = corners[0].y
-			for x in range(corners[0].x, corners[1].x + 1):
+		elif edge_corners[0].y == edge_corners[1].y:
+			var y = edge_corners[0].y
+			for x in range(edge_corners[0].x, edge_corners[1].x + 1):
 				set_cell(Vector2i(x, y), 0, tile_coords)
 		#TODO: Implement single-cell thickness magnet tiles
 		else:
