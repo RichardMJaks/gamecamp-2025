@@ -54,7 +54,7 @@ func _add_magnet() -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		return
 	EditorInterface.get_editor_viewport_2d().gui_disable_input = adding_magnet
@@ -145,10 +145,10 @@ func _fill_corners(corner_points: Array, dir: int, tile_x_offset: int) -> void:
 		_get_cell(corner_names[dir][1], tile_x_offset),
 	]
 
-	var corners: Array = reversed_corner_points[dir]
+	var fill_area_corners: Array = reversed_corner_points[dir]
 
-	set_cell(corners[0], 0, tile_coords[0])
-	set_cell(corners[1], 0, tile_coords[1])
+	set_cell(fill_area_corners[0], 0, tile_coords[0])
+	set_cell(fill_area_corners[1], 0, tile_coords[1])
 	#TODO: Implement single-cell thickness magnet tiles
 
 

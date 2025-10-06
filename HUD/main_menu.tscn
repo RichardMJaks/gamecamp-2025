@@ -92,42 +92,45 @@ motion_mirroring = Vector2(320, 0)
 texture = ExtResource("6_qs2e7")
 centered = false
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_top = 116.2
-offset_right = 320.0
-offset_bottom = 192.2
-scale = Vector2(2, 2)
-texture = ExtResource("7_xudqj")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -11.0
+offset_right = 280.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_l7hc5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
 layout_mode = 2
 
-[node name="TopMargin" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="TopMargin" type="Control" parent="Control/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 95.72)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(7.875, 40.09)
 layout_mode = 2
 texture = ExtResource("7_xudqj")
 stretch_mode = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="play" type="Button" parent="PanelContainer/VBoxContainer/CenterContainer"]
+[node name="play" type="Button" parent="Control/PanelContainer/VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(49.23, 23.76)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -135,7 +138,7 @@ theme_override_fonts/font = ExtResource("3_q1pp4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mg70j")
 text = "PLAY"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,16 +151,16 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Credits" type="HBoxContainer" parent="MarginContainer"]
+[node name="Credits" type="HBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Left" type="VBoxContainer" parent="MarginContainer/Credits"]
+[node name="Left" type="VBoxContainer" parent="Control/MarginContainer/Credits"]
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="TeamCredits" type="Label" parent="MarginContainer/Credits/Left"]
+[node name="TeamCredits" type="Label" parent="Control/MarginContainer/Credits/Left"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q1pp4")
 theme_override_font_sizes/font_size = 8
@@ -170,12 +173,12 @@ BAUER OVAKAJA
 MARTIN VOHMA
 "
 
-[node name="Spacer" type="Control" parent="MarginContainer/Credits/Left"]
+[node name="Spacer" type="Control" parent="Control/MarginContainer/Credits/Left"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TalTech" type="Label" parent="MarginContainer/Credits/Left"]
+[node name="TalTech" type="Label" parent="Control/MarginContainer/Credits/Left"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q1pp4")
 theme_override_font_sizes/font_size = 8
@@ -184,16 +187,16 @@ text = "Made during TALTECH GAMECAMP 2025
 THEME category SPECIAL AWARD WINNER
 MOST ENJOYABLE game of TALTECH GAMECAMP 2025"
 
-[node name="Spacer" type="Control" parent="MarginContainer/Credits"]
+[node name="Spacer" type="Control" parent="Control/MarginContainer/Credits"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Right" type="VBoxContainer" parent="MarginContainer/Credits"]
+[node name="Right" type="VBoxContainer" parent="Control/MarginContainer/Credits"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Music Credits" type="Label" parent="MarginContainer/Credits/Right"]
+[node name="Music Credits" type="Label" parent="Control/MarginContainer/Credits/Right"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q1pp4")
 theme_override_font_sizes/font_size = 8
@@ -213,12 +216,12 @@ CC0
 "
 horizontal_alignment = 2
 
-[node name="Spacer" type="Control" parent="MarginContainer/Credits/Right"]
+[node name="Spacer" type="Control" parent="Control/MarginContainer/Credits/Right"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SpecialThanks" type="Label" parent="MarginContainer/Credits/Right"]
+[node name="SpecialThanks" type="Label" parent="Control/MarginContainer/Credits/Right"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q1pp4")
 theme_override_font_sizes/font_size = 8
@@ -227,22 +230,26 @@ JOSEPH MATTIAS TOMP
 For assisting with visuals and SFX"
 horizontal_alignment = 2
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = 94.0
-offset_right = 23.0
-offset_bottom = 134.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_xudqj")
+expand_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="Control/VBoxContainer"]
+layout_mode = 2
 texture_normal = ExtResource("10_qs2e7")
 texture_pressed = ExtResource("11_xudqj")
 texture_hover = ExtResource("12_fqn15")
+stretch_mode = 3
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
-[connection signal="pressed" from="TextureButton" to="." method="_play_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/TextureButton" to="." method="_play_pressed"]

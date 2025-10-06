@@ -17,11 +17,11 @@ func _process(delta: float) -> void:
 		return
 	
 	var dir = Vector2.from_angle(randf() * 10)
-	offset = dir * strength
+	offset = (dir * strength).floor()
 	
 	t += delta * (1 / duration) 
 	strength = lerpf(strength, 0, t)
-
+	
 @warning_ignore("shadowed_variable")
 func shake(strength : float, duration: float) -> void:
 	self.strength = strength

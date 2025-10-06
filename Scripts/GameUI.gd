@@ -13,7 +13,7 @@ extends CanvasLayer
 @export var final_total_stats_time : Label
 @export var final_total_stats_collectibles : Label
 
-func _process(delta):
+func _process(_delta):
 	# Update timer if level is active
 	if GameController and GameController.is_level_active:
 		update_timer(GameController.levels_data[GameController.current_level_name].time_spent)
@@ -29,7 +29,7 @@ func update_collectible_count_UI(new_count):
 		var total = GameController.levels_data[GameController.current_level_name].total_collectibles
 		collectibles_label.text = "Nuts: " + str(new_count) + " / " + str(total)
 
-func _on_player_died(death_count):
+func _on_player_died(_death_count):
 	#death_counter_label.text = "Deaths: " + str(death_count)
 	pass
 
