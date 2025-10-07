@@ -244,12 +244,25 @@ layout_mode = 2
 texture = ExtResource("7_xudqj")
 expand_mode = 5
 
-[node name="TextureButton" type="TextureButton" parent="Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("10_qs2e7")
 texture_pressed = ExtResource("11_xudqj")
 texture_hover = ExtResource("12_fqn15")
 stretch_mode = 3
 
+[node name="Spacer" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/TextureButton" to="." method="_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/TextureButton" to="." method="_play_pressed"]
