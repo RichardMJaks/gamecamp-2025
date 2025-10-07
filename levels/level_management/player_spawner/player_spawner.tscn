@@ -1,0 +1,216 @@
+[gd_scene load_steps=24 format=3 uid="uid://l727lurrpms5"]
+
+[ext_resource type="Texture2D" uid="uid://cbgv6vakolkta" path="res://levels/level_management/opened_spawner.tres" id="1_bnany"]
+[ext_resource type="Script" uid="uid://ctjb5un6qpm55" path="res://levels/level_management/player_spawner/player_spawner.gd" id="2_3axiy"]
+[ext_resource type="Texture2D" uid="uid://bck25n75hcjyj" path="res://levels/level_management/closed_spawner.tres" id="2_5edn2"]
+[ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="3_6jxfy"]
+[ext_resource type="Script" uid="uid://ddik13kmjssrv" path="res://levels/level_management/player_spawner/particles.gd" id="5_4ungs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jxfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bnany")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5edn2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_v8rc3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_p3jpl"]
+resource_name = "spawn_player"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Particles")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxth6"]
+_data = {
+&"RESET": SubResource("Animation_v8rc3"),
+&"spawn_player": SubResource("Animation_p3jpl")
+}
+
+[sub_resource type="Gradient" id="Gradient_pj5ja"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_apy0v"]
+gradient = SubResource("Gradient_pj5ja")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve" id="Curve_x5ffr"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yxhbk"]
+curve = SubResource("Curve_x5ffr")
+
+[sub_resource type="Curve" id="Curve_ax2a1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.73091, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_go6p4"]
+curve = SubResource("Curve_ax2a1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_htrxp"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_yxhbk")
+damping_min = 80.0
+damping_max = 80.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_go6p4")
+
+[sub_resource type="Gradient" id="Gradient_t3gf5"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ofpkq"]
+gradient = SubResource("Gradient_t3gf5")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve" id="Curve_5krpv"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hmdl5"]
+curve = SubResource("Curve_5krpv")
+
+[sub_resource type="Curve" id="Curve_qfsef"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.73091, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_716od"]
+curve = SubResource("Curve_qfsef")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lmc6k"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 21.765
+flatness = 1.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_hmdl5")
+damping_min = 80.0
+damping_max = 80.0
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_716od")
+
+[node name="PlayerSpawner" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_6jxfy")
+script = ExtResource("2_3axiy")
+player_packedscene = ExtResource("3_6jxfy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vxth6")
+}
+
+[node name="PlayerSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(7, 0)
+
+[node name="Particles" type="Node2D" parent="."]
+position = Vector2(8, 12)
+script = ExtResource("5_4ungs")
+
+[node name="ExplosiveParticles" type="GPUParticles2D" parent="Particles"]
+emitting = false
+texture = SubResource("GradientTexture2D_apy0v")
+one_shot = true
+explosiveness = 0.82
+process_material = SubResource("ParticleProcessMaterial_htrxp")
+
+[node name="SteamingParticles" type="GPUParticles2D" parent="Particles"]
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_ofpkq")
+one_shot = true
+explosiveness = 0.17
+process_material = SubResource("ParticleProcessMaterial_lmc6k")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_add_player_to_scene" unbinds=1]

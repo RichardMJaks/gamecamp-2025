@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccyf37h8arbs5"]
+
+[ext_resource type="PackedScene" uid="uid://vekjkw5aq88x" path="res://magnet_vol2/magnet_tilemap/magnet_tilemap.tscn" id="1_ud110"]
+[ext_resource type="PackedScene" uid="uid://byulnjxi287kd" path="res://levels/level_tilemap.tscn" id="2_4xwmw"]
+[ext_resource type="PackedScene" uid="uid://l727lurrpms5" path="res://levels/level_management/player_spawner/player_spawner.tscn" id="3_6dgc7"]
+[ext_resource type="PackedScene" uid="uid://b6k0wtmqk4dnk" path="res://levels/level_management/level_end_gate/end_gate.tscn" id="4_g7rdq"]
+
+[node name="LevelBase" type="Node2D"]
+
+[node name="MagnetTilemap" parent="." instance=ExtResource("1_ud110")]
+
+[node name="LevelTilemap" parent="." instance=ExtResource("2_4xwmw")]
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("3_6dgc7")]
+position = Vector2(-16, 0)
+
+[node name="EndGate" parent="." instance=ExtResource("4_g7rdq")]
+position = Vector2(16, 0)
