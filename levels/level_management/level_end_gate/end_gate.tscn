@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6k0wtmqk4dnk"]
+
+[ext_resource type="Script" uid="uid://dluwocujyw02j" path="res://levels/level_management/level_end_gate/end_gate.gd" id="1_56klq"]
+[ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="2_f06fe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgeam"]
+size = Vector2(32, 32)
+
+[node name="EndGate" type="Area2D"]
+script = ExtResource("1_56klq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lgeam")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f06fe")
+offset = Vector2(0, -5.5)
+region_enabled = true
+region_rect = Rect2(288, 165, 32, 43)
