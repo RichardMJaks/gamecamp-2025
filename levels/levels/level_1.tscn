@@ -36,15 +36,14 @@ curve = SubResource("Curve_rr38n")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_betor"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 11, 1)
-direction = Vector3(0, -1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
@@ -54,8 +53,7 @@ size = Vector2(48, 8)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vjtdm"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(19, -1, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
@@ -72,7 +70,7 @@ size = Vector2(16, 128)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bgw3c"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 59, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
@@ -89,15 +87,14 @@ size = Vector2(16, 112)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lrvbd"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 51, 1)
-direction = Vector3(-1, 0, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nvrk"]
@@ -107,15 +104,14 @@ size = Vector2(192, 32)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oqlok"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(91, 11, 1)
-direction = Vector3(0, -1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgw3c"]
@@ -125,8 +121,7 @@ size = Vector2(64, 16)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nvrk"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 3, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
@@ -236,6 +231,8 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_5hph3")]
 position = Vector2(58, 248)
+color_north = Color(0, 0.616667, 1, 1)
+color_south = Color(1, 0, 0, 1)
 
 [node name="EndGate" parent="." instance=ExtResource("6_l53as")]
 position = Vector2(626, 59)

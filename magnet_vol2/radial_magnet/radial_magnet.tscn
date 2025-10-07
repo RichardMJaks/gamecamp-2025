@@ -10,23 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="8_4qe2y"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="9_4qe2y"]
 
-[sub_resource type="Gradient" id="Gradient_m0g18"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.0875, 0.916388, 1)
-colors = PackedColorArray(1, 0.589333, 0.56, 0.47451, 0.67451, 0.290196, 0.196078, 0.47451, 0.67451, 0.290196, 0.196078, 1, 1, 0.247059, 0.188235, 0)
-
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4qe2y"]
-gradient = SubResource("Gradient_m0g18")
-width = 48
-height = 48
 fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Gradient" id="Gradient_1h2df"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.0875, 0.9, 1)
 colors = PackedColorArray(0.492046, 0.698031, 0.999999, 0.356863, 0.356863, 0.356863, 0.541176, 0.490196, 0.356863, 0.356863, 0.541176, 1, 0.6, 0.76, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_m0g18"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0875, 0.916388, 1)
+colors = PackedColorArray(1, 0.589333, 0.56, 0.47451, 0.67451, 0.290196, 0.196078, 0.47451, 0.67451, 0.290196, 0.196078, 1, 1, 0.247059, 0.188235, 0)
 
 [sub_resource type="Curve" id="Curve_y8evb"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -99,7 +94,7 @@ tangential_accel_max = -2.23517e-06
 scale_min = 0.4
 scale_max = 1.4
 scale_curve = SubResource("CurveTexture_3g4xd")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.713726, 1, 1)
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 
@@ -131,7 +126,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.4
 scale_max = 1.4
 scale_curve = SubResource("CurveTexture_iumgq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.713726, 1, 1)
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 

@@ -35,14 +35,14 @@ curve = SubResource("Curve_rr38n")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fj15s"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 75, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58gyl"]
@@ -52,15 +52,14 @@ size = Vector2(32, 128)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p0s0h"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 59, 1)
-direction = Vector3(-1, 0, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="Node2D" type="Node2D"]
@@ -109,6 +108,8 @@ tile_set = ExtResource("1_eus5j")
 
 [node name="Player" parent="." instance=ExtResource("4_yi3jx")]
 position = Vector2(41, 189)
+color_north = Color(0, 0.616667, 1, 1)
+color_south = Color(1, 0, 0, 1)
 current_pole = 0
 
 [node name="EndGate" parent="." instance=ExtResource("6_c4pne")]
