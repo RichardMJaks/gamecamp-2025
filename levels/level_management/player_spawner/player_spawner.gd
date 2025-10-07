@@ -10,7 +10,7 @@ var starting_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 
 
 func spawn_player() -> void:
-	play_animation()
+	_play_animation()
 
 
 # Called by animation_finished signal of AnimationPlayer
@@ -23,5 +23,5 @@ func _add_player_to_scene() -> void:
 	current_scene.add_child(player)
 
 
-func play_animation() -> void:
+func _play_animation() -> void:
 	animation_player.play("spawn_player")

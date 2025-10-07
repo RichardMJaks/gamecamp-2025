@@ -8,37 +8,59 @@
 [node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "final_level_complete_panel", "final_level_stats_container", "final_total_stats_time", "final_total_stats_collectibles")]
 process_mode = 3
 script = ExtResource("1_jxero")
-collectibles_label = NodePath("CollectibleCountContainer/CollectibleCount")
-timer_label = NodePath("TimerContainer/LevelTimer")
+collectibles_label = NodePath("Control/VBoxContainer/HBoxContainer/CollectibleCount")
+timer_label = NodePath("Control/VBoxContainer/HBoxContainer/LevelTimer")
 final_level_complete_panel = NodePath("FinalLevelCompletePanel")
 level_stats_template = ExtResource("2_nf4gj")
 final_level_stats_container = NodePath("FinalLevelCompletePanel/HBoxContainer/Level Stats Container")
 final_total_stats_time = NodePath("FinalLevelCompletePanel/HBoxContainer/Total Stats Container/Total Time Label")
 final_total_stats_collectibles = NodePath("FinalLevelCompletePanel/HBoxContainer/Total Stats Container/Total Collectibles Label")
 
-[node name="CollectibleCountContainer" type="HBoxContainer" parent="."]
-offset_right = 74.0
-offset_bottom = 23.0
-alignment = 1
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CollectibleCount" type="Label" parent="CollectibleCountContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4.005)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="CollectibleCount" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Nuts: 0"
 
-[node name="TimerContainer" type="HBoxContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -127.0
-offset_bottom = 23.0
-grow_horizontal = 0
-alignment = 1
+[node name="Spacer" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="LevelTimer" type="Label" parent="TimerContainer"]
+[node name="LevelTimer" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Time: 00.00.000"
+
+[node name="Spacer3" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
 
 [node name="Transition" parent="." instance=ExtResource("4_2246s")]
 visible = false

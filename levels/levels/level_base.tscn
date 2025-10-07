@@ -1,11 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccyf37h8arbs5"]
+[gd_scene load_steps=9 format=3 uid="uid://ccyf37h8arbs5"]
 
+[ext_resource type="Texture2D" uid="uid://tj23dwptctoh" path="res://assets/background_layer1.png" id="1_bw48l"]
 [ext_resource type="PackedScene" uid="uid://vekjkw5aq88x" path="res://magnet_vol2/magnet_tilemap/magnet_tilemap.tscn" id="1_ud110"]
 [ext_resource type="PackedScene" uid="uid://byulnjxi287kd" path="res://levels/level_tilemap.tscn" id="2_4xwmw"]
+[ext_resource type="Texture2D" uid="uid://c745d0hjjlbjt" path="res://assets/background_layer2.png" id="2_hqdw0"]
 [ext_resource type="PackedScene" uid="uid://l727lurrpms5" path="res://levels/level_management/player_spawner/player_spawner.tscn" id="3_6dgc7"]
+[ext_resource type="Texture2D" uid="uid://bbb8nrii54wtu" path="res://assets/background_layer3.png" id="3_esfau"]
 [ext_resource type="PackedScene" uid="uid://b6k0wtmqk4dnk" path="res://levels/level_management/level_end_gate/end_gate.tscn" id="4_g7rdq"]
+[ext_resource type="Texture2D" uid="uid://w7e33x3ej4oj" path="res://assets/background_layer4.png" id="4_xqs1o"]
 
 [node name="LevelBase" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, -100)
+transform = Transform2D(1, 0, 0, 1, 0, -100)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_bw48l")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_hqdw0")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("3_esfau")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("4_xqs1o")
+centered = false
+metadata/_edit_lock_ = true
 
 [node name="MagnetTilemap" parent="." instance=ExtResource("1_ud110")]
 
