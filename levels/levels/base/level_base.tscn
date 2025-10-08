@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccyf37h8arbs5"]
+[gd_scene load_steps=11 format=3 uid="uid://ccyf37h8arbs5"]
 
 [ext_resource type="Texture2D" uid="uid://tj23dwptctoh" path="res://assets/background_layer1.png" id="1_bw48l"]
 [ext_resource type="PackedScene" uid="uid://vekjkw5aq88x" path="res://magnet_vol2/magnet_tilemap/magnet_tilemap.tscn" id="1_ud110"]
-[ext_resource type="PackedScene" uid="uid://byulnjxi287kd" path="res://levels/level_tilemap.tscn" id="2_4xwmw"]
+[ext_resource type="PackedScene" uid="uid://c4jg6brym4h8j" path="res://levels/level_tilemap.tscn" id="2_4xwmw"]
 [ext_resource type="Texture2D" uid="uid://c745d0hjjlbjt" path="res://assets/background_layer2.png" id="2_hqdw0"]
 [ext_resource type="PackedScene" uid="uid://l727lurrpms5" path="res://levels/level_management/player_spawner/player_spawner.tscn" id="3_6dgc7"]
 [ext_resource type="Texture2D" uid="uid://bbb8nrii54wtu" path="res://assets/background_layer3.png" id="3_esfau"]
 [ext_resource type="PackedScene" uid="uid://b6k0wtmqk4dnk" path="res://levels/level_management/level_end_gate/end_gate.tscn" id="4_g7rdq"]
 [ext_resource type="Texture2D" uid="uid://w7e33x3ej4oj" path="res://assets/background_layer4.png" id="4_xqs1o"]
+[ext_resource type="PackedScene" uid="uid://ctrejknt40q3j" path="res://Scenes/ui.tscn" id="9_iipk8"]
+[ext_resource type="Script" uid="uid://bpybw4dwc5j2o" path="res://player/shaker.gd" id="10_t7y41"]
 
 [node name="LevelBase" type="Node2D"]
 
@@ -55,8 +57,21 @@ metadata/_edit_lock_ = true
 
 [node name="LevelTilemap" parent="." instance=ExtResource("2_4xwmw")]
 
-[node name="PlayerSpawner" parent="." instance=ExtResource("3_6dgc7")]
+[node name="PlayerSpawner" parent="." node_paths=PackedStringArray("scene_camera") instance=ExtResource("3_6dgc7")]
 position = Vector2(-16, 0)
+scene_camera = NodePath("../Camera")
 
 [node name="EndGate" parent="." instance=ExtResource("4_g7rdq")]
 position = Vector2(16, 0)
+
+[node name="UI" parent="." instance=ExtResource("9_iipk8")]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, 1)
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 16.0
+script = ExtResource("10_t7y41")
+
+[connection signal="fade_in_finished" from="UI" to="PlayerSpawner" method="spawn_player"]

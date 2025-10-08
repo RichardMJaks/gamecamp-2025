@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://2huyglqjk7el" path="res://player/sprites/launch_particles/launch_particles.tscn" id="14_x7c3f"]
 [ext_resource type="Script" uid="uid://bpybw4dwc5j2o" path="res://player/shaker.gd" id="15_65viv"]
 [ext_resource type="AudioStream" uid="uid://c3eq7q8tnkxid" path="res://audio/step.wav" id="17_tqiix"]
-[ext_resource type="Script" uid="uid://bpmxv8j1wjhnp" path="res://player/fsm/states/controlled_state.gd" id="18_7pqkx"]
+[ext_resource type="Script" path="res://player/fsm/states/controlled_state.gd" id="18_7pqkx"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
 [ext_resource type="Script" uid="uid://bgm0tvh7wkq7i" path="res://player/fsm/fsm_state.gd" id="19_uw77l"]
@@ -852,7 +852,7 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace1D_a1u5o")
 states/Walk/position = Vector2(495, 37)
 transitions = ["Walk", "SwitchPole", SubResource("AnimationNodeStateMachineTransition_3dxkp"), "SwitchPole", "Walk", SubResource("AnimationNodeStateMachineTransition_6wior"), "SwitchPole", "Idle", SubResource("AnimationNodeStateMachineTransition_p5tca"), "Idle", "SwitchPole", SubResource("AnimationNodeStateMachineTransition_jbx34"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_s3g0c"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_35wys"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_pjwc4"), "Flying", "SwitchPole", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "SwitchPole", "Flying", SubResource("AnimationNodeStateMachineTransition_uw77l"), "Flying", "Walk", SubResource("AnimationNodeStateMachineTransition_rptt4"), "Walk", "Flying", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "Idle", "Flying", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "Flying", "Idle", SubResource("AnimationNodeStateMachineTransition_2uvqg")]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles", "camera_transform")]
 script = ExtResource("1_oul6g")
 speed = 10.0
 acceleration_time = 0.3
@@ -865,6 +865,7 @@ switched = NodePath("Audio/Switch")
 switch_particles = NodePath("SwitchParticles")
 color_north = Color(0.2914, 0.5076, 0.94, 1)
 color_south = Color(0.91, 0.215973, 0.1092, 1)
+camera_transform = NodePath("CameraRemoteTransform")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 z_index = 3
@@ -923,14 +924,13 @@ doing = NodePath("../../Audio/Doing")
 magnet_check_raycast = NodePath("../../Sprite/RayCast2D")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
-[node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer", "afterimage_timer", "whoosh", "launch_particles", "camera", "sprite")]
+[node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer", "afterimage_timer", "whoosh", "launch_particles", "sprite")]
 script = ExtResource("4_yw30f")
 move_state = NodePath("../move_state")
 timer = NodePath("Timer")
 afterimage_timer = NodePath("AfterimageTimer")
 whoosh = NodePath("../../Audio/Whoosh")
 launch_particles = NodePath("../../Sprite/Particles/LaunchParticles")
-camera = NodePath("../../Camera")
 shake_intensity = 2.0
 shake_time = 0.4
 floor_launch_particles = ExtResource("14_x7c3f")
@@ -1016,6 +1016,8 @@ parameters/Flying/blend_position = 0.358566
 parameters/Idle/blend_position = 0.431275
 parameters/SwitchPole/blend_position = 0.363546
 parameters/Walk/blend_position = 0.930279
+
+[node name="CameraRemoteTransform" type="RemoteTransform2D" parent="."]
 
 [connection signal="area_entered" from="AttractionArea" to="." method="_on_entered_magnet_range"]
 [connection signal="area_exited" from="AttractionArea" to="." method="_on_exited_magnet_range"]

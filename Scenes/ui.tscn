@@ -148,4 +148,5 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Main Menu"
 
+[connection signal="fade_in_finished" from="Transition" to="." method="_on_fade_in_finished"]
 [connection signal="pressed" from="FinalLevelCompletePanel/MainMenu Button" to="." method="_on_main_menu_button_pressed"]

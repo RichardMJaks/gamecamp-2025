@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vekjkw5aq88x"]
+[gd_scene load_steps=7 format=3 uid="uid://vekjkw5aq88x"]
 
 [ext_resource type="Texture2D" uid="uid://beil3et34obkj" path="res://magnet_vol2/magnet_tilemap/magnet_tileset.png" id="1_n55ml"]
 [ext_resource type="Script" uid="uid://cpb7aunoodewk" path="res://magnet_vol2/magnet_tilemap/magnet_tilemap.gd" id="2_7w20y"]
+[ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="3_7w20y"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8w7jd"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 1, 65536, 0, 65537, 65536, 1, 131073, 65536, 2, 2, 131072, 0, 65538, 131072, 1, 131074, 131072, 2)
@@ -34,3 +35,4 @@ pattern_0 = SubResource("TileMapPattern_8w7jd")
 [node name="MagnetTilemap" type="TileMapLayer"]
 tile_set = SubResource("TileSet_fnliv")
 script = ExtResource("2_7w20y")
+floor_magnet = ExtResource("3_7w20y")

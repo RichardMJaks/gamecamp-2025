@@ -13,6 +13,8 @@ extends CanvasLayer
 @export var final_total_stats_time : Label
 @export var final_total_stats_collectibles : Label
 
+signal fade_in_finished
+
 func _process(_delta):
 	# Update timer if level is active
 	if GameController and GameController.is_level_active:
@@ -68,3 +70,7 @@ func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
 	GameController.reset()
 	get_tree().change_scene_to_file("res://HUD/main_menu.tscn")
+
+
+func _on_fade_in_finished() -> void:
+	fade_in_finished.emit()

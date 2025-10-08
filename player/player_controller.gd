@@ -29,12 +29,14 @@ signal movement_state_changed(state_name: String)
 @export var color_north: Color
 @export var color_south: Color
 @export var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
+@export var camera_transform: RemoteTransform2D
 
 
 var being_attracted: bool = false
 var current_magnet: Magnet = null
 var radial_stuck_fix: bool = false
 var accel_time_delta: float = 0
+var camera: Camera2D = null
 
 @onready var su = GlobalVars.su
 
@@ -61,6 +63,11 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	_set_anim_tree_parameters()
 	move_and_slide()
+
+func set_camera(scene_camera: Camera2D) -> void:
+	camera = scene_camera
+	camera_transform.remote_path = camera_transform.get_path_to(camera)
+
 
 # Doesn't seem to be in use
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:

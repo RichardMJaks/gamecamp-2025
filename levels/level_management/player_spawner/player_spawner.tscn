@@ -181,10 +181,11 @@ scale_min = 0.5
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_716od")
 
-[node name="PlayerSpawner" type="AnimatedSprite2D"]
+[node name="PlayerSpawner" type="AnimatedSprite2D" node_paths=PackedStringArray("animation_player")]
 sprite_frames = SubResource("SpriteFrames_6jxfy")
 script = ExtResource("2_3axiy")
 player_packedscene = ExtResource("3_6jxfy")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

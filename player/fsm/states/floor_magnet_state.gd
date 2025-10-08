@@ -7,7 +7,6 @@ extends FSMState
 @export var launch_force: float = 20
 @export var whoosh: AudioStreamPlayer
 @export var launch_particles: GPUParticles2D
-@export var camera: Camera2D
 @export var shake_intensity: float
 @export var shake_time: float
 @export var floor_launch_particles: PackedScene
@@ -68,7 +67,8 @@ func _launch_player() -> void:
 func _play_effects() -> void:
 	_emit_floor_launch_particles()
 	_emit_launch_particles()
-	camera.shake(shake_intensity, shake_time)
+	if player.camera:
+		player.camera.shake(shake_intensity, shake_time)
 	whoosh.play()
 
 
