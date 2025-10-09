@@ -10,7 +10,14 @@ var cells: Dictionary = {
 	"rightedge": Vector2i(2, 1),
 	"bottomleft": Vector2i(0, 2),
 	"bottomedge": Vector2i(1, 2),
-	"bottomright": Vector2i(2, 2)
+	"bottomright": Vector2i(2, 2),
+	# Following ones are for single cell width
+	"horizontalleft": Vector2i(0, 3),
+	"horizontalcenter": Vector2i(1, 3),
+	"horizontalright": Vector2i(2, 3),
+	"verticaltop": Vector2i(3, 0),
+	"verticalcenter": Vector2i(3, 1),
+	"verticalbottom": Vector2i(3, 2)
 }
 var edge_names: Array = [
 	"leftedge",
@@ -24,7 +31,7 @@ var corner_names: Array = [
 	["bottomleft", "bottomright"],
 	["topleft", "topright"],
 ]
-var south_pole_x_offset: int = 3
+var south_pole_x_offset: int = 4
 
 @export_tool_button("Regenerate Tilemap") var generate_tilemap = _regenerate_tilemap
 @export_tool_button("Create new Floor Magnet") var add_magnet = _add_magnet
@@ -86,20 +93,31 @@ func apply_tilemap(magnet: FloorMagnet) -> void:
 	var collider: CollisionShape2D = magnet.get_node("MagnetCollider")
 	var magnet_position: Vector2 = collider.global_position / 16 # Divide by tile size to make it coords
 	var magnet_size: Vector2 = collider.shape_size / 16 # Divide by tile size to make it coords
-	var magnet_direction = magnet.magnet_direction
+	#var magnet_direction = magnet.magnet_direction
 	# This is used to offset tilemap coords to match south pole coords in necessary 
-	var tile_x_offset: int = south_pole_x_offset if magnet.pole == GlobalVars.POLE.SOUTH else 0
-
+	#var tile_x_offset: int = south_pole_x_offset if magnet.pole == GlobalVars.POLE.SOUTH else 0
+	var pole: int = magnet.pole
 	var top_left_corner: Vector2i = magnet_position - magnet_size / 2
-	# NOTE: The coords for bottom right corner are diagonally offset
-	var lower_right_corner: Vector2i = magnet_position + magnet_size / 2 
+	# NOTE: The coords for bottom right corner are diagonally offset, so we adjust for that
+	var lower_right_corner: Vector2i = magnet_position + magnet_size / 2
 
-	var corner_points = _get_corner_points(top_left_corner, lower_right_corner - Vector2i.ONE)
+	var cell_array = _generate_cell_array(top_left_corner, lower_right_corner)
+	set_cells_terrain_connect(cell_array, 0, pole)
 
-	_fill_solid(top_left_corner, lower_right_corner, tile_x_offset)
-	_fill_edges(corner_points, magnet_direction, tile_x_offset)
-	_fill_corners(corner_points, magnet_direction, tile_x_offset)
+	#var corner_points = _get_corner_points(top_left_corner, lower_right_corner - Vector2i.ONE)
 
+	#_fill_solid(top_left_corner, lower_right_corner, tile_x_offset)
+	#_fill_edges(corner_points, magnet_direction, tile_x_offset)
+	#_fill_corners(corner_points, magnet_direction, tile_x_offset)
+
+
+func _generate_cell_array(c1: Vector2i, c2: Vector2i) -> Array[Vector2i]:
+	var cell_array: Array[Vector2i] = []
+	for x in range(c1.x, c2.x):
+		for y in range(c1.y, c2.y):
+			cell_array.append(Vector2i(x, y))
+	
+	return cell_array
 
 func _fill_solid(c_tl: Vector2i, c_lr: Vector2i, tile_x_offset: int) -> void:
 	var tile_coords = _get_cell("center", tile_x_offset)

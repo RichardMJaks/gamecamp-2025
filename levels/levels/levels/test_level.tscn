@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://4xs2i12uy7xy"]
+[gd_scene load_steps=12 format=4 uid="uid://4xs2i12uy7xy"]
 
 [ext_resource type="PackedScene" uid="uid://ccyf37h8arbs5" path="res://levels/levels/base/level_base.tscn" id="1_213mm"]
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_3nss2"]
+[ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="3_2usvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2usvq"]
 resource_local_to_scene = true
-size = Vector2(48, 24)
+size = Vector2(48, 48)
 
 [sub_resource type="Curve" id="Curve_8ohhs"]
 _data = [Vector2(0, 0.768133), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
@@ -21,10 +22,10 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
 curve = SubResource("Curve_rr38n")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3nss2"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2usvq"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(19, 7, 1)
+emission_box_extents = Vector3(19, 19, 1)
 direction = Vector3(0, 1, 0)
 spread = 0.0
 initial_velocity_min = 10.0
@@ -37,12 +38,12 @@ alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pnnd"]
 resource_local_to_scene = true
-size = Vector2(16, 32)
+size = Vector2(16, 48)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2usvq"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmev0"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 11, 1)
+emission_box_extents = Vector3(3, 19, 1)
 direction = Vector3(0, 1, 0)
 spread = 0.0
 initial_velocity_min = 10.0
@@ -50,42 +51,44 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="LevelBase" instance=ExtResource("1_213mm")]
 
 [node name="MagnetTilemap" parent="." index="1"]
-tile_map_data = PackedByteArray("AAAEAAAAAAAAAAAAAAAFAAAAAAABAAAAAAAGAAAAAAACAAAAAAAIAP//AAACAAAAAAAIAAAAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAFAAAAAAABAAEAAAAFAP//AAABAAAAAAAEAAAAAAAAAAEAAAAEAP//AAAAAAAAAAAGAAEAAAACAAIAAAAGAAAAAAACAAEAAAAGAP//AAACAAAAAAAFAAEAAAABAAIAAAAEAAEAAAAAAAIAAAAIAAEAAAAHAAIAAAAIAAAAAAAHAAEAAAAIAP//AAAHAAAAAAA=")
 
 [node name="FlatMagnet" parent="MagnetTilemap" index="0" instance=ExtResource("2_3nss2")]
 position = Vector2(80, 0)
 magnet_direction = 3
 
 [node name="MagnetCollider" parent="MagnetTilemap/FlatMagnet" index="0"]
-position = Vector2(8, 4)
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_2usvq")
-shape_size = Vector2(48, 24)
+shape_size = Vector2(48, 48)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet" index="1"]
-position = Vector2(8, 4)
-process_material = SubResource("ParticleProcessMaterial_3nss2")
+position = Vector2(8, 8)
+process_material = SubResource("ParticleProcessMaterial_2usvq")
 
 [node name="FlatMagnet2" parent="MagnetTilemap" index="1" instance=ExtResource("2_3nss2")]
 position = Vector2(144, 16)
 magnet_direction = 3
+pole = 0
 
 [node name="MagnetCollider" parent="MagnetTilemap/FlatMagnet2" index="0"]
-position = Vector2(-8, -16)
+position = Vector2(-8, -8)
 shape = SubResource("RectangleShape2D_8pnnd")
-shape_size = Vector2(16, 32)
+shape_size = Vector2(16, 48)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet2" index="1"]
-position = Vector2(-8, -16)
-process_material = SubResource("ParticleProcessMaterial_2usvq")
+position = Vector2(-8, -8)
+texture = ExtResource("3_2usvq")
+process_material = SubResource("ParticleProcessMaterial_rmev0")
 
 [node name="LevelTilemap" parent="." index="2"]
-tile_map_data = PackedByteArray("AAD+/wEAAQAGAAEAAAD//wEAAQACAAAAAAAAAAEAAQACAAAAAAABAAEAAQACAAAAAAACAAEAAQACAAAAAAADAAEAAQACAAAAAAAEAAEAAAAMAA4AAAAFAAEAAAASABEAAAAGAAEAAAANAA8AAAAHAAEAAQACAAAAAAAIAAEAAAALAA4AAAAJAAEAAQACAAAAAAAKAAEAAQACAAAAAAALAAEAAQACAAAAAAAMAAEAAQACAAAAAAANAAEAAQACAAAAAAAOAAEAAQACAAAAAAAPAAEAAQAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+/wEAAQAGAAEAAAD//wEAAQACAAAAAAAAAAEAAQACAAAAAAABAAEAAQACAAAAAAACAAEAAQACAAAAAAADAAEAAQAFAAAAAAAMAAEAAQACAAAAAAANAAEAAQACAAAAAAAOAAEAAQACAAAAAAAPAAEAAQAFAAAAAAAEAAEAAAAOAA4AAAAFAAEAAAAPAA4AAAAGAAEAAAAQAA4AAAAIAAEAAAAOABAAAAAHAAEAAQAGAAMAAAAJAAEAAQAGAAEAAAAKAAEAAQACAAAAAAALAAEAAQACAAAAAAA=")
 
 [node name="EndGate" parent="." index="4"]
 position = Vector2(224, 0)

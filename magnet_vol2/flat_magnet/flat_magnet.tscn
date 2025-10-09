@@ -51,6 +51,7 @@ script = ExtResource("2_8ohhs")
 [node name="Particles" type="GPUParticles2D" parent="." node_paths=PackedStringArray("collider")]
 amount = 10
 texture = ExtResource("5_8ohhs")
+lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_qch6w")
 script = ExtResource("4_qch6w")
 collider = NodePath("../MagnetCollider")

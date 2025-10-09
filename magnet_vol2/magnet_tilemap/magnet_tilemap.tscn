@@ -1,38 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://vekjkw5aq88x"]
+[gd_scene load_steps=4 format=3 uid="uid://vekjkw5aq88x"]
 
-[ext_resource type="Texture2D" uid="uid://beil3et34obkj" path="res://magnet_vol2/magnet_tilemap/magnet_tileset.png" id="1_n55ml"]
+[ext_resource type="TileSet" uid="uid://copfcgpa7yevj" path="res://magnet_vol2/magnet_tilemap/magnet_tilemap.tres" id="1_7w20y"]
 [ext_resource type="Script" uid="uid://cpb7aunoodewk" path="res://magnet_vol2/magnet_tilemap/magnet_tilemap.gd" id="2_7w20y"]
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="3_7w20y"]
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_8w7jd"]
-tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 1, 65536, 0, 65537, 65536, 1, 131073, 65536, 2, 2, 131072, 0, 65538, 131072, 1, 131074, 131072, 2)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abgbr"]
-texture = ExtResource("1_n55ml")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_fnliv"]
-sources/0 = SubResource("TileSetAtlasSource_abgbr")
-pattern_0 = SubResource("TileMapPattern_8w7jd")
-
 [node name="MagnetTilemap" type="TileMapLayer"]
-tile_set = SubResource("TileSet_fnliv")
+tile_set = ExtResource("1_7w20y")
 script = ExtResource("2_7w20y")
 floor_magnet = ExtResource("3_7w20y")
