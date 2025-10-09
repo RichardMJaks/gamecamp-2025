@@ -4,8 +4,11 @@ extends TileMapLayer
 @export_tool_button("Regenerate Tilemap") var generate_tilemap = _regenerate_tilemap
 @export_tool_button("Create new Floor Magnet") var add_magnet = _add_magnet
 @export var floor_magnet: PackedScene
+
+# Used for adding magnets via a button, currently doesn't work
 var adding_magnet: bool = false
 var corners: Array = []
+
 
 func _ready() -> void:
 	_regenerate_tilemap()
@@ -68,7 +71,6 @@ func apply_tilemap(magnet: FloorMagnet) -> void:
 	var pole: int = magnet.pole
 
 	var top_left_corner: Vector2i = magnet_position - magnet_size / 2
-	# NOTE: The coords for bottom right corner are diagonally offset, so we adjust for that
 	var lower_right_corner: Vector2i = magnet_position + magnet_size / 2
 
 	var cell_array = _generate_cell_array(top_left_corner, lower_right_corner)
