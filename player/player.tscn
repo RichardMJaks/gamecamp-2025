@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://hm7oj8v2rsqi"]
+[gd_scene load_steps=122 format=3 uid="uid://hm7oj8v2rsqi"]
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://1xp2dovahsx0" path="res://player/launch_particles.tscn" id="2_bjvpn"]
@@ -24,7 +24,6 @@
 [ext_resource type="Script" path="res://player/fsm/states/controlled_state.gd" id="18_7pqkx"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
-[ext_resource type="Script" uid="uid://bgm0tvh7wkq7i" path="res://player/fsm/fsm_state.gd" id="19_uw77l"]
 [ext_resource type="AudioStream" uid="uid://byu6h1cuf77yb" path="res://audio/switch.wav" id="23_s7qer"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge24q"]
@@ -959,7 +958,7 @@ metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="controlled_state" type="Node" parent="StateMachine"]
 script = ExtResource("18_7pqkx")
-metadata/_custom_type_script = ExtResource("19_uw77l")
+metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 1)
