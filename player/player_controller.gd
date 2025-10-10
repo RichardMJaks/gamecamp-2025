@@ -30,7 +30,7 @@ signal movement_state_changed(state_name: String)
 @export var color_south: Color
 @export var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 @export var camera_transform: RemoteTransform2D
-
+@export var controlled_state: FSMState
 
 var being_attracted: bool = false
 var current_magnet: Magnet = null
@@ -117,6 +117,11 @@ func _toggle_pole() -> void:
 	current_pole = 1 - current_pole
 	anim_tree["parameters/conditions/switched_pole"] = true
 
+
+func set_controlled() -> void:
+	%StateMachine._change_to_state(controlled_state)
+	anim_tree["parameters/conditions/controlled"] = true
+
 #region Signal connections
 func _on_entered_magnet_range(area:Area2D) -> void:
 	if not area is Magnet:
@@ -138,6 +143,7 @@ func _set_anim_tree_blend_positions(pole_blend_position: float) -> void:
 	anim_tree["parameters/SwitchPole/blend_position"] = pole_blend_position
 	anim_tree["parameters/Walk/blend_position"] = pole_blend_position
 	anim_tree["parameters/Flying/blend_position"] = pole_blend_position
+	anim_tree["parameters/Controlled/blend_position"] = pole_blend_position
 
 
 func _set_anim_tree_parameters() -> void:
