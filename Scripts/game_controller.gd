@@ -8,12 +8,12 @@ var total_time_spent: float = 0
 var total_collectables_collected: int = 0
 
 #TODO: Implement session end screen
-@onready var session_end_screen: PackedScene = null
+@onready var session_end_screen: PackedScene = preload("res://HUD/session_end_screen/session_end.tscn")
 
 func _ready() -> void:
-	SignalBus.fade_out_completed.connect(_initialize_next_level)
 	SignalBus.timing_started.connect(_on_timing_started)
 	SignalBus.timing_stopped.connect(_on_timing_stopped)
+	SignalBus.session_completed.connect(_on_session_completed)
 
 
 func _process(delta: float) -> void:

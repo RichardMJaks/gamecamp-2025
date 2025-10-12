@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://d304323kucdy3"]
+
+[ext_resource type="Script" uid="uid://bgdv56snavr1s" path="res://HUD/session_end_screen/level_stats_container.gd" id="1_crbrf"]
+[ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_wre6q"]
+
+[node name="LevelXContainer" type="HBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_crbrf")
+
+[node name="LevelTitle" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wre6q")
+text = "LEVEL 1"
+
+[node name="Spacer2" type="Control" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Time" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wre6q")
+text = "Time"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Spacer" type="Control" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CollectibleCount" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wre6q")
+text = "0"
+horizontal_alignment = 2

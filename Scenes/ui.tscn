@@ -64,6 +64,7 @@ layout_mode = 2
 
 [node name="LevelTimer" type="Label" parent="HUD/VBoxContainer/HBoxContainer/TimerContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "00.00.000"
@@ -71,10 +72,6 @@ text = "00.00.000"
 [node name="RightMargin" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-
-[node name="Fader" parent="." instance=ExtResource("4_2246s")]
-unique_name_in_owner = true
-visible = false
 
 [node name="FinalLevelCompletePanel" type="Panel" parent="."]
 visible = false
@@ -169,72 +166,89 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_q7pk6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelCompleteContainer"]
+[node name="ItemsContainer" type="VBoxContainer" parent="LevelCompleteContainer"]
 layout_mode = 2
 
-[node name="TopMargin" type="Control" parent="LevelCompleteContainer/VBoxContainer"]
+[node name="TopMargin" type="Control" parent="LevelCompleteContainer/ItemsContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="LevelCompleteLabel" type="Label" parent="LevelCompleteContainer/VBoxContainer"]
+[node name="LevelCompleteLabel" type="Label" parent="LevelCompleteContainer/ItemsContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 32
 text = "Level complete!"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="LevelCompleteContainer/VBoxContainer"]
+[node name="Spacer" type="Control" parent="LevelCompleteContainer/ItemsContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="StatsContainer" type="HBoxContainer" parent="LevelCompleteContainer/VBoxContainer"]
+[node name="StatsContainer" type="HBoxContainer" parent="LevelCompleteContainer/ItemsContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="CollectablesContainer" type="VBoxContainer" parent="LevelCompleteContainer/VBoxContainer/StatsContainer"]
+[node name="CollectablesContainer" type="VBoxContainer" parent="LevelCompleteContainer/ItemsContainer/StatsContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer"]
+[node name="Label" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "Nuts"
 
-[node name="CollectiblesNumberContainer" type="HBoxContainer" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer"]
+[node name="CollectiblesNumberContainer" type="HBoxContainer" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer"]
 layout_mode = 2
 
-[node name="CollectibleIcon" type="TextureRect" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
+[node name="CollectibleIcon" type="TextureRect" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_m78vo")
 
-[node name="TotalCollectibles" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
+[node name="TotalCollectibles" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "0"
 
-[node name="Spacer" type="Control" parent="LevelCompleteContainer/VBoxContainer/StatsContainer"]
+[node name="Spacer" type="Control" parent="LevelCompleteContainer/ItemsContainer/StatsContainer"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 
-[node name="LevelTimeContainer" type="VBoxContainer" parent="LevelCompleteContainer/VBoxContainer/StatsContainer"]
+[node name="LevelTimeContainer" type="VBoxContainer" parent="LevelCompleteContainer/ItemsContainer/StatsContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Label" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/LevelTimeContainer"]
+[node name="Label" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/LevelTimeContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "Time"
 horizontal_alignment = 1
 
-[node name="TotalTime" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/LevelTimeContainer"]
+[node name="TotalTime" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/LevelTimeContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "00.00.000"
 
+[node name="Spacer2" type="Control" parent="LevelCompleteContainer/ItemsContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="LevelCompleteContainer/ItemsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_qdvrb")
+text = "Continue"
+
+[node name="Fader" parent="." instance=ExtResource("4_2246s")]
+unique_name_in_owner = true
+visible = false
+mouse_filter = 2
+
+[connection signal="pressed" from="FinalLevelCompletePanel/MainMenu Button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="LevelCompleteContainer/ItemsContainer/ContinueButton" to="LevelCompleteContainer" method="_on_continue_button_pressed" flags=6]
 [connection signal="fade_in_finished" from="Fader" to="." method="_on_fade_in_finished"]
 [connection signal="fade_out_finished" from="Fader" to="." method="_on_fade_out_finished"]
-[connection signal="pressed" from="FinalLevelCompletePanel/MainMenu Button" to="." method="_on_main_menu_button_pressed"]

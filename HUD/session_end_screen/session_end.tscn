@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://b62pk0mp4sjum"]
+
+[ext_resource type="Script" uid="uid://bl60hhdyrwsvk" path="res://HUD/session_end_screen/session_end.gd" id="1_a5xis"]
+[ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="1_stqpg"]
+[ext_resource type="Texture2D" uid="uid://gmtiysq5c1bn" path="res://MetalNut.png" id="2_cry3l"]
+[ext_resource type="PackedScene" uid="uid://d304323kucdy3" path="res://HUD/session_end_screen/level_stats_container.tscn" id="3_cry3l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5xis"]
+atlas = ExtResource("2_cry3l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5xis"]
+bg_color = Color(0.07, 0.07, 0.07, 0.780392)
+
+[node name="SessionEnd" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a5xis")
+stats_container = ExtResource("3_cry3l")
+
+[node name="SessionEndContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="SessionEndContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SessionEndContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_stqpg")
+theme_override_font_sizes/font_size = 32
+text = "TOTAL STATS"
+horizontal_alignment = 1
+
+[node name="StatsDisplayContainer" type="VBoxContainer" parent="SessionEndContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TitleMargin" type="MarginContainer" parent="SessionEndContainer/StatsDisplayContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="TitleContainer" type="HBoxContainer" parent="SessionEndContainer/StatsDisplayContainer/TitleMargin"]
+layout_mode = 2
+
+[node name="LevelTitle" type="Label" parent="SessionEndContainer/StatsDisplayContainer/TitleMargin/TitleContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_stqpg")
+text = "LEVEL"
+
+[node name="Spacer5" type="Control" parent="SessionEndContainer/StatsDisplayContainer/TitleMargin/TitleContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeTitle" type="Label" parent="SessionEndContainer/StatsDisplayContainer/TitleMargin/TitleContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_stqpg")
+text = "TIME"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Spacer2" type="Control" parent="SessionEndContainer/StatsDisplayContainer/TitleMargin/TitleContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CollectibleTitle" type="TextureRect" parent="SessionEndContainer/StatsDisplayContainer/TitleMargin/TitleContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_a5xis")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Spacer" type="Control" parent="SessionEndContainer/StatsDisplayContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="SessionEndContainer/StatsDisplayContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a5xis")
+
+[node name="MarginContainer" type="MarginContainer" parent="SessionEndContainer/StatsDisplayContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="StatsScrollContainer" type="ScrollContainer" parent="SessionEndContainer/StatsDisplayContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="StatsContainer" type="VBoxContainer" parent="SessionEndContainer/StatsDisplayContainer/Panel/MarginContainer/StatsScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TotalStatsMargin" type="MarginContainer" parent="SessionEndContainer/StatsDisplayContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="TotalStats" parent="SessionEndContainer/StatsDisplayContainer/TotalStatsMargin" instance=ExtResource("3_cry3l")]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=4 uid="uid://0ow6ugw5ijmn"]
+
+[ext_resource type="PackedScene" uid="uid://ccyf37h8arbs5" path="res://levels/levels/base/level_base.tscn" id="1_aucft"]
+[ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_dftw4"]
+[ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="3_ip48s"]
+[ext_resource type="PackedScene" uid="uid://bd87di74w8fww" path="res://Scenes/collectible.tscn" id="4_7ctgx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2usvq"]
+resource_local_to_scene = true
+size = Vector2(32, 48)
+
+[sub_resource type="Curve" id="Curve_8ohhs"]
+_data = [Vector2(0, 0.768133), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ra4g"]
+curve = SubResource("Curve_8ohhs")
+
+[sub_resource type="Curve" id="Curve_rr38n"]
+_data = [Vector2(0, 0), 0.0, 4.96433, 0, 0, Vector2(1, 0.597164), -0.686939, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
+curve = SubResource("Curve_rr38n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aucft"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 19, 1)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(0, 0.716667, 1, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pnnd"]
+resource_local_to_scene = true
+size = Vector2(32, 64)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dftw4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 27, 1)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip48s"]
+resource_local_to_scene = true
+size = Vector2(32, 32)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ctgx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(11, 11, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_hguyq")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_5ra4g")
+
+[node name="LevelBase" instance=ExtResource("1_aucft")]
+
+[node name="MagnetTilemap" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAIAAAAAAP//AAACAAEAAAAAAP7/AAACAAAAAAD//wAAAAAAAAIAAAD/////AAAAAAEAAAD///7/AAAAAAAAAAACAP7/AAAGAAIAAAACAP3/AAAGAAEAAAACAPz/AAAGAAEAAAACAPv/AAAGAAAAAAABAP7/AAAEAAIAAAABAP3/AAAEAAEAAAABAPz/AAAEAAEAAAABAPv/AAAEAAAAAAABAAMAAAAGAAAAAAAAAAMAAAAEAAAAAAABAAQAAAAGAAIAAAAAAAQAAAAEAAIAAAA=")
+
+[node name="FlatMagnet" parent="MagnetTilemap" index="0" instance=ExtResource("2_dftw4")]
+position = Vector2(0, -16)
+magnet_direction = 0
+
+[node name="MagnetCollider" parent="MagnetTilemap/FlatMagnet" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_2usvq")
+shape_size = Vector2(32, 48)
+
+[node name="Particles" parent="MagnetTilemap/FlatMagnet" index="1"]
+position = Vector2(0, 8)
+process_material = SubResource("ParticleProcessMaterial_aucft")
+
+[node name="FlatMagnet2" parent="MagnetTilemap" index="1" instance=ExtResource("2_dftw4")]
+position = Vector2(32, -32)
+pole = 0
+
+[node name="MagnetCollider" parent="MagnetTilemap/FlatMagnet2" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_8pnnd")
+shape_size = Vector2(32, 64)
+
+[node name="Particles" parent="MagnetTilemap/FlatMagnet2" index="1"]
+position = Vector2(0, -16)
+texture = ExtResource("3_ip48s")
+process_material = SubResource("ParticleProcessMaterial_dftw4")
+
+[node name="FlatMagnet3" parent="MagnetTilemap" index="2" instance=ExtResource("2_dftw4")]
+position = Vector2(16, 48)
+magnet_direction = 3
+pole = 0
+
+[node name="MagnetCollider" parent="MagnetTilemap/FlatMagnet3" index="0"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_ip48s")
+shape_size = Vector2(32, 32)
+
+[node name="Particles" parent="MagnetTilemap/FlatMagnet3" index="1"]
+position = Vector2(0, 16)
+texture = ExtResource("3_ip48s")
+process_material = SubResource("ParticleProcessMaterial_7ctgx")
+
+[node name="LevelTilemap" parent="." index="2"]
+position = Vector2(-16, 0)
+tile_map_data = PackedByteArray("AAD9/wQAAQAGAAEAAAD+/wQAAQACAAAAAAD//wQAAQACAAAAAAAAAAQAAQAFAAAAAAABAAQAAAAOAA8AAAACAAQAAAAQAA8AAAADAAQAAQAGAAAAAAADAAMAAQACAAEAAAADAAIAAQACAAEAAAADAAEAAQAAAAAAAAAEAAEAAQACAAAAAAAFAAEAAQACAAAAAAAGAAEAAQACAAAAAAAHAAEAAQACAAAAAAAIAAEAAQACAAAAAAAJAAEAAQAFAAAAAAAAAAAAAAANABAAAAAAAP//AAANAA8AAAAAAP7/AAANAA4AAAAAAP3/AQAFAAAAAAD///3/AQAFAAQAAAD+//3/AQACAAQAAAD///7/AQAFAAIAAAD+//7/AQAEAAIAAAD/////AQAFAAIAAAD+////AQAEAAIAAAD+/wAAAQAHAAEAAAD//wAAAQAIAAEAAAADAP7/AAAMABAAAAADAP3/AAAMAA8AAAADAPz/AAAMAA8AAAADAPv/AAAMAA4AAAD+//z/AQACAAEAAAD+//v/AQACAAEAAAD+//r/AQAFAAEAAAA=")
+
+[node name="PlayerSpawner" parent="." index="3"]
+position = Vector2(-32, 48)
+
+[node name="EndGate" parent="." index="4"]
+position = Vector2(128, 0)
+
+[node name="Camera" parent="." index="6"]
+position = Vector2(-32, 48)
+
+[node name="Collectible" parent="." index="7" instance=ExtResource("4_7ctgx")]
+position = Vector2(-16, -64)
+
+[editable path="MagnetTilemap/FlatMagnet"]
+[editable path="MagnetTilemap/FlatMagnet2"]
+[editable path="MagnetTilemap/FlatMagnet3"]

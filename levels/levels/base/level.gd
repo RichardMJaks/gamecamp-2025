@@ -12,11 +12,14 @@ var time_spent: float = 0
 func _ready() -> void:
 	SignalBus.level_completed.connect(_on_level_completed)	
 	SignalBus.fade_in_completed.connect(_spawn_player)
+	SignalBus.fade_out_completed.connect(_goto_next_level)
+	SignalBus.collectible_collected.connect(_on_collectible_collected)
 
 
 func _process(delta: float) -> void:
 	if GameController.timing:
 		time_spent += delta
+		ui.update_time(time_spent)
 		
 
 
@@ -36,6 +39,7 @@ func _on_collectible_collected() -> void:
 
 func _on_level_completed() -> void:
 	var level_data = _create_level_data()
+	GameController.add_level_data(level_data)
 	_show_level_end_screen(level_data)
 
 
