@@ -2,9 +2,6 @@ extends Control
 
 @export var stats_container: PackedScene
 
-var total_time: float = 0
-var total_collectibles: int = 0
-
 @onready var stats_box: Control = %StatsContainer
 @onready var total_stats: Control = %TotalStats 
 
@@ -12,7 +9,9 @@ func _ready() -> void:
 	var levels_data: Array[LevelData] = GameController.levels_data
 	populate_stats(levels_data)
 
-	total_stats.initialize("TOTAL", total_time, total_collectibles)
+	total_stats.initialize("TOTAL", GameController.total_time_spent, GameController.total_collectables_collected)
+	
+	BgMusic.play_music(BgMusic.MusicType.END)
 
 
 func populate_stats(levels_data: Array[LevelData]) -> void:
@@ -27,9 +26,6 @@ func _populate_level_stats(levels_data: Array[LevelData]) -> void:
 		var time: float = data.time_spent
 		var collectibles: int = data.collectibles_collected
 
-		total_time += time
-		total_collectibles += collectibles
-
 		_create_level_stats_container(level_title, time, collectibles)
 
 
@@ -37,3 +33,7 @@ func _create_level_stats_container(level_title: String, time: float, collectible
 	var container = stats_container.instantiate()
 	container.initialize(level_title, time, collectibles)
 	stats_box.add_child(container)
+
+
+func _on_main_menu_button_pressed() -> void:
+	SignalBus.session_restarted.emit()

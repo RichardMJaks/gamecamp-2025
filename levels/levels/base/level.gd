@@ -14,6 +14,7 @@ func _ready() -> void:
 	SignalBus.fade_in_completed.connect(_spawn_player)
 	SignalBus.fade_out_completed.connect(_goto_next_level)
 	SignalBus.collectible_collected.connect(_on_collectible_collected)
+	BgMusic.play_music(BgMusic.MusicType.INGAME)
 
 
 func _process(delta: float) -> void:

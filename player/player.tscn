@@ -901,8 +901,7 @@ controlled_state = NodePath("StateMachine/controlled_state")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 z_index = 3
 sprite_frames = SubResource("SpriteFrames_j55il")
-animation = &"blue_fly"
-frame = 1
+animation = &"red_idle"
 script = ExtResource("3_boad6")
 
 [node name="Particles" type="Node2D" parent="Sprite"]

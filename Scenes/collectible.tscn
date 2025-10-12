@@ -306,15 +306,15 @@ _data = {
 
 [sub_resource type="Gradient" id="Gradient_sshb3"]
 interpolation_mode = 1
-colors = PackedColorArray(0.351, 0.43515, 0.45, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_k4w2s"]
 gradient = SubResource("Gradient_sshb3")
 width = 8
 height = 8
 fill = 1
-fill_from = Vector2(0.653846, 0.58547)
-fill_to = Vector2(0.367521, 0.534188)
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Curve" id="Curve_mfbqs"]
 _data = [Vector2(0, 1), 0.0, -2.63008, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

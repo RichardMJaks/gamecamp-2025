@@ -37,6 +37,7 @@ var current_magnet: Magnet = null
 var radial_stuck_fix: bool = false
 var accel_time_delta: float = 0
 var camera: Camera2D = null
+var controlled: bool = false
 
 @onready var su = GlobalVars.su
 
@@ -50,6 +51,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Reset this so it would be a toggle instead
+	if controlled:
+		return
 	anim_tree["parameters/conditions/switched_pole"] = false
 	_set_anim_tree_blend_positions(float(current_pole))
 	
@@ -119,6 +122,7 @@ func _toggle_pole() -> void:
 
 
 func set_controlled() -> void:
+	controlled = true
 	%StateMachine._change_to_state(controlled_state)
 	anim_tree["parameters/conditions/controlled"] = true
 
