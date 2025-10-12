@@ -1,22 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=6 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
-[ext_resource type="PackedScene" uid="uid://dv3yvssd05u5o" path="res://Scenes/level_stats_box.tscn" id="2_nf4gj"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://gmtiysq5c1bn" path="res://MetalNut.png" id="3_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="4_2246s"]
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("collectibles_label", "timer_label", "final_level_complete_panel", "final_level_stats_container", "final_total_stats_time", "final_total_stats_collectibles")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m78vo"]
+atlas = ExtResource("3_q7pk6")
+region = Rect2(0, 0, 16, 16)
+
+[node name="UI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_jxero")
-collectibles_label = NodePath("Control/VBoxContainer/HBoxContainer/CollectibleCount")
-timer_label = NodePath("Control/VBoxContainer/HBoxContainer/LevelTimer")
-final_level_complete_panel = NodePath("FinalLevelCompletePanel")
-level_stats_template = ExtResource("2_nf4gj")
-final_level_stats_container = NodePath("FinalLevelCompletePanel/HBoxContainer/Level Stats Container")
-final_total_stats_time = NodePath("FinalLevelCompletePanel/HBoxContainer/Total Stats Container/Total Time Label")
-final_total_stats_collectibles = NodePath("FinalLevelCompletePanel/HBoxContainer/Total Stats Container/Total Collectibles Label")
 
-[node name="Control" type="Control" parent="."]
+[node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,37 +29,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Spacer" type="Control" parent="Control/VBoxContainer"]
+[node name="TopMargin" type="Control" parent="HUD/VBoxContainer"]
 custom_minimum_size = Vector2(0, 4.005)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
 layout_mode = 2
 
-[node name="Spacer2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="LeftMargin" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="CollectibleCount" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="CollectibleCounterContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="CollectibleIcon" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer/CollectibleCounterContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_m78vo")
+
+[node name="CollectibleCounter" type="Label" parent="HUD/VBoxContainer/HBoxContainer/CollectibleCounterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Nuts: 0"
+text = "0"
 
-[node name="Spacer" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LevelTimer" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="TimerContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LevelTimer" type="Label" parent="HUD/VBoxContainer/HBoxContainer/TimerContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Time: 00.00.000"
+text = "00.00.000"
 
-[node name="Spacer3" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="RightMargin" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="Transition" parent="." instance=ExtResource("4_2246s")]
+[node name="Fader" parent="." instance=ExtResource("4_2246s")]
+unique_name_in_owner = true
 visible = false
 
 [node name="FinalLevelCompletePanel" type="Panel" parent="."]
@@ -148,5 +158,6 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Main Menu"
 
-[connection signal="fade_in_finished" from="Transition" to="." method="_on_fade_in_finished"]
+[connection signal="fade_in_finished" from="Fader" to="." method="_on_fade_in_finished"]
+[connection signal="fade_out_finished" from="Fader" to="." method="_on_fade_out_finished"]
 [connection signal="pressed" from="FinalLevelCompletePanel/MainMenu Button" to="." method="_on_main_menu_button_pressed"]

@@ -1,11 +1,12 @@
 extends ColorRect
+class_name Fader
 
 signal fade_in_finished()
 signal fade_out_finished()
 var transition_time: float = 0.3
 
 func _ready() -> void:
-	GameController.level_completed.connect(_fade_out.unbind(1))
+	SignalBus.start_fade_out.connect(_fade_out)
 	fade_out_finished.connect(GameController.go_to_next_level)
 	visible = true
 	_fade_in()

@@ -28,3 +28,8 @@ func _add_player_to_scene() -> void:
 
 func _play_animation() -> void:
 	animation_player.play("spawn_player")
+
+
+# Called from animationplayer
+func _start_timing() -> void:
+	SignalBus.timing_started.emit()
