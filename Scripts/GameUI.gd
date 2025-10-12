@@ -10,8 +10,12 @@ signal fade_in_finished
 signal fade_out_finished
 
 
-func show_level_end_screen() -> void:
-	level_complete.show_ui()
+func _process(delta: float) -> void:
+	pass
+
+
+func show_level_end_screen(level_data: LevelData) -> void:
+	level_complete.show_ui(level_data.collectibles_collected, level_data.time_spent)
 
 func _on_fade_out_finished() -> void:
 	SignalBus.fade_out_completed.emit()

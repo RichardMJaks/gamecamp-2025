@@ -17,6 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if GameController.timing:
 		time_spent += delta
+		
 
 
 func _create_level_data() -> LevelData:
@@ -43,7 +44,7 @@ func _spawn_player() -> void:
 
 
 func _show_level_end_screen(level_data: LevelData) -> void:
-	ui.show_level_end_screen()
+	ui.show_level_end_screen(level_data)
 
 
 func _goto_next_level() -> void:
