@@ -158,7 +158,6 @@ text = "Main Menu"
 
 [node name="LevelCompleteContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -179,6 +178,7 @@ theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 32
 text = "Level complete!"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="Spacer" type="Control" parent="LevelCompleteContainer/ItemsContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -196,6 +196,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "Nuts"
+uppercase = true
 
 [node name="CollectiblesNumberContainer" type="HBoxContainer" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer"]
 layout_mode = 2
@@ -224,6 +225,7 @@ theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "Time"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="TotalTime" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/LevelTimeContainer"]
 unique_name_in_owner = true
@@ -241,7 +243,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Continue"
+text = "CONTINUE"
 
 [node name="Fader" parent="." instance=ExtResource("4_2246s")]
 unique_name_in_owner = true
