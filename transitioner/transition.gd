@@ -7,7 +7,6 @@ var transition_time: float = 0.3
 
 func _ready() -> void:
 	SignalBus.start_fade_out.connect(_fade_out)
-	fade_out_finished.connect(GameController.go_to_next_level)
 	visible = true
 	_fade_in()
 

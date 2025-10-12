@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=7 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
 [ext_resource type="Texture2D" uid="uid://gmtiysq5c1bn" path="res://MetalNut.png" id="3_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="4_2246s"]
+[ext_resource type="Script" uid="uid://jth8fq0f0ubd" path="res://Scenes/level_complete_ui.gd" id="5_q7pk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m78vo"]
 atlas = ExtResource("3_q7pk6")
@@ -157,6 +158,82 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "Main Menu"
+
+[node name="LevelCompleteContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_q7pk6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelCompleteContainer"]
+layout_mode = 2
+
+[node name="TopMargin" type="Control" parent="LevelCompleteContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="LevelCompleteLabel" type="Label" parent="LevelCompleteContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 32
+text = "Level complete!"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="LevelCompleteContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="StatsContainer" type="HBoxContainer" parent="LevelCompleteContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CollectablesContainer" type="VBoxContainer" parent="LevelCompleteContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 16
+text = "Nuts"
+
+[node name="CollectiblesNumberContainer" type="HBoxContainer" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer"]
+layout_mode = 2
+
+[node name="CollectibleIcon" type="TextureRect" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_m78vo")
+
+[node name="TotalCollectibles" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
+text = "0"
+
+[node name="Spacer" type="Control" parent="LevelCompleteContainer/VBoxContainer/StatsContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="LevelTimeContainer" type="VBoxContainer" parent="LevelCompleteContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/LevelTimeContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 16
+text = "Time"
+horizontal_alignment = 1
+
+[node name="TotalTime" type="Label" parent="LevelCompleteContainer/VBoxContainer/StatsContainer/LevelTimeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 16
+text = "00.00.000"
 
 [connection signal="fade_in_finished" from="Fader" to="." method="_on_fade_in_finished"]
 [connection signal="fade_out_finished" from="Fader" to="." method="_on_fade_out_finished"]

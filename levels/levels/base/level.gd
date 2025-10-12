@@ -11,6 +11,7 @@ var time_spent: float = 0
 
 func _ready() -> void:
 	SignalBus.level_completed.connect(_on_level_completed)	
+	SignalBus.fade_in_completed.connect(_spawn_player)
 
 
 func _process(delta: float) -> void:
@@ -37,8 +38,12 @@ func _on_level_completed() -> void:
 	_show_level_end_screen(level_data)
 
 
+func _spawn_player() -> void:
+	start_gate.spawn_player()
+
+
 func _show_level_end_screen(level_data: LevelData) -> void:
-	ui.show_level_end_screen()	
+	ui.show_level_end_screen()
 
 
 func _goto_next_level() -> void:
