@@ -18,7 +18,7 @@ func update_collectible_count(count: int) -> void:
 
 
 func update_time(time: float) -> void:
-	timer_label.text = "%02d:%02d.%03d" % [time / 60, floori(time), (time - floori(time)) * 1000]
+	timer_label.text = GlobalVars.float_to_time(time)
 
 
 func show_level_end_screen(level_data: LevelData) -> void:

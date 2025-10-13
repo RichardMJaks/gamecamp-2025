@@ -8,5 +8,16 @@ extends CollisionShape2D
 		#shape = RectangleShape2D.new()
 		#shape.size = shape_size
 
+func _ready() -> void:
+	get_parent().pole_changed.connect(_match_debug_color)
+
 func _process(_delta: float) -> void:
 	shape_size = shape.size
+
+
+func _match_debug_color(pole: GlobalVars.POLE) -> void:
+	match(pole):
+		GlobalVars.POLE.SOUTH:
+			debug_color = Color8(255, 39, 59, 107)
+		GlobalVars.POLE.NORTH:
+			debug_color = Color8(0, 153, 179, 107)

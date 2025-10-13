@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="3_yi3jx"]
 [ext_resource type="PackedScene" uid="uid://hm7oj8v2rsqi" path="res://player/player.tscn" id="4_yi3jx"]
 [ext_resource type="PackedScene" uid="uid://dokqeh77pm7mi" path="res://Scenes/end_gate.tscn" id="6_c4pne"]
-[ext_resource type="PackedScene" uid="uid://bd87di74w8fww" path="res://Scenes/collectible.tscn" id="7_tfamw"]
+[ext_resource type="PackedScene" uid="uid://bd87di74w8fww" path="res://levels/collectible.tscn" id="7_tfamw"]
 [ext_resource type="PackedScene" uid="uid://ctrejknt40q3j" path="res://Scenes/ui.tscn" id="10_dm5o4"]
 [ext_resource type="Texture2D" uid="uid://tj23dwptctoh" path="res://assets/background_layer1.png" id="11_obtcn"]
 [ext_resource type="Texture2D" uid="uid://c745d0hjjlbjt" path="res://assets/background_layer2.png" id="12_2ro2b"]

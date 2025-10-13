@@ -29,3 +29,6 @@ var magnet_gravity_direction: Vector2i = Vector2i(0, -1):
 func _ready() -> void:
 	if Engine.is_editor_hint() and not get_tree().current_scene == self:
 		get_parent().set_editable_instance(self, true)
+
+			
+			

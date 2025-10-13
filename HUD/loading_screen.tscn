@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5f7fk2o2fr6c" path="res://HUD/shader_loader.gd" id="1_cogpi"]
 [ext_resource type="PackedScene" uid="uid://1xp2dovahsx0" path="res://player/launch_particles.tscn" id="2_mccoc"]
-[ext_resource type="PackedScene" uid="uid://b6ai4517igh40" path="res://levels/levels/levels/level_0.tscn" id="2_qeupt"]
+[ext_resource type="PackedScene" uid="uid://b6ai4517igh40" path="res://levels/levels/levels/old/level_0.tscn" id="2_qeupt"]
 [ext_resource type="Material" uid="uid://bdhqe603jkeyr" path="res://magnet_vol2/radial_magnet/left_particles.tres" id="3_qeupt"]
 [ext_resource type="Material" uid="uid://duma6x74gg72f" path="res://magnet_vol2/radial_magnet/outer_rim.tres" id="4_puisq"]
 [ext_resource type="PackedScene" uid="uid://cq0aroif6k4pw" path="res://player/switch_particles.tscn" id="4_qeupt"]

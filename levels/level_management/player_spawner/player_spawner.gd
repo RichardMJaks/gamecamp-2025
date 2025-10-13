@@ -9,6 +9,8 @@ var starting_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 @onready var player_spawn_position: Vector2 = $PlayerSpawnPosition.global_position
 @onready var current_scene: Node = get_tree().current_scene
 
+func _ready() -> void:
+	scene_camera.global_position = global_position
 
 func spawn_player() -> void:
 	_play_animation()
