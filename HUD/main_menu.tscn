@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://pbqphvyiooiw"]
+[gd_scene load_steps=24 format=3 uid="uid://pbqphvyiooiw"]
 
 [ext_resource type="Script" uid="uid://c28lcgo5t42sq" path="res://HUD/main_menu.gd" id="1_c7jvv"]
-[ext_resource type="PackedScene" uid="uid://cmyav53njcryj" path="res://level_1.tscn" id="2_qs2e7"]
+[ext_resource type="PackedScene" uid="uid://dm2i6tlo6p1rx" path="res://levels/levels/levels/level_1.tscn" id="2_qs2e7"]
 [ext_resource type="Texture2D" uid="uid://tj23dwptctoh" path="res://assets/background_layer1.png" id="3_fojc5"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="3_q1pp4"]
 [ext_resource type="Texture2D" uid="uid://c745d0hjjlbjt" path="res://assets/background_layer2.png" id="4_6co8s"]
@@ -46,6 +46,43 @@ texture = SubResource("GradientTexture2D_jxfs0")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mg70j"]
 texture = ExtResource("4_jxfs0")
+
+[sub_resource type="Animation" id="Animation_64i8y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_c5h8u"]
+resource_name = "display_credits"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0ymw"]
+_data = {
+&"RESET": SubResource("Animation_64i8y"),
+&"display_credits": SubResource("Animation_c5h8u")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -142,6 +179,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_mg70j")
 text = "PLAY"
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,20 +286,143 @@ texture = ExtResource("7_xudqj")
 expand_mode = 5
 
 [node name="PlayButton" type="TextureButton" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("10_qs2e7")
 texture_pressed = ExtResource("11_xudqj")
 texture_hover = ExtResource("12_fqn15")
+texture_focused = ExtResource("12_fqn15")
 stretch_mode = 3
 
 [node name="CreditsButton" type="TextureButton" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("13_fqn15")
 texture_pressed = ExtResource("14_64i8y")
 texture_hover = ExtResource("14_c5h8u")
+texture_focused = ExtResource("14_c5h8u")
 stretch_mode = 3
+
+[node name="Credits" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsPlayer" type="AnimationPlayer" parent="Credits"]
+unique_name_in_owner = true
+root_node = NodePath("../MarginContainer/RichTextLabel")
+libraries = {
+&"": SubResource("AnimationLibrary_b0ymw")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_q1pp4")
+text = "
+
+
+
+
+
+
+
+
+
+MAGNETROID (REMASTERED)
+
+
+
+
+
+developed by
+
+RICHARD MIIKAEL JAKS - developer
+JOSEPH M. TOMP - artist
+
+
+
+
+
+music credits
+
+HAIL THE ARBITER by CENTURION_OF_WAR
+from OPENGAMEART.ORG
+CC-BY 4.0
+
+SCHEATT by SPRING SPRING
+from OPENGAMEART.ORG
+CC0
+
+SINCE 2 A.M. by TAD
+from OPENGAMEART.ORG
+CC0
+
+
+
+
+
+originally made by 
+team ILLEGAL ALIENS
+during
+TALTECH GAMECAMP 2025
+
+
+
+
+TalTech GameCamp 2025 results
+
+4TH OVERALL
+BEST THEME special award
+TOP ENJOYMENT score
+
+
+
+
+
+
+team ILLEGAL ALIENS
+
+RICHARD MIIKAEL JAKS - developer, audio design, team lead
+MARK ROBERT VINK - developer
+ONDRE J. HLADUVKA - developer
+BAUER OVAKAJA - level designer
+MARTIN VOHMA - art & visuals
+
+
+
+
+
+SPECIAL THANKS to
+
+JOSEPH MATTIAS TOMP
+
+For assisting with visuals and SFX during the jam!
+
+"
+scroll_active = false
+scroll_following = true
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
 
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_play_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/CreditsButton" to="." method="_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/CreditsButton" to="." method="_on_credits_pressed"]

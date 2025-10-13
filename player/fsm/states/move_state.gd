@@ -38,8 +38,7 @@ func __physics_process(delta: float) -> void:
 	_handle_floor_magnet()
 	_handle_radial_magnet()
 
-	# Clamp velocity to max speed
-	_handle_jump()
+	#_handle_jump()
 
 	if Input.is_action_just_pressed(&"a_switch"):
 		_trigger_floor_magnet_action()
@@ -73,7 +72,6 @@ func _apply_acceleration(dir: float, delta: float, axis: Vector2) -> void:
 
 
 # Apply deceleration when no input or changing direction
-# This is absolute shit tbh due to having to hard assign velocity
 func _decelerate_player(dir: Vector2i, delta) -> void:
 	var deceleration: float = player.speed / player.deceleration_time
 	# I am aware this if-else looks horrible, but this is the most readable
@@ -94,13 +92,13 @@ func _apply_gravity(delta: float) -> void:
 		if not player.is_on_floor():
 			player.velocity.x += player.get_gravity().y * delta * player.gravity_direction.x
 
-func _handle_jump() -> void:
-	if player.gravity_direction.x == 0:
-		if Input.is_action_just_pressed(&"m_jump") and player.is_on_floor():
-			player.velocity.y -= player._get_jump_height(player.jump_height * GlobalVars.su) * player.gravity_direction.y
-	else:
-		if Input.is_action_just_pressed(&"m_jump") and player.is_on_floor():
-			player.velocity.x -= player._get_jump_height(player.jump_height * GlobalVars.su) * player.gravity_direction.x
+#func _handle_jump() -> void:
+#	if player.gravity_direction.x == 0:
+#		if Input.is_action_just_pressed(&"m_jump") and player.is_on_floor():
+#			player.velocity.y -= player._get_jump_height(player.jump_height * GlobalVars.su) * player.gravity_direction.y
+#	else:
+#		if Input.is_action_just_pressed(&"m_jump") and player.is_on_floor():
+#			player.velocity.x -= player._get_jump_height(player.jump_height * GlobalVars.su) * player.gravity_direction.x
 #endregion
 
 #region Magnet actions
@@ -122,6 +120,7 @@ func _trigger_floor_magnet_action() -> void:
 		var point: Vector2 = magnet_check_raycast.get_collision_point() - player.up_direction * 0.01
 		var coll: TileMapLayer = magnet_check_raycast.get_collider()
 		var tile_data = coll.get_cell_tile_data(coll.local_to_map(coll.to_local(point)))
+		
 		if not tile_data:
 			return
 		if not tile_data.has_custom_data("magnet"):

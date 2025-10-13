@@ -6,11 +6,12 @@ class_name UI
 @onready var fader: Fader = %Fader
 @onready var level_complete: PanelContainer = %LevelCompleteContainer
 
+@warning_ignore_start("unused_signal")
 signal fade_in_finished
 signal fade_out_finished
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func update_collectible_count(count: int) -> void:

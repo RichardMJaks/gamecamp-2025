@@ -9,7 +9,8 @@ extends CollisionShape2D
 		#shape.size = shape_size
 
 func _ready() -> void:
-	get_parent().pole_changed.connect(_match_debug_color)
+	if Engine.is_editor_hint():
+		get_parent().pole_changed.connect(_match_debug_color)
 
 func _process(_delta: float) -> void:
 	shape_size = shape.size
