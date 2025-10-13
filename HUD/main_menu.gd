@@ -20,6 +20,8 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if not current_focused:
+		if event.is_action(&"ui_accept"):
+			_play_pressed()
 		if event.is_action(&"ui_up"):
 			btn_play.grab_focus()
 			current_focused = btn_play
