@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qwmdlvlane30"
-path="res://.godot/imported/play_hover.png-3f510d9c3b4c58c4e7f3ff07e059dcb1.ctex"
+path="res://.godot/imported/play_hover.png-8080d61642fbb7fdf6ec87a9a720fd6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://play_hover.png"
-dest_files=["res://.godot/imported/play_hover.png-3f510d9c3b4c58c4e7f3ff07e059dcb1.ctex"]
+source_file="res://button_textures/play/play_hover.png"
+dest_files=["res://.godot/imported/play_hover.png-8080d61642fbb7fdf6ec87a9a720fd6a.ctex"]
 
 [params]
 

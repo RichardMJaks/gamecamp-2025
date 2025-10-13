@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jh7qpjqt3tc2"]
+[gd_scene load_steps=10 format=3 uid="uid://cycaa70n7f5u2"]
 
 [ext_resource type="Texture2D" uid="uid://tj23dwptctoh" path="res://assets/background_layer1.png" id="1_bw48l"]
 [ext_resource type="PackedScene" uid="uid://vekjkw5aq88x" path="res://magnet_vol2/magnet_tilemap/magnet_tilemap.tscn" id="1_ud110"]
