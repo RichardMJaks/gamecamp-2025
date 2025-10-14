@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=16 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="4_2246s"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="4_m78vo"]
 [ext_resource type="Script" uid="uid://jth8fq0f0ubd" path="res://Scenes/level_complete_ui.gd" id="5_q7pk6"]
+[ext_resource type="Texture2D" uid="uid://t34r0nxsiqut" path="res://button_textures/continue/continue_idle.png" id="6_mmixe"]
+[ext_resource type="Texture2D" uid="uid://cmufiitai777w" path="res://button_textures/continue/continue_active.png" id="7_nt8jn"]
+[ext_resource type="Texture2D" uid="uid://5wqdxh1jrnds" path="res://button_textures/continue/continue_hover.png" id="8_g0wmg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m78vo"]
 atlas = ExtResource("3_q7pk6")
@@ -273,7 +276,6 @@ text = "Main Menu"
 
 [node name="LevelCompleteContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -354,12 +356,14 @@ text = "00.00.000"
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="LevelCompleteContainer/ItemsContainer"]
+[node name="ContinueButton" type="TextureButton" parent="LevelCompleteContainer/ItemsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "CONTINUE"
+texture_normal = ExtResource("6_mmixe")
+texture_pressed = ExtResource("7_nt8jn")
+texture_hover = ExtResource("8_g0wmg")
+texture_focused = ExtResource("8_g0wmg")
 
 [node name="Fader" parent="." instance=ExtResource("4_2246s")]
 unique_name_in_owner = true
@@ -367,6 +371,6 @@ visible = false
 mouse_filter = 2
 
 [connection signal="pressed" from="FinalLevelCompletePanel/MainMenu Button" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="LevelCompleteContainer/ItemsContainer/ContinueButton" to="LevelCompleteContainer" method="_on_continue_button_pressed" flags=6]
+[connection signal="pressed" from="LevelCompleteContainer/ItemsContainer/ContinueButton" to="LevelCompleteContainer" method="_on_continue_button_pressed"]
 [connection signal="fade_in_finished" from="Fader" to="." method="_on_fade_in_finished"]
 [connection signal="fade_out_finished" from="Fader" to="." method="_on_fade_out_finished"]
