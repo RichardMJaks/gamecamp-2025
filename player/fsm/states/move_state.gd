@@ -88,9 +88,11 @@ func _apply_gravity(delta: float) -> void:
 	if player.gravity_direction.x == 0:
 		if not player.is_on_floor():
 			player.velocity.y += player.get_gravity().y * delta * player.gravity_direction.y
+			#player.velocity.y = clampf(player.velocity.y, -player.max_fall_speed, player.max_fall_speed)
 	else:
 		if not player.is_on_floor():
 			player.velocity.x += player.get_gravity().y * delta * player.gravity_direction.x
+			#player.velocity.x = clampf(player.velocity.x, -player.max_fall_speed, player.max_fall_speed)
 
 #func _handle_jump() -> void:
 #	if player.gravity_direction.x == 0:

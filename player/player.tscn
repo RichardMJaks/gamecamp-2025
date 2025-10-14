@@ -892,6 +892,7 @@ acceleration_time = 0.3
 deceleration_time = 0.3
 jump_height = 5.0
 gravity_direction = Vector2i(0, -1)
+max_fall_speed = 400.0
 radial_magnet_state = NodePath("StateMachine/radial_magnet_state")
 anim_tree = NodePath("Animations/AnimationTree")
 switched = NodePath("Audio/Switch")

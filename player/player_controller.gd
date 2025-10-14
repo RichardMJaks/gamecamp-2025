@@ -22,6 +22,7 @@ signal movement_state_changed(state_name: String)
 		else:
 			value.x = 0
 			gravity_direction = value	
+@export var max_fall_speed: float = 10
 @export var radial_magnet_state: FSMState
 @export var anim_tree: AnimationTree
 @export var switched: AudioStreamPlayer

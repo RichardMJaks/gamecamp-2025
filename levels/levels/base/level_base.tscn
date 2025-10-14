@@ -60,6 +60,10 @@ centered = false
 
 [node name="MagnetTilemap" parent="." instance=ExtResource("1_ud110")]
 
+[node name="RadialMagnets" type="Node2D" parent="."]
+
+[node name="Collectibles" type="Node2D" parent="."]
+
 [node name="LevelTilemap" parent="." instance=ExtResource("2_4xwmw")]
 
 [node name="PlayerSpawner" parent="." node_paths=PackedStringArray("scene_camera") instance=ExtResource("3_6dgc7")]
