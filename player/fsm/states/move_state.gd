@@ -21,7 +21,7 @@ func __physics_process(delta: float) -> void:
 		return
 	# Use this to return -1, 0, or 1
 	var get_rounded_axis: Callable = func (a1: StringName, a2: StringName) -> int:
-		return ceili(Input.get_action_strength(a2)) - floori(Input.get_action_strength(a1)) 
+		return ceili(Input.get_action_strength(a2)) - ceili(Input.get_action_strength(a1))
 
 	# Get input direction
 	@warning_ignore("narrowing_conversion")
