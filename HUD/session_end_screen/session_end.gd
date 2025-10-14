@@ -12,13 +12,8 @@ func _input(event: InputEvent) -> void:
 		_restart_session()
 
 	# Check for any directional input before grabbing focus to button
-	if (event.is_action(&"ui_up") 
-	or event.is_action(&"ui_down") 
-	or event.is_action(&"ui_left") 
-	or event.is_action(&"ui_right")):
-		return
-
-	btn_mainmenu.grab_focus()
+	if event.is_action(&"ui_up") or event.is_action(&"ui_down"):
+		btn_mainmenu.grab_focus()
 
 
 func _ready() -> void:

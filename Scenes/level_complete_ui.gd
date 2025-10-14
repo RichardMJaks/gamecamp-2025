@@ -17,13 +17,8 @@ func _input(event: InputEvent) -> void:
 		return
 
 	# Check for any directional input before grabbing focus to button
-	if (event.is_action(&"ui_up") 
-	or event.is_action(&"ui_down") 
-	or event.is_action(&"ui_left") 
-	or event.is_action(&"ui_right")):
-		return
-
-	continue_button.grab_focus()
+	if (event.is_action(&"ui_up") or event.is_action(&"ui_down")):
+		continue_button.grab_focus()
 		
 
 func show_ui(total_collectibles: int, total_time: float) -> void:

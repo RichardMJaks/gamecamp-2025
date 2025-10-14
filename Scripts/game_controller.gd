@@ -7,10 +7,49 @@ var timing: bool = false
 var total_time_spent: float = 0
 var total_collectables_collected: int = 0
 var temple_available_notified: bool = false
+var admin_reset_session_available: bool = false
+var hack_enabling_available: bool = false
+var hack_enabled: bool = false
 
 #TODO: Implement session end screen
 @onready var session_end_screen: PackedScene = preload("res://HUD/session_end_screen/session_end.tscn")
 @onready var main_menu: PackedScene = preload("res://HUD/main_menu.tscn")
+
+func _input(event: InputEvent) -> void:
+	_handle_reset_session_admin_command(event)
+	_handle_hacks_enabling_admin_command(event)
+
+	if hack_enabled:
+		_handle_hacks_admin_command(event)
+
+func _handle_hacks_admin_command(event: InputEvent) -> void:
+	if event.is_action_released(&"admin_clear_level"):
+		SignalBus.level_completed.emit()
+		AdminPanel.send_temp_message("Won level", 5)
+
+
+
+func _handle_hacks_enabling_admin_command(event: InputEvent) -> void:
+	if event.is_action_pressed(&"admin_hacks"):
+		hack_enabling_available = true
+	if event.is_action_released(&"admin_hacks"):
+		hack_enabling_available = false
+	if event.is_action_released(&"admin_config") and hack_enabling_available:
+		hack_enabled = not hack_enabled
+		if hack_enabled:
+			AdminPanel.send_perm_message("HACKS ENABLED", "hacks_enabled")
+		else:
+			AdminPanel.remove_perm_message("hacks_enabled")
+
+func _handle_reset_session_admin_command(event: InputEvent) -> void:
+	if event.is_action_pressed(&"admin_reset_session"):
+		admin_reset_session_available = true
+	if event.is_action_released(&"admin_reset_session"):
+		admin_reset_session_available = false
+	if event.is_action(&"admin_config") and admin_reset_session_available:
+		SignalBus.session_restarted.emit()
+		AdminPanel.send_temp_message("SESSION RESTARTED", 5)
+
 
 func _ready() -> void:
 	SignalBus.timing_started.connect(_on_timing_started)

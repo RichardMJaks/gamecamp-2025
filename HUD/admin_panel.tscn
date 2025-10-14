@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cek2yrjo1has7"]
+
+[ext_resource type="Script" uid="uid://dtc56eff4nmo4" path="res://HUD/admin_panel.gd" id="1_1g02r"]
+[ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_dcjeq"]
+
+[node name="AdminPanel" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_1g02r")
+font = ExtResource("2_dcjeq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AdminMessageContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="TemporaryMessageContainer" type="VBoxContainer" parent="Control/AdminMessageContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PermanentMessageContainer" type="VBoxContainer" parent="Control/AdminMessageContainer"]
+unique_name_in_owner = true
+layout_mode = 2
