@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://pbqphvyiooiw"]
+[gd_scene load_steps=28 format=3 uid="uid://pbqphvyiooiw"]
 
 [ext_resource type="Script" uid="uid://c28lcgo5t42sq" path="res://HUD/main_menu.gd" id="1_c7jvv"]
 [ext_resource type="PackedScene" uid="uid://dm2i6tlo6p1rx" path="res://levels/levels/levels/level_1.tscn" id="2_qs2e7"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b0nro73d1715g" path="res://button_textures/credits/credits_idle.png" id="13_fqn15"]
 [ext_resource type="Texture2D" uid="uid://287wmwtqbxdw" path="res://button_textures/credits/credits_pressed.png" id="14_64i8y"]
 [ext_resource type="Texture2D" uid="uid://ccr0w7nwev6m7" path="res://button_textures/credits/credits_hover.png" id="14_c5h8u"]
+[ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="16_64i8y"]
 
 [sub_resource type="GDScript" id="GDScript_fqn15"]
 resource_name = "menuparallax"
@@ -47,6 +48,17 @@ texture = SubResource("GradientTexture2D_jxfs0")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mg70j"]
 texture = ExtResource("4_jxfs0")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0ymw"]
+atlas = ExtResource("16_64i8y")
+region = Rect2(144, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gf600"]
+texture = SubResource("AtlasTexture_b0ymw")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [sub_resource type="Animation" id="Animation_64i8y"]
 length = 0.001
 tracks/0/type = "value"
@@ -61,6 +73,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
 
 [sub_resource type="Animation" id="Animation_c5h8u"]
 resource_name = "display_credits"
@@ -72,16 +96,45 @@ tracks/0/path = NodePath(".:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 40),
+"times": PackedFloat32Array(0.5, 40),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.189464, 1),
+"update": 0,
+"values": [Vector2(0, 360), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b0ymw"]
+resource_name = "hide_credits"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 360)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b0ymw"]
 _data = {
 &"RESET": SubResource("Animation_64i8y"),
-&"display_credits": SubResource("Animation_c5h8u")
+&"display_credits": SubResource("Animation_c5h8u"),
+&"hide_credits": SubResource("Animation_b0ymw")
 }
 
 [node name="MainMenu" type="Control"]
@@ -305,35 +358,46 @@ texture_hover = ExtResource("14_c5h8u")
 texture_focused = ExtResource("14_c5h8u")
 stretch_mode = 3
 
-[node name="Credits" type="Control" parent="."]
+[node name="Credits" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 360.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gf600")
 
 [node name="CreditsPlayer" type="AnimationPlayer" parent="Credits"]
 unique_name_in_owner = true
-root_node = NodePath("../MarginContainer/RichTextLabel")
+root_node = NodePath("../CreditsContainer/CreditsLabel")
 libraries = {
 &"": SubResource("AnimationLibrary_b0ymw")
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="Credits"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="QuitButtonContainer" type="MarginContainer" parent="Credits"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="QuitButtonLabel" type="Label" parent="Credits/QuitButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.757198, 0.0273442, 1)
+theme_override_fonts/font = ExtResource("3_q1pp4")
+text = "ESC to quit"
+
+[node name="CreditsContainer" type="MarginContainer" parent="Credits"]
+layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 50
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer"]
+[node name="CreditsLabel" type="RichTextLabel" parent="Credits/CreditsContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.757198, 0.0273442, 1)
 theme_override_fonts/normal_font = ExtResource("3_q1pp4")
 text = "
 
@@ -345,7 +409,7 @@ text = "
 
 
 
-MAGNETROID (REMASTERED)
+MAGNETROID (REMAGNETIZED)
 
 
 

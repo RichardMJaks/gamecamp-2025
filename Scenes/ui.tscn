@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=25 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="4_m78vo"]
 [ext_resource type="Script" uid="uid://jth8fq0f0ubd" path="res://Scenes/level_complete_ui.gd" id="5_q7pk6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m78vo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt8jn"]
 atlas = ExtResource("3_q7pk6")
 region = Rect2(0, 0, 16, 16)
 
@@ -92,6 +92,10 @@ texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m78vo"]
+atlas = ExtResource("4_m78vo")
+region = Rect2(208, 128, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryf15"]
 atlas = ExtResource("4_m78vo")
@@ -221,7 +225,7 @@ size_flags_vertical = 0
 
 [node name="CollectibleIcon" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer/CollectibleCounterContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_m78vo")
+texture = SubResource("AtlasTexture_nt8jn")
 
 [node name="CollectibleCounter" type="Label" parent="HUD/VBoxContainer/HBoxContainer/CollectibleCounterContainer"]
 unique_name_in_owner = true
@@ -289,89 +293,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_smcll")
 }
 
-[node name="FinalLevelCompletePanel" type="Panel" parent="."]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -320.0
-offset_right = 320.0
-offset_bottom = 360.0
-grow_horizontal = 2
-
-[node name="End Title Label" type="Label" parent="FinalLevelCompletePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -91.5
-offset_top = 28.31
-offset_right = 91.5
-offset_bottom = 77.96
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Congratulations!!!
-You've saved the world!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="FinalLevelCompletePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -140.0
-offset_top = 90.0
-offset_right = 140.0
-offset_bottom = 146.0
-grow_horizontal = 2
-
-[node name="Level Stats Container" type="VBoxContainer" parent="FinalLevelCompletePanel/HBoxContainer"]
-layout_mode = 2
-
-[node name="Level Stats Title" type="Label" parent="FinalLevelCompletePanel/HBoxContainer/Level Stats Container"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Level Stats:"
-
-[node name="Control" type="Control" parent="FinalLevelCompletePanel/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="Total Stats Container" type="VBoxContainer" parent="FinalLevelCompletePanel/HBoxContainer"]
-layout_mode = 2
-
-[node name="Total Stats Label" type="Label" parent="FinalLevelCompletePanel/HBoxContainer/Total Stats Container"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Total Stats:"
-
-[node name="Total Time Label" type="Label" parent="FinalLevelCompletePanel/HBoxContainer/Total Stats Container"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Time taken: 00.00.000"
-
-[node name="Total Collectibles Label" type="Label" parent="FinalLevelCompletePanel/HBoxContainer/Total Stats Container"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Nuts found: 0 "
-
-[node name="MainMenu Button" type="Button" parent="FinalLevelCompletePanel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = -60.0
-offset_right = 46.0
-offset_bottom = -36.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "Main Menu"
-
 [node name="LevelCompleteContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 anchors_preset = 15
@@ -393,7 +314,7 @@ layout_mode = 2
 
 [node name="LevelCompleteLabel" type="Label" parent="LevelCompleteContainer/ItemsContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
+theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 32
 text = "Level complete!"
@@ -413,7 +334,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
+theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "Nuts"
@@ -429,7 +350,7 @@ texture = SubResource("AtlasTexture_m78vo")
 [node name="TotalCollectibles" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
+theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "0"
 
@@ -443,7 +364,7 @@ alignment = 2
 
 [node name="Label" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/LevelTimeContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
+theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "Time"
@@ -453,7 +374,7 @@ uppercase = true
 [node name="TotalTime" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/LevelTimeContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
+theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "00.00.000"
@@ -466,10 +387,10 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(1, 0.757198, 0.0273442, 1)
-theme_override_colors/font_color = Color(0.219333, 0.211521, 0.254994, 1)
-theme_override_colors/font_focus_color = Color(1, 0.757198, 0.0273442, 1)
-theme_override_colors/font_pressed_color = Color(0.335855, 0.3237, 0.39, 1)
+theme_override_colors/font_hover_color = Color(0.219333, 0.211521, 0.254994, 1)
+theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
+theme_override_colors/font_focus_color = Color(0.219333, 0.211521, 0.254994, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8625, 0.45, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_styles/focus = SubResource("StyleBoxTexture_mmixe")
 theme_override_styles/hover = SubResource("StyleBoxTexture_mmixe")
@@ -488,7 +409,6 @@ unique_name_in_owner = true
 visible = false
 mouse_filter = 2
 
-[connection signal="pressed" from="FinalLevelCompletePanel/MainMenu Button" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="LevelCompleteContainer/ItemsContainer/ContinueButton" to="LevelCompleteContainer" method="_on_continue_button_pressed"]
 [connection signal="fade_in_finished" from="Fader" to="." method="_on_fade_in_finished"]
 [connection signal="fade_out_finished" from="Fader" to="." method="_on_fade_out_finished"]

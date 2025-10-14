@@ -12,7 +12,6 @@ var current_focused: Control = null
 
 func _ready() -> void:
 	BgMusic.play_music(BgMusic.MusicType.MENU)
-	credits.visible = false
 
 func _input(event: InputEvent) -> void:
 	if showing_credits:
@@ -33,9 +32,7 @@ func _input(event: InputEvent) -> void:
 
 func _handle_credits_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_cancel"):
-		credits.visible = false
-		credits_player.stop()
-		showing_credits = false
+		_hide_credits()
 	
 	if event.is_action_pressed(&"ui_up"):
 		credits_player.speed_scale = 0.3
@@ -54,7 +51,6 @@ func _play_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	credits.visible = true
 	showing_credits = true
 	
 	credits_player.stop()
@@ -63,3 +59,7 @@ func _on_credits_pressed() -> void:
 	btn_play.release_focus()
 	btn_credits.release_focus()
 	current_focused = null
+
+func _hide_credits() -> void:
+	credits_player.play(&"hide_credits")
+	showing_credits = false
