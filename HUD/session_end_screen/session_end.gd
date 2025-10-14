@@ -4,6 +4,22 @@ extends Control
 
 @onready var stats_box: Control = %StatsContainer
 @onready var total_stats: Control = %TotalStats 
+@onready var btn_mainmenu: Button = %MainMenuButton
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_released(&"ui_accept"):
+		_restart_session()
+
+	# Check for any directional input before grabbing focus to button
+	if (event.is_action(&"ui_up") 
+	or event.is_action(&"ui_down") 
+	or event.is_action(&"ui_left") 
+	or event.is_action(&"ui_right")):
+		return
+
+	btn_mainmenu.grab_focus()
+
 
 func _ready() -> void:
 	var levels_data: Array[LevelData] = GameController.levels_data
@@ -36,4 +52,9 @@ func _create_level_stats_container(level_title: String, time: float, collectible
 
 
 func _on_main_menu_button_pressed() -> void:
+	_restart_session()
+
+
+func _restart_session() -> void:
 	SignalBus.session_restarted.emit()
+

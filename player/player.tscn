@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://2huyglqjk7el" path="res://player/sprites/launch_particles/launch_particles.tscn" id="14_x7c3f"]
 [ext_resource type="Script" uid="uid://bpybw4dwc5j2o" path="res://player/shaker.gd" id="15_65viv"]
 [ext_resource type="AudioStream" uid="uid://c3eq7q8tnkxid" path="res://audio/step.wav" id="17_tqiix"]
-[ext_resource type="Script" uid="uid://bpmxv8j1wjhnp" path="res://player/fsm/states/controlled_state.gd" id="18_7pqkx"]
+[ext_resource type="Script" path="res://player/fsm/states/controlled_state.gd" id="18_7pqkx"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
 [ext_resource type="AudioStream" uid="uid://byu6h1cuf77yb" path="res://audio/switch.wav" id="23_s7qer"]

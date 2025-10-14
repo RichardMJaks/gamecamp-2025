@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if not current_focused:
-		if event.is_action(&"ui_accept"):
+		if event.is_action_released(&"ui_accept"):
 			_play_pressed()
 		if event.is_action(&"ui_up"):
 			btn_play.grab_focus()
@@ -36,7 +36,6 @@ func _handle_credits_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed(&"ui_up"):
 		credits_player.speed_scale = 0.3
-		event.set_input_as_handled()
 	if event.is_action_pressed(&"ui_down"):
 		credits_player.speed_scale = 3
 	if event.is_action_released(&"ui_up") or event.is_action_released(&"ui_down"):
