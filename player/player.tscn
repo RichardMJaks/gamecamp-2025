@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://hm7oj8v2rsqi"]
+[gd_scene load_steps=130 format=3 uid="uid://hm7oj8v2rsqi"]
 
 [ext_resource type="Script" uid="uid://dvjwieltpuamp" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://1xp2dovahsx0" path="res://player/launch_particles.tscn" id="2_bjvpn"]
@@ -16,12 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://by1qihrp4uy1r" path="res://player/sprites/penguin_red_idle.png" id="9_g4c7l"]
 [ext_resource type="Texture2D" uid="uid://m0e8dsgm3f2b" path="res://player/sprites/penguin_red2blue.png" id="10_g4c7l"]
 [ext_resource type="Texture2D" uid="uid://j3l516xjrwim" path="res://player/sprites/penguin_red_walk.png" id="12_knn7v"]
+[ext_resource type="Script" uid="uid://b7iekjy2ky550" path="res://player/afterimages.gd" id="13_7pqkx"]
 [ext_resource type="AudioStream" uid="uid://dee5gh5jx042s" path="res://audio/magnetic_hum.ogg" id="13_kb6p2"]
 [ext_resource type="Script" uid="uid://dp1be5tpng3j0" path="res://player/mag_hum.gd" id="13_yllr7"]
 [ext_resource type="PackedScene" uid="uid://2huyglqjk7el" path="res://player/sprites/launch_particles/launch_particles.tscn" id="14_x7c3f"]
 [ext_resource type="Script" uid="uid://bpybw4dwc5j2o" path="res://player/shaker.gd" id="15_65viv"]
 [ext_resource type="AudioStream" uid="uid://c3eq7q8tnkxid" path="res://audio/step.wav" id="17_tqiix"]
-[ext_resource type="Script" path="res://player/fsm/states/controlled_state.gd" id="18_7pqkx"]
+[ext_resource type="Script" uid="uid://bpmxv8j1wjhnp" path="res://player/fsm/states/controlled_state.gd" id="18_7pqkx"]
 [ext_resource type="AudioStream" uid="uid://rafi1ja4bldr" path="res://audio/whoosh.ogg" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://7kfixaryqml" path="res://audio/doing.ogg" id="19_c35mf"]
 [ext_resource type="AudioStream" uid="uid://byu6h1cuf77yb" path="res://audio/switch.wav" id="23_s7qer"]
@@ -945,6 +946,20 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Afterimages" type="Node" parent="." node_paths=PackedStringArray("timer", "afterimage_timer", "sprite")]
+script = ExtResource("13_7pqkx")
+timer = NodePath("AfterimageEffectDurationTimer")
+afterimage_timer = NodePath("AfterimageSpawnTimer")
+sprite = NodePath("../Sprite")
+
+[node name="AfterimageEffectDurationTimer" type="Timer" parent="Afterimages"]
+process_callback = 0
+wait_time = 0.3
+one_shot = true
+
+[node name="AfterimageSpawnTimer" type="Timer" parent="Afterimages"]
+wait_time = 0.05
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 unique_name_in_owner = true
 script = ExtResource("2_g1dw6")
@@ -958,28 +973,18 @@ doing = NodePath("../../Audio/Doing")
 magnet_check_raycast = NodePath("../../Sprite/RayCast2D")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
-[node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "timer", "afterimage_timer", "whoosh", "launch_particles", "sprite")]
+[node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "whoosh", "launch_particles", "afterimages")]
 script = ExtResource("4_yw30f")
 move_state = NodePath("../move_state")
-timer = NodePath("Timer")
-afterimage_timer = NodePath("AfterimageTimer")
 whoosh = NodePath("../../Audio/Whoosh")
 launch_particles = NodePath("../../Sprite/Particles/LaunchParticles")
 shake_intensity = 2.0
 shake_time = 0.4
 floor_launch_particles = ExtResource("14_x7c3f")
-sprite = NodePath("../../Sprite")
+afterimages = NodePath("../../Afterimages")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
-[node name="Timer" type="Timer" parent="StateMachine/floor_magnet_state"]
-process_callback = 0
-wait_time = 0.3
-one_shot = true
-
-[node name="AfterimageTimer" type="Timer" parent="StateMachine/floor_magnet_state"]
-wait_time = 0.05
-
-[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "launch_particles", "camera")]
+[node name="radial_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "doing", "launch_particles", "camera", "afterimages")]
 script = ExtResource("5_qjkh3")
 move_state = NodePath("../move_state")
 custom_rotation_speed = 6.0
@@ -989,6 +994,7 @@ camera = NodePath("../../Camera")
 shake_intensity = 2.0
 shake_time = 0.4
 ejection_force = 20.0
+afterimages = NodePath("../../Afterimages")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="controlled_state" type="Node" parent="StateMachine"]

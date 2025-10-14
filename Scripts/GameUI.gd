@@ -15,6 +15,7 @@ func _ready() -> void:
 	SignalBus.temple_available.connect(_show_stamp_notification)
 	if GameController.temple_available_notified:
 		_show_stamp_notification()
+	visible = true
 
 
 func _show_stamp_notification() -> void:

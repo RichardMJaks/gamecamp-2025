@@ -12,6 +12,7 @@ extends FSMState
 @export var shake_intensity: float
 @export var shake_time: float
 @export var ejection_force: float = 10
+@export var afterimages: Node
 
 var rotation_vector: Vector2:
 	get:
@@ -56,6 +57,7 @@ func _handle_ejection() -> void:
 		change_state.emit(move_state)
 
 func _eject() -> void:
+	afterimages.create_afterimages()
 	doing.play()
 	camera.shake(shake_intensity, shake_time)
 	launch_particles.emitting = false
