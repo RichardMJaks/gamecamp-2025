@@ -1,14 +1,86 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=13 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
 [ext_resource type="Texture2D" uid="uid://gmtiysq5c1bn" path="res://MetalNut.png" id="3_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="4_2246s"]
+[ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="4_m78vo"]
 [ext_resource type="Script" uid="uid://jth8fq0f0ubd" path="res://Scenes/level_complete_ui.gd" id="5_q7pk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m78vo"]
 atlas = ExtResource("3_q7pk6")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smcll"]
+atlas = ExtResource("4_m78vo")
+region = Rect2(128, 144, 96, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryf15"]
+texture = SubResource("AtlasTexture_smcll")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="Animation" id="Animation_q7pk6"]
+resource_name = "reveal_stamp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_m78vo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smcll"]
+_data = {
+&"RESET": SubResource("Animation_m78vo"),
+&"reveal_stamp": SubResource("Animation_q7pk6")
+}
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -44,6 +116,7 @@ layout_mode = 2
 
 [node name="CollectibleCounterContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="CollectibleIcon" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer/CollectibleCounterContainer"]
 layout_mode = 2
@@ -58,9 +131,15 @@ text = "0"
 [node name="Spacer" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.3
+
+[node name="Spacer2" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TimerContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="LevelTimer" type="Label" parent="HUD/VBoxContainer/HBoxContainer/TimerContainer"]
 unique_name_in_owner = true
@@ -72,6 +151,42 @@ text = "00.00.000"
 [node name="RightMargin" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
+
+[node name="Spacer" type="Control" parent="HUD/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4.005)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StampNotificationContainer" type="PanelContainer" parent="HUD/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_ryf15")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/StampNotificationContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="HUD/VBoxContainer/StampNotificationContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 8
+text = "you QUALIFY for a STAMP
+3 NUTS collected"
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="StampRevealer" type="AnimationPlayer" parent="HUD/VBoxContainer/StampNotificationContainer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_smcll")
+}
 
 [node name="FinalLevelCompletePanel" type="Panel" parent="."]
 visible = false

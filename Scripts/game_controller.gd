@@ -6,6 +6,7 @@ var levels_data: Array[LevelData] = []
 var timing: bool = false
 var total_time_spent: float = 0
 var total_collectables_collected: int = 0
+var temple_available_notified: bool = false
 
 #TODO: Implement session end screen
 @onready var session_end_screen: PackedScene = preload("res://HUD/session_end_screen/session_end.tscn")
@@ -22,6 +23,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if timing:
 		total_time_spent += delta
+	
+	if not temple_available_notified and total_collectables_collected >= 3:
+		_notify_temple_available()
+
+
+func _notify_temple_available() -> void:
+	SignalBus.temple_available.emit()
+	temple_available_notified = true
 
 
 func _on_timing_started() -> void:
@@ -56,6 +65,7 @@ func _on_session_completed() -> void:
 
 func _on_session_restart() -> void:
 	_reset_stats()
+	temple_available_notified = false
 	get_tree().change_scene_to_packed(main_menu)
 
 func _reset_stats() -> void:

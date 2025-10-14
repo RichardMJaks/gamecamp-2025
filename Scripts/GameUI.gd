@@ -5,11 +5,20 @@ class_name UI
 @onready var timer_label : Label = %LevelTimer
 @onready var fader: Fader = %Fader
 @onready var level_complete: PanelContainer = %LevelCompleteContainer
+@onready var stamp_revealer: AnimationPlayer = %StampRevealer
 
 @warning_ignore_start("unused_signal")
 signal fade_in_finished
 signal fade_out_finished
 
+func _ready() -> void:
+	SignalBus.temple_available.connect(_show_stamp_notification)
+	if GameController.temple_available_notified:
+		_show_stamp_notification()
+
+
+func _show_stamp_notification() -> void:
+	stamp_revealer.play("reveal_stamp")
 
 func _process(_delta: float) -> void:
 	pass
