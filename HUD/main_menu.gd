@@ -9,9 +9,11 @@ var current_focused: Control = null
 @onready var btn_credits: TextureButton = %CreditsButton
 @onready var credits: Control = %Credits
 @onready var credits_player: AnimationPlayer = %CreditsPlayer
+@onready var transition: Fader = %Transition
 
 func _ready() -> void:
 	BgMusic.play_music(BgMusic.MusicType.MENU)
+	transition.fade_out_finished.connect(GameController.goto_level.bind(first_level))
 
 func _input(event: InputEvent) -> void:
 	if showing_credits:
@@ -46,8 +48,7 @@ func _process(_delta: float) -> void:
 		credits_player.speed_scale = 1
 
 func _play_pressed() -> void:
-	get_tree().change_scene_to_packed(first_level)
-
+	SignalBus.start_fade_out.emit()
 
 func _on_credits_pressed() -> void:
 	showing_credits = true

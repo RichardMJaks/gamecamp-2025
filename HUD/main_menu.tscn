@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://pbqphvyiooiw"]
+[gd_scene load_steps=29 format=3 uid="uid://pbqphvyiooiw"]
 
 [ext_resource type="Script" uid="uid://c28lcgo5t42sq" path="res://HUD/main_menu.gd" id="1_c7jvv"]
 [ext_resource type="PackedScene" uid="uid://dm2i6tlo6p1rx" path="res://levels/levels/levels/level_1.tscn" id="2_qs2e7"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://287wmwtqbxdw" path="res://button_textures/credits/credits_pressed.png" id="14_64i8y"]
 [ext_resource type="Texture2D" uid="uid://ccr0w7nwev6m7" path="res://button_textures/credits/credits_hover.png" id="14_c5h8u"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="16_64i8y"]
+[ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="17_b0ymw"]
 
 [sub_resource type="GDScript" id="GDScript_fqn15"]
 resource_name = "menuparallax"
@@ -486,6 +487,14 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Transition" parent="CanvasLayer" instance=ExtResource("17_b0ymw")]
+unique_name_in_owner = true
+z_index = 1
+mouse_filter = 2
 
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_play_pressed"]
