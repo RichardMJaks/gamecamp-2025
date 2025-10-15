@@ -20,7 +20,6 @@ end_gate = NodePath("EndGate")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(0, -100)
 transform = Transform2D(1, 0, 0, 1, 0, -100)
-follow_viewport_scale = 0.3
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-304, -60)
@@ -33,7 +32,7 @@ centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-304, -60)
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.2, 0)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
@@ -42,7 +41,7 @@ centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-304, -60)
-motion_scale = Vector2(0.4, 0.4)
+motion_scale = Vector2(0.4, 0)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
@@ -51,7 +50,7 @@ centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-304, -60)
-motion_scale = Vector2(0.6, 0.6)
+motion_scale = Vector2(0.6, 0)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
@@ -76,13 +75,14 @@ camera = NodePath("../Camera")
 
 [node name="UI" parent="." instance=ExtResource("9_iipk8")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 1)
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 16.0
+position_smoothing_speed = 8.0
 script = ExtResource("10_t7y41")
 
 [connection signal="fade_in_finished" from="UI" to="PlayerSpawner" method="spawn_player"]
