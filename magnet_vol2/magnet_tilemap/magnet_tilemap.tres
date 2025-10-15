@@ -193,6 +193,12 @@ texture = ExtResource("1_m5mo7")
 7:2/0/terrain_set = 0
 7:2/0/terrain = 0
 7:2/0/terrains_peering_bit/top_side = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 1
+7:3/0 = 0
+7:3/0/terrain_set = 0
+7:3/0/terrain = 0
 
 [resource]
 terrain_set_0/mode = 0
