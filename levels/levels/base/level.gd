@@ -42,8 +42,6 @@ func _on_collectible_collected() -> void:
 func _on_level_completed() -> void:
 	var level_data = _create_level_data()
 	GameController.add_level_data(level_data)
-	if (OS.get_name() in mobile_operating_systems) or (OS.has_feature("web_ios") or OS.has_feature("web_android")):
-		ProjectSettings.set_setting("input_devices/pointing/emulate_mouse_from_touch", true)
 	_show_level_end_screen(level_data)
 
 
