@@ -6,6 +6,9 @@ class_name UI
 @onready var fader: Fader = %Fader
 @onready var level_complete: PanelContainer = %LevelCompleteContainer
 @onready var stamp_revealer: AnimationPlayer = %StampRevealer
+@onready var switch_button: TouchScreenButton = %SwitchButton
+
+var mobile_operating_systems = ["iOS", "Android"]
 
 @warning_ignore_start("unused_signal")
 signal fade_in_finished
@@ -16,6 +19,9 @@ func _ready() -> void:
 	if GameController.temple_available_notified:
 		_show_stamp_notification()
 	visible = true
+	if (OS.get_name() not in mobile_operating_systems) and not (OS.has_feature("web_ios") or OS.has_feature("web_android")): 
+		switch_button.queue_free()
+		
 
 
 func _show_stamp_notification() -> void:

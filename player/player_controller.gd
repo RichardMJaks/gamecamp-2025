@@ -39,6 +39,7 @@ var radial_stuck_fix: bool = false
 var accel_time_delta: float = 0
 var camera: Camera2D = null
 var controlled: bool = false
+var mobile_operating_systems = ["iOS", "Android"]
 
 @onready var su = GlobalVars.su
 
@@ -63,7 +64,7 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed(&"a_switch"):
 		_toggle_pole()
-
+	
 func _physics_process(_delta: float) -> void:
 	_set_anim_tree_parameters()
 	move_and_slide()

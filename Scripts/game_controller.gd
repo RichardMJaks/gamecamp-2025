@@ -10,6 +10,7 @@ var temple_available_notified: bool = false
 var admin_reset_session_available: bool = false
 var hack_enabling_available: bool = false
 var hack_enabled: bool = false
+var mobile_joystick: Node = null
 
 @onready var can_admin: bool = OS.has_feature("admin")
 @onready var expo_build: bool = OS.has_feature("expo")

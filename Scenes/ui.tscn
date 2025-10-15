@@ -335,7 +335,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_smcll")
 }
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+[node name="SwitchButton" type="TouchScreenButton" parent="HUD"]
+unique_name_in_owner = true
 position = Vector2(512, 235)
 texture_normal = ExtResource("5_mmixe")
 texture_pressed = ExtResource("6_nt8jn")

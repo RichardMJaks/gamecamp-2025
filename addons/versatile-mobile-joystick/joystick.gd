@@ -126,6 +126,7 @@ var being_touched: bool = false:
 # Initial setup
 func _ready() -> void:
 	if not Engine.is_editor_hint():
+		GameController.mobile_joystick = self
 		SignalBus.level_completed.connect(func(): is_level_finished = true)
 		
 		if is_mobile_only:

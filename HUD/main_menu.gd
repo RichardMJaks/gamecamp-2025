@@ -11,6 +11,8 @@ var current_focused: Control = null
 @onready var credits_player: AnimationPlayer = %CreditsPlayer
 @onready var transition: Fader = %Transition
 
+var mobile_operating_systems = ["iOS", "Android"]
+
 func _ready() -> void:
 	BgMusic.play_music(BgMusic.MusicType.MENU)
 	transition.fade_out_finished.connect(GameController.goto_level.bind(first_level))
