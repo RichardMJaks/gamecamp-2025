@@ -11,11 +11,17 @@ var admin_reset_session_available: bool = false
 var hack_enabling_available: bool = false
 var hack_enabled: bool = false
 
+@onready var can_admin: bool = OS.has_feature("admin")
+@onready var expo_build: bool = OS.has_feature("expo")
+
 #TODO: Implement session end screen
 @onready var session_end_screen: PackedScene = preload("res://HUD/session_end_screen/session_end.tscn")
 @onready var main_menu: PackedScene = preload("res://HUD/main_menu.tscn")
 
 func _input(event: InputEvent) -> void:
+	if not can_admin:
+		return
+		
 	_handle_reset_session_admin_command(event)
 	_handle_hacks_enabling_admin_command(event)
 
@@ -63,7 +69,7 @@ func _process(delta: float) -> void:
 	if timing:
 		total_time_spent += delta
 	
-	if not temple_available_notified and total_collectables_collected >= 3:
+	if expo_build and not temple_available_notified and total_collectables_collected >= 3:
 		_notify_temple_available()
 
 

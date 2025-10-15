@@ -493,6 +493,7 @@ layer = 2
 
 [node name="Transition" parent="CanvasLayer" instance=ExtResource("17_b0ymw")]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 mouse_filter = 2
 

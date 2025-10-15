@@ -1,11 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=37 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
 [ext_resource type="Texture2D" uid="uid://gmtiysq5c1bn" path="res://MetalNut.png" id="3_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="4_2246s"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="4_m78vo"]
+[ext_resource type="Texture2D" uid="uid://2inc251i20vd" path="res://button_textures/switch_button/switch_normal.png" id="5_mmixe"]
 [ext_resource type="Script" uid="uid://jth8fq0f0ubd" path="res://Scenes/level_complete_ui.gd" id="5_q7pk6"]
+[ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="5_smcll"]
+[ext_resource type="Texture2D" uid="uid://vsfc0ag3b0gl" path="res://button_textures/switch_button/switch_pressed.png" id="6_nt8jn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt8jn"]
 atlas = ExtResource("3_q7pk6")
@@ -81,6 +84,44 @@ _data = {
 &"RESET": SubResource("Animation_m78vo"),
 &"reveal_stamp": SubResource("Animation_q7pk6")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmixe"]
+size = Vector2(78, 78)
+
+[sub_resource type="Gradient" id="Gradient_ryf15"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.853403, 0.95288)
+colors = PackedColorArray(0.47, 0.47, 0.47, 0.760784, 0.64, 0.64, 0.64, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mmixe"]
+gradient = SubResource("Gradient_ryf15")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_nt8jn"]
+interpolation_mode = 1
+colors = PackedColorArray(0.71, 0.71, 0.71, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g0wmg"]
+gradient = SubResource("Gradient_nt8jn")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vbiv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3r70p"]
+radius = 30.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fs27"]
+size = Vector2(250, 250)
+
+[sub_resource type="Curve" id="Curve_whq80"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.001, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmixe"]
 atlas = ExtResource("4_m78vo")
@@ -199,7 +240,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+[node name="HUDContainer" type="VBoxContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,76 +248,77 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopMargin" type="Control" parent="HUD/VBoxContainer"]
+[node name="TopMargin" type="Control" parent="HUD/HUDContainer"]
 custom_minimum_size = Vector2(0, 4.005)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
+[node name="LevelStatsContainer" type="HBoxContainer" parent="HUD/HUDContainer"]
 layout_mode = 2
 
-[node name="LeftMargin" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+[node name="LeftMargin" type="Control" parent="HUD/HUDContainer/LevelStatsContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="CollectibleCounterContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
+[node name="CollectibleCounterContainer" type="HBoxContainer" parent="HUD/HUDContainer/LevelStatsContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="CollectibleIcon" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer/CollectibleCounterContainer"]
+[node name="CollectibleIcon" type="TextureRect" parent="HUD/HUDContainer/LevelStatsContainer/CollectibleCounterContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_nt8jn")
 
-[node name="CollectibleCounter" type="Label" parent="HUD/VBoxContainer/HBoxContainer/CollectibleCounterContainer"]
+[node name="CollectibleCounter" type="Label" parent="HUD/HUDContainer/LevelStatsContainer/CollectibleCounterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "0"
 
-[node name="Spacer" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="HUD/HUDContainer/LevelStatsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.3
 
-[node name="Spacer2" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+[node name="Spacer2" type="Control" parent="HUD/HUDContainer/LevelStatsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TimerContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
+[node name="TimerContainer" type="HBoxContainer" parent="HUD/HUDContainer/LevelStatsContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="LevelTimer" type="Label" parent="HUD/VBoxContainer/HBoxContainer/TimerContainer"]
+[node name="LevelTimer" type="Label" parent="HUD/HUDContainer/LevelStatsContainer/TimerContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qdvrb")
 text = "00.00.000"
 
-[node name="RightMargin" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+[node name="RightMargin" type="Control" parent="HUD/HUDContainer/LevelStatsContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="HUD/VBoxContainer"]
+[node name="Spacer" type="Control" parent="HUD/HUDContainer"]
 custom_minimum_size = Vector2(0, 4.005)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="StampNotificationContainer" type="PanelContainer" parent="HUD/VBoxContainer"]
+[node name="StampNotificationContainer" type="PanelContainer" parent="HUD/HUDContainer"]
 visible = false
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_styles/panel = SubResource("StyleBoxTexture_ryf15")
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/StampNotificationContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HUDContainer/StampNotificationContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="HUD/VBoxContainer/StampNotificationContainer/MarginContainer"]
+[node name="Label" type="Label" parent="HUD/HUDContainer/StampNotificationContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
@@ -287,14 +329,38 @@ horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="StampRevealer" type="AnimationPlayer" parent="HUD/VBoxContainer/StampNotificationContainer"]
+[node name="StampRevealer" type="AnimationPlayer" parent="HUD/HUDContainer/StampNotificationContainer"]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_smcll")
 }
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+position = Vector2(512, 235)
+texture_normal = ExtResource("5_mmixe")
+texture_pressed = ExtResource("6_nt8jn")
+shape = SubResource("RectangleShape2D_mmixe")
+action = "a_switch"
+visibility_mode = 1
+
+[node name="JoystickController" parent="HUD" instance=ExtResource("5_smcll")]
+position = Vector2(116, 269)
+base_texture = SubResource("GradientTexture2D_mmixe")
+tip_texture = SubResource("GradientTexture2D_g0wmg")
+deadzone_circle = SubResource("CircleShape2D_4vbiv")
+tip_limit_circle = SubResource("CircleShape2D_3r70p")
+touch_detection_region = SubResource("RectangleShape2D_8fs27")
+strength_curve = SubResource("Curve_whq80")
+joystick_mode = 0
+left_movement = "m_left"
+right_movement = "m_right"
+up_movement = "m_up"
+down_movement = "m_down"
+is_mobile_only = true
+
 [node name="LevelCompleteContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
