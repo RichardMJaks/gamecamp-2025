@@ -42,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.14, 0.14, 0.14, 1)
+color = Color(0.188235, 0.156863, 0.141176, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
 layout_mode = 1
@@ -53,6 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="ColorRect/CenterContainer" node_paths=PackedStringArray("shader_loader")]
+modulate = Color(0.59983, 0.27478, 0.194954, 1)
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_cogpi")
