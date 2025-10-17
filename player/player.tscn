@@ -883,7 +883,7 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace1D_a1u5o")
 states/Walk/position = Vector2(495, 37)
 transitions = ["Walk", "SwitchPole", SubResource("AnimationNodeStateMachineTransition_3dxkp"), "SwitchPole", "Walk", SubResource("AnimationNodeStateMachineTransition_6wior"), "SwitchPole", "Idle", SubResource("AnimationNodeStateMachineTransition_p5tca"), "Idle", "SwitchPole", SubResource("AnimationNodeStateMachineTransition_jbx34"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_s3g0c"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_35wys"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_pjwc4"), "Flying", "SwitchPole", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "SwitchPole", "Flying", SubResource("AnimationNodeStateMachineTransition_uw77l"), "Flying", "Walk", SubResource("AnimationNodeStateMachineTransition_rptt4"), "Walk", "Flying", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "Idle", "Flying", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "Flying", "Idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "Idle", "Controlled", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "SwitchPole", "Controlled", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "Flying", "Controlled", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "Walk", "Controlled", SubResource("AnimationNodeStateMachineTransition_q28gw")]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles", "camera_transform", "controlled_state")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("radial_magnet_state", "anim_tree", "switched", "switch_particles", "camera_transform", "controlled_state", "magnet_check_raycast")]
 floor_constant_speed = true
 floor_block_on_wall = false
 script = ExtResource("1_oul6g")
@@ -901,6 +901,7 @@ color_north = Color(0.2914, 0.5076, 0.94, 1)
 color_south = Color(0.91, 0.215973, 0.1092, 1)
 camera_transform = NodePath("CameraRemoteTransform")
 controlled_state = NodePath("StateMachine/controlled_state")
+magnet_check_raycast = NodePath("Sprite/RayCast2D")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 z_index = 3
@@ -966,12 +967,11 @@ unique_name_in_owner = true
 script = ExtResource("2_g1dw6")
 starting_state = NodePath("move_state")
 
-[node name="move_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("floor_magnet_state", "radial_magnet_state", "doing", "magnet_check_raycast")]
+[node name="move_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("floor_magnet_state", "radial_magnet_state", "doing")]
 script = ExtResource("3_yw30f")
 floor_magnet_state = NodePath("../floor_magnet_state")
 radial_magnet_state = NodePath("../radial_magnet_state")
 doing = NodePath("../../Audio/Doing")
-magnet_check_raycast = NodePath("../../Sprite/RayCast2D")
 metadata/_custom_type_script = "uid://bgm0tvh7wkq7i"
 
 [node name="floor_magnet_state" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "whoosh", "launch_particles", "afterimages")]

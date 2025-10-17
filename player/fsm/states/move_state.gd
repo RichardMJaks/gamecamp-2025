@@ -10,7 +10,6 @@ extends FSMState
 @export var floor_magnet_state: FSMState
 @export var radial_magnet_state: FSMState
 @export var doing: AudioStreamPlayer
-@export var magnet_check_raycast: RayCast2D
 var radial_stuck_fix: bool = false
 var player_movement_velocity: Vector2 = Vector2.ZERO
 var player_gravity_velocity: Vector2 = Vector2.ZERO
@@ -117,10 +116,10 @@ func _trigger_floor_magnet_action() -> void:
 
 	# Safeguard that player doesn't boost when they are not actually on a magnet
 	# TODO: Create a separate node to handle this logic to clean up here
-	if magnet_check_raycast.is_colliding():
+	if player.magnet_check_raycast.is_colliding():
 		# Subtract player up direction to compensate for the miss being on the border
-		var point: Vector2 = magnet_check_raycast.get_collision_point() - player.up_direction * 0.01
-		var coll: TileMapLayer = magnet_check_raycast.get_collider()
+		var point: Vector2 = player.magnet_check_raycast.get_collision_point() - player.up_direction * 0.01
+		var coll: TileMapLayer = player.magnet_check_raycast.get_collider()
 		var tile_data = coll.get_cell_tile_data(coll.local_to_map(coll.to_local(point)))
 		
 		if not tile_data:

@@ -32,6 +32,7 @@ signal movement_state_changed(state_name: String)
 @export var current_pole: GlobalVars.POLE = GlobalVars.POLE.NORTH
 @export var camera_transform: RemoteTransform2D
 @export var controlled_state: FSMState
+@export var magnet_check_raycast: RayCast2D
 
 var being_attracted: bool = false
 var current_magnet: Magnet = null
@@ -110,8 +111,7 @@ func die():
 		GameController.collectible_collected.emit(0)
 
 func _toggle_pole() -> void:
-	if not current_magnet:
-		switched.play()
+	_play_switch_sound()
 	if current_pole == GlobalVars.POLE.NORTH:
 		switch_particles.process_material.color = color_south
 	if current_pole == GlobalVars.POLE.SOUTH:
@@ -121,6 +121,20 @@ func _toggle_pole() -> void:
 	@warning_ignore("int_as_enum_without_cast")
 	current_pole = 1 - current_pole
 	anim_tree["parameters/conditions/switched_pole"] = true
+
+
+func _play_switch_sound() -> void:
+	if current_magnet and is_on_floor():
+		if magnet_check_raycast.is_colliding():
+			# Subtract player up direction to compensate for the miss being on the border
+			var point: Vector2 = magnet_check_raycast.get_collision_point() - up_direction * 0.01
+			var coll: TileMapLayer = magnet_check_raycast.get_collider()
+			var tile_data = coll.get_cell_tile_data(coll.local_to_map(coll.to_local(point)))
+			
+			if tile_data and tile_data.has_custom_data("magnet") and tile_data.get_custom_data("magnet"):
+				return
+	
+	switched.play()
 
 
 func set_controlled() -> void:
