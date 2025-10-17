@@ -1024,7 +1024,6 @@ high_volume = -5.0
 
 [node name="Stepping" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("17_tqiix")
-bus = &"Steps"
 
 [node name="Whoosh" type="AudioStreamPlayer" parent="Audio"]
 stream = SubResource("AudioStreamRandomizer_c35mf")
