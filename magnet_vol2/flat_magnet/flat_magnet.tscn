@@ -35,7 +35,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(0.419608, 0.431373, 0.619608, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="FlatMagnet" type="Area2D"]
@@ -57,7 +57,7 @@ script = ExtResource("4_qch6w")
 collider = NodePath("../MagnetCollider")
 south_particle = ExtResource("3_j61ub")
 north_particle = ExtResource("5_8ohhs")
-south_color = Color(1, 0, 0, 1)
-north_color = Color(0, 0.716667, 1, 1)
+south_color = Color(0.705882, 0.419608, 0.262745, 1)
+north_color = Color(0.419608, 0.431373, 0.619608, 1)
 particles_material = ExtResource("5_5ra4g")
 metadata/_edit_lock_ = true
