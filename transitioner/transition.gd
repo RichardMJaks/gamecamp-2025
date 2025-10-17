@@ -3,7 +3,7 @@ class_name Fader
 
 signal fade_in_finished()
 signal fade_out_finished()
-var transition_time: float = 0.3
+var transition_time: float = 1
 
 func _ready() -> void:
 	SignalBus.start_fade_out.connect(_fade_out)
@@ -21,7 +21,11 @@ func _fade_out() -> void:
 	material.set_shader_parameter("time", 0)
 	var tween = create_tween()
 	tween.tween_method(set_param, 0.0, 1.0, transition_time)
-	tween.tween_callback(fade_out_finished.emit)
+	tween.tween_callback(_post_fade_out_delay.bind(fade_out_finished.emit))
+
+func _post_fade_out_delay(callable: Callable) -> void:
+	get_tree().create_timer(1).timeout.connect(callable)
+
 
 func set_param(value: float) -> void:
 	material.set_shader_parameter("time", value)

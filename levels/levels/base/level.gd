@@ -1,8 +1,10 @@
 extends Node2D
 
+@export var level_title: String
 @export var start_gate: Node2D
 @export var end_gate: Node2D
 @export var next_level: PackedScene
+
 
 var collectibles_count: int = 0
 var time_spent: float = 0
@@ -13,6 +15,7 @@ var mobile_operating_systems = ["iOS", "Android"]
 func _ready() -> void:
 	SignalBus.level_completed.connect(_on_level_completed)	
 	SignalBus.fade_in_completed.connect(_spawn_player)
+	SignalBus.fade_in_completed.connect(_show_title)
 	SignalBus.fade_out_completed.connect(_goto_next_level)
 	SignalBus.collectible_collected.connect(_on_collectible_collected)
 	BgMusic.play_music(BgMusic.MusicType.INGAME)
@@ -40,6 +43,7 @@ func _on_collectible_collected() -> void:
 
 
 func _on_level_completed() -> void:
+	SignalBus.timing_stopped.emit()
 	var level_data = _create_level_data()
 	GameController.add_level_data(level_data)
 	_show_level_end_screen(level_data)
@@ -48,6 +52,9 @@ func _on_level_completed() -> void:
 func _spawn_player() -> void:
 	start_gate.spawn_player()
 
+
+func _show_title() -> void:
+	ui.show_level_title(level_title)
 
 func _show_level_end_screen(level_data: LevelData) -> void:
 	ui.show_level_end_screen(level_data)

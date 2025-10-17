@@ -14,6 +14,7 @@
 
 [node name="LevelBase" type="Node2D" node_paths=PackedStringArray("start_gate", "end_gate")]
 script = ExtResource("1_fvhoy")
+level_title = "PLACEHOLDER"
 start_gate = NodePath("PlayerSpawner")
 end_gate = NodePath("EndGate")
 

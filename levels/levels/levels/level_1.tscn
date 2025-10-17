@@ -235,6 +235,7 @@ color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="Level1" instance=ExtResource("1_idqs4")]
+level_title = "Smoggy Depths"
 next_level = ExtResource("2_p8b4h")
 
 [node name="ParallaxLayer" parent="ParallaxBackground" index="0"]

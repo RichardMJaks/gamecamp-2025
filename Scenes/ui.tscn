@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=38 format=3 uid="uid://ccqfhltoj6raa"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]

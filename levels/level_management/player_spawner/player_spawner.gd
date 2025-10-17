@@ -25,6 +25,8 @@ func _add_player_to_scene() -> void:
 
 	current_scene.add_child(player)
 	player.set_camera(scene_camera)
+	GameController.player = player
+
 	scene_camera.shake(5, 0.5)
 
 
