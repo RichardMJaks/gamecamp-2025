@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b62pk0mp4sjum"]
+[gd_scene load_steps=15 format=3 uid="uid://b62pk0mp4sjum"]
 
 [ext_resource type="Script" uid="uid://bl60hhdyrwsvk" path="res://HUD/session_end_screen/session_end.gd" id="1_a5xis"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="1_stqpg"]
 [ext_resource type="PackedScene" uid="uid://d304323kucdy3" path="res://HUD/session_end_screen/level_stats_container.tscn" id="3_cry3l"]
+[ext_resource type="Texture2D" uid="uid://dhftywkskqhw" path="res://HUD/totalstats.png" id="4_a6ctl"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="5_a6ctl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmixe"]
@@ -70,13 +71,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SessionEndContainer"]
+[node name="TextureRect" type="TextureRect" parent="SessionEndContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
-theme_override_fonts/font = ExtResource("1_stqpg")
-theme_override_font_sizes/font_size = 32
-text = "TOTAL STATS"
-horizontal_alignment = 1
+size_flags_horizontal = 4
+texture = ExtResource("4_a6ctl")
+stretch_mode = 2
 
 [node name="StatsDisplayContainer" type="VBoxContainer" parent="SessionEndContainer"]
 layout_mode = 2
