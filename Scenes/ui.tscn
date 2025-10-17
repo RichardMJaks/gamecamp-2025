@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccqfhltoj6raa"]
+[gd_scene load_steps=30 format=3 uid="uid://ccqfhltoj6raa"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="5_smcll"]
 [ext_resource type="Texture2D" uid="uid://vsfc0ag3b0gl" path="res://button_textures/switch_button/switch_pressed.png" id="6_nt8jn"]
 [ext_resource type="PackedScene" uid="uid://wb0i0hkc5v7" path="res://HUD/levelcomplete/level_complete_container.tscn" id="8_mmixe"]
+[ext_resource type="Texture2D" uid="uid://b21yhexjq00dt" path="res://HUD/level_title.png" id="8_nt8jn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt8jn"]
 atlas = ExtResource("3_q7pk6")
@@ -123,15 +124,36 @@ size = Vector2(250, 250)
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.001, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0wmg"]
+texture = ExtResource("8_nt8jn")
+texture_margin_left = 34.0
+texture_margin_top = 16.0
+texture_margin_right = 34.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
 [sub_resource type="Animation" id="Animation_g0wmg"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HUD/LevelTitleMargin/LevelTitle:modulate")
+tracks/0/enabled = false
+tracks/0/path = NodePath("HUD/LevelTitleMargin/PanelContainer/LevelTitle:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/LevelTitleMargin/PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -144,10 +166,22 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HUD/LevelTitleMargin/LevelTitle:modulate")
+tracks/0/path = NodePath("HUD/LevelTitleMargin/PanelContainer/LevelTitle:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/LevelTitleMargin/PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 4, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -300,25 +334,33 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 195
 
-[node name="LevelTitle" type="Label" parent="HUD/LevelTitleMargin"]
-unique_name_in_owner = true
+[node name="PanelContainer" type="PanelContainer" parent="HUD/LevelTitleMargin"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0wmg")
+
+[node name="LevelTitle" type="Label" parent="HUD/LevelTitleMargin/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.168536, 0.278447, 0.270634, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 16
 text = "LEVEL TITLE"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="LevelTitleShower" type="AnimationPlayer" parent="HUD/LevelTitleMargin/LevelTitle"]
+[node name="LevelTitleShower" type="AnimationPlayer" parent="HUD/LevelTitleMargin/PanelContainer/LevelTitle"]
 unique_name_in_owner = true
-root_node = NodePath("../../../..")
+root_node = NodePath("../../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_4vbiv")
 }
 
 [node name="LevelCompleteContainer" parent="." instance=ExtResource("8_mmixe")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Fader" parent="." instance=ExtResource("4_2246s")]
 unique_name_in_owner = true

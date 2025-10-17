@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dm2i6tlo6p1rx"]
+[gd_scene load_steps=45 format=4 uid="uid://dm2i6tlo6p1rx"]
 
 [ext_resource type="PackedScene" uid="uid://ccyf37h8arbs5" path="res://levels/levels/base/level_base.tscn" id="1_idqs4"]
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_mf5cd"]
@@ -296,6 +296,22 @@ alpha_curve = SubResource("CurveTexture_n2m4x")
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_seh0t"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 400, 100)
+spread = 0.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.5
+color_ramp = SubResource("GradientTexture1D_n2m4x")
+alpha_curve = SubResource("CurveTexture_n2m4x")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
 [node name="Level1" instance=ExtResource("1_idqs4")]
 level_title = "Smoggy Depths"
 next_level = ExtResource("2_p8b4h")
@@ -553,7 +569,7 @@ process_material = SubResource("ParticleProcessMaterial_dq7gf")
 position = Vector2(128, 280)
 amount = 100
 texture = ExtResource("8_el32t")
-process_material = SubResource("ParticleProcessMaterial_dq7gf")
+process_material = SubResource("ParticleProcessMaterial_seh0t")
 
 [editable path="MagnetTilemap/FlatMagnet"]
 [editable path="MagnetTilemap/FlatMagnet2"]
