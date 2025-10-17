@@ -35,7 +35,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="FlatMagnet" type="Area2D"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ccyf37h8arbs5" path="res://levels/levels/base/level_base.tscn" id="1_idqs4"]
 [ext_resource type="PackedScene" uid="uid://drvxfx2cgjfaq" path="res://magnet_vol2/flat_magnet/flat_magnet.tscn" id="2_mf5cd"]
-[ext_resource type="PackedScene" uid="uid://nriajec84rep" path="res://levels/levels/levels/level_2.tscn" id="2_p8b4h"]
+[ext_resource type="PackedScene" path="res://levels/levels/levels/level_2.tscn" id="2_p8b4h"]
 [ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="3_prbmd"]
 [ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet/radial_magnet.tscn" id="4_aklla"]
 [ext_resource type="PackedScene" uid="uid://bd87di74w8fww" path="res://levels/collectible.tscn" id="4_prbmd"]
@@ -36,7 +36,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.705882, 0.419608, 0.262745, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mf5cd"]
@@ -54,7 +54,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(0.419608, 0.431373, 0.619608, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prbmd"]
@@ -72,7 +72,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(0.419608, 0.431373, 0.619608, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vtrn"]
@@ -90,7 +90,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.705882, 0.419608, 0.262745, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8b4h"]
@@ -107,7 +107,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(0.419608, 0.431373, 0.619608, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el32t"]
@@ -125,7 +125,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(0.419608, 0.431373, 0.619608, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tao2"]
@@ -143,7 +143,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.705882, 0.419608, 0.262745, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61i2i"]
@@ -161,7 +161,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.705882, 0.419608, 0.262745, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_reemh"]
@@ -178,7 +178,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0, 0.716667, 1, 1)
+color = Color(0.419608, 0.431373, 0.619608, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m82v5"]
@@ -196,7 +196,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.705882, 0.419608, 0.262745, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aw5r"]
@@ -214,7 +214,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.705882, 0.419608, 0.262745, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okad8"]
@@ -231,7 +231,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(1, 0, 0, 1)
+color = Color(0.705882, 0.419608, 0.262745, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [node name="Level1" instance=ExtResource("1_idqs4")]

@@ -117,21 +117,21 @@ position = Vector2(0, 16)
 texture = ExtResource("3_ip48s")
 process_material = SubResource("ParticleProcessMaterial_xxay0")
 
-[node name="LevelTilemap" parent="." index="2"]
+[node name="LevelTilemap" parent="." index="4"]
 position = Vector2(-16, 0)
 tile_map_data = PackedByteArray("AAD9/wQAAQAGAAEAAAD+/wQAAQACAAAAAAD//wQAAQACAAAAAAAAAAQAAQAFAAAAAAABAAQAAAAOAA8AAAACAAQAAAAQAA8AAAADAAQAAQAGAAAAAAADAAMAAQACAAEAAAADAAIAAQACAAEAAAADAAEAAQAAAAAAAAAEAAEAAQACAAAAAAAFAAEAAQACAAAAAAAGAAEAAQACAAAAAAAHAAEAAQACAAAAAAAIAAEAAQACAAAAAAAJAAEAAQAFAAAAAAAAAAAAAAANABAAAAAAAP//AAANAA8AAAAAAP7/AAANAA4AAAAAAP3/AQAFAAAAAAD///3/AQAFAAQAAAD+//3/AQACAAQAAAD///7/AQAFAAIAAAD+//7/AQAEAAIAAAD/////AQAFAAIAAAD+////AQAEAAIAAAD+/wAAAQAHAAEAAAD//wAAAQAIAAEAAAADAP7/AAAMABAAAAADAP3/AAAMAA8AAAADAPz/AAAMAA8AAAADAPv/AAAMAA4AAAD+//z/AQACAAEAAAD+//v/AQACAAEAAAD+//r/AQAFAAEAAAA=")
 
-[node name="PlayerSpawner" parent="." index="3"]
+[node name="PlayerSpawner" parent="." index="5"]
 position = Vector2(-32, 48)
 
-[node name="EndGate" parent="." index="4"]
+[node name="EndGate" parent="." index="6"]
 position = Vector2(128, 0)
-
-[node name="Camera" parent="." index="6"]
-position = Vector2(-32, 48)
 
 [node name="Collectible" parent="." index="7" instance=ExtResource("4_7ctgx")]
 position = Vector2(-16, -64)
+
+[node name="Camera" parent="." index="9"]
+position = Vector2(-32, 48)
 
 [editable path="MagnetTilemap/FlatMagnet"]
 [editable path="MagnetTilemap/FlatMagnet2"]
