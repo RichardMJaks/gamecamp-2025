@@ -30,6 +30,7 @@ func populate_stats(levels_data: Array[LevelData]) -> void:
 
 
 func _populate_level_stats(levels_data: Array[LevelData]) -> void:
+	total_stats.modulate.a = 0
 	for i in range(levels_data.size()):
 		var level_title: String = "%02d" % [i + 1]
 
@@ -37,13 +38,24 @@ func _populate_level_stats(levels_data: Array[LevelData]) -> void:
 		var time: float = data.time_spent
 		var collectibles: int = data.collectibles_collected
 
-		_create_level_stats_container(level_title, time, collectibles)
+		var stats_row: Control = _create_level_stats_container(level_title, time, collectibles)
+
+		@warning_ignore("confusable_local_declaration")
+		var stats_tween: Tween = stats_row.create_tween()
+		stats_tween.tween_property(stats_row, ^"modulate:a", 1, 3).set_delay(i * 1 + 2)
+		stats_tween.tween_callback(func(): print_debug(stats_row.modulate.a))
+		
+	var stats_tween: Tween = total_stats.create_tween()
+	stats_tween.tween_property(total_stats, ^"modulate:a", 1, 3).set_delay(levels_data.size() * 1 + 2)
 
 
-func _create_level_stats_container(level_title: String, time: float, collectibles: int) -> void:
-	var container = stats_container.instantiate()
+func _create_level_stats_container(level_title: String, time: float, collectibles: int) -> Control:
+	var container: Control = stats_container.instantiate()
 	container.initialize(level_title, time, collectibles)
+	container.modulate.a = 0
 	stats_box.add_child(container)
+	
+	return container
 
 
 func _on_main_menu_button_pressed() -> void:
@@ -52,4 +64,3 @@ func _on_main_menu_button_pressed() -> void:
 
 func _restart_session() -> void:
 	SignalBus.session_restarted.emit()
-

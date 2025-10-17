@@ -11,6 +11,7 @@ var admin_reset_session_available: bool = false
 var hack_enabling_available: bool = false
 var hack_enabled: bool = false
 var mobile_joystick: Node = null
+var player: Player = null
 
 @onready var can_admin: bool = OS.has_feature("admin")
 @onready var expo_build: bool = OS.has_feature("expo")
@@ -33,6 +34,10 @@ func _handle_hacks_admin_command(event: InputEvent) -> void:
 	if event.is_action_released(&"admin_clear_level"):
 		SignalBus.level_completed.emit()
 		AdminPanel.send_temp_message("Won level", 5)
+	if event.is_action_released(&"admin_tp"):
+		if not player:
+			return
+		player.global_position = player.get_global_mouse_position() 
 
 
 

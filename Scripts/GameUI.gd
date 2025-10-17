@@ -7,6 +7,8 @@ class_name UI
 @onready var level_complete: PanelContainer = %LevelCompleteContainer
 @onready var stamp_revealer: AnimationPlayer = %StampRevealer
 @onready var switch_button: TouchScreenButton = %SwitchButton
+@onready var level_title: Label = %LevelTitle
+@onready var level_title_shower: AnimationPlayer = %LevelTitleShower
 
 var mobile_operating_systems = ["iOS", "Android"]
 
@@ -46,3 +48,7 @@ func _on_fade_out_finished() -> void:
 
 func _on_fade_in_finished() -> void:
 	SignalBus.fade_in_completed.emit()
+
+func show_level_title(title: String) -> void:
+	level_title.text = title
+	level_title_shower.play(&"show_title")

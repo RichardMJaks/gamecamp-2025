@@ -52,6 +52,7 @@ func _process(_delta: float) -> void:
 func _play_pressed() -> void:
 	SignalBus.start_fade_out.emit()
 	BgMusic.fade_music_out()
+	%PlayPressed.play()
 
 func _on_credits_pressed() -> void:
 	showing_credits = true

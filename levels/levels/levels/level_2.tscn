@@ -463,6 +463,7 @@ shader_parameter/output = PackedVector3Array(0.215686, 0.160784, 0.164706, 0.243
 metadata/_custom_type_script = "uid://vrs1twpulcy0"
 
 [node name="Level2" instance=ExtResource("1_cunun")]
+level_title = "STEAMING CLIMB"
 next_level = ExtResource("2_0rrxg")
 
 [node name="Sprite2D" parent="ParallaxBackground/ParallaxLayer" index="0"]

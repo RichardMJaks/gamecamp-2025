@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ctrejknt40q3j"]
+[gd_scene load_steps=40 format=3 uid="uid://ctrejknt40q3j"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
@@ -122,6 +122,43 @@ size = Vector2(250, 250)
 [sub_resource type="Curve" id="Curve_whq80"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.001, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Animation" id="Animation_mmixe"]
+resource_name = "show_title"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nt8jn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0wmg"]
+_data = {
+&"RESET": SubResource("Animation_nt8jn"),
+&"show_title": SubResource("Animation_mmixe")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmixe"]
 atlas = ExtResource("4_m78vo")
@@ -358,6 +395,31 @@ right_movement = "m_right"
 up_movement = "m_up"
 down_movement = "m_down"
 is_mobile_only = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 175
+
+[node name="LevelTitle" type="Label" parent="HUD/MarginContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qdvrb")
+theme_override_font_sizes/font_size = 16
+text = "LEVEL 1"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="LevelTitleShower" type="AnimationPlayer" parent="HUD/MarginContainer/LevelTitle"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_g0wmg")
+}
 
 [node name="LevelCompleteContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true

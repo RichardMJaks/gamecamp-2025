@@ -30,7 +30,7 @@ func fade_music_out() -> void:
 		return
 	
 	var fade_tweener: Tween = current_player.create_tween()
-	fade_tweener.tween_property(current_player, ^"volume_linear", 0, 0.5)
+	fade_tweener.tween_property(current_player, ^"volume_linear", 0, 1)
 
 func _fader(value: float) -> void:
 	if not current_player:
