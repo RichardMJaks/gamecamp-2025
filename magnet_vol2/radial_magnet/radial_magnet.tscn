@@ -175,6 +175,7 @@ process_material = SubResource("ParticleProcessMaterial_a3cxc")
 [node name="MagnetArea" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_rb835")
+debug_color = Color(1, 0.152941, 0.231373, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_ktc3p")

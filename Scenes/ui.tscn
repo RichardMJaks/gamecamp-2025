@@ -320,7 +320,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="HUD/HUDContainer/StampNotificationContainer/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.219608, 0.211765, 0.254902, 1)
+theme_override_colors/font_color = Color(0.046891, 0.046891, 0.305806, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")
 theme_override_font_sizes/font_size = 8
 text = "you QUALIFY for a STAMP
@@ -361,7 +361,6 @@ is_mobile_only = true
 
 [node name="LevelCompleteContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
