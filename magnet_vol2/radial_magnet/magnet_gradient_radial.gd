@@ -5,6 +5,10 @@ extends Sprite2D
 
 @export var north_gradient: Gradient
 @export var south_gradient: Gradient
+@export var north_area: Texture2D
+@export var south_area: Texture2D
+
+@onready var magnet_area: CollisionShape2D = %MagnetArea
 
 
 func _ready() -> void:
@@ -18,18 +22,12 @@ func _process(_delta: float) -> void:
 
 	position = collider.position
 	_apply_colors()
-	_apply_size()
 	
 
 func _apply_colors() -> void:
-	texture.fill_from = Vector2(0.5, 0.5)
-	texture.fill_to = Vector2(0.5, 0)
 	if get_parent().pole == GlobalVars.POLE.NORTH:
-		texture.gradient = north_gradient
+		texture = north_area
+		magnet_area.debug_color = Color8(0, 153, 179, 107)
 	if get_parent().pole == GlobalVars.POLE.SOUTH:
-		texture.gradient = south_gradient
-
-func _apply_size() -> void:
-	var texture_size = collider.shape.radius
-	texture.width = texture_size * 2
-	texture.height = texture_size * 2
+		magnet_area.debug_color = Color8(255, 39, 59, 107)
+		texture = south_area
