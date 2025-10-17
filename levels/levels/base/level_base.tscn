@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bbb8nrii54wtu" path="res://assets/background_layer3.png" id="3_esfau"]
 [ext_resource type="PackedScene" uid="uid://b6k0wtmqk4dnk" path="res://levels/level_management/level_end_gate/end_gate.tscn" id="4_g7rdq"]
 [ext_resource type="Texture2D" uid="uid://w7e33x3ej4oj" path="res://assets/background_layer4.png" id="4_xqs1o"]
-[ext_resource type="PackedScene" uid="uid://ctrejknt40q3j" path="res://Scenes/ui.tscn" id="9_iipk8"]
+[ext_resource type="PackedScene" uid="uid://ccqfhltoj6raa" path="res://Scenes/ui.tscn" id="9_iipk8"]
 [ext_resource type="Script" uid="uid://bpybw4dwc5j2o" path="res://player/shaker.gd" id="10_t7y41"]
 
 [node name="LevelBase" type="Node2D" node_paths=PackedStringArray("start_gate", "end_gate")]
