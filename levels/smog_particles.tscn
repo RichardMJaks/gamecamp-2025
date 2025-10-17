@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbgc6qremw3dq"]
+
+[ext_resource type="Texture2D" uid="uid://ctpthln4th78h" path="res://assets/SMOG/smog.png" id="1_bj5cs"]
+
+[sub_resource type="Curve" id="Curve_bj5cs"]
+_data = [Vector2(0, 0), 0.0, -0.0771888, 0, 0, Vector2(0.305556, 1), 0.191538, 0.191538, 0, 0, Vector2(0.82716, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n2m4x"]
+curve = SubResource("Curve_bj5cs")
+
+[sub_resource type="Gradient" id="Gradient_bj5cs"]
+colors = PackedColorArray(0.201212, 0.213565, 0.208296, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n2m4x"]
+gradient = SubResource("Gradient_bj5cs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7pisf"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 400, 100)
+spread = 0.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_n2m4x")
+alpha_curve = SubResource("CurveTexture_n2m4x")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[node name="SmogParticles" type="GPUParticles2D"]
+amount = 30
+texture = ExtResource("1_bj5cs")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-400, -400, 800, 800)
+process_material = SubResource("ParticleProcessMaterial_7pisf")

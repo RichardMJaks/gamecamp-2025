@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ccqfhltoj6raa"]
+[gd_scene load_steps=28 format=3 uid="uid://ccqfhltoj6raa"]
 
 [ext_resource type="Script" uid="uid://bgssi6hmfx0fn" path="res://Scripts/GameUI.gd" id="1_jxero"]
 [ext_resource type="FontFile" uid="uid://cfekbwmuco8hc" path="res://04B_03B_.TTF" id="2_qdvrb"]
@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="4_2246s"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="4_m78vo"]
 [ext_resource type="Texture2D" uid="uid://2inc251i20vd" path="res://button_textures/switch_button/switch_normal.png" id="5_mmixe"]
-[ext_resource type="Script" uid="uid://jth8fq0f0ubd" path="res://Scenes/level_complete_ui.gd" id="5_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="5_smcll"]
 [ext_resource type="Texture2D" uid="uid://vsfc0ag3b0gl" path="res://button_textures/switch_button/switch_pressed.png" id="6_nt8jn"]
-[ext_resource type="Texture2D" uid="uid://nbjvll3tigpc" path="res://HUD/levelcomplete.png" id="9_nt8jn"]
+[ext_resource type="PackedScene" uid="uid://wb0i0hkc5v7" path="res://HUD/levelcomplete/level_complete_container.tscn" id="8_mmixe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt8jn"]
 atlas = ExtResource("3_q7pk6")
@@ -159,111 +158,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_g0wmg"),
 &"show_title": SubResource("Animation_nt8jn")
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mmixe"]
-atlas = ExtResource("4_m78vo")
-region = Rect2(144, 128, 32, 32)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nt8jn"]
-texture = SubResource("AtlasTexture_mmixe")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m78vo"]
-atlas = ExtResource("4_m78vo")
-region = Rect2(208, 128, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ryf15"]
-atlas = ExtResource("4_m78vo")
-region = Rect2(208, 144, 32, 16)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmixe"]
-texture = SubResource("AtlasTexture_ryf15")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g0wmg"]
-atlas = ExtResource("4_m78vo")
-region = Rect2(176, 128, 32, 16)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vbiv"]
-texture = SubResource("AtlasTexture_g0wmg")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3r70p"]
-atlas = ExtResource("4_m78vo")
-region = Rect2(176, 144, 32, 16)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8fs27"]
-texture = SubResource("AtlasTexture_3r70p")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-
-[sub_resource type="Animation" id="Animation_ryf15"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-360, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_smcll"]
-resource_name = "reveal"
-length = 2.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(-360, -0.25, 0, 0.431482, -1.5, 0, -0.0333333, -112.5, 0.0841663, -166.5, -0.5, -0.149167, -147.5, 0.0314822, -53, 0.5, -0.0351845, -41, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.06667, 1.33333)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmixe"]
-_data = {
-&"RESET": SubResource("Animation_ryf15"),
-&"reveal": SubResource("Animation_smcll")
 }
 
 [node name="UI" type="CanvasLayer"]
@@ -423,119 +317,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_4vbiv")
 }
 
-[node name="LevelCompleteContainer" type="PanelContainer" parent="."]
+[node name="LevelCompleteContainer" parent="." instance=ExtResource("8_mmixe")]
 unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -360.0
-offset_bottom = -360.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_nt8jn")
-script = ExtResource("5_q7pk6")
-
-[node name="ItemsContainer" type="VBoxContainer" parent="LevelCompleteContainer"]
-layout_mode = 2
-
-[node name="TopMargin" type="Control" parent="LevelCompleteContainer/ItemsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="LevelCompleteContainer/ItemsContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("9_nt8jn")
-stretch_mode = 2
-
-[node name="Spacer" type="Control" parent="LevelCompleteContainer/ItemsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-
-[node name="StatsContainer" type="HBoxContainer" parent="LevelCompleteContainer/ItemsContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="CollectablesContainer" type="VBoxContainer" parent="LevelCompleteContainer/ItemsContainer/StatsContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
-theme_override_fonts/font = ExtResource("2_qdvrb")
-theme_override_font_sizes/font_size = 16
-text = "Nuts"
-uppercase = true
-
-[node name="CollectiblesNumberContainer" type="HBoxContainer" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer"]
-layout_mode = 2
-
-[node name="CollectibleIcon" type="TextureRect" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_m78vo")
-
-[node name="TotalCollectibles" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/CollectablesContainer/CollectiblesNumberContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
-theme_override_fonts/font = ExtResource("2_qdvrb")
-text = "0"
-
-[node name="Spacer" type="Control" parent="LevelCompleteContainer/ItemsContainer/StatsContainer"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-
-[node name="LevelTimeContainer" type="VBoxContainer" parent="LevelCompleteContainer/ItemsContainer/StatsContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/LevelTimeContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
-theme_override_fonts/font = ExtResource("2_qdvrb")
-theme_override_font_sizes/font_size = 16
-text = "Time"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="TotalTime" type="Label" parent="LevelCompleteContainer/ItemsContainer/StatsContainer/LevelTimeContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
-theme_override_fonts/font = ExtResource("2_qdvrb")
-theme_override_font_sizes/font_size = 16
-text = "00.00.000"
-
-[node name="Spacer2" type="Control" parent="LevelCompleteContainer/ItemsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-
-[node name="ContinueButton" type="Button" parent="LevelCompleteContainer/ItemsContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.219333, 0.211521, 0.254994, 1)
-theme_override_colors/font_color = Color(1, 0.756863, 0.027451, 1)
-theme_override_colors/font_focus_color = Color(0.219333, 0.211521, 0.254994, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.8625, 0.45, 1)
-theme_override_fonts/font = ExtResource("2_qdvrb")
-theme_override_styles/focus = SubResource("StyleBoxTexture_mmixe")
-theme_override_styles/hover = SubResource("StyleBoxTexture_mmixe")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_4vbiv")
-theme_override_styles/normal = SubResource("StyleBoxTexture_8fs27")
-text = "CONTINUE"
-
-[node name="ContainerRevealer" type="AnimationPlayer" parent="LevelCompleteContainer"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_mmixe")
-}
 
 [node name="Fader" parent="." instance=ExtResource("4_2246s")]
 unique_name_in_owner = true
 visible = false
 mouse_filter = 2
 
-[connection signal="pressed" from="LevelCompleteContainer/ItemsContainer/ContinueButton" to="LevelCompleteContainer" method="_on_continue_button_pressed"]
 [connection signal="fade_in_finished" from="Fader" to="." method="_on_fade_in_finished"]
 [connection signal="fade_out_finished" from="Fader" to="." method="_on_fade_out_finished"]

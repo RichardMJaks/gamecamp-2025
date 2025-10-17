@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://daujuqli7pyvy"]
+[gd_scene load_steps=30 format=3 uid="uid://daujuqli7pyvy"]
 
 [ext_resource type="PackedScene" uid="uid://b1kbidmp44j1b" path="res://magnet_vol2/radial_magnet/radial_particles.tscn" id="1_12wdq"]
 [ext_resource type="Script" uid="uid://d35wj5y4ta38c" path="res://Scripts/magnet_vol2/magnet_radial.gd" id="1_rb835"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://p7clqbwapl8w" path="res://magnet_vol2/north_particle.png" id="7_qfdsq"]
 [ext_resource type="Texture2D" uid="uid://o5vh54e854er" path="res://magnet_vol2/south_particle.png" id="8_4qe2y"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="9_4qe2y"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3cxc"]
+fill = 1
 
 [sub_resource type="Gradient" id="Gradient_1h2df"]
 interpolation_mode = 1
@@ -43,7 +46,7 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_logpw"]
 curve = SubResource("Curve_bwkdw")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3cxc"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5wug4"]
 lifetime_randomness = 0.58
 particle_flag_disable_z = true
 emission_shape = 6
@@ -70,7 +73,7 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_3g4xd"]
 curve = SubResource("Curve_5qjqc")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5wug4"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a7sh4"]
 lifetime_randomness = 0.58
 particle_flag_disable_z = true
 emission_shape = 6
@@ -93,7 +96,7 @@ tangential_accel_max = -2.23517e-06
 scale_min = 0.4
 scale_max = 1.4
 scale_curve = SubResource("CurveTexture_3g4xd")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.713726, 1, 1)
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 
@@ -104,7 +107,7 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_iumgq"]
 curve = SubResource("Curve_sjgc5")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a7sh4"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ktc3p"]
 lifetime_randomness = 0.58
 particle_flag_disable_z = true
 emission_shape = 6
@@ -125,7 +128,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.4
 scale_max = 1.4
 scale_curve = SubResource("CurveTexture_iumgq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.713726, 1, 1)
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 
@@ -143,7 +146,7 @@ script = ExtResource("1_rb835")
 pole = 0
 
 [node name="Gradient" type="Sprite2D" parent="." node_paths=PackedStringArray("collider")]
-texture = ExtResource("2_a3cxc")
+texture = SubResource("GradientTexture2D_a3cxc")
 script = ExtResource("3_86yji")
 collider = NodePath("../MagnetArea")
 north_gradient = SubResource("Gradient_1h2df")
@@ -166,16 +169,16 @@ collider = NodePath("../MagnetArea")
 
 [node name="OuterRim" parent="RadialParticles" index="0"]
 amount = 60
-process_material = SubResource("ParticleProcessMaterial_a3cxc")
+process_material = SubResource("ParticleProcessMaterial_5wug4")
 
 [node name="InnerParticlesLeft" parent="RadialParticles" index="1"]
 texture = ExtResource("8_4qe2y")
-process_material = SubResource("ParticleProcessMaterial_5wug4")
+process_material = SubResource("ParticleProcessMaterial_a7sh4")
 
 [node name="InnerParticlesRight" parent="RadialParticles" index="2"]
 emitting = false
 texture = ExtResource("8_4qe2y")
-process_material = SubResource("ParticleProcessMaterial_a7sh4")
+process_material = SubResource("ParticleProcessMaterial_ktc3p")
 
 [node name="MagnetArea" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

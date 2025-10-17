@@ -74,6 +74,8 @@ scene_camera = NodePath("../Camera")
 position = Vector2(16, 0)
 camera = NodePath("../Camera")
 
+[node name="SmogParticles" type="Node2D" parent="."]
+
 [node name="UI" parent="." instance=ExtResource("9_iipk8")]
 unique_name_in_owner = true
 visible = false
