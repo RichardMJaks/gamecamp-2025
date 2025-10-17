@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pbqphvyiooiw"]
+[gd_scene load_steps=30 format=3 uid="uid://pbqphvyiooiw"]
 
 [ext_resource type="Script" uid="uid://c28lcgo5t42sq" path="res://HUD/main_menu.gd" id="1_c7jvv"]
 [ext_resource type="PackedScene" uid="uid://dm2i6tlo6p1rx" path="res://levels/levels/levels/level_1.tscn" id="2_qs2e7"]
@@ -137,6 +137,10 @@ _data = {
 &"display_credits": SubResource("Animation_c5h8u"),
 &"hide_credits": SubResource("Animation_b0ymw")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf600"]
+atlas = ExtResource("16_64i8y")
+region = Rect2(224, 128, 16, 16)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -383,13 +387,23 @@ layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 
-[node name="QuitButtonLabel" type="Label" parent="Credits/QuitButtonContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits/QuitButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Credits/QuitButtonContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_gf600")
+stretch_mode = 4
+
+[node name="QuitButtonLabel" type="Label" parent="Credits/QuitButtonContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.757198, 0.0273442, 1)
 theme_override_fonts/font = ExtResource("3_q1pp4")
-text = "ESC to quit"
+text = "to quit"
 
 [node name="CreditsContainer" type="MarginContainer" parent="Credits"]
 layout_mode = 2
