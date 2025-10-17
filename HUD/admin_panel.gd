@@ -4,6 +4,12 @@ extends CanvasLayer
 @onready var permanent_message_container: VBoxContainer = %PermanentMessageContainer
 @export var font: Font
 
+func _process(_delta: float) -> void:
+	if GameController.hack_enabled:
+		%LevelData.text = str(GameController.levels_data)
+	else:
+		%LevelData.text = ""
+
 func send_temp_message(text: String, duration: float) -> void:
 	var temp_message_label: Label = Label.new()
 	temp_message_label.text = text
