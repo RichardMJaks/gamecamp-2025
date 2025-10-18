@@ -20,6 +20,9 @@ func _ready() -> void:
 	var levels_data: Array[LevelData] = GameController.levels_data
 	populate_stats(levels_data)
 
+	if not GameController.mobile:
+		%MainMenuButton.queue_free()
+
 	total_stats.initialize("TOTAL", GameController.total_time_spent, GameController.total_collectables_collected)
 	
 	BgMusic.play_music(BgMusic.MusicType.END)

@@ -10,7 +10,7 @@ var temple_available_notified: bool = false
 var admin_reset_session_available: bool = false
 var hack_enabling_available: bool = false
 var hack_enabled: bool = false
-var mobile_joystick: Node = null
+var mobile: bool = false
 var player: Player = null
 
 @onready var can_admin: bool = OS.has_feature("admin")
@@ -69,6 +69,15 @@ func _ready() -> void:
 	SignalBus.session_completed.connect(_on_session_completed)
 	SignalBus.session_restarted.connect(_on_session_restart)
 	SignalBus.collectible_collected.connect(_update_total_collectibles)
+	
+	var mobile_operating_systems = ["iOS", "Android", "ios", "android"]
+	if (OS.get_name() in mobile_operating_systems) or (
+		OS.has_feature("web_ios") 
+		or OS.has_feature("web_android") 
+		or OS.has_feature("android")
+		or OS.has_feature("ios")
+		): 
+		mobile = true	
 
 
 func _process(delta: float) -> void:

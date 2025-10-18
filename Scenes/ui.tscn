@@ -87,7 +87,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmixe"]
-size = Vector2(78, 78)
+size = Vector2(100, 100)
 
 [sub_resource type="Gradient" id="Gradient_ryf15"]
 interpolation_mode = 1
@@ -304,7 +304,7 @@ libraries = {
 
 [node name="SwitchButton" type="TouchScreenButton" parent="HUD"]
 unique_name_in_owner = true
-position = Vector2(512, 235)
+position = Vector2(502, 242)
 texture_normal = ExtResource("5_mmixe")
 texture_pressed = ExtResource("6_nt8jn")
 shape = SubResource("RectangleShape2D_mmixe")

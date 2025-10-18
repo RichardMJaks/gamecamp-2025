@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://bota2efsshadd"]
+[gd_scene load_steps=90 format=4 uid="uid://bota2efsshadd"]
 
 [ext_resource type="PackedScene" uid="uid://ccyf37h8arbs5" path="res://levels/levels/base/level_base.tscn" id="1_cunun"]
 [ext_resource type="PackedScene" uid="uid://ce1xaeicie2nd" path="res://levels/levels/levels/level_3.tscn" id="2_0rrxg"]
@@ -40,426 +40,408 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_hguyq"]
 curve = SubResource("Curve_rr38n")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oe51a"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g5fkg"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 139, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ys5v"]
 resource_local_to_scene = true
 size = Vector2(32, 80)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lr8m1"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3gtv6"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 35, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddqn5"]
 resource_local_to_scene = true
 size = Vector2(32, 80)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_63drt"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rhjmn"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 35, 1)
-direction = Vector3(-1, 0, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe51a"]
 resource_local_to_scene = true
 size = Vector2(144, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o6n4f"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50tlq"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(67, 11, 1)
-direction = Vector3(0, -1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63drt"]
 resource_local_to_scene = true
 size = Vector2(64, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hybvk"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tafm2"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 11, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hybvk"]
 resource_local_to_scene = true
 size = Vector2(144, 112)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1udgo"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhrd5"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(67, 51, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4p2f"]
 resource_local_to_scene = true
 size = Vector2(32, 96)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q4p2f"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_57pkx"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 43, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbw4y"]
 resource_local_to_scene = true
 size = Vector2(32, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g5fkg"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q00ps"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 11, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rrxg"]
 resource_local_to_scene = true
 size = Vector2(336, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3gtv6"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0m7sm"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(163, 11, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3vi2"]
 resource_local_to_scene = true
 size = Vector2(64, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rhjmn"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hx5eq"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 11, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_heirl"]
 resource_local_to_scene = true
 size = Vector2(32, 128)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50tlq"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ibir5"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 59, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iop3d"]
 resource_local_to_scene = true
 size = Vector2(32, 128)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tafm2"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_heebj"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 59, 1)
-direction = Vector3(-1, 0, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33myx"]
 resource_local_to_scene = true
 size = Vector2(32, 128)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhrd5"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m2wgc"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 59, 1)
-direction = Vector3(-1, 0, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr8m1"]
 resource_local_to_scene = true
 size = Vector2(32, 128)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_57pkx"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vjc6g"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 59, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6n4f"]
 resource_local_to_scene = true
 size = Vector2(128, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q00ps"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt7op"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(59, 11, 1)
-direction = Vector3(0, -1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1udgo"]
 resource_local_to_scene = true
 size = Vector2(48, 80)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0m7sm"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlh77"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(19, 35, 1)
-direction = Vector3(-1, 0, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5fkg"]
 resource_local_to_scene = true
 size = Vector2(32, 112)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hx5eq"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4xyvv"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 51, 1)
-direction = Vector3(-1, 0, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gtv6"]
 resource_local_to_scene = true
 size = Vector2(32, 48)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ibir5"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k2q45"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 19, 1)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhjmn"]
 resource_local_to_scene = true
 size = Vector2(64, 480)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_heebj"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ir8ok"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 235, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50tlq"]
 resource_local_to_scene = true
 size = Vector2(160, 48)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m2wgc"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hpglp"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(75, 19, 1)
-direction = Vector3(0, -1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tafm2"]
 resource_local_to_scene = true
 size = Vector2(64, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vjc6g"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lpxx8"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 11, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57pkx"]
 resource_local_to_scene = true
 size = Vector2(32, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt7op"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijd7j"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(11, 11, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.419608, 0.431373, 0.619608, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0m7sm"]
 resource_local_to_scene = true
 size = Vector2(16, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlh77"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ttk1v"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 11, 1)
-direction = Vector3(0, 1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibir5"]
 resource_local_to_scene = true
 size = Vector2(64, 72)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4xyvv"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4hole"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(27, 31, 1)
-direction = Vector3(0, -1, 0)
+emission_box_extents = Vector3(3, 3, 1)
 spread = 0.0
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.9
 scale_curve = SubResource("CurveTexture_hguyq")
-color = Color(0.705882, 0.419608, 0.262745, 1)
+color = Color(0, 0.716667, 1, 1)
 alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oe51a"]
@@ -513,7 +495,107 @@ alpha_curve = SubResource("CurveTexture_n2m4x")
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3n34q"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1000, 100)
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_k2q45")
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_n2m4x")
+alpha_curve = SubResource("CurveTexture_n2m4x")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pbxlo"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1000, 100)
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_k2q45")
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_n2m4x")
+alpha_curve = SubResource("CurveTexture_n2m4x")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4thjj"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 400, 100)
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_k2q45")
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_n2m4x")
+alpha_curve = SubResource("CurveTexture_n2m4x")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_34jjq"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 400, 100)
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_k2q45")
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_n2m4x")
+alpha_curve = SubResource("CurveTexture_n2m4x")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_36glr"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 400, 100)
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_k2q45")
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_n2m4x")
+alpha_curve = SubResource("CurveTexture_n2m4x")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_57a3l"]
 resource_local_to_scene = true
 particle_flag_disable_z = true
 emission_shape = 3
@@ -603,7 +685,7 @@ shape_size = Vector2(64, 288)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet" index="1"]
 position = Vector2(-16, -88)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_oe51a")
+process_material = SubResource("ParticleProcessMaterial_g5fkg")
 
 [node name="FlatMagnet2" parent="MagnetTilemap" index="1" instance=ExtResource("2_xbw4y")]
 position = Vector2(464, -392)
@@ -618,7 +700,7 @@ shape_size = Vector2(32, 80)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet2" index="1"]
 position = Vector2(16, 0)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_lr8m1")
+process_material = SubResource("ParticleProcessMaterial_3gtv6")
 
 [node name="FlatMagnet3" parent="MagnetTilemap" index="2" instance=ExtResource("2_xbw4y")]
 position = Vector2(432, -440)
@@ -631,7 +713,7 @@ shape_size = Vector2(32, 80)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet3" index="1"]
 position = Vector2(-16, 0)
-process_material = SubResource("ParticleProcessMaterial_63drt")
+process_material = SubResource("ParticleProcessMaterial_rhjmn")
 
 [node name="FlatMagnet4" parent="MagnetTilemap" index="3" instance=ExtResource("2_xbw4y")]
 position = Vector2(608, -464)
@@ -645,7 +727,7 @@ shape_size = Vector2(144, 32)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet4" index="1"]
 position = Vector2(-8, -16)
-process_material = SubResource("ParticleProcessMaterial_o6n4f")
+process_material = SubResource("ParticleProcessMaterial_50tlq")
 
 [node name="FlatMagnet5" parent="MagnetTilemap" index="4" instance=ExtResource("2_xbw4y")]
 position = Vector2(648, -440)
@@ -661,7 +743,7 @@ shape_size = Vector2(64, 32)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet5" index="1"]
 position = Vector2(24, 8)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_hybvk")
+process_material = SubResource("ParticleProcessMaterial_tafm2")
 
 [node name="FlatMagnet6" parent="MagnetTilemap" index="5" instance=ExtResource("2_xbw4y")]
 position = Vector2(600, -512)
@@ -675,7 +757,7 @@ shape_size = Vector2(144, 112)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet6" index="1"]
 position = Vector2(0, -40)
-process_material = SubResource("ParticleProcessMaterial_1udgo")
+process_material = SubResource("ParticleProcessMaterial_hhrd5")
 
 [node name="FlatMagnet7" parent="MagnetTilemap" index="6" instance=ExtResource("2_xbw4y")]
 position = Vector2(752, -504)
@@ -688,7 +770,7 @@ shape_size = Vector2(32, 96)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet7" index="1"]
 position = Vector2(-16, 24)
-process_material = SubResource("ParticleProcessMaterial_q4p2f")
+process_material = SubResource("ParticleProcessMaterial_57pkx")
 
 [node name="FlatMagnet8" parent="MagnetTilemap" index="7" instance=ExtResource("2_xbw4y")]
 position = Vector2(544, -440)
@@ -704,7 +786,7 @@ shape_size = Vector2(32, 32)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet8" index="1"]
 position = Vector2(0, 8)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_g5fkg")
+process_material = SubResource("ParticleProcessMaterial_q00ps")
 
 [node name="FlatMagnet9" parent="MagnetTilemap" index="8" instance=ExtResource("2_xbw4y")]
 position = Vector2(664, -664)
@@ -716,7 +798,7 @@ shape_size = Vector2(336, 32)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet9" index="1"]
 position = Vector2(0, 8)
-process_material = SubResource("ParticleProcessMaterial_3gtv6")
+process_material = SubResource("ParticleProcessMaterial_0m7sm")
 
 [node name="FlatMagnet10" parent="MagnetTilemap" index="9" instance=ExtResource("2_xbw4y")]
 position = Vector2(320, -552)
@@ -732,7 +814,7 @@ shape_size = Vector2(64, 32)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet10" index="1"]
 position = Vector2(-32, 8)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_rhjmn")
+process_material = SubResource("ParticleProcessMaterial_hx5eq")
 
 [node name="FlatMagnet11" parent="MagnetTilemap" index="10" instance=ExtResource("2_xbw4y")]
 position = Vector2(328, -760)
@@ -747,7 +829,7 @@ shape_size = Vector2(32, 128)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet11" index="1"]
 position = Vector2(8, 8)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_50tlq")
+process_material = SubResource("ParticleProcessMaterial_ibir5")
 
 [node name="FlatMagnet12" parent="MagnetTilemap" index="11" instance=ExtResource("2_xbw4y")]
 position = Vector2(248, -680)
@@ -760,7 +842,7 @@ shape_size = Vector2(32, 128)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet12" index="1"]
 position = Vector2(-8, 8)
-process_material = SubResource("ParticleProcessMaterial_tafm2")
+process_material = SubResource("ParticleProcessMaterial_heebj")
 
 [node name="FlatMagnet13" parent="MagnetTilemap" index="12" instance=ExtResource("2_xbw4y")]
 position = Vector2(248, -840)
@@ -773,7 +855,7 @@ shape_size = Vector2(32, 128)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet13" index="1"]
 position = Vector2(-8, 8)
-process_material = SubResource("ParticleProcessMaterial_hhrd5")
+process_material = SubResource("ParticleProcessMaterial_m2wgc")
 
 [node name="FlatMagnet14" parent="MagnetTilemap" index="13" instance=ExtResource("2_xbw4y")]
 position = Vector2(328, -920)
@@ -788,7 +870,7 @@ shape_size = Vector2(32, 128)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet14" index="1"]
 position = Vector2(8, 8)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_57pkx")
+process_material = SubResource("ParticleProcessMaterial_vjc6g")
 
 [node name="FlatMagnet15" parent="MagnetTilemap" index="14" instance=ExtResource("2_xbw4y")]
 position = Vector2(200, -984)
@@ -802,7 +884,7 @@ shape_size = Vector2(128, 32)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet15" index="1"]
 position = Vector2(24, -8)
-process_material = SubResource("ParticleProcessMaterial_q00ps")
+process_material = SubResource("ParticleProcessMaterial_pt7op")
 
 [node name="FlatMagnet16" parent="MagnetTilemap" index="15" instance=ExtResource("2_xbw4y")]
 position = Vector2(88, -840)
@@ -816,7 +898,7 @@ shape_size = Vector2(48, 80)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet16" index="1"]
 position = Vector2(0, 16)
-process_material = SubResource("ParticleProcessMaterial_0m7sm")
+process_material = SubResource("ParticleProcessMaterial_vlh77")
 
 [node name="FlatMagnet17" parent="MagnetTilemap" index="16" instance=ExtResource("2_xbw4y")]
 position = Vector2(-16, -904)
@@ -832,7 +914,7 @@ shape_size = Vector2(32, 112)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet17" index="1"]
 position = Vector2(16, 0)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_hx5eq")
+process_material = SubResource("ParticleProcessMaterial_4xyvv")
 
 [node name="FlatMagnet18" parent="MagnetTilemap" index="17" instance=ExtResource("2_xbw4y")]
 position = Vector2(56, -840)
@@ -844,7 +926,7 @@ shape_size = Vector2(32, 48)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet18" index="1"]
 position = Vector2(8, 0)
-process_material = SubResource("ParticleProcessMaterial_ibir5")
+process_material = SubResource("ParticleProcessMaterial_k2q45")
 
 [node name="FlatMagnet19" parent="MagnetTilemap" index="18" instance=ExtResource("2_xbw4y")]
 position = Vector2(-64, -816)
@@ -860,7 +942,7 @@ shape_size = Vector2(64, 480)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet19" index="1"]
 position = Vector2(0, -208)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_heebj")
+process_material = SubResource("ParticleProcessMaterial_ir8ok")
 
 [node name="FlatMagnet20" parent="MagnetTilemap" index="19" instance=ExtResource("2_xbw4y")]
 position = Vector2(-64, -1208)
@@ -873,7 +955,7 @@ shape_size = Vector2(160, 48)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet20" index="1"]
 position = Vector2(48, -112)
-process_material = SubResource("ParticleProcessMaterial_m2wgc")
+process_material = SubResource("ParticleProcessMaterial_hpglp")
 
 [node name="FlatMagnet21" parent="MagnetTilemap" index="20" instance=ExtResource("2_xbw4y")]
 position = Vector2(80, -1240)
@@ -889,7 +971,7 @@ shape_size = Vector2(64, 32)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet21" index="1"]
 position = Vector2(0, 8)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_vjc6g")
+process_material = SubResource("ParticleProcessMaterial_lpxx8")
 
 [node name="FlatMagnet22" parent="MagnetTilemap" index="21" instance=ExtResource("2_xbw4y")]
 position = Vector2(192, -1208)
@@ -902,7 +984,7 @@ shape_size = Vector2(32, 32)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet22" index="1"]
 position = Vector2(0, 8)
-process_material = SubResource("ParticleProcessMaterial_pt7op")
+process_material = SubResource("ParticleProcessMaterial_ijd7j")
 
 [node name="FlatMagnet23" parent="MagnetTilemap" index="22" instance=ExtResource("2_xbw4y")]
 position = Vector2(280, -1240)
@@ -918,7 +1000,7 @@ shape_size = Vector2(16, 32)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet23" index="1"]
 position = Vector2(0, 8)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_vlh77")
+process_material = SubResource("ParticleProcessMaterial_ttk1v")
 
 [node name="FlatMagnet24" parent="MagnetTilemap" index="23" instance=ExtResource("2_xbw4y")]
 position = Vector2(320, -1576)
@@ -934,7 +1016,7 @@ shape_size = Vector2(64, 72)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet24" index="1"]
 position = Vector2(0, 4)
 texture = ExtResource("3_0rrxg")
-process_material = SubResource("ParticleProcessMaterial_4xyvv")
+process_material = SubResource("ParticleProcessMaterial_4hole")
 
 [node name="RadialMagnet" parent="RadialMagnets" index="0" instance=ExtResource("4_a3vi2")]
 position = Vector2(264, -312)
@@ -997,14 +1079,14 @@ position = Vector2(304, -336)
 amount = 100
 texture = ExtResource("16_1udgo")
 visibility_rect = Rect2(-800, -800, 1600, 1600)
-process_material = SubResource("ParticleProcessMaterial_odb0g")
+process_material = SubResource("ParticleProcessMaterial_3n34q")
 
 [node name="GlobalSmog3" parent="SmogParticles" index="2" instance=ExtResource("13_63drt")]
 position = Vector2(304, -336)
 amount = 100
 texture = ExtResource("15_hybvk")
 visibility_rect = Rect2(-800, -800, 1600, 1600)
-process_material = SubResource("ParticleProcessMaterial_odb0g")
+process_material = SubResource("ParticleProcessMaterial_pbxlo")
 
 [node name="BiggerSmog1" parent="SmogParticles" index="3" instance=ExtResource("13_63drt")]
 position = Vector2(288, -8)
@@ -1016,19 +1098,19 @@ process_material = SubResource("ParticleProcessMaterial_4thjj")
 position = Vector2(288, -8)
 amount = 130
 texture = ExtResource("15_hybvk")
-process_material = SubResource("ParticleProcessMaterial_4thjj")
+process_material = SubResource("ParticleProcessMaterial_34jjq")
 
 [node name="BiggerSmog3" parent="SmogParticles" index="5" instance=ExtResource("13_63drt")]
 position = Vector2(288, -8)
 amount = 130
 texture = ExtResource("15_hybvk")
-process_material = SubResource("ParticleProcessMaterial_4thjj")
+process_material = SubResource("ParticleProcessMaterial_36glr")
 
 [node name="BiggerSmog4" parent="SmogParticles" index="6" instance=ExtResource("13_63drt")]
 position = Vector2(144, -1304)
 amount = 130
 texture = ExtResource("15_hybvk")
-process_material = SubResource("ParticleProcessMaterial_4thjj")
+process_material = SubResource("ParticleProcessMaterial_57a3l")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
 stream = SubResource("AudioStreamRandomizer_63drt")
