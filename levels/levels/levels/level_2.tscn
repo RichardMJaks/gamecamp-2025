@@ -472,7 +472,8 @@ animation_fps = 6
 metadata/_custom_type_script = "uid://vrs1twpulcy0"
 
 [sub_resource type="Curve" id="Curve_bj5cs"]
-_data = [Vector2(0, 0), 0.0, -0.0771888, 0, 0, Vector2(0.344136, 0.464106), 0.191538, 0.191538, 0, 0, Vector2(0.82716, 0), 0.0, 0.0, 0, 0]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 17.6669, 0, 0, Vector2(0.319444, 2), 0.191538, 0.191538, 0, 0, Vector2(0.82716, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_n2m4x"]
