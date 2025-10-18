@@ -1,12 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://01cpn5ssplvy"]
+[gd_scene load_steps=11 format=3 uid="uid://01cpn5ssplvy"]
 
 [ext_resource type="Shader" uid="uid://cv5opgivx213p" path="res://transitioner/transition.gdshader" id="1_g02ia"]
 [ext_resource type="Script" uid="uid://6k1ubk01luvx" path="res://transitioner/transition.gd" id="2_aogsb"]
+[ext_resource type="Shader" uid="uid://dy75sa6yv4hli" path="res://transitioner/diamond.gdshader" id="3_wc5jw"]
+[ext_resource type="Texture2D" uid="uid://dtmbby5ywblel" path="res://HUD/levelcomplete/top-levelcomplete.png" id="4_wvjrh"]
+
+[sub_resource type="Gradient" id="Gradient_wc5jw"]
+offsets = PackedFloat32Array(0, 0.996845)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wvjrh"]
+gradient = SubResource("Gradient_wc5jw")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wc5jw"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wvjrh"]
+noise = SubResource("FastNoiseLite_wc5jw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wc5jw"]
 shader = ExtResource("1_g02ia")
-shader_parameter/time = 1.0
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/time = 0.0
+shader_parameter/color = Color(0.188067, 0.156802, 0.141176, 1)
+shader_parameter/gradient = SubResource("GradientTexture2D_wvjrh")
+shader_parameter/noise = SubResource("NoiseTexture2D_wvjrh")
+shader_parameter/reverse = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rr5cj"]
+shader = ExtResource("3_wc5jw")
+shader_parameter/AspectRatio = 3.0
+shader_parameter/Diamonds = 4.0
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = 0.01
+shader_parameter/disable_pixel = false
 
 [node name="Transition" type="ColorRect"]
 material = SubResource("ShaderMaterial_wc5jw")
@@ -16,3 +41,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_aogsb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_rr5cj")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_wvjrh")
