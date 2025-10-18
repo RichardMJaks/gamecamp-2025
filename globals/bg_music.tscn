@@ -1,15 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsglyudx7sowj"]
+[gd_scene load_steps=5 format=3 uid="uid://dsglyudx7sowj"]
 
 [ext_resource type="Script" uid="uid://cwxtjjt05fyxx" path="res://globals/bg_music.gd" id="1_2u12p"]
-[ext_resource type="AudioStream" uid="uid://dtpta3bupb21k" path="res://audio/MAIN MENU MUSICscheatt.mp3" id="2_yech6"]
+[ext_resource type="AudioStream" uid="uid://bg1e422m8pxs4" path="res://audio/music/Juhani Junkala [Retro Game Music Pack] Ending.ogg" id="2_yech6"]
 [ext_resource type="AudioStream" uid="uid://dqe1ybjvwtvdi" path="res://audio/INGAME MUSIC arbitternon_metal - centurion of war - cc-by 4.0 - oepngameart.org.ogg" id="3_7k8p6"]
 [ext_resource type="AudioStream" uid="uid://4nhig0ncslmw" path="res://audio/ENDSCREEN MUSIC since_2_a.m.mp3" id="4_yfbsu"]
-
-[sub_resource type="AudioStream" id="AudioStream_yech6"]
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_7k8p6"]
-stream_count = 3
-stream_0 = SubResource("AudioStream_yech6")
 
 [node name="BgMusic" type="Node" node_paths=PackedStringArray("main_menu", "in_game", "end_screen")]
 process_mode = 3
@@ -20,10 +14,6 @@ end_screen = NodePath("Endscreen")
 
 [node name="MainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_yech6")
-volume_db = -5.0
-
-[node name="MainMenu2" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamPlaylist_7k8p6")
 volume_db = -5.0
 
 [node name="Ingame" type="AudioStreamPlayer" parent="."]

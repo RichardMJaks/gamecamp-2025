@@ -369,12 +369,12 @@ alpha_curve = SubResource("CurveTexture_5ra4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50tlq"]
 resource_local_to_scene = true
-size = Vector2(160, 32)
+size = Vector2(160, 48)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt7op"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(75, 11, 1)
+emission_box_extents = Vector3(75, 19, 1)
 direction = Vector3(0, -1, 0)
 spread = 0.0
 initial_velocity_min = 10.0
@@ -878,12 +878,12 @@ position = Vector2(-64, -1208)
 magnet_direction = 2
 
 [node name="MagnetCollider" parent="MagnetTilemap/FlatMagnet20" index="0"]
-position = Vector2(48, -104)
+position = Vector2(48, -112)
 shape = SubResource("RectangleShape2D_50tlq")
-shape_size = Vector2(160, 32)
+shape_size = Vector2(160, 48)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet20" index="1"]
-position = Vector2(48, -104)
+position = Vector2(48, -112)
 process_material = SubResource("ParticleProcessMaterial_pt7op")
 
 [node name="FlatMagnet21" parent="MagnetTilemap" index="20" instance=ExtResource("2_xbw4y")]

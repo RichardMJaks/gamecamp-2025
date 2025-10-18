@@ -132,7 +132,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_smcll"]
 resource_name = "reveal"
-length = 10.0
+length = 6.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = false
@@ -174,8 +174,8 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(360, -0.25, 0, 0.766667, -36.362, 0, -0.0666666, 126.858, 0.266667, 22.8752, 0, -0.366667, 18.3594, 0.25, 0),
-"times": PackedFloat32Array(0, 2.06667, 3.2)
+"points": PackedFloat32Array(420.078, -0.25, 0, 0.733333, -59.6561, 0, -0.300003, 197.016, 0.266667, 22.8752, 0, -0.366667, 18.3594, 0.25, 0),
+"times": PackedFloat32Array(0.533333, 2.06667, 3.2)
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -225,9 +225,9 @@ custom_minimum_size = Vector2(0, 720)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -180.0
+offset_top = -210.0
 offset_right = 16.0
-offset_bottom = 180.0
+offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1ck8r")
