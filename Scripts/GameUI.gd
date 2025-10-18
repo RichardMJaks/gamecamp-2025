@@ -21,7 +21,7 @@ func _ready() -> void:
 	if GameController.temple_available_notified:
 		_show_stamp_notification()
 	visible = true
-	if (OS.get_name() not in mobile_operating_systems) and not (OS.has_feature("web_ios") or OS.has_feature("web_android")): 
+	if not GameController.mobile:
 		switch_button.queue_free()
 		
 

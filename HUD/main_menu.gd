@@ -16,6 +16,12 @@ var mobile_operating_systems = ["iOS", "Android"]
 func _ready() -> void:
 	BgMusic.play_music(BgMusic.MusicType.MENU)
 	transition.fade_out_finished.connect(GameController.goto_level.bind(first_level))
+	if GameController.mobile:
+		%PlayButton.custom_minimum_size = Vector2(200, 50)
+		%CreditsButton.custom_minimum_size = Vector2(200, 50)
+		%QuitButtonContainer.visible = false
+	else:
+		%SkipCreditsButton.queue_free()
 
 func _input(event: InputEvent) -> void:
 	if showing_credits:

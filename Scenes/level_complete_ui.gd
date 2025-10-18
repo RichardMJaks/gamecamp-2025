@@ -13,13 +13,21 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released(&"ui_accept"):
 		_continue()
 
-	if continue_button.has_focus():
+	if continue_button and continue_button.has_focus():
 		return
 
 	# Check for any directional input before grabbing focus to button
 	if (event.is_action(&"ui_up") or event.is_action(&"ui_down")):
 		continue_button.grab_focus()
-		
+
+
+func _ready() -> void:
+	if GameController.mobile:
+		%ContinueButton.visible = true
+		%NextLevelTexture.visible = false
+	else:
+		%ContinueButton.visible = false  
+		%NextLevelTexture.visible = true
 
 func show_ui(total_collectibles: int, total_time: float) -> void:
 	visible = true

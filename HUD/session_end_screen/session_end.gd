@@ -20,6 +20,9 @@ func _ready() -> void:
 	var levels_data: Array[LevelData] = GameController.levels_data
 	populate_stats(levels_data)
 
+	if not GameController.mobile:
+		%MainMenuButton.queue_free()
+
 	total_stats.initialize("TOTAL", GameController.total_time_spent, GameController.total_collectables_collected)
 	
 	BgMusic.play_music(BgMusic.MusicType.END)
@@ -45,7 +48,6 @@ func _populate_level_stats(levels_data: Array[LevelData]) -> void:
 		@warning_ignore("confusable_local_declaration")
 		var stats_tween: Tween = stats_row.create_tween()
 		stats_tween.tween_property(stats_row, ^"modulate:a", 1, 3).set_delay(i * 1 + 2)
-		stats_tween.tween_callback(func(): print_debug(stats_row.modulate.a))
 		
 	var stats_tween: Tween = total_stats.create_tween()
 	stats_tween.tween_property(total_stats, ^"modulate:a", 1, 3).set_delay(levels_data.size() * 1 + 2)

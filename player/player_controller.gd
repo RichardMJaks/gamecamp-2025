@@ -124,10 +124,13 @@ func _toggle_pole() -> void:
 
 
 func _play_switch_sound() -> void:
-	if current_magnet and is_on_floor():
+	if current_magnet:
 		if current_magnet is RadialMagnet:
 			return
 		if radial_magnet_state.ejecting:
+			return
+		if not is_on_floor():
+			switched.play()
 			return
 		if magnet_check_raycast.is_colliding():
 			# Subtract player up direction to compensate for the miss being on the border

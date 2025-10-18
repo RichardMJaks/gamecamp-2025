@@ -126,11 +126,10 @@ var being_touched: bool = false:
 # Initial setup
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		GameController.mobile_joystick = self
 		SignalBus.level_completed.connect(func(): is_level_finished = true)
 		
 		if is_mobile_only:
-			if (OS.get_name() not in mobile_operating_systems) and not (OS.has_feature("web_ios") or OS.has_feature("web_android")): 
+			if not GameController.mobile:
 				queue_free()
 		if visibility_mode == VisibilityMode.WHEN_TOUCHED:
 			%Joystick.hide()

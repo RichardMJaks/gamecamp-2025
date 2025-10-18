@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://pbqphvyiooiw"]
+[gd_scene load_steps=41 format=3 uid="uid://pbqphvyiooiw"]
 
 [ext_resource type="Script" uid="uid://c28lcgo5t42sq" path="res://HUD/main_menu.gd" id="1_c7jvv"]
 [ext_resource type="PackedScene" uid="uid://dm2i6tlo6p1rx" path="res://levels/levels/levels/level_1.tscn" id="2_qs2e7"]
@@ -16,9 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://287wmwtqbxdw" path="res://button_textures/credits/credits_pressed.png" id="14_64i8y"]
 [ext_resource type="Texture2D" uid="uid://ccr0w7nwev6m7" path="res://button_textures/credits/credits_hover.png" id="14_c5h8u"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="16_64i8y"]
+[ext_resource type="Texture2D" uid="uid://ltisshnvfsax" path="res://HUD/levelcomplete/bottom-levelcomplete.png" id="16_rdytk"]
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="17_b0ymw"]
 [ext_resource type="Texture2D" uid="uid://ctoskrkyvrr2p" path="res://button_textures/B.png" id="17_tukxf"]
 [ext_resource type="AudioStream" uid="uid://bvjupd0sguv8t" path="res://audio/sfx/play_pressed.ogg" id="18_gf600"]
+[ext_resource type="Texture2D" uid="uid://dtmbby5ywblel" path="res://HUD/levelcomplete/top-levelcomplete.png" id="20_4rt0k"]
 
 [sub_resource type="GDScript" id="GDScript_fqn15"]
 resource_name = "menuparallax"
@@ -51,16 +53,12 @@ texture = SubResource("GradientTexture2D_jxfs0")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mg70j"]
 texture = ExtResource("4_jxfs0")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b0ymw"]
-atlas = ExtResource("16_64i8y")
-region = Rect2(144, 128, 32, 32)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gf600"]
-texture = SubResource("AtlasTexture_b0ymw")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
+texture = ExtResource("16_rdytk")
+texture_margin_left = 48.0
+texture_margin_top = 64.0
+texture_margin_right = 48.0
+axis_stretch_vertical = 1
 
 [sub_resource type="Animation" id="Animation_64i8y"]
 length = 0.001
@@ -88,10 +86,35 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 360)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../CreditsTopPart:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -52)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Credits/../CreditsTopPart:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -52)]
+}
 
 [sub_resource type="Animation" id="Animation_c5h8u"]
 resource_name = "display_credits"
 length = 40.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -114,12 +137,25 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.189464, 1),
 "update": 0,
-"values": [Vector2(0, 360), Vector2(0, 0)]
+"values": [Vector2(0, 360), Vector2(0, 30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../CreditsTopPart:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(0, -52), Vector2(0, -22)]
 }
 
 [sub_resource type="Animation" id="Animation_b0ymw"]
 resource_name = "hide_credits"
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,7 +166,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.297302, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 360)]
+"values": [Vector2(0, 30), Vector2(0, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Credits/../CreditsTopPart:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -22), Vector2(0, -52)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b0ymw"]
@@ -139,6 +187,62 @@ _data = {
 &"display_credits": SubResource("Animation_c5h8u"),
 &"hide_credits": SubResource("Animation_b0ymw")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rt0k"]
+atlas = ExtResource("16_64i8y")
+region = Rect2(192, 96, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7sjn"]
+texture = SubResource("AtlasTexture_4rt0k")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tukxf"]
+load_path = "res://.godot/imported/TileSetBrickFactory.png-0c9086f3c8d4851fed8745902152a124.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdytk"]
+atlas = SubResource("CompressedTexture2D_tukxf")
+region = Rect2(176, 144, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4rt0k"]
+texture = SubResource("AtlasTexture_rdytk")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4bpgo"]
+load_path = "res://.godot/imported/TileSetBrickFactory.png-0c9086f3c8d4851fed8745902152a124.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7sjn"]
+atlas = SubResource("CompressedTexture2D_4bpgo")
+region = Rect2(176, 128, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cs82"]
+texture = SubResource("AtlasTexture_t7sjn")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bpgo"]
+texture = ExtResource("20_4rt0k")
+texture_margin_bottom = 52.0
+draw_center = false
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -349,7 +453,7 @@ texture_normal = ExtResource("10_qs2e7")
 texture_pressed = ExtResource("11_xudqj")
 texture_hover = ExtResource("12_fqn15")
 texture_focused = ExtResource("12_fqn15")
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="CreditsButton" type="TextureButton" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
@@ -359,7 +463,7 @@ texture_normal = ExtResource("13_fqn15")
 texture_pressed = ExtResource("14_64i8y")
 texture_hover = ExtResource("14_c5h8u")
 texture_focused = ExtResource("14_c5h8u")
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="Credits" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -380,39 +484,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_b0ymw")
 }
 
-[node name="QuitButtonContainer" type="MarginContainer" parent="Credits"]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Credits/QuitButtonContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="Credits/QuitButtonContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("17_tukxf")
-stretch_mode = 4
-
-[node name="QuitButtonLabel" type="Label" parent="Credits/QuitButtonContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.757198, 0.0273442, 1)
-theme_override_fonts/font = ExtResource("3_q1pp4")
-text = "to quit"
-vertical_alignment = 1
-
 [node name="CreditsContainer" type="MarginContainer" parent="Credits"]
 layout_mode = 2
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
 
 [node name="CreditsLabel" type="RichTextLabel" parent="Credits/CreditsContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(1, 0.757198, 0.0273442, 1)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.321431, 0.419638, 0.419638, 1)
 theme_override_fonts/normal_font = ExtResource("3_q1pp4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t7sjn")
 text = "
 
 
@@ -512,6 +596,27 @@ JOSEPH MATTIAS TOMP
 
 For assisting with visuals and SFX during the jam!
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+P. S.
+MAGNETROID is NOT a DUCK, its a ROBOT PENGUIN
+
+
+
+
+
+
 "
 scroll_active = false
 scroll_following = true
@@ -520,6 +625,57 @@ horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="ClickableQuitButtonContainer" type="MarginContainer" parent="Credits"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 40
+
+[node name="SkipCreditsButton" type="Button" parent="Credits/ClickableQuitButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.321431, 0.419638, 0.419638, 1)
+theme_override_fonts/font = ExtResource("3_q1pp4")
+theme_override_styles/focus = SubResource("StyleBoxTexture_4rt0k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4rt0k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7cs82")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4rt0k")
+text = "Skip Credits
+"
+
+[node name="QuitButtonContainer" type="MarginContainer" parent="Credits"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits/QuitButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Credits/QuitButtonContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("17_tukxf")
+stretch_mode = 4
+
+[node name="QuitButtonLabel" type="Label" parent="Credits/QuitButtonContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.595987, 0.662913, 0.698085, 1)
+theme_override_fonts/font = ExtResource("3_q1pp4")
+text = "to quit"
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Credits"]
+visible = false
+layout_mode = 2
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -527,13 +683,22 @@ layer = 2
 unique_name_in_owner = true
 visible = false
 z_index = 1
-mouse_filter = 2
 
 [node name="PlayPressed" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("18_gf600")
 volume_db = -8.0
 
+[node name="CreditsTopPart" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -52.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4bpgo")
+
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Credits/ClickableQuitButtonContainer/SkipCreditsButton" to="." method="_hide_credits"]

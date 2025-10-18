@@ -20,13 +20,13 @@ void fragment()
     	floor(FRAGCOORD.x / resolution),
     	floor(FRAGCOORD.y / resolution)
     );
-	
+
 	float reversed = 1.0;
 	if (reverse) {reversed = -1.0;}
-	
+
 	float gradient_point = texture(gradient, uv).r * 2.0 - 1.0;
 	float gradient_value = (gradient_point * reversed + 1.0) / 2.0;
-	
+
     if(sin(time * PI / 2.0) > gradient_value * rand(lowresxy)){
 		COLOR = color;
     }else{
