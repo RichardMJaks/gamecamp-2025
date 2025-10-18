@@ -11,6 +11,7 @@ var admin_reset_session_available: bool = false
 var hack_enabling_available: bool = false
 var hack_enabled: bool = false
 var mobile: bool = false
+var expo: bool = false
 var player: Player = null
 
 @onready var can_admin: bool = OS.has_feature("admin")
@@ -78,6 +79,9 @@ func _ready() -> void:
 		or OS.has_feature("ios")
 		): 
 		mobile = true	
+	
+	if OS.has_feature("expo"):
+		expo = true
 
 
 func _process(delta: float) -> void:

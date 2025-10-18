@@ -23,6 +23,11 @@ func _ready() -> void:
 	else:
 		%SkipCreditsButton.queue_free()
 
+	if not GameController.expo:
+		%XboxButtonB.queue_free()
+	else:
+		%KeyboardESC.queue_free()
+
 func _input(event: InputEvent) -> void:
 	if showing_credits:
 		_handle_credits_input(event)

@@ -658,10 +658,21 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="Credits/QuitButtonContainer/HBoxContainer"]
+[node name="XboxButtonB" type="TextureRect" parent="Credits/QuitButtonContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("17_tukxf")
 stretch_mode = 4
+
+[node name="KeyboardESC" type="Label" parent="Credits/QuitButtonContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.595987, 0.662913, 0.698085, 1)
+theme_override_fonts/font = ExtResource("3_q1pp4")
+text = "ESC"
+vertical_alignment = 1
 
 [node name="QuitButtonLabel" type="Label" parent="Credits/QuitButtonContainer/HBoxContainer"]
 layout_mode = 2

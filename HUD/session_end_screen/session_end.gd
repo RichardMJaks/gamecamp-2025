@@ -20,8 +20,12 @@ func _ready() -> void:
 	var levels_data: Array[LevelData] = GameController.levels_data
 	populate_stats(levels_data)
 
-	if not GameController.mobile:
-		%MainMenuButton.queue_free()
+	if not GameController.mobile and OS.has_feature("expo"):
+		%MainMenuButtonMargin.queue_free()
+	else:
+		%MainMenuMargin.queue_free()
+		if GameController.mobile:
+			%MainMenuButton.add_theme_font_size_override("font_size", 32)
 
 	total_stats.initialize("TOTAL", GameController.total_time_spent, GameController.total_collectables_collected)
 	

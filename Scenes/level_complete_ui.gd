@@ -22,12 +22,15 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	if GameController.mobile:
+	if not GameController.expo:
 		%ContinueButton.visible = true
 		%NextLevelTexture.visible = false
 	else:
 		%ContinueButton.visible = false  
 		%NextLevelTexture.visible = true
+	
+	if GameController.mobile:
+		%ContinueButton.add_theme_font_size_override("font_size", 32)
 
 func show_ui(total_collectibles: int, total_time: float) -> void:
 	visible = true
