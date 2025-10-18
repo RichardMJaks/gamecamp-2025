@@ -15,7 +15,6 @@ func _ready() -> void:
 	_fade_in()
 
 func _fade_in() -> void:
-	print("fading in")
 	material.set_shader_parameter("time", 1)
 	material.set_shader_parameter("reverse", false)
 	var tween = create_tween()

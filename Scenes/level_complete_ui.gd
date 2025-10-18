@@ -26,7 +26,8 @@ func _ready() -> void:
 		%ContinueButton.visible = true
 		%NextLevelTexture.visible = false
 	else:
-		%ContinueButton.queue_free()  
+		%ContinueButton.visible = false  
+		%NextLevelTexture.visible = true
 
 func show_ui(total_collectibles: int, total_time: float) -> void:
 	visible = true
