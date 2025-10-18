@@ -16,6 +16,7 @@ func _ready() -> void:
 	SignalBus.level_completed.connect(_on_level_completed)	
 	SignalBus.fade_in_completed.connect(_spawn_player)
 	SignalBus.fade_in_completed.connect(_show_title)
+	SignalBus.start_fade_out.connect(_fade_music_on_last_level)
 	SignalBus.fade_out_completed.connect(_goto_next_level)
 	SignalBus.collectible_collected.connect(_on_collectible_collected)
 	BgMusic.play_music(BgMusic.MusicType.INGAME)
@@ -59,6 +60,10 @@ func _show_title() -> void:
 func _show_level_end_screen(level_data: LevelData) -> void:
 	ui.show_level_end_screen(level_data)
 
+
+func _fade_music_on_last_level() -> void:
+	if not next_level:
+		BgMusic.fade_music_out()
 
 func _goto_next_level() -> void:
 	if not next_level:

@@ -175,7 +175,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(420.078, -0.25, 0, 0.733333, -59.6561, 0, -0.300003, 197.016, 0.266667, 22.8752, 0, -0.366667, 18.3594, 0.25, 0),
-"times": PackedFloat32Array(0.533333, 2.06667, 3.2)
+"times": PackedFloat32Array(0.266667, 2.06667, 3.2)
 }
 tracks/4/type = "value"
 tracks/4/imported = false
