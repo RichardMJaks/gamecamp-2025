@@ -367,7 +367,6 @@ visible = false
 [node name="Fader" parent="." instance=ExtResource("4_2246s")]
 unique_name_in_owner = true
 visible = false
-mouse_filter = 2
 
 [connection signal="fade_in_finished" from="Fader" to="." method="_on_fade_in_finished"]
 [connection signal="fade_out_finished" from="Fader" to="." method="_on_fade_out_finished"]
