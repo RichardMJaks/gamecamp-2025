@@ -906,17 +906,17 @@ position = Vector2(272, 48)
 [node name="EndGate" parent="." index="6"]
 position = Vector2(16, -1888)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource("12_f2yiy")
+autoplay = true
+parameters/looping = true
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Camera" index="0"]
 position = Vector2(0, -121)
 amount = 30
 texture = SubResource("GradientTexture2D_olro8")
 visibility_rect = Rect2(-250, -100, 500, 500)
 process_material = SubResource("ParticleProcessMaterial_f2yiy")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
-stream = ExtResource("12_f2yiy")
-autoplay = true
-parameters/looping = true
 
 [editable path="MagnetTilemap/FlatMagnet"]
 [editable path="MagnetTilemap/FlatMagnet2"]
