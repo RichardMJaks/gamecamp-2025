@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ccr0w7nwev6m7" path="res://button_textures/credits/credits_hover.png" id="14_c5h8u"]
 [ext_resource type="Texture2D" uid="uid://bla6kqfkwxhyd" path="res://TileSetBrickFactory.png" id="16_64i8y"]
 [ext_resource type="PackedScene" uid="uid://01cpn5ssplvy" path="res://transitioner/transition.tscn" id="17_b0ymw"]
+[ext_resource type="Texture2D" uid="uid://ctoskrkyvrr2p" path="res://button_textures/B.png" id="17_tukxf"]
 [ext_resource type="AudioStream" uid="uid://bvjupd0sguv8t" path="res://audio/sfx/play_pressed.ogg" id="18_gf600"]
 
 [sub_resource type="GDScript" id="GDScript_fqn15"]
@@ -138,10 +139,6 @@ _data = {
 &"display_credits": SubResource("Animation_c5h8u"),
 &"hide_credits": SubResource("Animation_b0ymw")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gf600"]
-atlas = ExtResource("16_64i8y")
-region = Rect2(224, 128, 16, 16)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -395,16 +392,17 @@ size_flags_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="Credits/QuitButtonContainer/HBoxContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_gf600")
+texture = ExtResource("17_tukxf")
 stretch_mode = 4
 
 [node name="QuitButtonLabel" type="Label" parent="Credits/QuitButtonContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.757198, 0.0273442, 1)
 theme_override_fonts/font = ExtResource("3_q1pp4")
 text = "to quit"
+vertical_alignment = 1
 
 [node name="CreditsContainer" type="MarginContainer" parent="Credits"]
 layout_mode = 2
@@ -457,14 +455,15 @@ SINCE 2 A.M. by TAD
 from OPENGAMEART.ORG
 CC0
 
-
 SFX assets from PIXABAY.COM
 Original audio by 
 FREESOUND_COMMUNITY
 AUDIOPAPKIN
 DRAGON-STUDIO
 
-
+RAIN AND THUNDER by KINDLAND
+from OPENGAMEART.ORG
+CC0
 
 
 
