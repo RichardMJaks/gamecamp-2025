@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b81r2h1ka4eh2"
+path="res://.godot/imported/Lines of Code.mp3-372044ec49315527c9729c13113ebee2.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Lines of Code.mp3"
+dest_files=["res://.godot/imported/Lines of Code.mp3-372044ec49315527c9729c13113ebee2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -344,6 +344,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_g0wmg")
 
 [node name="LevelTitle" type="Label" parent="HUD/LevelTitleMargin/PanelContainer"]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.168536, 0.278447, 0.270634, 1)
 theme_override_fonts/font = ExtResource("2_qdvrb")

@@ -451,6 +451,14 @@ SCHEATT by SPRING SPRING
 from OPENGAMEART.ORG
 CC0
 
+ENDING by JUHANI JUNKALA (SUBSPACE AUDIO)
+from OPENGAMEART.ORG
+CC0
+
+LINES OF CODE by TREVOR LENTZ
+from OPENGAMEART.ORG
+CC-BY-SA 3.0
+
 SINCE 2 A.M. by TAD
 from OPENGAMEART.ORG
 CC0
@@ -524,7 +532,7 @@ mouse_filter = 2
 [node name="PlayPressed" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("18_gf600")
-volume_db = -0.806
+volume_db = -8.0
 
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/CenterContainer/play" to="." method="_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_play_pressed"]

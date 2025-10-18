@@ -9,7 +9,7 @@ extends Control
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released(&"ui_accept"):
-		_restart_session()
+		_on_main_menu_button_pressed()
 
 	# Check for any directional input before grabbing focus to button
 	if event.is_action(&"ui_up") or event.is_action(&"ui_down"):
@@ -23,6 +23,8 @@ func _ready() -> void:
 	total_stats.initialize("TOTAL", GameController.total_time_spent, GameController.total_collectables_collected)
 	
 	BgMusic.play_music(BgMusic.MusicType.END)
+	
+	SignalBus.fade_out_completed.connect(_restart_session)
 
 
 func populate_stats(levels_data: Array[LevelData]) -> void:
@@ -59,8 +61,7 @@ func _create_level_stats_container(level_title: String, time: float, collectible
 
 
 func _on_main_menu_button_pressed() -> void:
-	_restart_session()
-
+	SignalBus.start_fade_out.emit()
 
 func _restart_session() -> void:
 	SignalBus.session_restarted.emit()
