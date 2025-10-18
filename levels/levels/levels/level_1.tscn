@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bd87di74w8fww" path="res://levels/collectible.tscn" id="4_prbmd"]
 [ext_resource type="Texture2D" uid="uid://dm4ity0epbwmk" path="res://assets/tallerparallaxlvl1/parallax1_layer4.png" id="5_okad8"]
 [ext_resource type="Texture2D" uid="uid://d4aavsvtpvlh4" path="res://assets/tallerparallaxlvl1/parallax1_layer3.png" id="6_reemh"]
-[ext_resource type="PackedScene" path="res://levels/smog_particles.tscn" id="7_1vtrn"]
+[ext_resource type="PackedScene" uid="uid://dbgc6qremw3dq" path="res://levels/smog_particles.tscn" id="7_1vtrn"]
 [ext_resource type="Texture2D" uid="uid://bf6hpr4jsgjcr" path="res://assets/tallerparallaxlvl1/parallax1_layer2.png" id="7_c0178"]
 [ext_resource type="Texture2D" uid="uid://cgagwapkb3726" path="res://assets/SMOG/smog2.png" id="8_el32t"]
 [ext_resource type="Texture2D" uid="uid://dvxvgsouo4ia6" path="res://assets/tallerparallaxlvl1/parallax1_layer1.png" id="8_m82v5"]

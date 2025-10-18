@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://ce1xaeicie2nd"]
+[gd_scene load_steps=73 format=4 uid="uid://ce1xaeicie2nd"]
 
 [ext_resource type="PackedScene" uid="uid://ccyf37h8arbs5" path="res://levels/levels/base/level_base.tscn" id="1_s8lh0"]
 [ext_resource type="PackedScene" uid="uid://daujuqli7pyvy" path="res://magnet_vol2/radial_magnet/radial_magnet.tscn" id="2_c31ac"]
@@ -471,6 +471,20 @@ gradient = SubResource("Gradient_f2yiy")
 width = 1
 height = 16
 
+[sub_resource type="Curve" id="Curve_e8e2q"]
+_data = [Vector2(0, 0.768133), 0.0, 3.52646, 0, 0, Vector2(0.994609, 0.221639), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a414g"]
+curve = SubResource("Curve_e8e2q")
+
+[sub_resource type="Curve" id="Curve_bvkf4"]
+_data = [Vector2(0, 0), 0.0, 4.96433, 0, 0, Vector2(1, 0.597164), -0.686939, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7q1tv"]
+curve = SubResource("Curve_bvkf4")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2yiy"]
 particle_flag_align_y = true
 particle_flag_disable_z = true
@@ -481,6 +495,10 @@ spread = 0.0
 initial_velocity_min = 800.0
 initial_velocity_max = 1300.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_7q1tv")
+color = Color(0, 0.716667, 1, 1)
+alpha_curve = SubResource("CurveTexture_a414g")
 
 [node name="LevelBase" instance=ExtResource("1_s8lh0")]
 level_title = "Hazy Elevator"
@@ -880,7 +898,7 @@ texture = SubResource("GradientTexture2D_olro8")
 visibility_rect = Rect2(-250, -100, 500, 500)
 process_material = SubResource("ParticleProcessMaterial_f2yiy")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("12_f2yiy")
 autoplay = true
 parameters/looping = true
