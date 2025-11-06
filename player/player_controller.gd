@@ -74,6 +74,9 @@ func set_camera(scene_camera: Camera2D) -> void:
 	camera = scene_camera
 	camera_transform.remote_path = camera_transform.get_path_to(camera)
 
+func unset_camera() -> void:
+	camera_transform.remote_path = ""
+
 
 # Doesn't seem to be in use
 func _calculate_radial_bounce_angle(magnet: RadialMagnet) -> Vector2:

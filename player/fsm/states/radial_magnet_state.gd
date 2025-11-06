@@ -38,6 +38,7 @@ func enter() -> void:
 	rotation_direction = player.current_magnet.rotation_direction
 	rotation_speed = _calculate_rotation_speed(custom_rotation_speed, rotation_distance)
 	this_magnet = player.current_magnet
+	player.camera.lock_to_radial_magnet(this_magnet)
 
 func __physics_process(delta) -> void:
 	if not ejecting:
@@ -64,6 +65,7 @@ func _eject() -> void:
 	var ejection_direction = rotation_vector
 	player.velocity = ejection_direction * ejection_force * GlobalVars.su
 	ejecting = true
+	player.camera.lock_to_player()
 
 func exit() -> void:
 	ejecting = false

@@ -603,6 +603,9 @@ texture = ExtResource("8_el32t")
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 process_material = SubResource("ParticleProcessMaterial_dc0wt")
 
+[node name="Camera" parent="." index="9"]
+zoom = Vector2(2, 2)
+
 [editable path="MagnetTilemap/FlatMagnet"]
 [editable path="MagnetTilemap/FlatMagnet2"]
 [editable path="MagnetTilemap/FlatMagnet3"]

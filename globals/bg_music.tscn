@@ -15,11 +15,14 @@ end_screen = NodePath("Endscreen")
 [node name="MainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_yech6")
 volume_db = -5.0
+bus = &"Music"
 
 [node name="Ingame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7k8p6")
 volume_db = -5.0
+bus = &"Music"
 
 [node name="Endscreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yfbsu")
 volume_db = -5.0
+bus = &"Music"
