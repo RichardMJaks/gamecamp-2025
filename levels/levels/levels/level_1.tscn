@@ -366,6 +366,7 @@ shape_size = Vector2(64, 80)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet" index="1"]
 position = Vector2(-16, 40)
 texture = ExtResource("3_prbmd")
+visibility_rect = Rect2(29.5, 37.5, 59, 75)
 process_material = SubResource("ParticleProcessMaterial_okad8")
 
 [node name="FlatMagnet2" parent="MagnetTilemap" index="1" instance=ExtResource("2_mf5cd")]
@@ -380,6 +381,7 @@ shape_size = Vector2(48, 48)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet2" index="1"]
 position = Vector2(8, 8)
+visibility_rect = Rect2(21.5, 21.5, 43, 43)
 process_material = SubResource("ParticleProcessMaterial_reemh")
 
 [node name="FlatMagnet3" parent="MagnetTilemap" index="2" instance=ExtResource("2_mf5cd")]
@@ -393,6 +395,7 @@ shape_size = Vector2(208, 32)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet3" index="1"]
 position = Vector2(40, -16)
+visibility_rect = Rect2(101.5, 13.5, 203, 27)
 process_material = SubResource("ParticleProcessMaterial_c0178")
 
 [node name="FlatMagnet5" parent="MagnetTilemap" index="3" instance=ExtResource("2_mf5cd")]
@@ -409,6 +412,7 @@ shape_size = Vector2(32, 592)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet5" index="1"]
 position = Vector2(16, -264)
 texture = ExtResource("3_prbmd")
+visibility_rect = Rect2(13.5, 293.5, 27, 587)
 process_material = SubResource("ParticleProcessMaterial_m82v5")
 
 [node name="FlatMagnet4" parent="MagnetTilemap" index="4" instance=ExtResource("2_mf5cd")]
@@ -422,6 +426,7 @@ shape_size = Vector2(80, 112)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet4" index="1"]
 position = Vector2(-8, -40)
+visibility_rect = Rect2(37.5, 53.5, 75, 107)
 process_material = SubResource("ParticleProcessMaterial_jx1tl")
 
 [node name="FlatMagnet6" parent="MagnetTilemap" index="5" instance=ExtResource("2_mf5cd")]
@@ -435,6 +440,7 @@ shape_size = Vector2(48, 32)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet6" index="1"]
 position = Vector2(8, 16)
+visibility_rect = Rect2(21.5, 13.5, 43, 27)
 process_material = SubResource("ParticleProcessMaterial_8xnti")
 
 [node name="FlatMagnet7" parent="MagnetTilemap" index="6" instance=ExtResource("2_mf5cd")]
@@ -451,6 +457,7 @@ shape_size = Vector2(80, 32)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet7" index="1"]
 position = Vector2(32, 8)
 texture = ExtResource("3_prbmd")
+visibility_rect = Rect2(37.5, 13.5, 75, 27)
 process_material = SubResource("ParticleProcessMaterial_syy6d")
 
 [node name="FlatMagnet8" parent="MagnetTilemap" index="7" instance=ExtResource("2_mf5cd")]
@@ -467,6 +474,7 @@ shape_size = Vector2(32, 160)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet8" index="1"]
 position = Vector2(-8, 16)
 texture = ExtResource("3_prbmd")
+visibility_rect = Rect2(13.5, 77.5, 27, 155)
 process_material = SubResource("ParticleProcessMaterial_seh0t")
 
 [node name="FlatMagnet9" parent="MagnetTilemap" index="8" instance=ExtResource("2_mf5cd")]
@@ -479,6 +487,7 @@ shape_size = Vector2(32, 160)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet9" index="1"]
 position = Vector2(8, -8)
+visibility_rect = Rect2(13.5, 77.5, 27, 155)
 process_material = SubResource("ParticleProcessMaterial_mapv3")
 
 [node name="FlatMagnet10" parent="MagnetTilemap" index="9" instance=ExtResource("2_mf5cd")]
@@ -495,6 +504,7 @@ shape_size = Vector2(32, 160)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet10" index="1"]
 position = Vector2(-8, -24)
 texture = ExtResource("3_prbmd")
+visibility_rect = Rect2(13.5, 77.5, 27, 155)
 process_material = SubResource("ParticleProcessMaterial_2jcge")
 
 [node name="FlatMagnet11" parent="MagnetTilemap" index="10" instance=ExtResource("2_mf5cd")]
@@ -511,6 +521,7 @@ shape_size = Vector2(32, 80)
 [node name="Particles" parent="MagnetTilemap/FlatMagnet11" index="1"]
 position = Vector2(-6, 0)
 texture = ExtResource("3_prbmd")
+visibility_rect = Rect2(13.5, 37.5, 27, 75)
 process_material = SubResource("ParticleProcessMaterial_a2g8h")
 
 [node name="FlatMagnet12" parent="MagnetTilemap" index="11" instance=ExtResource("2_mf5cd")]
@@ -524,6 +535,7 @@ shape_size = Vector2(32, 128)
 
 [node name="Particles" parent="MagnetTilemap/FlatMagnet12" index="1"]
 texture = ExtResource("3_prbmd")
+visibility_rect = Rect2(13.5, 61.5, 27, 123)
 process_material = SubResource("ParticleProcessMaterial_wdt0i")
 
 [node name="RadialMagnet2" parent="RadialMagnets" index="0" instance=ExtResource("4_aklla")]
