@@ -15,8 +15,6 @@ var player: Player = null
 signal shake_completed
 
 func _process(delta: float) -> void:
-	if not shaking:
-		clamp_offset()
 	if t >= 1:
 		if shaking:
 			shake_completed.emit()
@@ -51,11 +49,6 @@ func lock_to_radial_magnet(magnet: RadialMagnet) -> void:
 	#global_position = magnet.global_position
 	pass
 
-func clamp_offset() -> void:
-	offset = Vector2(
-		clampf(offset.x, -offset_clamp, offset_clamp),
-		clampf(offset.y, -offset_clamp, offset_clamp)
-	)
 
 func lock_to_player() -> void:
 	set_position_smoothing_speed(8)
